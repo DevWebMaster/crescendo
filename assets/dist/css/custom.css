@@ -216,6 +216,7 @@ ul.select2-results__options li{
 #name, #address, #country, #email, #password, #confirm_password, #mobile_no {
     border: none;
     background: transparent !important;
+    color:  #FFFFFF !important;
 }
 #name:focus, #password:focus, #name:active, #password:active, #address:focus, #mobile_no:focus, #country:focus, #email:focus, #password:focus, #confirm_password:focus, #address:active, #mobile_no:active, #country:active, #email:active, #password:active, #confirm_password:active {
     border-top: none;
@@ -225,7 +226,7 @@ ul.select2-results__options li{
     box-shadow: none;
 }
 #name::placeholder, #password::placeholder, #address::placeholder, #mobile_no::placeholder, #country::placeholder, #email::placeholder, #password::placeholder, #confirm_password::placeholder {
-    color:  #FFFFFF;
+    color:  #FFFFFF !important;
 }
 .public_nav {
     position: absolute;
@@ -283,7 +284,7 @@ ul.select2-results__options li{
     border-radius: 16px;
     margin: 16px;
 }
-.custom-dropdown {
+/*.custom-dropdown {
   display: none;
   position: absolute;
   background-color: red;
@@ -308,4 +309,4 @@ ul.select2-results__options li{
 .info:hover .custom-dropdown {
   display: block;
 
-}
+}*/

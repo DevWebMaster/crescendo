@@ -33,7 +33,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
 
           foreach ($menu as $nav):
 
-            $sub_menu = get_sidebar_sub_menu($nav['id']);
+            $sub_menu = get_sidebar_sub_menu($nav['id'], $this->session->userdata('admin_role_id'));
 
             $has_submenu = (count($sub_menu) > 0) ? true : false;
         ?>

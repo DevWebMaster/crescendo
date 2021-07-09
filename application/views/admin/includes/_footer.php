@@ -3,7 +3,7 @@
   <footer class="main-footer">
     <strong><?= $this->general_settings['copyright']; ?></strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Developed By:</b> Bozo Krkeljas.
+      <!-- <b>Developed By:</b>  -->
     </div>
   </footer>
 

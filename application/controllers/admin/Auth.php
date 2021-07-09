@@ -52,9 +52,9 @@ class Auth extends MY_Controller {
 								redirect(base_url('admin/auth/login'));
 								exit();
 							}
-							// if($result['is_admin'] == 1){
+							if($result['is_admin'] == 1){
 								$admin_data = array(
-									'admin_id' => $result['id'],
+									'user_id' => $result['id'],
 									'username' => $result['username'],
 									'admin_role_id' => $result['admin_role_id'],
 									'admin_role' => $result['title'],
@@ -62,14 +62,13 @@ class Auth extends MY_Controller {
 									'is_admin_login' => TRUE
 								);
 								$this->session->set_userdata($admin_data);
-								// $this->rbac->set_access_in_session(); // set access in session
+								$this->rbac->set_access_in_session(); // set access in session
 
-								// if($result['is_super'])
-								redirect(base_url('admin/dashboard/index'), 'refresh');
-								// else
-								// redirect(base_url('admin/dashboard'), 'refresh');
-
-								// }
+								if($result['is_super'])
+									redirect(base_url('admin/account/index'), 'refresh');
+								else
+									redirect(base_url('admin/account/index'), 'refresh');
+								}
 							}
 						else{
 							$this->session->set_flashdata('errors', 'Invalid Username or Password!');
@@ -133,6 +132,7 @@ class Auth extends MY_Controller {
 						'password' =>  password_hash($this->input->post('password'), PASSWORD_BCRYPT),
 						'is_active' => 1,
 						'is_verify' => 1,
+						'is_admin' => 1,
 						'token' => md5(rand(0,1000)),    
 						'last_ip' => '',
 						'created_at' => date('Y-m-d : h:m:s'),
@@ -330,6 +330,67 @@ class Auth extends MY_Controller {
 		    $html = form_dropdown('city',$options,'','class="form-control select2" required');
 			$error =  array('msg' => $html);
 			echo json_encode($error);
+		}
+
+		public function edit_password()
+		{
+			$this->load->view('admin/includes/_header', $data);
+			$this->load->view('admin/auth/edit_password');
+			$this->load->view('admin/includes/_footer', $data);
+		}
+
+		public function update_password()
+		{
+			$user_id = $this->session->userdata('user_id');
+			$username = $this->session->userdata('username');
+			$role_id = $this->session->userdata('admin_role_id');
+
+			$current_password = $this->auth_model->get_old_password($user_id, $username, $role_id);
+
+			$old_password = $this->input->post('old_password');
+			$new_password = password_hash($this->input->post('new_password'), PASSWORD_BCRYPT);
+
+			$validPassword = password_verify($old_password, $current_password['password']);
+			
+			if($validPassword){
+				$rtn = $this->auth_model->update_password($user_id, $new_password);
+				if($rtn){
+					$status = 'S';
+				}else{
+					$status = 'F';
+				}
+			}else{
+				$status = 'F';
+			}
+			echo json_encode($status);
+		}
+
+		public function profile()
+		{
+			$user_id = $this->session->userdata('user_id');
+			$old = $this->auth_model->get_current_profile($user_id);
+
+			$data['old'] = $old;
+			$data['countries'] = $this->auth_model->get_countries();
+
+			$this->load->view('admin/includes/_header', $data);
+			$this->load->view('admin/auth/profile');
+			$this->load->view('admin/includes/_footer', $data);
+		}
+		public function update_profile()
+		{
+			$user_id = $this->session->userdata('user_id');
+			$data = array(
+				'username' => $this->input->post('username'),
+				'country' => $this->input->post('country'),
+				'address' => $this->input->post('address'),
+				'email' => $this->input->post('email'),
+				'mobile_no' => $this->input->post('mobile_no')
+			);
+
+			$rtn = $this->auth_model->update_profile($user_id, $data);
+
+			echo json_encode($rtn);
 		}
 
 	}  // end class

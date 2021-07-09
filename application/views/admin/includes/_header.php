@@ -95,23 +95,6 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" style="justify-content: space-between; width: 100%;">
       <Label style="font-size: 40px; font-weight: bold; color: #EEA400;">Cerscendo International Music Competition</Label>
-      <div class="user-panel mt-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?= base_url()?>assets/dist/img/setting.png" class="img-circle" alt="User Image">
-        </div>
-        <div class="info">
-          <!-- <a href="#" class="d-block" style="color: #000000;"><?= ucwords($this->session->userdata('username')); ?></a> -->
-          <a href="#" class="d-block custom_settings" style="color: #000000;">
-            Settings
-            <i class="right fa fa-angle-down"></i>
-          </a>
-          <!-- <div class="custom-dropdown">
-            <a href="#">Edit Profile</a>
-            <a href="#">Change Password</a>
-            <a href="#">Log out</a>
-          </div> -->
-        </div>
-      </div>
       <!--div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -119,7 +102,6 @@
             <i class="fa fa-search"></i>
           </button>
         </div-->
-      </div>
     </form>
     
     <!-- <ul class="navbar-nav" style="margin-left: 75%;">
@@ -129,7 +111,7 @@
     </ul> -->
     
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" style="width: 140px !important;">
       <!-- Languages -->
       <?php  $languages = get_language_list(); ?>
       <!--li class="nav-item dropdown">
@@ -225,47 +207,26 @@
         </div>
       </li-->
       <!-- user panel -->
-      <!--li class="dropdown user user-menu open">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-          <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-          <span class="hidden-xs" wfd-id="466">Alexander Pierce</span>
+      <li class="dropdown user user-menu open">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black !important;">
+          <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 32px; height: 32px;" class="user-image" alt="User Image">
+          <span class="hidden-xs" wfd-id="466">Setting</span>
         </a>
-        <ul class="dropdown-menu" wfd-id="465"-->
+        <ul class="dropdown-menu" wfd-id="465">
               <!-- User image -->
-              <!--li class="user-header" wfd-id="518">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li-->
+              <li class="user-header" wfd-id="518">
+                <a href="<?= base_url()?>admin/auth/profile" class="nav-link" style="color: black !important;">Profile</a>
+              </li>
               <!-- Menu Body -->
-              <!--li class="user-body" wfd-id="513">
-                <div class="row" wfd-id="514">
-                  <div class="col-xs-4 text-center" wfd-id="517">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center" wfd-id="516">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center" wfd-id="515">
-                    <a href="#">Friends</a>
-                  </div>
-                </div-->
-                <!-- /.row -->
-              <!--/li-->
+              <li class="user-body" wfd-id="513">
+                <a href="<?= base_url()?>admin/auth/edit_password" class="nav-link" style="color: black !important;">Edit Password</a>
+              </li>
               <!-- Menu Footer-->
-              <!--li class="user-footer" wfd-id="510">
-                <div class="pull-left" wfd-id="512">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right" wfd-id="511">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
+              <li class="user-footer" wfd-id="510">
+               <a href="<?= base_url()?>admin/auth/logout" class="nav-link" style="color: black !important;">Log out</a>
               </li>
         </ul>
-      </li-->
+      </li>
 
       <!--li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i

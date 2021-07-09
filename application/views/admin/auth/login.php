@@ -32,7 +32,7 @@
           <div class="form-group has-feedback">
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <input type="text" name="username" id="name" class="form-control input-field" placeholder="<?= trans('username') ?>" style="color: #FFFFFF; font-size: 17px; letter-spacing: 0.02em; font-weight: 500;">
+              <input type="text" name="username" id="name" class="form-control input-field" placeholder="Username" style="color: #FFFFFF !important; font-size: 17px; letter-spacing: 0.02em; font-weight: 500;">
             </div>
           </div>
           <div class="form-group has-feedback">

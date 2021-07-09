@@ -167,7 +167,7 @@ class Admin extends MY_Controller {
 	{
 		$this->rbac->check_operation_access(9004); // check opration permission
 		
-		$this->db->delete('gb_admin', array('id' => $id));
+		$this->db->delete('tbl_users', array('id' => $id));
 
 		// Activity Log 
 		$this->activity_model->add_log(3);

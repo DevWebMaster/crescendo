@@ -50,13 +50,13 @@
           <div class="form-group has-feedback">
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <input type="text" name="username" id="name" value="<?= old("username"); ?>" class="form-control" placeholder="<?= trans('username') ?>" >
+              <input type="text" name="username" id="name" value="<?= old("username"); ?>" class="form-control" placeholder="Username" >
             </div>
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <select class="form-control" name="country" id="country">
+              <select class="form-control" name="country" id="country" style="color: #FFFFFF;">
                 <?php
                   foreach($countries as $country):
                 ?>

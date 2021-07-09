@@ -3,16 +3,9 @@
 class Auth_model extends CI_Model{
 
 	public function login($data){
-
-		if($data['username'] == 'super'){
-			$this->db->from('gb_admin');
-			$this->db->join('gb_roles','gb_roles.id = gb_admin.admin_role_id');
-			$this->db->where('gb_admin.username', $data['username']);
-		}else{
-			$this->db->from('tbl_users');
-			$this->db->join('gb_roles', 'gb_roles.id = tbl_users.admin_role_id');
-			$this->db->where('tbl_users.username', $data['username']);
-		}
+		$this->db->from('tbl_users');
+		$this->db->join('gb_roles', 'gb_roles.id = tbl_users.admin_role_id');
+		$this->db->where('tbl_users.username', $data['username']);
 
 		$query = $this->db->get();
 		if ($query->num_rows() == 0){
@@ -125,6 +118,31 @@ class Auth_model extends CI_Model{
 		$this->db->order_by('id');
 
 		return $this->db->get()->result_array();
+	}
+
+	public function get_old_password($user_id, $username, $role_id){
+		$this->db->select('password');
+		$this->db->from('tbl_users');
+		$this->db->where('id', $user_id);
+
+		return $this->db->get()->result_array()[0];
+	}
+	public function update_password($user_id, $new_password){
+		$this->db->where('id', $user_id);
+		return $this->db->update('tbl_users', array('password' => $new_password));
+	}
+
+	public function get_current_profile($user_id){
+		$this->db->select('*');
+		$this->db->from('tbl_users');
+		$this->db->where('id', $user_id);
+
+		return $this->db->get()->result_array()[0];
+	}
+
+	public function update_profile($user_id, $data){
+		$this->db->where('id', $user_id);
+		return $this->db->update('tbl_users', $data);
 	}
 
 }
