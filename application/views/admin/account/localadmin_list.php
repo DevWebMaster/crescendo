@@ -26,7 +26,7 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-group mb-2" style="text-align: left;">
-                <label for="" class="control-label mb-1">Teacher Name</label>:
+                <label for="" class="control-label mb-1">Local Admin Name</label>:
                 <input type="text" class="form-control form-control-sm" name="filter" id="filter">
               </div>
             </div>
@@ -37,21 +37,22 @@
             </div>
             <div class="offset-4 col-12 col-md-1">
               <div class="form-group mt-4">
-                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/account/add_teacher">Add New</a>
+                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/account/add_localadmin">Add New</a>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <div class="table-responsive px-1">  
-                <table id='teacher_list' class='table table-bordered table-striped text-center'>
+                <table id='localadmin_list' class='table table-bordered table-striped text-center'>
                   <thead>
-                    <tr style="background: #EEA400; color: white;">
+                    <tr>
                       <th>ID</th>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Country</th>
-                      <th>Supervisor</th>
+                      <th>Address</th>
+                      <th>Phone Number</th>
+                      <th>Note</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -68,19 +69,19 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
-    init_teacher_list(filter = '');
+    init_localadmin_list(filter = '');
 
-    $('#teacher_list tbody').on('click', 'td a.delete-row', function(){
+    $('#localadmin_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/account/delete_teacher',
+        url: '<?= site_url(); ?>admin/account/delete_localadmin',
         type: 'POST',
         data: {id: id},
         success: function(response){
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_teacher_list(filter = '');
+            init_localadmin_list(filter = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -90,26 +91,27 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_teacher_list(filter);
+      init_localadmin_list(filter);
     })
 
-    function init_teacher_list(filter){
-      $('#teacher_list').DataTable({
+    function init_localadmin_list(filter){
+      $('#localadmin_list').DataTable({
         'destroy': true,
         'processing': true,
         // 'serverSide': true,
         'pagingType': "simple",
         'serverMethod': 'post',
         'ajax': {
-            'url':'<?= site_url(); ?>admin/account/get_teacher_list',
+            'url':'<?= site_url(); ?>admin/account/get_localadmin_list',
             'data': { filter: filter }
         },
         'columns': [
            { data: 'id' },
            { data: 'name' },
            { data: 'email' },
-           { data: 'country' },
-           { data: 'supervisor' },
+           { data: 'address' },
+           { data: 'mobile_no' },
+           { data: 'note' },
            { data: 'action', "width": "10%"},
         ]
       });

@@ -40,7 +40,8 @@ class Auth extends MY_Controller {
 						'username' => $this->input->post('username'),
 						'password' => $this->input->post('password')
 					);
-					$result = $this->auth_model->login($data);
+					$is_localadmin = $this->input->post('islocaladmin');
+					$result = $this->auth_model->login($data, $is_localadmin);
 					if($result){
 							if($result['is_verify'] == 0){
 								$this->session->set_flashdata('error', 'Please verify your email address!');

@@ -45,7 +45,7 @@
             <div class="col-12">
               <div class="checkbox icheck">
                 <label style="color: #FFFFFF; padding-bottom: 16px;">
-                  <input type="checkbox"> <?= trans('remember_me') ?>
+                  <input type="checkbox" name="islocaladmin" id="islocaladmin"> Local Admin
                 </label>
               </div>
             </div>

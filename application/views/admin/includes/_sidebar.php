@@ -29,7 +29,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <?php 
-          $menu = get_sidebar_menu(); 
+          $menu = get_sidebar_menu($this->session->userdata('admin_role_id')); 
 
           foreach ($menu as $nav):
 

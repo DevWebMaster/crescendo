@@ -2,23 +2,31 @@
 
 class Auth_model extends CI_Model{
 
-	public function login($data){
-		$this->db->from('tbl_users');
-		$this->db->join('gb_roles', 'gb_roles.id = tbl_users.admin_role_id');
-		$this->db->where('tbl_users.username', $data['username']);
+	public function login($data, $is_localadmin){
+		if($is_localadmin == 'on'){
+			$this->db->from('tbl_local_admin');
+			$this->db->join('gb_roles', 'gb_roles.id = tbl_local_admin.admin_role_id');
+			$this->db->where('tbl_local_admin.name', $data['username']);
+			$query = $this->db->get()->row_array();
+			return $query;
+		}else{
+			$this->db->from('tbl_users');
+			$this->db->join('gb_roles', 'gb_roles.id = tbl_users.admin_role_id');
+			$this->db->where('tbl_users.username', $data['username']);
 
-		$query = $this->db->get();
-		if ($query->num_rows() == 0){
-			return false;
-		}
-		else{
-			//Compare the password attempt with the password we have stored.
-			$result = $query->row_array();
-		    $validPassword = password_verify($data['password'], $result['password']);
-		    
-		    if($validPassword){
-		        return $result = $query->row_array();
-		    }
+			$query = $this->db->get();
+			if ($query->num_rows() == 0){
+				return false;
+			}
+			else{
+				//Compare the password attempt with the password we have stored.
+				$result = $query->row_array();
+			    $validPassword = password_verify($data['password'], $result['password']);
+			    
+			    if($validPassword){
+			        return $result = $query->row_array();
+			    }
+			}
 		}
 	}
 

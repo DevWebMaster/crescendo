@@ -276,14 +276,19 @@
     // -----------------------------------------------------------------------------
     // Generate Admin Sidebar Menu
     if (!function_exists('get_sidebar_menu')) {
-        function get_sidebar_menu()
+        function get_sidebar_menu($role)
         {
             $ci =& get_instance();
-            /*$ci->db->select('*');
-            $ci->db->order_by('sort_order','asc');
-            return $ci->db->get('module')->result_array();
-            */
             $ci->db->select('*');
+            if($role == 1){
+                $ci->db->where('role <>', 3);
+            }else if($role == 2){
+                $ci->db->where('role <>', 3);
+                $ci->db->where('role <>', 2);
+            }else{
+                $ci->db->where('role <>', 0);
+                $ci->db->where('role <>', 2);
+            }
             $ci->db->order_by('sort_order','asc');
             return $ci->db->get('gb_menu')->result_array();
         }

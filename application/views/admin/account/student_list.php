@@ -22,8 +22,45 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="offset-2 col-8 text-center">
-          
+        <div class="col-12 text-center">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="form-group mb-2" style="text-align: left;">
+                <label for="" class="control-label mb-1">Student Name</label>:
+                <input type="text" class="form-control form-control-sm" name="filter" id="filter">
+              </div>
+            </div>
+            <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
+              <div class="form-group mt-4">
+                <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
+              </div>
+            </div>
+            <div class="offset-4 col-12 col-md-1">
+              <div class="form-group mt-4">
+                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/account/add_student">Add New</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive px-1">  
+                <table id='student_list' class='table table-bordered table-striped text-center'>
+                  <thead>
+                    <tr style="background: #EEA400; color: white;">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Birthday</th>
+                      <th>Country</th>
+                      <th>Supervisor</th>
+                      <th>Teacher's Name</th>
+                      <th width="10%">Action</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -31,32 +68,63 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<style type="text/css">
+  
+    #student_list td, th {
+      vertical-align: middle !important;
+    }
+  
+</style>
 <script type="text/javascript">
-  $(document).ready(function(){
-    $("#btn_update").click(function(){
-      var old_password = $('#old_password').val()
-      var new_password = $('#new_password').val()
-      var check_password = $('#check_password').val()
-      if(new_password != check_password){
-        toastr.warning('Confirm the new password. It is incorrect.')
-        return;
-      }
+  $(document).ready(function() {
+    init_student_list(filter = '');
+
+    $('#student_list tbody').on('click', 'td a.delete-row', function(){
+      var id = $(this).attr('id');  
       $.ajax({
-        url: "<?= site_url(); ?>admin/auth/update_password",
-        type: "POST",
-        data: { old_password: old_password, new_password: new_password },
+        url: '<?= site_url(); ?>admin/account/delete_student',
+        type: 'POST',
+        data: {id: id},
         success: function(response){
-          var result = JSON.parse(response)
-          if(result == 'S'){
-            toastr.success('Password is updated correctly.')
-            $('#old_password').val('')
-            $('#new_password').val('')
-            $('#check_password').val('')
+          var del_status = JSON.parse(response);
+          if(del_status){
+            toastr.success("Deleted the row successfully.");
+            init_student_list(filter = '');
           }else{
-            toastr.warning('Current password is incorrect. Please try to type again.')
+            toastr.warning("Deleting is failed.");
           }
         }
       })
+    });
+
+    $('#btn_filter').click(function(){
+      var filter = $('#filter').val();
+      init_student_list(filter);
     })
-  })
+
+    function init_student_list(filter){
+      $('#student_list').DataTable({
+        'destroy': true,
+        'processing': true,
+        // 'serverSide': true,
+        'pagingType': "simple",
+        'serverMethod': 'post',
+        'ajax': {
+            'url':'<?= site_url(); ?>admin/account/get_student_list',
+            'data': { filter: filter }
+        },
+        'columns': [
+           { data: 'id' },
+           { data: 'name' },
+           { data: 'email' },
+           { data: 'birthday' },
+           { data: 'country' },
+           { data: 'supervisor' },
+           { data: 'teachername' },
+           { data: 'action', "width": "10%"},
+        ]
+      });
+    }
+
+  });
 </script>

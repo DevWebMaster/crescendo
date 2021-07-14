@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->
+ <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -26,7 +26,7 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-group mb-2" style="text-align: left;">
-                <label for="" class="control-label mb-1">Teacher Name</label>:
+                <label for="" class="control-label mb-1">Audition Name</label>:
                 <input type="text" class="form-control form-control-sm" name="filter" id="filter">
               </div>
             </div>
@@ -37,21 +37,26 @@
             </div>
             <div class="offset-4 col-12 col-md-1">
               <div class="form-group mt-4">
-                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/account/add_teacher">Add New</a>
+                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/recital/add_crescendo">Add New</a>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <div class="table-responsive px-1">  
-                <table id='teacher_list' class='table table-bordered table-striped text-center'>
+                <table id='crescendo_list' class='table table-bordered table-striped text-center'>
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Country</th>
-                      <th>Supervisor</th>
+                      <th>Local Admin</th>
+                      <th>Audition Name</th>
+                      <th>Audition Location</th>
+                      <th>Audition Date</th>
+                      <th>Audition Fee</th>
+                      <th>Audition Deadline</th>
+                      <th>Late Fee</th>
+                      <th>Duration</th>
+                      <th>Is Active</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -68,19 +73,19 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
-    init_teacher_list(filter = '');
+    init_crescendo_list(filter = '');
 
-    $('#teacher_list tbody').on('click', 'td a.delete-row', function(){
+    $('#crescendo_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/account/delete_teacher',
+        url: '<?= site_url(); ?>admin/recital/delete_crescendo',
         type: 'POST',
         data: {id: id},
         success: function(response){
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_teacher_list(filter = '');
+            init_crescendo_list(filter = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -90,26 +95,31 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_teacher_list(filter);
+      init_crescendo_list(filter);
     })
 
-    function init_teacher_list(filter){
-      $('#teacher_list').DataTable({
+    function init_crescendo_list(filter){
+      $('#crescendo_list').DataTable({
         'destroy': true,
         'processing': true,
         // 'serverSide': true,
         'pagingType': "simple",
         'serverMethod': 'post',
         'ajax': {
-            'url':'<?= site_url(); ?>admin/account/get_teacher_list',
+            'url':'<?= site_url(); ?>admin/recital/get_crescendo_list',
             'data': { filter: filter }
         },
         'columns': [
            { data: 'id' },
-           { data: 'name' },
-           { data: 'email' },
-           { data: 'country' },
-           { data: 'supervisor' },
+           { data: 'local_admin' },
+           { data: 'audition_name' },
+           { data: 'audition_location' },
+           { data: 'audition_date' },
+           { data: 'audition_fee' },
+           { data: 'audition_deadline' },
+           { data: 'late_fee' },
+           { data: 'duration' },
+           { data: 'is_active' },
            { data: 'action', "width": "10%"},
         ]
       });

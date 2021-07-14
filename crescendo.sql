@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2021 at 11:30 AM
+-- Generation Time: Jul 14, 2021 at 12:47 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -378,70 +378,6 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gb_customer_mast`
---
-
-CREATE TABLE `gb_customer_mast` (
-  `id` int(11) NOT NULL,
-  `customer_code` varchar(16) NOT NULL,
-  `name` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `addr1` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `addr2` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `city_id` int(11) DEFAULT NULL,
-  `state_id` int(11) DEFAULT NULL,
-  `country_id` int(11) DEFAULT NULL,
-  `zipcode` varchar(8) DEFAULT NULL,
-  `contact` varchar(32) NOT NULL,
-  `website` varchar(255) DEFAULT NULL,
-  `customer_level_id` int(6) DEFAULT NULL,
-  `customer_status_id` int(6) DEFAULT NULL,
-  `billing_addr1_1` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `billing_addr2_1` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `billing_city_id_1` int(11) DEFAULT NULL,
-  `billing_state_id_1` int(11) DEFAULT NULL,
-  `billing_country_id_1` int(11) DEFAULT NULL,
-  `billing_zipcode_1` varchar(8) DEFAULT NULL,
-  `billing_addr1_2` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `billing_addr2_2` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `billing_city_id_2` int(11) DEFAULT NULL,
-  `billing_state_id_2` int(11) DEFAULT NULL,
-  `billing_country_id_2` int(11) DEFAULT NULL,
-  `billing_zipcode_2` varchar(8) DEFAULT NULL,
-  `shipping_addr1_1` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `shipping_addr2_1` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `shipping_city_id_1` int(11) DEFAULT NULL,
-  `shipping_state_id_1` int(11) DEFAULT NULL,
-  `shipping_country_id_1` int(11) DEFAULT NULL,
-  `shipping_zipcode_1` varchar(8) DEFAULT NULL,
-  `shipping_addr1_2` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `shipping_addr2_2` varchar(128) CHARACTER SET utf8 NOT NULL,
-  `shipping_city_id_2` int(11) DEFAULT NULL,
-  `shipping_state_id_2` int(11) DEFAULT NULL,
-  `shipping_country_id_2` int(11) DEFAULT NULL,
-  `shipping_zipcode_2` varchar(8) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `gb_customer_mast`
---
-
-INSERT INTO `gb_customer_mast` (`id`, `customer_code`, `name`, `addr1`, `addr2`, `city_id`, `state_id`, `country_id`, `zipcode`, `contact`, `website`, `customer_level_id`, `customer_status_id`, `billing_addr1_1`, `billing_addr2_1`, `billing_city_id_1`, `billing_state_id_1`, `billing_country_id_1`, `billing_zipcode_1`, `billing_addr1_2`, `billing_addr2_2`, `billing_city_id_2`, `billing_state_id_2`, `billing_country_id_2`, `billing_zipcode_2`, `shipping_addr1_1`, `shipping_addr2_1`, `shipping_city_id_1`, `shipping_state_id_1`, `shipping_country_id_1`, `shipping_zipcode_1`, `shipping_addr1_2`, `shipping_addr2_2`, `shipping_city_id_2`, `shipping_state_id_2`, `shipping_country_id_2`, `shipping_zipcode_2`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'CN000001', 'Customer 1', 'NO123', 'Ta Tong Street', 3, 4, 88, '53100', '03-12345678', 'www.china.cn', 1, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(2, 'ALLJOY0001', 'Sen Lin', 'RM. 503, 5TH FLOOR, BLDG. B, JIANYE HIGH TECH INDUSTRIAL PARK', 'BANTIAN ST, LONGGANG DIST.', 3, 4, 88, '53100', '03-12345678', 'http://www.alljoylogistics.com', 3, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(3, 'TEST0001', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 5, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(10, 'LEVEL0', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 1, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(11, 'LEVEL1', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 2, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(12, 'LEVEL2', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 3, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(13, 'LEVEL3', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 4, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1),
-(14, 'LEVEL4', 'test acount', 'test account address', 'test account address', 3, 4, 88, '53100', '03-12345678', 'http://test.com', 5, 1, 'No.1 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.3 Jalan 1/21B', '', 3, 3, 4, '53101', 'No.5 Jalan 1/21B', '', 1, 1, 3, '53100', 'No.7 Jalan 1/21B', '', 1, 1, 3, '53100', '2020-09-12 17:12:42', 1, '2020-09-12 17:12:42', 1);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `gb_general_settings`
 --
 
@@ -492,6 +428,7 @@ CREATE TABLE `gb_menu` (
   `fa_icon` varchar(64) DEFAULT NULL,
   `sort_order` int(4) NOT NULL,
   `rec_status` tinyint(1) NOT NULL,
+  `role` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -502,11 +439,14 @@ CREATE TABLE `gb_menu` (
 -- Dumping data for table `gb_menu`
 --
 
-INSERT INTO `gb_menu` (`id`, `module_name`, `controller_name`, `fa_icon`, `sort_order`, `rec_status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(100, 'Accounts', 'account', 'fa-cog', 100, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
-(200, 'Auditions', 'auditions', 'fa-folder-o', 200, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
-(300, 'Recitals', 'recitals', 'fa-tasks', 300, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
-(400, 'Applications', 'applications', 'fa-floppy-o', 400, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0);
+INSERT INTO `gb_menu` (`id`, `module_name`, `controller_name`, `fa_icon`, `sort_order`, `rec_status`, `role`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(100, 'Accounts', 'account', 'fa-cog', 100, 1, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
+(200, 'Auditions', 'auditions', 'fa-folder-o', 200, 1, 0, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
+(300, 'Recitals', 'recital', 'fa-tasks', 300, 1, 2, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
+(400, 'Applications', 'applications', 'fa-floppy-o', 400, 1, 0, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
+(500, 'Apply for Auditions', 'applyauditions', 'fa-folder-o', 500, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(600, 'Active Applications', 'activeapplication', 'fa-floppy-o', 600, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(700, 'History', 'history', 'fa-history', 700, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -535,18 +475,21 @@ CREATE TABLE `gb_menu_submenu` (
 
 INSERT INTO `gb_menu_submenu` (`id`, `parent`, `name`, `link`, `fa_icon`, `sort_order`, `rec_status`, `permission`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (101, 100, 'Student', 'account/index', NULL, 101, 1, 4, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(102, 100, 'Teacher', 'account/teacher', NULL, 102, 1, 3, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(103, 100, 'Parent', 'account/parent', NULL, 103, 1, 5, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
+(102, 100, 'Teacher', 'account/teacher_list', NULL, 102, 1, 3, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
+(103, 100, 'Parent', 'account/parent_list', NULL, 103, 1, 5, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
 (104, 100, 'Local Admin', 'account/local_admin', NULL, 104, 1, 1, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
 (201, 200, 'Little Morarts', 'auditions/index', '', 201, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
-(202, 200, 'Crescendo', 'auditions/crescendo', '', 202, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
-(203, 200, 'Create a new audition', 'auditions/create', NULL, 203, 1, 0, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(301, 300, 'Little Morarts', 'recitals/index', '', 301, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
-(302, 300, 'Crescendo', 'recitals/crescendo', '', 302, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
-(303, 300, 'Create', 'recitals/create', NULL, 303, 1, 0, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(402, 400, 'Little Morarts', 'application/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
-(403, 400, 'Crescendo', 'application/cerscendo', NULL, 403, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
-(404, 400, 'Music Competition', 'application/music_competition', NULL, 0, 1, 0, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0);
+(202, 200, 'Crescendo', 'auditions/crescendo_list', '', 202, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
+(301, 300, 'Little Morarts', 'recital/index', '', 301, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
+(302, 300, 'Crescendo', 'recital/crescendo_list', '', 302, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
+(402, 400, 'Auditions', 'applications/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
+(403, 400, 'Recitals', 'applications/recitals', NULL, 403, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
+(501, 500, 'Little Morarts', 'applyauditions/index', '', 501, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
+(502, 500, 'Crescendo', 'applyauditions/crescendo', '', 502, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
+(601, 600, 'Little Morarts', 'activeapplication/index', NULL, 601, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
+(602, 600, 'Crescendo', 'activeapplication/crescendo', NULL, 602, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
+(701, 700, 'Little Morarts', 'history/index', NULL, 701, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
+(702, 700, 'Crescendo', 'history/crescendo', NULL, 702, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -693,6 +636,251 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_applications`
+--
+
+CREATE TABLE `tbl_applications` (
+  `id` int(11) NOT NULL,
+  `audition_type` int(11) NOT NULL,
+  `audition_id` int(11) NOT NULL,
+  `student_name` int(11) NOT NULL,
+  `instrument` int(11) NOT NULL,
+  `performance_type` varchar(255) NOT NULL,
+  `performance_price` varchar(255) NOT NULL,
+  `co_performers` varchar(255) NOT NULL,
+  `composer` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `teacher` int(11) NOT NULL,
+  `payment_type` tinyint(1) NOT NULL COMMENT '1:paypal, 2:ordercheck',
+  `transaction_id` varchar(255) DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL,
+  `payment_code` varchar(255) DEFAULT NULL,
+  `islate` tinyint(1) NOT NULL DEFAULT 0,
+  `late_fee` varchar(255) DEFAULT NULL,
+  `special_request` tinyint(1) NOT NULL DEFAULT 0,
+  `request_date` date DEFAULT NULL,
+  `request_reason` varchar(255) DEFAULT NULL,
+  `request_answer` varchar(255) DEFAULT NULL,
+  `confirm_payment` tinyint(1) NOT NULL DEFAULT 0 COMMENT '1:paid, 0:unpaid',
+  `score` varchar(255) DEFAULT NULL,
+  `place` int(11) DEFAULT NULL,
+  `evaluation` varchar(255) DEFAULT NULL,
+  `isonline` tinyint(1) NOT NULL DEFAULT 0,
+  `video_link` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `updated_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_crescendo`
+--
+
+CREATE TABLE `tbl_crescendo` (
+  `id` int(11) NOT NULL,
+  `local_admin` int(11) NOT NULL,
+  `audition_name` varchar(255) NOT NULL,
+  `audition_location` varchar(255) NOT NULL,
+  `audition_date` date NOT NULL,
+  `fee_solo` varchar(255) DEFAULT NULL,
+  `fee_duet` varchar(255) DEFAULT NULL,
+  `fee_trio` varchar(255) DEFAULT NULL,
+  `fee_quartet` varchar(255) DEFAULT NULL,
+  `fee_ensemble` varchar(255) DEFAULT NULL,
+  `audition_deadline` date NOT NULL,
+  `late_fee` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `remain_duration` varchar(255) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `is_delete` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_crescendo`
+--
+
+INSERT INTO `tbl_crescendo` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 1, 'sdf', 'sdf', '2021-07-13', '', '100', '', '', '', '2021-07-17', '50', '', '', 2, 0, '2021-07-12 22:35:26', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_instruments`
+--
+
+CREATE TABLE `tbl_instruments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_instruments`
+--
+
+INSERT INTO `tbl_instruments` (`id`, `name`) VALUES
+(1, 'piano'),
+(2, 'flute'),
+(3, 'violin'),
+(4, 'chelo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_little_morarts`
+--
+
+CREATE TABLE `tbl_little_morarts` (
+  `id` int(11) NOT NULL,
+  `local_admin` int(11) NOT NULL,
+  `audition_name` varchar(255) NOT NULL,
+  `audition_location` varchar(255) NOT NULL,
+  `audition_date` date NOT NULL,
+  `fee_solo` varchar(255) DEFAULT NULL,
+  `fee_duet` varchar(255) DEFAULT NULL,
+  `fee_trio` varchar(255) DEFAULT NULL,
+  `fee_quartet` varchar(255) DEFAULT NULL,
+  `fee_ensemble` varchar(255) DEFAULT NULL,
+  `audition_deadline` date NOT NULL,
+  `late_fee` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `remain_duration` varchar(255) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `is_delete` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_little_morarts`
+--
+
+INSERT INTO `tbl_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ggg', 'sdfsdf', '2021-07-12', '50', '100', '150', '200', '400', '2021-07-16', '50', '120', '120', 1, 0, '2021-07-12 03:00:58', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_local_admin`
+--
+
+CREATE TABLE `tbl_local_admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile_no` varchar(255) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `admin_role_id` tinyint(1) NOT NULL DEFAULT 2,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `is_verify` tinyint(1) NOT NULL DEFAULT 1,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 1,
+  `is_super` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_local_admin`
+--
+
+INSERT INTO `tbl_local_admin` (`id`, `name`, `email`, `address`, `mobile_no`, `note`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `created_at`, `updated_at`) VALUES
+(1, 'www', 'www@www.gmail', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_recital_crescendo`
+--
+
+CREATE TABLE `tbl_recital_crescendo` (
+  `id` int(11) NOT NULL,
+  `local_admin` int(11) NOT NULL,
+  `audition_name` varchar(255) NOT NULL,
+  `audition_location` varchar(255) NOT NULL,
+  `audition_date` date NOT NULL,
+  `fee_solo` varchar(255) DEFAULT NULL,
+  `fee_duet` varchar(255) DEFAULT NULL,
+  `fee_trio` varchar(255) DEFAULT NULL,
+  `fee_quartet` varchar(255) DEFAULT NULL,
+  `fee_ensemble` varchar(255) DEFAULT NULL,
+  `audition_deadline` date NOT NULL,
+  `late_fee` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `remain_duration` varchar(255) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `is_delete` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_recital_crescendo`
+--
+
+INSERT INTO `tbl_recital_crescendo` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 1, 'bnmbnm', 'bnmbnmbnmbnm', '2021-07-21', '', '', '', '99', '', '2021-07-30', '50', '200', '200', 2, 0, '2021-07-12 23:06:13', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_recital_little_morarts`
+--
+
+CREATE TABLE `tbl_recital_little_morarts` (
+  `id` int(11) NOT NULL,
+  `local_admin` int(11) NOT NULL,
+  `audition_name` varchar(255) NOT NULL,
+  `audition_location` varchar(255) NOT NULL,
+  `audition_date` date NOT NULL,
+  `fee_solo` varchar(255) DEFAULT NULL,
+  `fee_duet` varchar(255) DEFAULT NULL,
+  `fee_trio` varchar(255) DEFAULT NULL,
+  `fee_quartet` varchar(255) DEFAULT NULL,
+  `fee_ensemble` varchar(255) DEFAULT NULL,
+  `audition_deadline` date NOT NULL,
+  `late_fee` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `remain_duration` varchar(255) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `is_delete` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_recital_little_morarts`
+--
+
+INSERT INTO `tbl_recital_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
+(1, 1, 'hhh', 'hhhhhhhh', '2021-07-14', '', '', '100', '', '', '2021-07-15', '50', '120', '120', 2, 0, '2021-07-12 23:02:54', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_relations`
+--
+
+CREATE TABLE `tbl_relations` (
+  `id` int(11) NOT NULL,
+  `student` int(11) NOT NULL,
+  `teacher` int(11) NOT NULL,
+  `parent` int(11) DEFAULT NULL,
+  `creator` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_users`
 --
 
@@ -704,6 +892,7 @@ CREATE TABLE `tbl_users` (
   `mobile_no` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
+  `birthday` date DEFAULT NULL,
   `admin_role_id` tinyint(4) NOT NULL DEFAULT 1,
   `is_active` tinyint(4) NOT NULL DEFAULT 1,
   `is_verify` tinyint(4) NOT NULL DEFAULT 0,
@@ -720,16 +909,10 @@ CREATE TABLE `tbl_users` (
 -- Dumping data for table `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`id`, `username`, `country`, `email`, `mobile_no`, `password`, `address`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `token`, `password_reset_code`, `last_ip`, `created_at`, `updated_at`) VALUES
-(3, 'admin', 0, 'admin@admin.com', '12345', '$2y$10$qlAzDhBEqkKwP3OykqA7N.ZQk6T67fxD9RHfdv3zToxa9Mtwu9C/e', '27 new jersey - Level 58 - CA 444 \r\nUnited State ', 1, 1, 1, 1, 0, '', '', '', '2017-09-29 10:09:44', '2017-12-14 10:12:41'),
-(32, 'user', 0, 'user@user.com', '44897866462', '$2y$10$sU5msVdifYie7cZbCEnyku6hLH8Sef0VCHqO9UIOg6rsBsDtsLcyS', '', 1, 1, 1, 0, 0, '352fe25daf686bdb4edca223c921acea', '', '', '2018-04-24 07:04:07', '2019-01-26 03:01:30'),
-(33, 'john123', 0, 'johnsmith@gmail.com', '445889654656', '$2y$10$CcBiQrcW597s5muOP2blhOev48gzBv2VvAVp83NsXbLo7cZM7tjGm', 'USA', 7, 1, 0, 0, 0, '', '', '', '2018-04-25 06:04:25', '2019-01-24 04:01:33'),
-(38, 'john', 0, 'johnsmith@gmail.com', '123456', '$2y$10$5wXvKkhMTEatZ7aUHE/RU.lQbeXdURME8Br9Noxn802epBPoFz7wu', 'asdfdasfdsfds', 1, 1, 0, 0, 0, '', '', '', '2019-07-15 09:07:24', '2019-07-15 09:07:24'),
-(39, 'techesprit', 0, 'zain@gmail.com', '03004596000', '$2y$10$F14///ug4J6WNd0selNJguZ2ib4ugER8u4n09Z787nz2g6j4gJZva', '111asdfasd', 1, 1, 0, 0, 0, '', '', '', '2019-11-25 00:00:00', '2019-11-25 00:00:00'),
-(40, 'techesprit', 0, 'zain@gmail.com', '03004596000', '$2y$10$UbljVrMhHmqRYhJBumzmVOfXYmaOeZRMAEkBn0uF68Nj3VL4ACiHC', '111asdfasd', 1, 1, 0, 0, 0, '', '', '', '2019-11-25 00:00:00', '2019-11-25 00:00:00'),
-(41, 'qwe', 158, 'qwe@qwe.com', 'qwe', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qwe', 3, 1, 1, 1, 0, '006f52e9102a8d3be2fe5614f42ba989', '', '', '2021-07-07 00:00:00', '2021-07-07 00:00:00'),
-(1, 'super', 3, 'super@gmail.com', '1111', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qweqwe', 1, 1, 1, 1, 1, '', '', '', '2021-07-08 00:00:00', '2021-07-08 00:00:00'),
-(42, 'asd', 1, 'asd@asd.com', '123123', '$2y$10$zElLOXcQWkSBeBekjZMHTOa5uJ83yckjd99xG0RgGM0pZpVMRqK5C', 'asd', 4, 1, 1, 1, 0, 'c8c41c4a18675a74e01c8a20e8a0f662', '', '', '2021-07-09 00:00:00', '2021-07-09 00:00:00');
+INSERT INTO `tbl_users` (`id`, `username`, `country`, `email`, `mobile_no`, `password`, `address`, `birthday`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `token`, `password_reset_code`, `last_ip`, `created_at`, `updated_at`) VALUES
+(3, 'qwe', 158, 'qwe@qwe.com', 'qwe', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qwe', NULL, 3, 1, 1, 1, 0, '006f52e9102a8d3be2fe5614f42ba989', '', '', '2021-07-07 00:00:00', '2021-07-07 00:00:00'),
+(1, 'super', 3, 'super@gmail.com', '1111', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qweqwe', NULL, 1, 1, 1, 1, 1, '', '', '', '2021-07-08 00:00:00', '2021-07-08 00:00:00'),
+(4, 'asd', 1, 'asd@asd.com', '123123', '$2y$10$zElLOXcQWkSBeBekjZMHTOa5uJ83yckjd99xG0RgGM0pZpVMRqK5C', 'asd', '2021-07-09', 4, 1, 1, 1, 0, 'c8c41c4a18675a74e01c8a20e8a0f662', '', '', '2021-07-09 00:00:00', '2021-07-09 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -767,13 +950,6 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `gb_customer_mast`
---
-ALTER TABLE `gb_customer_mast`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `customer_code` (`customer_code`);
-
---
 -- Indexes for table `gb_general_settings`
 --
 ALTER TABLE `gb_general_settings`
@@ -808,6 +984,54 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `tbl_applications`
+--
+ALTER TABLE `tbl_applications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_crescendo`
+--
+ALTER TABLE `tbl_crescendo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_instruments`
+--
+ALTER TABLE `tbl_instruments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_little_morarts`
+--
+ALTER TABLE `tbl_little_morarts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_local_admin`
+--
+ALTER TABLE `tbl_local_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_recital_crescendo`
+--
+ALTER TABLE `tbl_recital_crescendo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_recital_little_morarts`
+--
+ALTER TABLE `tbl_recital_little_morarts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_relations`
+--
+ALTER TABLE `tbl_relations`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_users`
@@ -850,12 +1074,6 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gb_customer_mast`
---
-ALTER TABLE `gb_customer_mast`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
 -- AUTO_INCREMENT for table `gb_menu`
 --
 ALTER TABLE `gb_menu`
@@ -878,6 +1096,54 @@ ALTER TABLE `gb_roles`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_applications`
+--
+ALTER TABLE `tbl_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_crescendo`
+--
+ALTER TABLE `tbl_crescendo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_instruments`
+--
+ALTER TABLE `tbl_instruments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_little_morarts`
+--
+ALTER TABLE `tbl_little_morarts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_local_admin`
+--
+ALTER TABLE `tbl_local_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_recital_crescendo`
+--
+ALTER TABLE `tbl_recital_crescendo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_recital_little_morarts`
+--
+ALTER TABLE `tbl_recital_little_morarts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_relations`
+--
+ALTER TABLE `tbl_relations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
