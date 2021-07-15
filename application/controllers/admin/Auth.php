@@ -13,7 +13,7 @@ class Auth extends MY_Controller {
 	public function index(){
 
 		if($this->session->has_userdata('is_admin_login')){
-			redirect('admin/dashboard');
+			redirect('admin/account');
 		}
 		else{
 			redirect('admin/auth/login');
