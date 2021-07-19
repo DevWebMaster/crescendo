@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2021 at 12:47 PM
+-- Generation Time: Jul 19, 2021 at 10:29 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -482,8 +482,8 @@ INSERT INTO `gb_menu_submenu` (`id`, `parent`, `name`, `link`, `fa_icon`, `sort_
 (202, 200, 'Crescendo', 'auditions/crescendo_list', '', 202, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
 (301, 300, 'Little Morarts', 'recital/index', '', 301, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
 (302, 300, 'Crescendo', 'recital/crescendo_list', '', 302, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
-(402, 400, 'Auditions', 'applications/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
-(403, 400, 'Recitals', 'applications/recitals', NULL, 403, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
+(402, 400, 'Little Morarts', 'applications/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
+(403, 400, 'Crescendo', 'applications/crescendo', NULL, 403, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
 (501, 500, 'Little Morarts', 'applyauditions/index', '', 501, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
 (502, 500, 'Crescendo', 'applyauditions/crescendo', '', 502, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
 (601, 600, 'Little Morarts', 'activeapplication/index', NULL, 601, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
@@ -641,21 +641,22 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `tbl_applications` (
   `id` int(11) NOT NULL,
-  `audition_type` int(11) NOT NULL,
+  `audition_type` int(11) NOT NULL COMMENT '1:little_morarts, 2:crescendo',
   `audition_id` int(11) NOT NULL,
   `student_name` int(11) NOT NULL,
   `instrument` int(11) NOT NULL,
   `performance_type` varchar(255) NOT NULL,
   `performance_price` varchar(255) NOT NULL,
-  `co_performers` varchar(255) NOT NULL,
+  `co_performers` varchar(255) DEFAULT NULL,
   `composer` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
-  `teacher` int(11) NOT NULL,
+  `teacher` int(11) DEFAULT NULL,
   `payment_type` tinyint(1) NOT NULL COMMENT '1:paypal, 2:ordercheck',
   `transaction_id` varchar(255) DEFAULT NULL,
   `transaction_date` date DEFAULT NULL,
   `payment_code` varchar(255) DEFAULT NULL,
+  `is_paid` tinyint(1) NOT NULL DEFAULT 0,
   `islate` tinyint(1) NOT NULL DEFAULT 0,
   `late_fee` varchar(255) DEFAULT NULL,
   `special_request` tinyint(1) NOT NULL DEFAULT 0,
@@ -670,9 +671,16 @@ CREATE TABLE `tbl_applications` (
   `video_link` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `updated_by` int(11) NOT NULL
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_applications`
+--
+
+INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_date`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(4, 1, 1, 4, 1, '1', '50', '', 'qwesdf', 'dfgdfg', '6', NULL, 1, '123qwe', '2021-07-16', '', 0, 0, NULL, 0, '0000-00-00', NULL, '', 0, NULL, NULL, NULL, 0, '', '2021-07-16 08:45:54', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -761,7 +769,7 @@ CREATE TABLE `tbl_little_morarts` (
 --
 
 INSERT INTO `tbl_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'ggg', 'sdfsdf', '2021-07-12', '50', '100', '150', '200', '400', '2021-07-16', '50', '120', '120', 1, 0, '2021-07-12 03:00:58', NULL);
+(1, 1, 'ggg', 'sdfsdf', '2021-07-12', '50', '100', '150', '200', '400', '2021-07-16', '50', '120', '114', 1, 0, '2021-07-12 03:00:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -790,7 +798,18 @@ CREATE TABLE `tbl_local_admin` (
 --
 
 INSERT INTO `tbl_local_admin` (`id`, `name`, `email`, `address`, `mobile_no`, `note`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `created_at`, `updated_at`) VALUES
-(1, 'www', 'www@www.gmail', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'localadmin', 'localadmin@gmail.com', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_locations`
+--
+
+CREATE TABLE `tbl_locations` (
+  `id` int(11) NOT NULL,
+  `location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -910,9 +929,9 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `country`, `email`, `mobile_no`, `password`, `address`, `birthday`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `token`, `password_reset_code`, `last_ip`, `created_at`, `updated_at`) VALUES
-(3, 'qwe', 158, 'qwe@qwe.com', 'qwe', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qwe', NULL, 3, 1, 1, 1, 0, '006f52e9102a8d3be2fe5614f42ba989', '', '', '2021-07-07 00:00:00', '2021-07-07 00:00:00'),
+(3, 'teacher1', 158, 'teacher1@gmail.com', 'qwe', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qwe', NULL, 3, 1, 1, 1, 0, '006f52e9102a8d3be2fe5614f42ba989', '', '', '2021-07-07 00:00:00', '2021-07-07 00:00:00'),
 (1, 'super', 3, 'super@gmail.com', '1111', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qweqwe', NULL, 1, 1, 1, 1, 1, '', '', '', '2021-07-08 00:00:00', '2021-07-08 00:00:00'),
-(4, 'asd', 1, 'asd@asd.com', '123123', '$2y$10$zElLOXcQWkSBeBekjZMHTOa5uJ83yckjd99xG0RgGM0pZpVMRqK5C', 'asd', '2021-07-09', 4, 1, 1, 1, 0, 'c8c41c4a18675a74e01c8a20e8a0f662', '', '', '2021-07-09 00:00:00', '2021-07-09 00:00:00');
+(4, 'student1', 1, 'student1@gmail.com', '123123', '$2y$10$zElLOXcQWkSBeBekjZMHTOa5uJ83yckjd99xG0RgGM0pZpVMRqK5C', 'asd', '2021-07-09', 4, 1, 1, 1, 0, 'c8c41c4a18675a74e01c8a20e8a0f662', '', '', '2021-07-09 00:00:00', '2021-07-09 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -1016,6 +1035,12 @@ ALTER TABLE `tbl_local_admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_locations`
+--
+ALTER TABLE `tbl_locations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_recital_crescendo`
 --
 ALTER TABLE `tbl_recital_crescendo`
@@ -1101,7 +1126,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbl_applications`
 --
 ALTER TABLE `tbl_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_crescendo`
@@ -1126,6 +1151,12 @@ ALTER TABLE `tbl_little_morarts`
 --
 ALTER TABLE `tbl_local_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_locations`
+--
+ALTER TABLE `tbl_locations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_recital_crescendo`
