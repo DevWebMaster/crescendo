@@ -1,3 +1,0 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
-ERROR - 2021-04-06 23:48:56 --> Query error: Unknown column 'pack' in 'field list' - Invalid query: INSERT INTO `tbl_product` (`name`, `image`, `category_id`, `sub_category_id`, `sub_sub_category_id`, `sustainability_id`, `benefit_id`, `material_id`, `description`, `idea_for`, `item_code`, `short_desc`, `pack`, `pieces`, `case_quantity`, `status`, `created_at`, `updated_at`) VALUES ('sdf', 'avatar.jpg', '3', '1', '1', '1', '1', '1', '', 'sdf', 'sdf', 'sdf', NULL, '1', NULL, 1, '2021-04-06 23:48:56', '2021-04-06 23:48:56')

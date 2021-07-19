@@ -6,13 +6,13 @@ class Auth_model extends CI_Model{
 		if($is_localadmin == 'on'){
 			$this->db->from('tbl_local_admin');
 			$this->db->join('gb_roles', 'gb_roles.id = tbl_local_admin.admin_role_id');
-			$this->db->where('tbl_local_admin.name', $data['username']);
+			$this->db->where('tbl_local_admin.email', $data['email']);
 			$query = $this->db->get()->row_array();
 			return $query;
 		}else{
 			$this->db->from('tbl_users');
 			$this->db->join('gb_roles', 'gb_roles.id = tbl_users.admin_role_id');
-			$this->db->where('tbl_users.username', $data['username']);
+			$this->db->where('tbl_users.email', $data['email']);
 
 			$query = $this->db->get();
 			if ($query->num_rows() == 0){

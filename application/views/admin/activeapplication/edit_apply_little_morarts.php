@@ -1,8 +1,7 @@
 <div class="content-wrapper">
     <section class="content">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="offset-1 col-md-10">
             <label><h3><?= $title; ?></h3></label>
             <div class="card">
               <form method="post" enctype="multipart/form-data" id="uploadForm">
@@ -59,11 +58,7 @@
                       <div class="form-group mb-2">
                         <label class="title">Student Name:</label>
                         <select class="form-control" name="student_name" id="student_name">
-                          <?php
-                            foreach($students as $student):
-                          ?>
-                            <option value="<?= $student['id']; ?>"><?= $student['username'] ?></option>
-                          <?php endforeach; ?>
+                          <input type="text" readonly class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $little_morart[0]['student']; ?>">
                         </select>
                       </div>
                     </div>

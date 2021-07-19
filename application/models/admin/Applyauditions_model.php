@@ -48,5 +48,21 @@
 				return $this->db->get()->result_array();
 			}
 		}
+		public function save_apply($data){
+			$this->db->insert('tbl_applications', $data);
+			$insertId = $this->db->insert_id();
+			return $insertId;
+		}
+		public function get_remain_duration($audition_id){
+			$this->db->select('remain_duration');
+			$this->db->from('tbl_little_morarts');
+			$this->db->where('id', $audition_id);
+
+			return $this->db->get()->result_array()[0];
+		}
+		public function update_audition_duration($audition_id, $remain_duration){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_little_morarts', array('remain_duration' => $remain_duration));
+		}
 	}
 ?>

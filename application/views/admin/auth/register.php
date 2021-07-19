@@ -50,17 +50,18 @@
           <div class="form-group has-feedback">
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <input type="text" name="username" id="name" value="<?= old("username"); ?>" class="form-control" placeholder="Username" >
+              <input type="text" name="username" id="name" value="<?= old("username"); ?>" class="form-control" placeholder="Full Name" >
+              <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="Enter correct name as it will be shown as it appears on the Programme." style="color: white;"></i>
             </div>
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
               <i class="fa fa-user icon"></i>
-              <select class="form-control" name="country" id="country" style="color: #FFFFFF;">
+              <select class="form-control" name="country" id="country" style="color: #FFFFFF; background: grey;">
                 <?php
                   foreach($countries as $country):
                 ?>
-                  <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
+                  <option style="color: black;" value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
@@ -69,6 +70,7 @@
             <div class="input-container">
               <i class="fa fa-user icon"></i>
               <input type="text" name="address" id="address" value="<?= old("address"); ?>" class="form-control" placeholder="<?= trans('address') ?>" >
+              <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="Enter correct address as this will be used to as a mail recipient." style="color: white;"></i>
             </div>
           </div>
           <div class="form-group has-feedback">

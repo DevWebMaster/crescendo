@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?= isset($title)? $title.' - ' : 'Title -' ?> <?= $this->general_settings['application_name']; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="<?= base_url()?>assets/dist/css/custom.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/font-awesome/css/font-awesome.min.css">
@@ -16,20 +17,20 @@
   
   <link rel="stylesheet" href="<?= base_url()?>assets/dist/css/adminlte.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/iCheck/flat/blue.css">
+  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/iCheck/flat/blue.css"> -->
   <!-- Morris chart -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/morris/morris.css">
+  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/morris/morris.css"> -->
   <!-- jvectormap -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css"> -->
   <!-- Date Picker -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/datepicker/datepicker3.css">
   <!-- Select 2 -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/select2/select2.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/daterangepicker/daterangepicker-bs3.css">
+  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/daterangepicker/daterangepicker-bs3.css"> -->
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/bootstrap/css/bootstrap.min.css">
-
+  
   <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> -->
 
 
@@ -61,7 +62,7 @@
   <?php  endif; ?> 
 
  
-    <link rel="stylesheet" href="<?= base_url()?>assets/dist/css/custom.css">
+    
 
 
 </head>
@@ -75,7 +76,7 @@
 
   <?php if(!isset($navbar)): ?>
 
-  <nav class="main-header navbar navbar-expand bg-brand navbar-dark border-bottom">
+  <nav class="main-header navbar navbar-expand bg-brand navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -94,7 +95,12 @@
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" style="justify-content: space-between; width: 100%;">
-      <Label style="font-size: 40px; font-weight: bold; color: #EEA400;">Cerscendo International Music Competition</Label>
+      <div id="nav_label">
+        <label style="font-size: 40px; font-weight: bold; color: #EEA400;">Cerscendo International Music Competition</label>
+      </div>
+     <div id="mob_nav">
+       <img src="<?= base_url()?>assets/dist/img/logo.png" style="width: 40px; height: 40px;" class="user-image" alt="Logo">
+     </div>
       <!--div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -210,7 +216,7 @@
       <li class="dropdown user user-menu open">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black !important;">
           <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 32px; height: 32px;" class="user-image" alt="User Image">
-          <span class="hidden-xs" wfd-id="466">Setting</span>
+          <span id="setting_icon" class="hidden-xs" wfd-id="466">Setting</span>
         </a>
         <ul class="dropdown-menu" wfd-id="465">
               <!-- User image -->

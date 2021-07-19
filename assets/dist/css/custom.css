@@ -2,6 +2,9 @@
 .table th, .table td {
  font-size: 0.8em;
 }
+.table {
+    width: 100% !important;
+}
 .bg-cover{
 	background-position: center center;
 	background-attachment: fixed;
@@ -228,6 +231,7 @@ ul.select2-results__options li{
 #name::placeholder, #password::placeholder, #address::placeholder, #mobile_no::placeholder, #country::placeholder, #email::placeholder, #password::placeholder, #confirm_password::placeholder {
     color:  #FFFFFF !important;
 }
+
 .public_nav {
     position: absolute;
     background-color: #252161;
@@ -322,4 +326,27 @@ ul.select2-results__options li{
 }
 .title {
     color: grey;
+}
+
+#mob_nav {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .pnav_body {
+        display: none;
+    }
+    #nav_label {
+        display: none;
+    }
+    #mob_nav {
+        display: initial;
+    }
+    #setting_icon {
+        display: none;
+    }
+    .apply-item {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
 }

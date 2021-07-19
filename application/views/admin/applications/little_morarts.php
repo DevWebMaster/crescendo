@@ -22,12 +22,12 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <h4 class="ml-3">Little Morarts</h4>
+        <h4 class="ml-3">Auditions</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
             <div class="col-12 col-md-6">
               <div class="form-group mb-2" style="text-align: left;">
-                <input type="text" class="form-control form-control-sm" name="little_morarts_filter" id="little_morarts_filter" placeholder="Little Morarts Name">
+                <input type="text" class="form-control form-control-sm" name="audition_filter" id="audition_filter" placeholder="Audition Name">
               </div>
             </div>
             <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
@@ -39,7 +39,7 @@
           <div class="row">
             <div class="col-12">
               <div class="table-responsive px-1">  
-                <table id='little_morarts_list' class='table table-bordered table-striped text-center'>
+                <table id='audition_list' class='table table-bordered table-striped text-center'>
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
@@ -63,24 +63,24 @@
       </div>
       <br>
       <div class="row">
-        <h4 class="ml-3">Crescendo</h4>
+        <h4 class="ml-3">Recitals</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
             <div class="col-12 col-md-6">
               <div class="form-group mb-2" style="text-align: left;">
-                <input type="text" class="form-control form-control-sm" name="crescendo_filter" id="crescendo_filter" placeholder="Crescendo Name">
+                <input type="text" class="form-control form-control-sm" name="recital_filter" id="recital_filter" placeholder="Recital Name">
               </div>
             </div>
             <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
               <div class="form-group mt-2">
-                <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter_crescendo"><i class="fa fa-search" style="font-size: 20px;"></i></button>
+                <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter_recital"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <div class="table-responsive px-1">  
-                <table id='crescendo_list' class='table table-bordered table-striped text-center'>
+                <table id='recital_list' class='table table-bordered table-striped text-center'>
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
@@ -109,19 +109,19 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
-    init_little_morarts_list(filter = '');
+    init_audition_list(filter = '');
 
-    $('#little_morarts_list tbody').on('click', 'td a.delete-row', function(){
+    $('#audition_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/auditions/delete_little_morarts',
+        url: '<?= site_url(); ?>admin/applications/delete_audition',
         type: 'POST',
         data: {id: id},
         success: function(response){
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_little_morarts_list(filter = '');
+            init_audition_list(filter = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -131,18 +131,18 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_little_morarts_list(filter);
+      init_audition_list(filter);
     })
 
-    function init_little_morarts_list(filter){
-      $('#little_morarts_list').DataTable({
+    function init_audition_list(filter){
+      $('#audition_list').DataTable({
         'destroy': true,
         'processing': true,
         // 'serverSide': true,
         'pagingType': "simple",
         'serverMethod': 'post',
         'ajax': {
-            'url':'<?= site_url(); ?>admin/auditions/get_little_morarts_list',
+            'url':'<?= site_url(); ?>admin/applications/get_audition_list',
             'data': { filter: filter }
         },
         'columns': [
@@ -160,19 +160,19 @@
         ]
       });
     }
-    init_crescendo_list(filter = '');
+    init_recital_list(filter = '');
 
-    $('#crescendo_list tbody').on('click', 'td a.delete-row', function(){
+    $('#recital_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/auditions/delete_crescendo',
+        url: '<?= site_url(); ?>admin/applications/delete_recital',
         type: 'POST',
         data: {id: id},
         success: function(response){
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_crescendo_list(filter = '');
+            init_recital_list(filter = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -182,18 +182,18 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_crescendo_list(filter);
+      init_recital_list(filter);
     })
 
-    function init_crescendo_list(filter){
-      $('#crescendo_list').DataTable({
+    function init_recital_list(filter){
+      $('#recital_list').DataTable({
         'destroy': true,
         'processing': true,
         // 'serverSide': true,
         'pagingType': "simple",
         'serverMethod': 'post',
         'ajax': {
-            'url':'<?= site_url(); ?>admin/auditions/get_crescendo_list',
+            'url':'<?= site_url(); ?>admin/applications/get_recital_list',
             'data': { filter: filter }
         },
         'columns': [

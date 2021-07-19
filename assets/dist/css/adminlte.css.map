@@ -39,7 +39,6 @@
 		"../../node_modules/bootstrap/scss/mixins/_grid.scss",
 		"../../node_modules/bootstrap/scss/mixins/_float.scss",
 		"../../node_modules/bootstrap/scss/_root.scss",
-		"../../node_modules/bootstrap/scss/_reboot.scss",
 		"../../node_modules/bootstrap/scss/_type.scss",
 		"../../node_modules/bootstrap/scss/_images.scss",
 		"../../node_modules/bootstrap/scss/_code.scss",

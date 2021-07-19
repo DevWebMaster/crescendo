@@ -25,7 +25,7 @@ class Auth extends MY_Controller {
 
 		if($this->input->post('submit')){
 
-			$this->form_validation->set_rules('username', 'Username', 'trim|required');
+			$this->form_validation->set_rules('email', 'Email', 'trim|valid_email|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 				if ($this->form_validation->run() == FALSE) {
@@ -37,7 +37,7 @@ class Auth extends MY_Controller {
 				}
 				else {
 					$data = array(
-						'username' => $this->input->post('username'),
+						'email' => $this->input->post('email'),
 						'password' => $this->input->post('password')
 					);
 					$is_localadmin = $this->input->post('islocaladmin');

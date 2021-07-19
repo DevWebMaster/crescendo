@@ -33,6 +33,90 @@ class History extends My_Controller {
     $this->load->view('admin/history/crescendo');
     $this->load->view('admin/includes/_footer');
   }
+  public function get_little_morarts_application_list()
+  {
+    $audition_type = 1;
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $rowperpage = $_POST['length']; // Rows display per page
+    $columnIndex = $_POST['order'][0]['column']; // Column index
+    $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
+    $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
+    // $search_key = $_POST['search']['value'];
+
+    $search_key = $this->input->post('filter');
+
+    $totalRecords = $this->history_model->get_application_all_count($audition_type);
+    $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+
+    $data = array();
+    $inx = 0;
+    foreach ($application_list as $value) {
+        $inx++;
+        $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
+        $data[] = array( 
+          "id"=>$inx,
+          "student_name"=>$value['student'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "student_time"=>$value['duration'],
+          "score"=>$value['score'],
+          'place'=>$value['place'],
+       );
+    }
+
+    $result = array(
+      "draw" => intval($draw),
+      "iTotalRecords" => $totalRecords,
+      "iTotalDisplayRecords" => $totalRecordwithFilter,
+      "aaData" => $data
+    );
+
+    echo json_encode($result);
+  }
+  public function get_crescendo_application_list()
+  {
+    $audition_type = 2;
+    $draw = $_POST['draw'];
+    $start = $_POST['start'];
+    $rowperpage = $_POST['length']; // Rows display per page
+    $columnIndex = $_POST['order'][0]['column']; // Column index
+    $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
+    $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
+    // $search_key = $_POST['search']['value'];
+
+    $search_key = $this->input->post('filter');
+
+    $totalRecords = $this->history_model->get_application_all_count($audition_type);
+    $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+
+    $data = array();
+    $inx = 0;
+    foreach ($application_list as $value) {
+        $inx++;
+        $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
+        $data[] = array( 
+          "id"=>$inx,
+          "student_name"=>$value['student'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "student_time"=>$value['duration'],
+          "score"=>$value['score'],
+          'place'=>$value['place'],
+       );
+    }
+
+    $result = array(
+      "draw" => intval($draw),
+      "iTotalRecords" => $totalRecords,
+      "iTotalDisplayRecords" => $totalRecordwithFilter,
+      "aaData" => $data
+    );
+
+    echo json_encode($result);
+  }
 }
 
 ?>
