@@ -22,11 +22,25 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <h4 class="ml-3">Auditions</h4>
+        <div class="col-md-3 ml-1">
+          <div class="radio" style="display: flex; justify-content: space-between; padding-bottom: 8px;">
+            <label>
+                <input type="radio" name="little_morarts" id="auditions" value="1" checked="checked">
+                Auditions
+            </label>
+            <label>
+                <input type="radio" name="little_morarts" id="recitals" value="2">
+                Recitals
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="auditions_section">
+        <h4 class="ml-3 pl-1">Auditions</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
             <div class="col-12 col-md-6">
-              <div class="form-group mb-2" style="text-align: left;">
+              <div class="form-group mb-2 pl-1" style="text-align: left;">
                 <input type="text" class="form-control form-control-sm" name="audition_filter" id="audition_filter" placeholder="Audition Name">
               </div>
             </div>
@@ -61,13 +75,12 @@
           </div>
         </div>
       </div>
-      <br>
-      <div class="row">
-        <h4 class="ml-3">Recitals</h4>
+      <div class="row" id="recitals_section" style="display: none;">
+        <h4 class="ml-3 pl-1">Recitals</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
             <div class="col-12 col-md-6">
-              <div class="form-group mb-2" style="text-align: left;">
+              <div class="form-group mb-2 pl-1" style="text-align: left;">
                 <input type="text" class="form-control form-control-sm" name="recital_filter" id="recital_filter" placeholder="Recital Name">
               </div>
             </div>
@@ -109,6 +122,15 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
+    $("input[name='little_morarts']").click(function(){
+      if($('#recitals').is(':checked')){
+        $('#auditions_section').hide()
+        $('#recitals_section').show()
+      }else {
+        $('#auditions_section').show()
+        $('#recitals_section').hide()
+      }
+    })
     init_audition_list(filter = '');
 
     $('#audition_list tbody').on('click', 'td a.delete-row', function(){

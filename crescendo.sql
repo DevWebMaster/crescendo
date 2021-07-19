@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 10:29 AM
+-- Generation Time: Jul 19, 2021 at 08:16 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -446,7 +446,8 @@ INSERT INTO `gb_menu` (`id`, `module_name`, `controller_name`, `fa_icon`, `sort_
 (400, 'Applications', 'applications', 'fa-floppy-o', 400, 1, 0, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
 (500, 'Apply for Auditions', 'applyauditions', 'fa-folder-o', 500, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
 (600, 'Active Applications', 'activeapplication', 'fa-floppy-o', 600, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
-(700, 'History', 'history', 'fa-history', 700, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0);
+(700, 'History', 'history', 'fa-history', 700, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(800, 'Audition Location', 'audition_location', 'fa-map-marker', 800, 1, 4, '2021-07-19 00:00:00', 0, '2021-07-19 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -732,10 +733,36 @@ CREATE TABLE `tbl_instruments` (
 --
 
 INSERT INTO `tbl_instruments` (`id`, `name`) VALUES
-(1, 'piano'),
-(2, 'flute'),
-(3, 'violin'),
-(4, 'chelo');
+(1, 'Piano'),
+(2, 'Voice'),
+(3, 'Violin'),
+(4, 'Viola'),
+(5, 'Cello'),
+(6, 'Double bass'),
+(7, 'Harp'),
+(8, 'Guitar'),
+(9, 'Flute'),
+(10, 'Clarinet'),
+(11, 'Oboe'),
+(12, 'Bassoon'),
+(13, 'Saxophone'),
+(14, 'Trumpet'),
+(15, 'French horn'),
+(16, 'Trombone'),
+(17, 'Tuba'),
+(18, 'Acordion'),
+(19, 'Banjo'),
+(20, 'Fiddle'),
+(21, 'Harmonica'),
+(22, 'Ukulele'),
+(23, 'Guzheng'),
+(24, 'Pipa'),
+(25, 'Guqin'),
+(26, 'Dizi'),
+(27, 'Balalaika'),
+(28, 'Domra'),
+(29, 'Gusli'),
+(30, 'Recorder');
 
 -- --------------------------------------------------------
 
@@ -808,8 +835,24 @@ INSERT INTO `tbl_local_admin` (`id`, `name`, `email`, `address`, `mobile_no`, `n
 
 CREATE TABLE `tbl_locations` (
   `id` int(11) NOT NULL,
-  `location` varchar(255) NOT NULL
+  `location` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_locations`
+--
+
+INSERT INTO `tbl_locations` (`id`, `location`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'Caldwell University (NJ)', '0000-00-00 00:00:00', 0, NULL, NULL),
+(2, 'Westminster Conservatory (NJ)', '0000-00-00 00:00:00', 0, '2021-07-19 09:15:52', 1),
+(3, 'Sharon Music Academy (MA)', '0000-00-00 00:00:00', 0, NULL, NULL),
+(4, 'Pacific Institute of Music (CA)', '0000-00-00 00:00:00', 0, NULL, NULL),
+(5, 'Chopin Academy (WA)', '0000-00-00 00:00:00', 0, NULL, NULL),
+(6, 'cvbcvb', '2021-07-19 08:47:22', 1, '2021-07-19 09:15:24', 1);
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1181,7 @@ ALTER TABLE `tbl_crescendo`
 -- AUTO_INCREMENT for table `tbl_instruments`
 --
 ALTER TABLE `tbl_instruments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_little_morarts`
@@ -1156,7 +1199,7 @@ ALTER TABLE `tbl_local_admin`
 -- AUTO_INCREMENT for table `tbl_locations`
 --
 ALTER TABLE `tbl_locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_recital_crescendo`

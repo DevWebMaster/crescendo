@@ -88,6 +88,7 @@ class Auditions extends My_Controller {
   {
     $data['title'] = 'Add Little Morarts';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
+    $data['audition_locations'] = $this->auditions_model->get_audition_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/auditions/add_little_morarts');

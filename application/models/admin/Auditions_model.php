@@ -36,6 +36,12 @@
 			return $this->db->get()->result_array();
 		}
 
+		public function get_audition_locations(){
+			$this->db->select('id, location');
+			$this->db->from('tbl_locations');
+			return $this->db->get()->result_array();
+		}
+
 		public function save_little_morarts($data)
 		{
 			$this->db->insert('tbl_little_morarts', $data);
