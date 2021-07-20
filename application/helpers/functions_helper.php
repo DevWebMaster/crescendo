@@ -285,9 +285,11 @@
             }else if($role == 2){
                 $ci->db->where('role <>', 3);
                 $ci->db->where('role <>', 2);
+                $ci->db->where('role <>', 4);
             }else{
                 $ci->db->where('role <>', 0);
                 $ci->db->where('role <>', 2);
+                $ci->db->where('role <>', 4);
             }
             $ci->db->order_by('sort_order','asc');
             return $ci->db->get('gb_menu')->result_array();

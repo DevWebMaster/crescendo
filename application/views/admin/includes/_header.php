@@ -215,7 +215,7 @@
       <!-- user panel -->
       <li class="dropdown user user-menu open">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black !important;">
-          <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 32px; height: 32px;" class="user-image" alt="User Image">
+          <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 28px; height: 28px;" class="user-image" alt="User Image">
           <span id="setting_icon" class="hidden-xs" wfd-id="466">Setting</span>
         </a>
         <ul class="dropdown-menu" wfd-id="465">

@@ -56,7 +56,7 @@
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
-              <i class="fa fa-user icon"></i>
+              <i class="fa fa-flag icon"></i>
               <select class="form-control" name="country" id="country" style="color: #FFFFFF; background: grey;">
                 <?php
                   foreach($countries as $country):
@@ -68,20 +68,20 @@
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
-              <i class="fa fa-user icon"></i>
+              <i class="fa fa-home icon"></i>
               <input type="text" name="address" id="address" value="<?= old("address"); ?>" class="form-control" placeholder="<?= trans('address') ?>" >
               <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="Enter correct address as this will be used to as a mail recipient." style="color: white;"></i>
             </div>
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
-              <i class="fa fa-key icon"></i>
+              <i class="fa fa-envelope icon"></i>
               <input type="text" name="email" id="email" value="<?= old("email"); ?>" class="form-control" placeholder="<?= trans('email') ?>" >
             </div>
           </div>
           <div class="form-group has-feedback">
             <div class="input-container">
-              <i class="fa fa-user icon"></i>
+              <i class="fa fa-mobile icon"></i>
               <input type="text" name="mobile_no" id="mobile_no" value="<?= old("mobile_no"); ?>" class="form-control" placeholder="<?= trans('l_mobile_no') ?>" >
             </div>
           </div>
