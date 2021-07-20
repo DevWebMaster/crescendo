@@ -1,9 +1,10 @@
 <?php
 	class Recital_model extends CI_Model{
 		public function get_little_morarts_list($search_key, $start, $rowperpage) {
-			$this->db->select('a1.*, a2.name as localadmin');
+			$this->db->select('a1.*, a2.name as localadmin, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_little_morarts as a1');
 			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
+			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}
@@ -35,6 +36,11 @@
 			$this->db->from('tbl_local_admin');
 			return $this->db->get()->result_array();
 		}
+		public function get_audition_locations(){
+			$this->db->select('id, location');
+			$this->db->from('tbl_locations');
+			return $this->db->get()->result_array();
+		}
 
 		public function save_little_morarts($data)
 		{
@@ -44,9 +50,10 @@
 		}
 
 		public function get_crescendo_list($search_key, $start, $rowperpage) {
-			$this->db->select('a1.*, a2.name as localadmin');
+			$this->db->select('a1.*, a2.name as localadmin, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_crescendo as a1');
 			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
+			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}
@@ -77,6 +84,28 @@
 			$this->db->insert('tbl_recital_crescendo', $data);
 			$insertId = $this->db->insert_id();
 			return $insertId;
+		}
+		public function get_little_morarts_info($audition_id)
+		{
+			$this->db->select('a1.*');
+			$this->db->from('tbl_recital_little_morarts as a1');
+			$this->db->where('a1.id', $audition_id);
+			return $this->db->get()->result_array()[0];
+		}
+		public function update_little_morarts($data, $audition_id){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_recital_little_morarts', $data);
+		}
+		public function update_crescendo($data, $audition_id){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_recital_crescendo', $data);
+		}
+		public function get_crescendo_info($audition_id)
+		{
+			$this->db->select('a1.*');
+			$this->db->from('tbl_recital_crescendo as a1');
+			$this->db->where('a1.id', $audition_id);
+			return $this->db->get()->result_array()[0];
 		}
 	}
 ?>

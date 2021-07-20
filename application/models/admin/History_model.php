@@ -40,6 +40,10 @@
 				$this->db->from('tbl_little_morarts');
 			}else if($audition_type == 2){
 				$this->db->from('tbl_crescendo');
+			}else if($audition_type == 3){
+				$this->db->from('tbl_recital_little_morarts as a1');
+			}else if($audition_type == 4){
+				$this->db->from('tbl_recital_crescendo as a1');
 			}
 			$this->db->where('id', $audition_id);
 			return $this->db->get()->result_array()[0];

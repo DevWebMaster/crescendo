@@ -331,6 +331,9 @@ ul.select2-results__options li{
 #mob_nav {
     display: none;
 }
+.flex-group {
+    display: flex;
+}
 
 @media only screen and (max-width: 800px) {
     .pnav_body {

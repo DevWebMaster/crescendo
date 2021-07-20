@@ -57,15 +57,12 @@
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
-                      <th>Local Admin</th>
-                      <th>Audition Name</th>
-                      <th>Audition Location</th>
-                      <th>Audition Date</th>
-                      <th>Audition Fee</th>
-                      <th>Audition Deadline</th>
-                      <th>Late Fee</th>
-                      <th>Duration</th>
-                      <th>Is Active</th>
+                      <th>Student Name</th>
+                      <th>Composition</th>
+                      <th>Paid/Unpaid</th>
+                      <th>Student time</th>
+                      <th>Score</th>
+                      <th>Place</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -97,15 +94,12 @@
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
-                      <th>Local Admin</th>
-                      <th>Audition Name</th>
-                      <th>Audition Location</th>
-                      <th>Audition Date</th>
-                      <th>Audition Fee</th>
-                      <th>Audition Deadline</th>
-                      <th>Late Fee</th>
-                      <th>Duration</th>
-                      <th>Is Active</th>
+                      <th>Student Name</th>
+                      <th>Composition</th>
+                      <th>Paid/Unpaid</th>
+                      <th>Student time</th>
+                      <th>Score</th>
+                      <th>Place</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -136,7 +130,7 @@
     $('#audition_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/applications/delete_audition',
+        url: '<?= site_url(); ?>admin/applications/delete_little_morarts',
         type: 'POST',
         data: {id: id},
         success: function(response){
@@ -164,20 +158,17 @@
         'pagingType': "simple",
         'serverMethod': 'post',
         'ajax': {
-            'url':'<?= site_url(); ?>admin/applications/get_audition_list',
+            'url':'<?= site_url(); ?>admin/applications/get_apply_little_morarts_list',
             'data': { filter: filter }
         },
         'columns': [
            { data: 'id' },
-           { data: 'local_admin' },
-           { data: 'audition_name' },
-           { data: 'audition_location' },
-           { data: 'audition_date' },
-           { data: 'audition_fee' },
-           { data: 'audition_deadline' },
-           { data: 'late_fee' },
-           { data: 'duration' },
-           { data: 'is_active' },
+           { data: 'student_name' },
+           { data: 'composition' },
+           { data: 'is_paid' },
+           { data: 'student_time' },
+           { data: 'score' },
+           { data: 'place' },
            { data: 'action', "width": "10%"},
         ]
       });
@@ -187,7 +178,7 @@
     $('#recital_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
       $.ajax({
-        url: '<?= site_url(); ?>admin/applications/delete_recital',
+        url: '<?= site_url(); ?>admin/applications/delete_recital_little_morarts',
         type: 'POST',
         data: {id: id},
         success: function(response){
@@ -220,15 +211,12 @@
         },
         'columns': [
            { data: 'id' },
-           { data: 'local_admin' },
-           { data: 'audition_name' },
-           { data: 'audition_location' },
-           { data: 'audition_date' },
-           { data: 'audition_fee' },
-           { data: 'audition_deadline' },
-           { data: 'late_fee' },
-           { data: 'duration' },
-           { data: 'is_active' },
+           { data: 'student_name' },
+           { data: 'composition' },
+           { data: 'is_paid' },
+           { data: 'student_time' },
+           { data: 'score' },
+           { data: 'place' },
            { data: 'action', "width": "10%"},
         ]
       });
