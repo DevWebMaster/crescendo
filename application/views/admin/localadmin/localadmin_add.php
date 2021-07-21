@@ -52,7 +52,7 @@
                 <label for="mobile_no" class="col-md-2 control-label"><?= trans('mobile_no') ?></label>
 
                 <div class="col-md-12">
-                  <input type="number" name="mobile_no" class="form-control" id="mobile_no" placeholder="">
+                  <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="">
                 </div>
               </div>
               <div class="form-group">

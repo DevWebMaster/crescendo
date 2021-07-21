@@ -18,7 +18,7 @@ class Applications extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Morarts';
+    $data['title'] = 'Little Mozarts';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/applications/little_morarts');
@@ -54,6 +54,7 @@ class Applications extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -74,7 +75,7 @@ class Applications extends My_Controller {
   public function edit_little_morarts($apply_id = 0)
   {
     $audition_type = 1;
-    $data['title'] = 'Edit Little Morarts';
+    $data['title'] = 'Edit Little Mozarts';
     $data['apply_id'] = $apply_id;
     $data['apply_info'] = $this->applications_model->get_detail_info($apply_id, $audition_type);
 
@@ -124,6 +125,7 @@ class Applications extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -144,7 +146,7 @@ class Applications extends My_Controller {
   public function edit_recital_little_morarts($apply_id = 0)
   {
     $audition_type = 3;
-    $data['title'] = 'Edit Recital Little Morarts';
+    $data['title'] = 'Edit Recital Little Mozarts';
     $data['apply_id'] = $apply_id;
     $data['apply_info'] = $this->applications_model->get_detail_info($apply_id, $audition_type);
 
@@ -205,6 +207,7 @@ class Applications extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -225,7 +228,7 @@ class Applications extends My_Controller {
   public function edit_crescendo($apply_id = 0)
   {
     $audition_type = 2;
-    $data['title'] = 'Edit Little Morarts';
+    $data['title'] = 'Edit Little Mozarts';
     $data['apply_id'] = $apply_id;
     $data['apply_info'] = $this->applications_model->get_detail_info($apply_id, $audition_type);
 
@@ -275,6 +278,7 @@ class Applications extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],

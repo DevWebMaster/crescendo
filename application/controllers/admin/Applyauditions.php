@@ -18,7 +18,7 @@ class Applyauditions extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Morarts';
+    $data['title'] = 'Little Mozarts';
 
     $data['little_morarts'] = $this->applyauditions_model->get_little_morarts(0);
 
@@ -29,7 +29,7 @@ class Applyauditions extends My_Controller {
   }
   public function apply_little_morarts($audition_id = 0)
   {
-    $data['title'] = 'Apply Little Morarts';
+    $data['title'] = 'Apply Little Mozarts';
 
     $data['little_morart'] = $this->applyauditions_model->get_little_morarts($audition_id);
 
@@ -104,7 +104,7 @@ class Applyauditions extends My_Controller {
         'islate'=>$islate,
         'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
-        'request_date'=>$this->input->post('request_date'),
+        'request_time'=>$this->input->post('request_hour').'-'.$this->input->post('request_minute'),
         'request_reason'=>$this->input->post('request_reason'),
         'request_answer'=>$this->input->post('request_need'),
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,

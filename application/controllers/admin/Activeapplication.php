@@ -18,7 +18,7 @@ class Activeapplication extends My_Controller {
 
   public function index()
   {
-    $data['title'] = 'Little Morarts';
+    $data['title'] = 'Little Mozarts';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/activeapplication/little_morarts');
@@ -59,6 +59,7 @@ class Activeapplication extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -102,6 +103,7 @@ class Activeapplication extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -121,7 +123,7 @@ class Activeapplication extends My_Controller {
   }
   public function edit_little_morarts_application($apply_id = 0)
   {
-    $data['title'] = 'Edit Little Morarts';
+    $data['title'] = 'Edit Little Mozarts';
     $audition_type = 1;
 
     $user_id = $this->session->userdata('user_id');
@@ -199,7 +201,7 @@ class Activeapplication extends My_Controller {
         // 'islate'=>$islate,
         // 'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
-        'request_date'=>$this->input->post('request_date'),
+        'request_time'=>$this->input->post('request_hour').'-'.$this->input->post('request_minute'),
         'request_reason'=>$this->input->post('request_reason'),
         'request_answer'=>$this->input->post('request_need'),
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,

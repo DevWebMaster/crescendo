@@ -31,6 +31,7 @@
                     <th>ID</th>
                     <th>Student Name</th>
                     <th>Composition</th>
+                    <th>Title</th>
                     <th>Paid/Unpaid</th>
                     <th>Student time</th>
                     <th>Score</th>
@@ -90,6 +91,7 @@
            { data: 'id' },
            { data: 'student_name' },
            { data: 'composition' },
+           { data: 'title' },
            { data: 'is_paid' },
            { data: 'student_time' },
            { data: 'score' },

@@ -13,7 +13,7 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Audition Name:</label>
+                          <label class="title mr-2">Audition Center:</label>
                           <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $little_morart[0]['audition_name']; ?>">
                           <input type="hidden" name="audition_id" id="audition_id" value="<?= $little_morart[0]['id']; ?>">
                         </div>
@@ -94,7 +94,11 @@
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="request_date" id="request_date">
+                            <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date']; ?>">
+                            <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_hour" id="request_hour">
+                            <label class="title mr-2 mt-1">hour</label>
+                            <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_minute" id="request_minute">
+                            <label class="title mr-2 mt-1">minute</label>
                           </div>
                         </div>
                       </div>
@@ -190,12 +194,12 @@
                   </fieldset>
                   <hr>
                   <fieldset>
-                    <legend>Music Selection:</legend>
+                    <legend>REPERTOIRE:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Composer:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="composer" id="composer">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="composer" id="composer" placeholder="L.Beethoven">
                         </div>
                       </div>
                     </div>
@@ -203,7 +207,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Title(Op., No., mov., key):</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="title" id="title">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="title" id="title" placeholder="Sonata No.8, Op.13, C minor, I mov.">
                         </div>
                       </div>
                     </div>
@@ -212,7 +216,7 @@
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Duration(in Minutes):</label>
                           <div style="display: flex; align-items: center; width: 65%;">
-                            <input type="number" class="form-control form-control-sm mr-1" name="student_time" id="student_time">
+                            <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm mr-1" name="student_time" id="student_time">
                             <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="'Enter accurate time of piece as this will be the allotted time allowed."></i>
                           </div>
                         </div>
@@ -265,7 +269,7 @@
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date">
+                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" max="<?= date('Y-m-d'); ?>">
                           </div>
                         </div>
                       </div>

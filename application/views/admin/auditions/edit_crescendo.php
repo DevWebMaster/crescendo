@@ -91,7 +91,7 @@
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Duration*</label>
-                        <input type="number" class="form-control form-control-sm" name="duration" id="duration" value="<?= $audition_info['duration']; ?>">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="duration" id="duration" value="<?= $audition_info['duration']; ?>">
                       </div>
                     </div>
                   </div>
@@ -112,7 +112,7 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Audition Fee*</label>
-                        <input type="number" class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $audition_info['late_fee']; ?>">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $audition_info['late_fee']; ?>">
                       </div>
                     </div>
                     <div class="col-12 col-md-4">

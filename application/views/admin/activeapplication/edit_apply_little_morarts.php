@@ -13,7 +13,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <input type="hidden" name="apply_id" id="apply_id" value="<?= $apply_id; ?>">
-                          <label class="title mr-2">Audition Name:</label>
+                          <label class="title mr-2">Audition Center:</label>
                           <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $little_morart[0]['audition_name']; ?>">
                           <input type="hidden" name="audition_id" id="audition_id" value="<?= $little_morart[0]['id']; ?>">
                         </div>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                       <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
+                        <div class="form-group mb-2">
                           <!-- <label>Special Request:</label> -->
                           <input type="checkbox" name="isonline" id="isonline"> Online Video
                         </div>
@@ -83,7 +83,7 @@
                     <legend>Special Request:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
+                        <div class="form-group mb-2">
                           <!-- <label>Special Request:</label> -->
                           <input type="checkbox" name="special_request" id="special_request"> Do you have a special request?
                         </div>
@@ -94,7 +94,11 @@
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['request_date'] ?>">
+                            <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date'] ?>">
+                            <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_hour" id="request_hour" value="<?= explode('-', $little_morart[0]['request_time'])[0]; ?>">
+                            <label class="title mr-2 mt-1">hour</label>
+                            <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_minute" id="request_minute" value="<?= explode('-', $little_morart[0]['request_time'])[1]; ?>">
+                            <label class="title mr-2 mt-1">minute</label>
                           </div>
                         </div>
                       </div>
@@ -184,7 +188,7 @@
                   </fieldset>
                   <hr>
                   <fieldset>
-                    <legend>Music Selection:</legend>
+                    <legend>REPERTOIRE:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
@@ -259,7 +263,7 @@
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" value="<?= $little_morart[0]['transaction_date']; ?>">
+                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" value="<?= $little_morart[0]['transaction_date']; ?>" max="<?= date('Y-m-d'); ?>">
                           </div>
                         </div>
                       </div>

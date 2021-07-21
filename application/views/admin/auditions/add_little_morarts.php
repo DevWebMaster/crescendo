@@ -90,7 +90,7 @@
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Duration*</label>
-                        <input type="number" class="form-control form-control-sm" name="duration" id="duration" placeholder="minutes">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="duration" id="duration" placeholder="minutes">
                       </div>
                     </div>
                   </div>
@@ -111,7 +111,7 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Audition Fee*</label>
-                        <input type="number" class="form-control form-control-sm" name="late_fee" id="late_fee" placeholder="">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="late_fee" id="late_fee" placeholder="">
                       </div>
                     </div>
                     <div class="col-12 col-md-4">

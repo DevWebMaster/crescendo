@@ -18,7 +18,7 @@ class Auditions extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Morarts List';
+    $data['title'] = 'Little Mozarts List';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/auditions/little_morarts');
@@ -89,7 +89,7 @@ class Auditions extends My_Controller {
   }
   public function add_little_morarts()
   {
-    $data['title'] = 'Add Little Morarts';
+    $data['title'] = 'Add Little Mozarts';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
 
@@ -122,7 +122,7 @@ class Auditions extends My_Controller {
   }
   public function edit_little_morarts($audition_id = 0)
   {
-    $data['title'] = 'Edit Little Morarts';
+    $data['title'] = 'Edit Little Mozarts';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
     $data['audition_id'] = $audition_id;

@@ -18,7 +18,7 @@ class History extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Morarts';
+    $data['title'] = 'Little Mozarts';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/history/little_morarts');
@@ -59,6 +59,7 @@ class History extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
@@ -101,6 +102,7 @@ class History extends My_Controller {
           "id"=>$inx,
           "student_name"=>$value['student'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
           "score"=>$value['score'],
