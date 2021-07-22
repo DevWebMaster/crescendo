@@ -248,26 +248,11 @@
      // -----------------------------------------------------------------------------
     // Generate Admin Sidebar Sub Menu
     if (!function_exists('get_sidebar_sub_menu')) {
-        function get_sidebar_sub_menu($parent_id, $role)
+        function get_sidebar_sub_menu($parent_id)
         {
             $ci =& get_instance();
             $ci->db->select('*');
             $ci->db->where('parent',$parent_id);
-            if($role == 3){
-                $ci->db->where('permission <>', $role);
-                $ci->db->where('permission <>', 5);
-                $ci->db->where('permission <>', 1);
-            }else if($role == 4){
-                $ci->db->where('permission <>', $role);
-                $ci->db->where('permission <>', 5);
-                $ci->db->where('permission <>', 1);
-            }else if($role == 2){
-                $ci->db->where('permission <>', 1);
-            }else if($role == 5){
-                $ci->db->where('permission <>', $role);
-                $ci->db->where('permission <>', 3);
-                $ci->db->where('permission <>', 1);
-            }
             $ci->db->order_by('sort_order','asc');
             return $ci->db->get('gb_menu_submenu')->result_array();
         }

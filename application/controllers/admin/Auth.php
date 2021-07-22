@@ -13,7 +13,7 @@ class Auth extends MY_Controller {
 	public function index(){
 
 		if($this->session->has_userdata('is_admin_login')){
-			redirect('admin/account');
+			redirect('admin/applyauditions');
 		}
 		else{
 			redirect('admin/auth/login');
@@ -66,9 +66,9 @@ class Auth extends MY_Controller {
 								$this->rbac->set_access_in_session(); // set access in session
 
 								if($result['is_super'])
-									redirect(base_url('admin/account/index'), 'refresh');
+									redirect(base_url('admin/applyauditions/index'), 'refresh');
 								else
-									redirect(base_url('admin/account/index'), 'refresh');
+									redirect(base_url('admin/applyauditions/index'), 'refresh');
 								}
 							}
 						else{

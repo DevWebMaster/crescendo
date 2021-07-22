@@ -119,13 +119,37 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Name:</label>
-                          <select style="width: 65%;" class="form-control" name="student_name" id="student_name">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme.">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="country_id" id="country_id">
                             <?php
-                              foreach($students as $student):
+                              foreach($countries as $country):
                             ?>
-                              <option value="<?= $student['id']; ?>"><?= $student['username'] ?></option>
+                              <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
                             <?php endforeach; ?>
                           </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no">
                         </div>
                       </div>
                     </div>
@@ -230,13 +254,37 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher:</label>
-                          <select style="width: 65%;" class="form-control" name="teacher" id="teacher">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme.">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
                             <?php
-                              foreach($teachers as $teacher):
+                              foreach($countries as $country):
                             ?>
-                              <option value="<?= $teacher['id']; ?>"><?= $teacher['username'] ?></option>
+                              <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
                             <?php endforeach; ?>
                           </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no">
                         </div>
                       </div>
                     </div>

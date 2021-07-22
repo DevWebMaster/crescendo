@@ -108,9 +108,8 @@
 			return $query->num_rows();
 		}
 		public function get_detail_info($apply_id, $audition_type){
-			$this->db->select('a1.*, a2.username, concat(a3.audition_name, " ", a4.location) as position');
+			$this->db->select('a1.*, concat(a3.audition_name, " ", a4.location) as position');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
 			$this->db->join('tbl_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
 			$this->db->join('tbl_locations as a4', 'a4.id = a3.audition_location', 'left');
 			$this->db->where('a1.id', $apply_id);

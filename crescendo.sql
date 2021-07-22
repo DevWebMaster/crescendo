@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 08:16 PM
+-- Generation Time: Jul 22, 2021 at 01:14 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -440,13 +440,12 @@ CREATE TABLE `gb_menu` (
 --
 
 INSERT INTO `gb_menu` (`id`, `module_name`, `controller_name`, `fa_icon`, `sort_order`, `rec_status`, `role`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(100, 'Accounts', 'account', 'fa-cog', 100, 1, 1, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
 (200, 'Auditions', 'auditions', 'fa-folder-o', 200, 1, 0, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
 (300, 'Recitals', 'recital', 'fa-tasks', 300, 1, 2, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
 (400, 'Applications', 'applications', 'fa-floppy-o', 400, 1, 0, '2020-07-28 00:07:14', 0, '2020-07-28 00:07:14', 0),
-(500, 'Apply for Auditions', 'applyauditions', 'fa-folder-o', 500, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
-(600, 'Active Applications', 'activeapplication', 'fa-floppy-o', 600, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
-(700, 'History', 'history', 'fa-history', 700, 1, 3, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(500, 'Apply for Auditions', 'applyauditions', 'fa-folder-o', 500, 1, 1, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(600, 'Active Applications', 'activeapplication', 'fa-floppy-o', 600, 1, 1, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
+(700, 'History', 'history', 'fa-history', 700, 1, 1, '2021-07-09 00:00:00', 0, '2021-07-09 00:00:00', 0),
 (800, 'Audition Location', 'audition_location', 'fa-map-marker', 800, 1, 4, '2021-07-19 00:00:00', 0, '2021-07-19 00:00:00', 0);
 
 -- --------------------------------------------------------
@@ -475,21 +474,17 @@ CREATE TABLE `gb_menu_submenu` (
 --
 
 INSERT INTO `gb_menu_submenu` (`id`, `parent`, `name`, `link`, `fa_icon`, `sort_order`, `rec_status`, `permission`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(101, 100, 'Student', 'account/index', NULL, 101, 1, 4, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(102, 100, 'Teacher', 'account/teacher_list', NULL, 102, 1, 3, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(103, 100, 'Parent', 'account/parent_list', NULL, 103, 1, 5, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(104, 100, 'Local Admin', 'account/local_admin', NULL, 104, 1, 1, '2021-07-07 00:00:00', 0, '2021-07-07 00:00:00', 0),
-(201, 200, 'Little Morarts', 'auditions/index', '', 201, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
+(201, 200, 'Little Mozarts', 'auditions/index', '', 201, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
 (202, 200, 'Crescendo', 'auditions/crescendo_list', '', 202, 1, 0, '2020-11-25 00:00:00', 0, '2020-11-25 00:00:00', 0),
-(301, 300, 'Little Morarts', 'recital/index', '', 301, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
+(301, 300, 'Little Mozarts', 'recital/index', '', 301, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
 (302, 300, 'Crescendo', 'recital/crescendo_list', '', 302, 1, 0, '2020-08-18 15:47:32', 0, '2020-08-18 15:47:32', 0),
-(402, 400, 'Little Morarts', 'applications/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
+(402, 400, 'Little Mozarts', 'applications/index', '', 402, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
 (403, 400, 'Crescendo', 'applications/crescendo', NULL, 403, 1, 0, '2021-04-04 00:00:00', 0, '2021-04-04 00:00:00', 0),
-(501, 500, 'Little Morarts', 'applyauditions/index', '', 501, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
+(501, 500, 'Little Mozarts', 'applyauditions/index', '', 501, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
 (502, 500, 'Crescendo', 'applyauditions/crescendo', '', 502, 1, 0, '2021-07-13 00:00:00', 0, '2021-07-13 00:00:00', 0),
-(601, 600, 'Little Morarts', 'activeapplication/index', NULL, 601, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
+(601, 600, 'Little Mozarts', 'activeapplication/index', NULL, 601, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
 (602, 600, 'Crescendo', 'activeapplication/crescendo', NULL, 602, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
-(701, 700, 'Little Morarts', 'history/index', NULL, 701, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
+(701, 700, 'Little Mozarts', 'history/index', NULL, 701, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0),
 (702, 700, 'Crescendo', 'history/crescendo', NULL, 702, 1, 0, '2021-07-14 00:00:00', 0, '2021-07-14 00:00:00', 0);
 
 -- --------------------------------------------------------
@@ -642,9 +637,12 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `tbl_applications` (
   `id` int(11) NOT NULL,
-  `audition_type` int(11) NOT NULL COMMENT '1:little_morarts, 2:crescendo',
+  `audition_type` int(11) NOT NULL COMMENT '1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo',
   `audition_id` int(11) NOT NULL,
-  `student_name` int(11) NOT NULL,
+  `student_name` varchar(255) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `mobile_no` varchar(255) NOT NULL,
   `instrument` int(11) NOT NULL,
   `performance_type` varchar(255) NOT NULL,
   `performance_price` varchar(255) NOT NULL,
@@ -652,7 +650,10 @@ CREATE TABLE `tbl_applications` (
   `composer` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
-  `teacher` int(11) DEFAULT NULL,
+  `teacher` varchar(255) NOT NULL,
+  `teacher_country_id` int(11) NOT NULL,
+  `teacher_address` varchar(255) NOT NULL,
+  `teacher_mobile` varchar(255) NOT NULL,
   `payment_type` tinyint(1) NOT NULL COMMENT '1:paypal, 2:ordercheck',
   `transaction_id` varchar(255) DEFAULT NULL,
   `transaction_date` date DEFAULT NULL,
@@ -661,12 +662,12 @@ CREATE TABLE `tbl_applications` (
   `islate` tinyint(1) NOT NULL DEFAULT 0,
   `late_fee` varchar(255) DEFAULT NULL,
   `special_request` tinyint(1) NOT NULL DEFAULT 0,
-  `request_date` date DEFAULT NULL,
+  `request_time` varchar(255) DEFAULT NULL,
   `request_reason` varchar(255) DEFAULT NULL,
   `request_answer` varchar(255) DEFAULT NULL,
   `confirm_payment` tinyint(1) NOT NULL DEFAULT 0 COMMENT '1:paid, 0:unpaid',
-  `score` varchar(255) DEFAULT NULL,
-  `place` int(11) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
   `evaluation` varchar(255) DEFAULT NULL,
   `isonline` tinyint(1) NOT NULL DEFAULT 0,
   `video_link` varchar(255) DEFAULT NULL,
@@ -680,8 +681,9 @@ CREATE TABLE `tbl_applications` (
 -- Dumping data for table `tbl_applications`
 --
 
-INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_date`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(4, 1, 1, 4, 1, '1', '50', '', 'qwesdf', 'dfgdfg', '6', NULL, 1, '123qwe', '2021-07-16', '', 0, 0, NULL, 0, '0000-00-00', NULL, '', 0, NULL, NULL, NULL, 0, '', '2021-07-16 08:45:54', 4, NULL, NULL);
+INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `country_id`, `address`, `mobile_no`, `instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `teacher_country_id`, `teacher_address`, `teacher_mobile`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_time`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(4, 1, 1, 'morgan', 1, '', '', 2, '2', '70', 'ddfgds', 'aaaa', 'sssss', '6', '', 0, '', '', 1, '123qwe', '2021-07-16', '', 1, 0, NULL, 0, '12-35', NULL, '', 0, 5, 'sdfsdfsdf', NULL, 0, '', '2021-07-16 08:45:54', 4, '2021-07-20 07:01:38', 4),
+(5, 1, 1, 'malcom stuward', 1, 'asdasd', '123123', 1, '1', '50', '', 'qwesdf', 'dfgdfg', '23', 'dfgsdfg', 1, 'sdfg', 'ertert', 1, 'adfsa23423', '2021-07-21', '', 1, 0, NULL, 0, '12-3', NULL, '', 0, 9, 'very good', NULL, 0, '', '2021-07-22 00:31:43', 1, '2021-07-22 02:11:28', 1);
 
 -- --------------------------------------------------------
 
@@ -715,7 +717,7 @@ CREATE TABLE `tbl_crescendo` (
 --
 
 INSERT INTO `tbl_crescendo` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'sdf', 'sdf', '2021-07-13', '', '100', '', '', '', '2021-07-17', '50', '', '', 2, 0, '2021-07-12 22:35:26', NULL);
+(1, 1, 'crescendo 1', '2', '2021-07-13', '50', '100', '200', '300', '400', '2021-07-17', '57', '100', '100', 1, 0, '2021-07-12 22:35:26', '2021-07-19 23:41:21');
 
 -- --------------------------------------------------------
 
@@ -762,7 +764,8 @@ INSERT INTO `tbl_instruments` (`id`, `name`) VALUES
 (27, 'Balalaika'),
 (28, 'Domra'),
 (29, 'Gusli'),
-(30, 'Recorder');
+(30, 'Recorder'),
+(31, 'Other');
 
 -- --------------------------------------------------------
 
@@ -796,7 +799,7 @@ CREATE TABLE `tbl_little_morarts` (
 --
 
 INSERT INTO `tbl_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'ggg', 'sdfsdf', '2021-07-12', '50', '100', '150', '200', '400', '2021-07-16', '50', '120', '114', 1, 0, '2021-07-12 03:00:58', NULL);
+(1, 1, 'hhhasd', '1', '2021-07-14', '50', '70', '100', '150', '200', '2021-07-15', '50', '120', '97', 2, 0, '2021-07-12 03:00:58', '2021-07-19 23:53:37');
 
 -- --------------------------------------------------------
 
@@ -825,7 +828,7 @@ CREATE TABLE `tbl_local_admin` (
 --
 
 INSERT INTO `tbl_local_admin` (`id`, `name`, `email`, `address`, `mobile_no`, `note`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `created_at`, `updated_at`) VALUES
-(1, 'localadmin', 'localadmin@gmail.com', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 'localadmin1', 'localadmin1@gmail.com', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -886,7 +889,7 @@ CREATE TABLE `tbl_recital_crescendo` (
 --
 
 INSERT INTO `tbl_recital_crescendo` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'bnmbnm', 'bnmbnmbnmbnm', '2021-07-21', '', '', '', '99', '', '2021-07-30', '50', '200', '200', 2, 0, '2021-07-12 23:06:13', NULL);
+(1, 1, 'bnmbnm5', '1', '2021-07-21', '50', '150', '250', '300', '450', '2021-07-30', '50', '198', '198', 2, 0, '2021-07-12 23:06:13', '2021-07-19 23:58:07');
 
 -- --------------------------------------------------------
 
@@ -920,7 +923,7 @@ CREATE TABLE `tbl_recital_little_morarts` (
 --
 
 INSERT INTO `tbl_recital_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'hhh', 'hhhhhhhh', '2021-07-14', '', '', '100', '', '', '2021-07-15', '50', '120', '120', 2, 0, '2021-07-12 23:02:54', NULL);
+(1, 1, 'hhhxxx', '5', '2021-07-14', '50', '100', '200', '300', '400', '2021-07-15', '23', '120', '120', 2, 0, '2021-07-12 23:02:54', '2021-07-19 23:56:25');
 
 -- --------------------------------------------------------
 
@@ -1169,7 +1172,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbl_applications`
 --
 ALTER TABLE `tbl_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_crescendo`
@@ -1181,7 +1184,7 @@ ALTER TABLE `tbl_crescendo`
 -- AUTO_INCREMENT for table `tbl_instruments`
 --
 ALTER TABLE `tbl_instruments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_little_morarts`

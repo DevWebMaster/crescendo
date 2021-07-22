@@ -9,7 +9,7 @@
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
                         <input type="hidden" name="apply_id" id="apply_id" value="<?= $apply_id; ?>">
-                        <input type="text" readonly class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $apply_info['username']; ?>">
+                        <input type="text" readonly class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $apply_info['student_name']; ?>">
                       </div>
                     </div>
                   </div>

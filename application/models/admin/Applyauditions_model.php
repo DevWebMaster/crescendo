@@ -64,5 +64,12 @@
 			$this->db->where('id', $audition_id);
 			return $this->db->update('tbl_little_morarts', array('remain_duration' => $remain_duration));
 		}
+		public function get_countries(){
+			$this->db->select('*');
+			$this->db->from('ci_countries');
+			$this->db->order_by('id');
+
+			return $this->db->get()->result_array();
+		}
 	}
 ?>

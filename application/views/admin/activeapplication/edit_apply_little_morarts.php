@@ -119,7 +119,37 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Name:</label>
-                            <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $little_morart[0]['username']; ?>">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $little_morart[0]['student_name']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="country_id" id="country_id">
+                            <?php
+                              foreach($countries as $country):
+                            ?>
+                              <option value="<?= $country['id']; ?>" <?php if($little_morart[0]['country_id'] == $country['id']) { echo "selected"; } ?>><?= $country['name'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address" value="<?= $little_morart[0]['address']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $little_morart[0]['mobile_no']; ?>">
                         </div>
                       </div>
                     </div>
@@ -224,13 +254,37 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher:</label>
-                          <select style="width: 65%;" class="form-control" name="teacher" id="teacher">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" value="<?= $little_morart[0]['teacher']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
                             <?php
-                              foreach($teachers as $teacher):
+                              foreach($countries as $country):
                             ?>
-                              <option value="<?= $teacher['id']; ?>" <?php if($little_morart[0]['teacher'] == $teacher['id']) { echo "selected"; } ?> ><?= $teacher['username'] ?></option>
+                              <option value="<?= $country['id']; ?>" <?php if($little_morart[0]['teacher_country_id'] == $country['id']) { echo "selected"; } ?>><?= $country['name'] ?></option>
                             <?php endforeach; ?>
                           </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $little_morart[0]['teacher_address']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $little_morart[0]['teacher_mobile']; ?>">
                         </div>
                       </div>
                     </div>

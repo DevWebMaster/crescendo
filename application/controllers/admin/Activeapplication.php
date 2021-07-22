@@ -57,7 +57,7 @@ class Activeapplication extends My_Controller {
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
-          "student_name"=>$value['student'],
+          "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
@@ -101,7 +101,7 @@ class Activeapplication extends My_Controller {
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
-          "student_name"=>$value['student'],
+          "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
@@ -132,6 +132,8 @@ class Activeapplication extends My_Controller {
     $data['students'] = $this->applyauditions_model->get_students($user_id, $role_id);
 
     $data['instruments'] = $this->applyauditions_model->get_instruments();
+
+    $data['countries'] = $this->applyauditions_model->get_countries();
 
     $data['teachers'] = $this->applyauditions_model->get_teachers($user_id, $role_id);
 
@@ -184,7 +186,10 @@ class Activeapplication extends My_Controller {
       $data = array(
         'audition_type'=>1, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
         // 'audition_id'=>$this->input->post('audition_id'),
-        // 'student_name'=>$this->input->post('student_name'),
+        'student_name'=>$this->input->post('student_name'),
+        'country_id'=>$this->input->post('country_id'),
+        'address'=>$this->input->post('student_address'),
+        'mobile_no'=>$this->input->post('student_mobile_no'),
         'instrument'=>$this->input->post('instrument'),
         // 'duration'=>$student_time,
         'performance_type'=>$performance_type,
@@ -192,7 +197,10 @@ class Activeapplication extends My_Controller {
         'co_performers'=>$this->input->post('co_performers'),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
-        'teacher'=>$this->input->post('teacher'),
+        'teacher'=>$this->input->post('teacher_name'),
+        'teacher_country_id'=>$this->input->post('teacher_country_id'),
+        'teacher_address'=>$this->input->post('teacher_address'),
+        'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
         'payment_type'=>$this->input->post('payment_type'),
         'transaction_id'=>$transaction_id,
         'transaction_date'=>$transaction_date,

@@ -1,10 +1,8 @@
 <?php
 	class Activeapplication_model extends CI_Model{
 		public function get_application_list($search_key, $start, $rowperpage, $audition_type) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
@@ -22,13 +20,11 @@
 			
 		}
 		public function get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a2.id', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
 			}
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();

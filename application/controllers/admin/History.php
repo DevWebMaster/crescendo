@@ -57,7 +57,7 @@ class History extends My_Controller {
         $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
-          "student_name"=>$value['student'],
+          "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
@@ -100,7 +100,7 @@ class History extends My_Controller {
         $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
-          "student_name"=>$value['student'],
+          "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
