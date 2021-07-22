@@ -18,7 +18,7 @@ class Auditions extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Mozarts List';
+    $data['title'] = 'Little Mozarts';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/auditions/little_morarts');
@@ -158,7 +158,7 @@ class Auditions extends My_Controller {
   }
   public function crescendo_list()
   {
-    $data['title'] = 'Crescendo List';
+    $data['title'] = 'Crescendo';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/auditions/crescendo_list');

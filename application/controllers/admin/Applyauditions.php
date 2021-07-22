@@ -89,9 +89,11 @@ class Applyauditions extends My_Controller {
         'audition_type'=>1, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
         'audition_id'=>$this->input->post('audition_id'),
         'student_name'=>$this->input->post('student_name'),
+        'student_email'=>$this->input->post('student_email'),
         'country_id'=>$this->input->post('country_id'),
         'address'=>$this->input->post('student_address'),
         'mobile_no'=>$this->input->post('student_mobile_no'),
+        'birthday'=>$this->input->post('student_birthday'),
         'instrument'=>$this->input->post('instrument'),
         'duration'=>$student_time,
         'performance_type'=>$performance_type,
@@ -100,6 +102,7 @@ class Applyauditions extends My_Controller {
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
+        'teacher_email'=>$this->input->post('teacher_email'),
         'teacher_country_id'=>$this->input->post('teacher_country_id'),
         'teacher_address'=>$this->input->post('teacher_address'),
         'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
@@ -116,6 +119,7 @@ class Applyauditions extends My_Controller {
         'request_answer'=>$this->input->post('request_need'),
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
         'video_link'=>$this->input->post('video_link'),
+        'token'=>$this->session->userdata('token'),
         'created_at'=>date('Y-m-d H:i:s'),
         'created_by'=>$this->session->userdata('user_id'),
       );

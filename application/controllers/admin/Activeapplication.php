@@ -35,6 +35,7 @@ class Activeapplication extends My_Controller {
   }
   public function get_little_morarts_application_list()
   {
+    $token = $this->session->userdata('token');
     $audition_type = 1;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
@@ -48,7 +49,7 @@ class Activeapplication extends My_Controller {
 
     $totalRecords = $this->activeapplication_model->get_application_all_count($audition_type);
     $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
@@ -79,6 +80,7 @@ class Activeapplication extends My_Controller {
   }
   public function get_crescendo_application_list()
   {
+    $token = $this->session->userdata('token');
     $audition_type = 2;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
@@ -92,7 +94,7 @@ class Activeapplication extends My_Controller {
 
     $totalRecords = $this->activeapplication_model->get_application_all_count($audition_type);
     $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
@@ -187,9 +189,11 @@ class Activeapplication extends My_Controller {
         'audition_type'=>1, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
         // 'audition_id'=>$this->input->post('audition_id'),
         'student_name'=>$this->input->post('student_name'),
+        'student_email'=>$this->input->post('student_email'),
         'country_id'=>$this->input->post('country_id'),
         'address'=>$this->input->post('student_address'),
         'mobile_no'=>$this->input->post('student_mobile_no'),
+        'birthday'=>$this->input->post('student_birthday'),
         'instrument'=>$this->input->post('instrument'),
         // 'duration'=>$student_time,
         'performance_type'=>$performance_type,
@@ -198,6 +202,7 @@ class Activeapplication extends My_Controller {
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
+        'teacher_email'=>$this->input->post('teacher_email'),
         'teacher_country_id'=>$this->input->post('teacher_country_id'),
         'teacher_address'=>$this->input->post('teacher_address'),
         'teacher_mobile'=>$this->input->post('teacher_mobile_no'),

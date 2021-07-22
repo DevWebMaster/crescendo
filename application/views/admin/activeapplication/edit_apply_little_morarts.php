@@ -126,6 +126,14 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Student Email:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email" value="<?= $little_morart[0]['student_email']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Country:</label>
                           <select style="width: 65%;" class="form-control" name="country_id" id="country_id">
                             <?php
@@ -150,6 +158,14 @@
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Mobile Number:</label>
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $little_morart[0]['mobile_no']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Student Birthday:</label>
+                          <input style="width: 65%;" type="date" class="form-control form-control-sm" name="student_birthday" id="student_birthday" value="<?= $little_morart[0]['birthday']; ?>">
                         </div>
                       </div>
                     </div>
@@ -255,6 +271,14 @@
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher:</label>
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" value="<?= $little_morart[0]['teacher']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Teacher Email:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $little_morart[0]['teacher_email']; ?>">
                         </div>
                       </div>
                     </div>

@@ -54,14 +54,27 @@ class Auth extends MY_Controller {
 								exit();
 							}
 							if($result['is_admin'] == 1){
-								$admin_data = array(
-									'user_id' => $result['id'],
-									'username' => $result['username'],
-									'admin_role_id' => $result['admin_role_id'],
-									'admin_role' => $result['title'],
-									'is_super' => $result['is_super'],
-									'is_admin_login' => TRUE
-								);
+								if($result['admin_role_id'] == 2){
+									$admin_data = array(
+										'user_id' => $result['id'],
+										'username' => $result['username'],
+										'admin_role_id' => $result['admin_role_id'],
+										'admin_role' => $result['title'],
+										'token' => $result['id'],
+										'is_super' => $result['is_super'],
+										'is_admin_login' => TRUE
+									);
+								}else {
+									$admin_data = array(
+										'user_id' => $result['id'],
+										'username' => $result['username'],
+										'admin_role_id' => $result['admin_role_id'],
+										'admin_role' => $result['title'],
+										'token' => $result['token'],
+										'is_super' => $result['is_super'],
+										'is_admin_login' => TRUE
+									);
+								}
 								$this->session->set_userdata($admin_data);
 								$this->rbac->set_access_in_session(); // set access in session
 
@@ -134,7 +147,7 @@ class Auth extends MY_Controller {
 						'is_active' => 1,
 						'is_verify' => 1,
 						'is_admin' => 1,
-						'token' => md5(rand(0,1000)),    
+						'token' => md5(rand(0,1000)),  
 						'last_ip' => '',
 						'created_at' => date('Y-m-d : h:m:s'),
 						'updated_at' => date('Y-m-d : h:m:s'),

@@ -1,12 +1,16 @@
 <?php
 	class History_model extends CI_Model{
-		public function get_application_list($search_key, $start, $rowperpage, $audition_type) {
+		public function get_application_list($search_key, $start, $rowperpage, $audition_type, $token) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
 			}
 			$this->db->where('audition_type', $audition_type);
+			if($token != 'super'){
+				$this->db->where('token', $token);
+			}
+			
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;

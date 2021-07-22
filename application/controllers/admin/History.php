@@ -35,6 +35,7 @@ class History extends My_Controller {
   }
   public function get_little_morarts_application_list()
   {
+    $token = $this->session->userdata('token');
     $audition_type = 1;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
@@ -48,7 +49,7 @@ class History extends My_Controller {
 
     $totalRecords = $this->history_model->get_application_all_count($audition_type);
     $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
@@ -78,6 +79,7 @@ class History extends My_Controller {
   }
   public function get_crescendo_application_list()
   {
+    $token = $this->session->userdata('token');
     $audition_type = 2;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
@@ -91,7 +93,7 @@ class History extends My_Controller {
 
     $totalRecords = $this->history_model->get_application_all_count($audition_type);
     $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;

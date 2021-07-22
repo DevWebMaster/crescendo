@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2021 at 01:14 PM
+-- Generation Time: Jul 22, 2021 at 06:38 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -640,9 +640,11 @@ CREATE TABLE `tbl_applications` (
   `audition_type` int(11) NOT NULL COMMENT '1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo',
   `audition_id` int(11) NOT NULL,
   `student_name` varchar(255) NOT NULL,
+  `student_email` varchar(255) NOT NULL,
   `country_id` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `mobile_no` varchar(255) NOT NULL,
+  `birthday` date NOT NULL,
   `instrument` int(11) NOT NULL,
   `performance_type` varchar(255) NOT NULL,
   `performance_price` varchar(255) NOT NULL,
@@ -651,6 +653,7 @@ CREATE TABLE `tbl_applications` (
   `title` varchar(255) NOT NULL,
   `duration` varchar(255) NOT NULL,
   `teacher` varchar(255) NOT NULL,
+  `teacher_email` varchar(255) NOT NULL,
   `teacher_country_id` int(11) NOT NULL,
   `teacher_address` varchar(255) NOT NULL,
   `teacher_mobile` varchar(255) NOT NULL,
@@ -671,6 +674,7 @@ CREATE TABLE `tbl_applications` (
   `evaluation` varchar(255) DEFAULT NULL,
   `isonline` tinyint(1) NOT NULL DEFAULT 0,
   `video_link` varchar(255) DEFAULT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -681,9 +685,11 @@ CREATE TABLE `tbl_applications` (
 -- Dumping data for table `tbl_applications`
 --
 
-INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `country_id`, `address`, `mobile_no`, `instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `teacher_country_id`, `teacher_address`, `teacher_mobile`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_time`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(4, 1, 1, 'morgan', 1, '', '', 2, '2', '70', 'ddfgds', 'aaaa', 'sssss', '6', '', 0, '', '', 1, '123qwe', '2021-07-16', '', 1, 0, NULL, 0, '12-35', NULL, '', 0, 5, 'sdfsdfsdf', NULL, 0, '', '2021-07-16 08:45:54', 4, '2021-07-20 07:01:38', 4),
-(5, 1, 1, 'malcom stuward', 1, 'asdasd', '123123', 1, '1', '50', '', 'qwesdf', 'dfgdfg', '23', 'dfgsdfg', 1, 'sdfg', 'ertert', 1, 'adfsa23423', '2021-07-21', '', 1, 0, NULL, 0, '12-3', NULL, '', 0, 9, 'very good', NULL, 0, '', '2021-07-22 00:31:43', 1, '2021-07-22 02:11:28', 1);
+INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `student_email`, `country_id`, `address`, `mobile_no`, `birthday`, `instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `teacher_email`, `teacher_country_id`, `teacher_address`, `teacher_mobile`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_time`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `token`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(4, 1, 1, 'morgan', 'morgan@gmail.com', 1, 'asdasd', '123123', '2021-07-14', 2, '1', '50', 'ddfgds', 'aaaa', 'sssss', '6', 'teacher1', 'teacher@gmail.com', 1, 'sdfg12', '234546456', 1, '123qwe', '2021-07-16', '', 1, 0, NULL, 0, '12-35', NULL, '', 0, 5, 'sdfsdfsdf', NULL, 0, '', 'super', '2021-07-16 08:45:54', 4, '2021-07-22 07:01:22', 4),
+(5, 1, 1, 'malcom stuward', '', 1, 'asdasd', '123123', '0000-00-00', 1, '1', '50', '', 'qwesdf', 'dfgdfg', '23', 'dfgsdfg', '', 1, 'sdfg', 'ertert', 1, 'adfsa23423', '2021-07-21', '', 1, 0, NULL, 0, '12-3', NULL, '', 0, 9, 'very good', NULL, 0, '', 'super', '2021-07-22 00:31:43', 1, '2021-07-22 02:11:28', 1),
+(6, 1, 1, 'chen', 'chen@gmail.com', 1, 'ggggg', '234234234', '2021-07-21', 1, '1', '50', '', 'qwesdf', 'sssss', '12', 'localadmin1', 'localadmin1@gmail.com', 1, 'sdfg12123', '32453453', 2, '', '0000-00-00', 'wewww22342342', 1, 0, NULL, 0, '-', NULL, '', 0, NULL, NULL, NULL, 0, '', '2', '2021-07-22 07:22:06', 2, NULL, NULL),
+(7, 1, 1, 'student1', 'student1@gmail.com', 1, 'asdasdasd', '123345', '2021-07-20', 1, '2', '70', 'dolmae', 'betheeven', 'sonata 19999', '15', 'dolpari', 'dolpari@gmail.com', 1, 'dfggggggggg', '435234', 2, '', '0000-00-00', 'tttttttttttt4444444444', 1, 0, NULL, 0, '-', NULL, '', 0, NULL, NULL, NULL, 0, '', 'c8c41c4a18675a74e01c8a20e8a0f662', '2021-07-22 07:34:11', 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -799,7 +805,7 @@ CREATE TABLE `tbl_little_morarts` (
 --
 
 INSERT INTO `tbl_little_morarts` (`id`, `local_admin`, `audition_name`, `audition_location`, `audition_date`, `fee_solo`, `fee_duet`, `fee_trio`, `fee_quartet`, `fee_ensemble`, `audition_deadline`, `late_fee`, `duration`, `remain_duration`, `is_active`, `is_delete`, `created_at`, `updated_at`) VALUES
-(1, 1, 'hhhasd', '1', '2021-07-14', '50', '70', '100', '150', '200', '2021-07-15', '50', '120', '97', 2, 0, '2021-07-12 03:00:58', '2021-07-19 23:53:37');
+(1, 1, 'hhhasd', '1', '2021-07-14', '50', '70', '100', '150', '200', '2021-07-15', '50', '120', '70', 2, 0, '2021-07-12 03:00:58', '2021-07-19 23:53:37');
 
 -- --------------------------------------------------------
 
@@ -828,7 +834,7 @@ CREATE TABLE `tbl_local_admin` (
 --
 
 INSERT INTO `tbl_local_admin` (`id`, `name`, `email`, `address`, `mobile_no`, `note`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `created_at`, `updated_at`) VALUES
-(1, 'localadmin1', 'localadmin1@gmail.com', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(2, 'localadmin1', 'localadmin1@gmail.com', 'wwwwwwwwwww', '159326', 'sdfsfsdf', 2, 1, 1, 1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -976,7 +982,7 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`id`, `username`, `country`, `email`, `mobile_no`, `password`, `address`, `birthday`, `admin_role_id`, `is_active`, `is_verify`, `is_admin`, `is_super`, `token`, `password_reset_code`, `last_ip`, `created_at`, `updated_at`) VALUES
 (3, 'teacher1', 158, 'teacher1@gmail.com', 'qwe', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qwe', NULL, 3, 1, 1, 1, 0, '006f52e9102a8d3be2fe5614f42ba989', '', '', '2021-07-07 00:00:00', '2021-07-07 00:00:00'),
-(1, 'super', 3, 'super@gmail.com', '1111', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qweqwe', NULL, 1, 1, 1, 1, 1, '', '', '', '2021-07-08 00:00:00', '2021-07-08 00:00:00'),
+(1, 'super', 3, 'super@gmail.com', '1111', '$2y$10$alGzNUPGFo5Q.Fbqn.eqge3hHrZTdDXoGHgiS/S76s7SAU8TesWbW', 'qweqwe', NULL, 1, 1, 1, 1, 1, 'super', '', '', '2021-07-08 00:00:00', '2021-07-08 00:00:00'),
 (4, 'student1', 1, 'student1@gmail.com', '123123', '$2y$10$zElLOXcQWkSBeBekjZMHTOa5uJ83yckjd99xG0RgGM0pZpVMRqK5C', 'asd', '2021-07-09', 4, 1, 1, 1, 0, 'c8c41c4a18675a74e01c8a20e8a0f662', '', '', '2021-07-09 00:00:00', '2021-07-09 00:00:00');
 
 --
@@ -1172,7 +1178,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbl_applications`
 --
 ALTER TABLE `tbl_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_crescendo`
@@ -1196,7 +1202,7 @@ ALTER TABLE `tbl_little_morarts`
 -- AUTO_INCREMENT for table `tbl_local_admin`
 --
 ALTER TABLE `tbl_local_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_locations`
