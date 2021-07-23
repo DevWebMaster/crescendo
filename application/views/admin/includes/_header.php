@@ -70,7 +70,7 @@
 <body class="hold-transition sidebar-mini <?=  (isset($bg_cover)) ? 'bg-cover' : '' ?>">
 
 <!-- Main Wrapper Start -->
-<div class="wrapper">
+<div class="wrapper" style="background: #afeeee;">
 
   <!-- Navbar -->
 
@@ -96,7 +96,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" style="justify-content: space-between; width: 100%;">
       <div id="nav_label">
-        <label style="font-size: 40px; font-weight: bold; color: #EEA400;">Cerscendo International Music Competition</label>
+        <label style="font-size: 40px; font-weight: bold; color: #EEA400;">Crescendo International Music Competition</label>
       </div>
      <div id="mob_nav">
        <img src="<?= base_url()?>assets/dist/img/logo.png" style="width: 40px; height: 40px;" class="user-image" alt="Logo">
@@ -214,9 +214,10 @@
       </li-->
       <!-- user panel -->
       <li class="dropdown user user-menu open">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black !important;">
-          <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 28px; height: 28px;" class="user-image" alt="User Image">
-          <span id="setting_icon" class="hidden-xs" wfd-id="466">Setting</span>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black !important; display: flex; align-items: center;">
+          <!-- <img src="<?= base_url()?>assets/dist/img/setting.png" style="width: 28px; height: 28px; background: #afeeee;" class="user-image" alt="User Image"> -->
+          <i class="fa fa-gear fa-lg icon" style="padding: 0px; color: #000000;"></i>
+          <span id="setting_icon" class="hidden-xs ml-1" wfd-id="466">Setting</span>
         </a>
         <ul class="dropdown-menu" wfd-id="465">
               <!-- User image -->

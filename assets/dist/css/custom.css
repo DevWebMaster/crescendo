@@ -48,7 +48,7 @@ body {
 
 
 .bg-brand {
-  background-color: #FFFEF8; /*aqua color*/
+  background-color: #afeeee; /*aqua color*/
   color: #EEA400 !important;
   border: none !important;
   display: flex;
@@ -100,7 +100,9 @@ body {
     background: rgba(0,0,0,0.1);
 }
 
-
+.main-footer {
+    background-color: #afeeee !important;
+}
 
 /* fix xcurd bootstrap */
 
@@ -282,7 +284,7 @@ ul.select2-results__options li{
   outline: none;
 }
 .content-wrapper {
-    background-color: #FFFEF8 !important;
+    background-color: #afeeee !important;
 }
 .main-sidebar {
     border-radius: 16px;
