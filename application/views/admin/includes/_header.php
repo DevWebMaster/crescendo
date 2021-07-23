@@ -67,10 +67,10 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini <?=  (isset($bg_cover)) ? 'bg-cover' : '' ?>">
+<body class="hold-transition sidebar-mini <?=  (isset($bg_cover)) ? 'bg-cover' : '' ?>" style="<?=  (isset($bg_cover)) ? '' : 'background: #afeeee;' ?>">
 
 <!-- Main Wrapper Start -->
-<div class="wrapper" style="background: #afeeee;">
+<div class="wrapper">
 
   <!-- Navbar -->
 
