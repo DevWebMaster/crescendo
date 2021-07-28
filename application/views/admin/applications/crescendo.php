@@ -49,6 +49,12 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-1">
+              <div class="form-group mt-2">
+                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_filter"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-12">
