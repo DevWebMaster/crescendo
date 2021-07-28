@@ -17,7 +17,6 @@ class Applications extends My_Controller {
 
   public function index()
   {
-
     $data['title'] = 'Little Mozarts';
 
     $this->load->view('admin/includes/_header', $data);
@@ -55,11 +54,16 @@ class Applications extends My_Controller {
           "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "teacher_name"=>$value['teacher'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -86,11 +90,14 @@ class Applications extends My_Controller {
   public function update_apply()
   {
     // $target_dir = '../public/uploads/little_mozarts/';
-    $target_dir = 'uploads/';
+    $target_dir = EVALUATION_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
-    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+    $target_file = realpath($target_dir) . '/' . $full_name;
 
     $uploadOk = 1;
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -109,12 +116,12 @@ class Applications extends My_Controller {
         $uploadOk = 0;
       }
     }
-
+    
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
-      'evaluation' => basename($_FILES["evaluation"]["name"]),
+      'evaluation' => $full_name,
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -152,11 +159,16 @@ class Applications extends My_Controller {
           "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "teacher_name"=>$value['teacher'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -183,11 +195,14 @@ class Applications extends My_Controller {
   public function update_recital_apply()
   {
     // $target_dir = '../public/uploads/little_mozarts/';
-    $target_dir = 'uploads/';
+    $target_dir = EVALUATION_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
-    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+    $target_file = realpath($target_dir) . '/' . $full_name;
 
     $uploadOk = 1;
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -206,11 +221,13 @@ class Applications extends My_Controller {
         $uploadOk = 0;
       }
     }
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
-      'evaluation' => basename($_FILES["evaluation"]["name"]),
+      'evaluation' => $full_name,
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -259,11 +276,16 @@ class Applications extends My_Controller {
           "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "teacher_name"=>$value['teacher'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -290,11 +312,14 @@ class Applications extends My_Controller {
   public function update_crescendo_apply()
   {
     // $target_dir = '../public/uploads/little_mozarts/';
-    $target_dir = 'uploads/';
+    $target_dir = EVALUATION_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
-    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+    $target_file = realpath($target_dir) . '/' . $full_name;
 
     $uploadOk = 1;
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -313,11 +338,13 @@ class Applications extends My_Controller {
         $uploadOk = 0;
       }
     }
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
-      'evaluation' => basename($_FILES["evaluation"]["name"]),
+      'evaluation' => $full_name,
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -355,11 +382,16 @@ class Applications extends My_Controller {
           "student_name"=>$value['student_name'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "teacher_name"=>$value['teacher'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -386,11 +418,14 @@ class Applications extends My_Controller {
   public function update_recital_crescendo_apply()
   {
     // $target_dir = '../public/uploads/little_mozarts/';
-    $target_dir = 'uploads/';
+    $target_dir = EVALUATION_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
-    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+    $target_file = realpath($target_dir) . '/' . $full_name;
 
     $uploadOk = 1;
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -409,11 +444,13 @@ class Applications extends My_Controller {
         $uploadOk = 0;
       }
     }
+    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
+    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
-      'evaluation' => basename($_FILES["evaluation"]["name"]),
+      'evaluation' => $full_name,
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );

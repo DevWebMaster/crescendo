@@ -1,9 +1,10 @@
 <?php
 	class Applications_model extends CI_Model{
 		public function get_apply_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*');
+			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
@@ -119,9 +120,10 @@
 		}
 		///////////////////////
 		public function get_apply_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*');
+			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_crescendo as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}

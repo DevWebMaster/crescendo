@@ -93,12 +93,7 @@ define('C_INVOICE_PRE',"inv-");
 define('C_CREDITNOTE_PRE',"inv-");
 
 define('MAIN_MENU_PATH',"models/main_menu/");
-define('PREFIX_MODEL_PATH', "/var/www/design/planner/");
-
-define('SUB_MENU_PATH',"models/sub_menu/");
-define('THUMBNAIL_PATH', "models/thumbnails/");
-define('MODEL_PATH', "models/js/");
-define('WALL_TEXTURE_PATH', "rooms/textures/wall/");
-define('FLOOR_TEXTURE_PATH', "rooms/textures/floor/");
+// define('EVALUATION_PATH', "/var/www/crescendo/uploads/"); //linux
+define('EVALUATION_PATH', "uploads/"); //windows
 
 define('SAVE_PDF_PATH', "uploads/pdfs/");

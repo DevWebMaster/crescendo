@@ -34,11 +34,12 @@
                     <th>Teacher Name</th>
                     <th>Instrument</th>
                     <th>Composer</th>
-                    <th>Student time</th>
+                    <th>Duration</th>
                     <th>Paid/Unpaid</th>
                     <th>Payment Type</th>
                     <th>Score</th>
                     <th>Place</th>
+                    <th>Evaluation</th>
                     <th width="10%">Action</th>
                   </tr>
                 </thead>
@@ -103,6 +104,7 @@
            { data: 'payment_type' },
            { data: 'score' },
            { data: 'place' },
+           { data: 'evaluation' },
            { data: 'action', "width": "10%"},
         ]
       });

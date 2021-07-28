@@ -69,6 +69,7 @@ class Activeapplication extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
@@ -118,6 +119,7 @@ class Activeapplication extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "score"=>$value['score'],
           'place'=>$value['place'],
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }

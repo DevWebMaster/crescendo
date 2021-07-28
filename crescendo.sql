@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2021 at 09:26 AM
+-- Generation Time: Jul 28, 2021 at 04:43 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -687,10 +687,10 @@ CREATE TABLE `tbl_applications` (
 --
 
 INSERT INTO `tbl_applications` (`id`, `audition_type`, `audition_id`, `student_name`, `student_email`, `country_id`, `address`, `mobile_no`, `birthday`, `instrument`, `other_instrument`, `performance_type`, `performance_price`, `co_performers`, `composer`, `title`, `duration`, `teacher`, `teacher_email`, `teacher_country_id`, `teacher_address`, `teacher_mobile`, `payment_type`, `transaction_id`, `transaction_date`, `payment_code`, `is_paid`, `islate`, `late_fee`, `special_request`, `request_time`, `request_reason`, `request_answer`, `confirm_payment`, `score`, `place`, `evaluation`, `isonline`, `video_link`, `token`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(4, 1, 1, 'morgan', 'morgan@gmail.com', 1, 'asdasd', '123123', '2021-07-14', 2, NULL, '1', '50', 'ddfgds', 'aaaa', 'sssss', '6', 'teacher1', 'teacher@gmail.com', 1, 'sdfg12', '234546456', 1, '123qwe', '2021-07-16', '', 1, 0, NULL, 0, '12-35', NULL, '', 0, 5, 'sdfsdfsdf', NULL, 0, '', 'super', '2021-07-16 08:45:54', 4, '2021-07-22 07:01:22', 4),
-(5, 1, 1, 'malcom stuward', '', 1, 'asdasd', '123123', '0000-00-00', 1, NULL, '1', '50', '', 'qwesdf', 'dfgdfg', '23', 'dfgsdfg', '', 1, 'sdfg', 'ertert', 1, 'adfsa23423', '2021-07-21', '', 1, 0, NULL, 0, '12-3', NULL, '', 0, 9, 'very good', NULL, 0, '', 'super', '2021-07-22 00:31:43', 1, '2021-07-22 02:11:28', 1),
-(6, 1, 1, 'chen', 'chen@gmail.com', 1, 'ggggg', '234234234', '2021-07-21', 1, NULL, '1', '50', '', 'qwesdf', 'sssss', '12', 'localadmin1', 'localadmin1@gmail.com', 1, 'sdfg12123', '32453453', 2, '', '0000-00-00', 'wewww22342342', 1, 0, NULL, 0, '-', NULL, '', 0, 5, 'iopuiop', 'data c10.txt', 0, '', '2', '2021-07-22 07:22:06', 2, '2021-07-27 22:03:15', 1),
-(7, 1, 1, 'student1', 'student1@gmail.com', 1, 'asdasdasd', '123345', '2021-07-20', 1, NULL, '2', '70', 'dolmae', 'betheeven', 'sonata 19999', '15', 'dolpari', 'dolpari@gmail.com', 1, 'dfggggggggg', '435234', 2, '', '0000-00-00', 'tttttttttttt4444444444', 1, 0, NULL, 0, '-', NULL, '', 0, NULL, NULL, NULL, 0, '', 'c8c41c4a18675a74e01c8a20e8a0f662', '2021-07-22 07:34:11', 4, NULL, NULL);
+(4, 1, 1, 'morgan', 'morgan@gmail.com', 1, 'asdasd', '123123', '2021-07-14', 2, NULL, '1', '50', 'ddfgds', 'aaaa', 'sssss', '6', 'teacher1', 'teacher@gmail.com', 1, 'sdfg12', '234546456', 1, '123qwe', '2021-07-16', '', 1, 0, NULL, 0, '12-35', NULL, '', 0, 5, 'sdfsdfsdf', 'anna_little_mozart_2021_202107281627483085.pdf', 0, '', 'super', '2021-07-16 08:45:54', 4, '2021-07-28 05:38:05', 1),
+(5, 1, 1, 'malcom stuward', '', 1, 'asdasd', '123123', '0000-00-00', 1, NULL, '1', '50', '', 'qwesdf', 'dfgdfg', '23', 'dfgsdfg', '', 1, 'sdfg', 'ertert', 1, 'adfsa23423', '2021-07-21', '', 1, 0, NULL, 0, '12-3', NULL, '', 0, 9, 'very good', 'anna_crescendo_2021_202107281627483112.pdf', 0, '', 'super', '2021-07-22 00:31:43', 1, '2021-07-28 05:38:32', 1),
+(6, 1, 1, 'chen', 'chen@gmail.com', 1, 'ggggg', '234234234', '2021-07-21', 1, NULL, '1', '50', '', 'qwesdf', 'sssss', '12', 'localadmin1', 'localadmin1@gmail.com', 1, 'sdfg12123', '32453453', 2, '', '0000-00-00', 'wewww22342342', 1, 0, NULL, 0, '-', NULL, '', 0, 5, 'iopuiop', NULL, 0, '', '2', '2021-07-22 07:22:06', 2, '2021-07-27 22:03:15', 1),
+(7, 1, 1, 'student1', 'student1@gmail.com', 1, 'asdasdasd', '123345', '2021-07-20', 1, NULL, '2', '70', 'dolmae', 'betheeven', 'sonata 19999', '15', 'dolpari', 'dolpari@gmail.com', 1, 'dfggggggggg', '435234', 2, '', '0000-00-00', 'tttttttttttt4444444444', 1, 0, NULL, 0, '-', NULL, '', 0, 5, 'very good', 'anna_little_mozart_2021_202107281627483349.pdf', 0, '', 'c8c41c4a18675a74e01c8a20e8a0f662', '2021-07-22 07:34:11', 4, '2021-07-28 05:42:29', 1);
 
 -- --------------------------------------------------------
 

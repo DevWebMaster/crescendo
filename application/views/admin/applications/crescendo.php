@@ -60,8 +60,12 @@
                       <th>Student Name</th>
                       <th>Composition</th>
                       <th>Title</th>
+                      <th>Teacher Name</th>
+                      <th>Instrument</th>
+                      <th>Composer</th>
+                      <th>Duration</th>
                       <th>Paid/Unpaid</th>
-                      <th>Student time</th>
+                      <th>Payment Type</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th width="10%">Action</th>
@@ -98,10 +102,15 @@
                       <th>Student Name</th>
                       <th>Composition</th>
                       <th>Title</th>
+                      <th>Teacher Name</th>
+                      <th>Instrument</th>
+                      <th>Composer</th>
+                      <th>Duration</th>
                       <th>Paid/Unpaid</th>
-                      <th>Student time</th>
+                      <th>Payment Type</th>
                       <th>Score</th>
                       <th>Place</th>
+                      <th>Evaluation</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -168,10 +177,15 @@
            { data: 'student_name' },
            { data: 'composition' },
            { data: 'title' },
-           { data: 'is_paid' },
+           { data: 'teacher_name' },
+           { data: 'instrument' },
+           { data: 'composer' },
            { data: 'student_time' },
+           { data: 'is_paid' },
+           { data: 'payment_type' },
            { data: 'score' },
            { data: 'place' },
+           { data: 'evaluation' },
            { data: 'action', "width": "10%"},
         ]
       });
@@ -217,10 +231,15 @@
            { data: 'student_name' },
            { data: 'composition' },
            { data: 'title' },
-           { data: 'is_paid' },
+           { data: 'teacher_name' },
+           { data: 'instrument' },
+           { data: 'composer' },
            { data: 'student_time' },
+           { data: 'is_paid' },
+           { data: 'payment_type' },
            { data: 'score' },
            { data: 'place' },
+           { data: 'evaluation' },
            { data: 'action', "width": "10%"},
         ]
       });
