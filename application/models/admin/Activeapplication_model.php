@@ -1,8 +1,9 @@
 <?php
 	class Activeapplication_model extends CI_Model{
 		public function get_application_list($search_key, $start, $rowperpage, $audition_type, $token) {
-			$this->db->select('a1.*');
+			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
+			$this->db->join('tbl_instruments as a2', 'a1.instrument = a2.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
 			}

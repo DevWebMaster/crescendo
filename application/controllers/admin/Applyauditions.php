@@ -36,7 +36,8 @@ class Applyauditions extends My_Controller {
     $user_id = $this->session->userdata('user_id');
     $role_id = $this->session->userdata('admin_role_id');
 
-    $data['students'] = $this->applyauditions_model->get_students($user_id, $role_id);
+    $data['user_info'] = $this->applyauditions_model->get_user_info($user_id, $role_id);
+    $data['role_id'] = $role_id;
     $data['countries'] = $this->applyauditions_model->get_countries();
 
     $data['instruments'] = $this->applyauditions_model->get_instruments();

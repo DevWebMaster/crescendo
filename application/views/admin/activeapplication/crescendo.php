@@ -33,8 +33,12 @@
                       <th>Student Name</th>
                       <th>Composition</th>
                       <th>Title</th>
-                      <th>Paid/Unpaid</th>
+                      <th>Teacher Name</th>
+                      <th>Instrument</th>
+                      <th>Composer</th>
                       <th>Student time</th>
+                      <th>Paid/Unpaid</th>
+                      <th>Payment Type</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th width="10%">Action</th>
@@ -94,8 +98,12 @@
            { data: 'student_name' },
            { data: 'composition' },
            { data: 'title' },
-           { data: 'is_paid' },
+           { data: 'teacher_name' },
+           { data: 'instrument' },
+           { data: 'composer' },
            { data: 'student_time' },
+           { data: 'is_paid' },
+           { data: 'payment_type' },
            { data: 'score' },
            { data: 'place' },
            { data: 'action', "width": "10%"},

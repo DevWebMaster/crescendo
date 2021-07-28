@@ -85,10 +85,36 @@ class Applications extends My_Controller {
   }
   public function update_apply()
   {
+    // $target_dir = '../public/uploads/little_mozarts/';
+    $target_dir = 'uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+
+    $uploadOk = 1;
+    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+    && $FileType != "txt" ) {
+      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk == 1) {
+      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+      } else {
+        $res_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
+
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
+      'evaluation' => basename($_FILES["evaluation"]["name"]),
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -156,10 +182,35 @@ class Applications extends My_Controller {
   }
   public function update_recital_apply()
   {
+    // $target_dir = '../public/uploads/little_mozarts/';
+    $target_dir = 'uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+
+    $uploadOk = 1;
+    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+    && $FileType != "txt" ) {
+      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk == 1) {
+      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+      } else {
+        $res_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
+      'evaluation' => basename($_FILES["evaluation"]["name"]),
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -238,10 +289,35 @@ class Applications extends My_Controller {
   }
   public function update_crescendo_apply()
   {
+    // $target_dir = '../public/uploads/little_mozarts/';
+    $target_dir = 'uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+
+    $uploadOk = 1;
+    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+    && $FileType != "txt" ) {
+      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk == 1) {
+      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+      } else {
+        $res_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
+      'evaluation' => basename($_FILES["evaluation"]["name"]),
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );
@@ -309,10 +385,35 @@ class Applications extends My_Controller {
   }
   public function update_recital_crescendo_apply()
   {
+    // $target_dir = '../public/uploads/little_mozarts/';
+    $target_dir = 'uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["evaluation"]["name"]);
+
+    $uploadOk = 1;
+    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+    && $FileType != "txt" ) {
+      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk == 1) {
+      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+      } else {
+        $res_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
       'place' => $this->input->post('place'),
+      'evaluation' => basename($_FILES["evaluation"]["name"]),
       'updated_at' => date('Y-m-d H:i:s'),
       'updated_by' => $this->session->userdata('user_id')
     );

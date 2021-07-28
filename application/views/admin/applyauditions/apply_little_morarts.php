@@ -114,12 +114,62 @@
                   </fieldset>
                   <hr>
                   <fieldset>
+                    <legend>Teacher Information:</legend>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Teacher:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Teacher Email:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
+                            <?php
+                              foreach($countries as $country):
+                            ?>
+                              <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <hr>
+                  <fieldset>
                     <legend>Student Information:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Name:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme.">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id == 4 ? $user_info['username'] : ''; ?>">
                         </div>
                       </div>
                     </div>
@@ -127,7 +177,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Email:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email" value="<?= $role_id == 4 ? $user_info['email'] : ''; ?>">
                         </div>
                       </div>
                     </div>
@@ -149,7 +199,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Address:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address">
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address" value="<?= $role_id == 4 ? $user_info['address'] : ''; ?>">
                         </div>
                       </div>
                     </div>
@@ -157,7 +207,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Mobile Number:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no">
+                          <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $role_id == 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
                     </div>
@@ -180,6 +230,16 @@
                               <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
                             <?php endforeach; ?>
                           </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="instrument_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-12">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Other Instrument:</label>
+                            <input style="width: 65%" type="text" class="form-control form-control-sm" name="other_instrument" id="other_instrument">
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -265,56 +325,6 @@
                   </fieldset>
                   <hr>
                   <fieldset>
-                    <legend>Teacher Information:</legend>
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme.">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher Email:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
-                          <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
-                            <?php
-                              foreach($countries as $country):
-                            ?>
-                              <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
-                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no">
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <hr>
-                  <fieldset>
                     <legend>Payment:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
@@ -325,7 +335,7 @@
                           </label>
                           <label>
                               <input type="radio" name="payment_type" id="order_check" value="2">
-                              Money check/order
+                              Money order/check
                           </label>
                         </div>
                       </div>
@@ -378,7 +388,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#student_time').val()){
+      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#composer').val() && $('#title').val() && $('#student_time').val()){
         var formData = new FormData(this);
         $.ajax({
           url: '<?= site_url(); ?>admin/applyauditions/save_little_morarts',
@@ -402,8 +412,41 @@
             
           }
         })
-      }else{
-        toastr.warning('Please fill all fields correctly.');
+      }else if($('#teacher_name').val() === ''){
+        toastr.warning('Please fill Teacher Name correctly.');
+        return;
+      }else if($('#teacher_email').val() === ''){
+        toastr.warning('Please fill Teacher Email correctly.');
+        return;
+      }else if($('#teacher_address').val() === ''){
+        toastr.warning('Please fill Teacher Address correctly.');
+        return;
+      }else if($('#teacher_mobile_no').val() === ''){
+        toastr.warning('Please fill Teacher Mobile Number correctly.');
+        return;
+      }else if($('#student_name').val() === ''){
+        toastr.warning('Please fill Student Name correctly.');
+        return;
+      }else if($('#student_email').val() === ''){
+        toastr.warning('Please fill Student Email correctly.');
+        return;
+      }else if($('#student_address').val() === ''){
+        toastr.warning('Please fill Student Address correctly.');
+        return;
+      }else if($('#student_mobile_no').val() === ''){
+        toastr.warning('Please fill Student Mobile Number correctly.');
+        return;
+      }else if($('#student_birthday').val() === ''){
+        toastr.warning('Please fill Student Birthday correctly.');
+        return;
+      }else if($('#composer').val() === ''){
+        toastr.warning('Please fill Composer correctly.');
+        return;
+      }else if($('#title').val() === ''){
+        toastr.warning('Please fill Title correctly.');
+        return;
+      }else if($('#student_time').val() === ''){
+        toastr.warning('Please fill Student Time correctly.');
         return;
       }
       
@@ -438,6 +481,14 @@
       }else{
         $('#paypal_section').hide()
         $('#order_section').show()
+      }
+    })
+
+    $('select').on('change', function(){
+      if($('#instrument').val() == 31){
+        $('#instrument_section').show()
+      }else{
+        $('#instrument_section').hide()
       }
     })
 
