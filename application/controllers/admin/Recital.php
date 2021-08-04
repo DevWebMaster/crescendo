@@ -86,8 +86,9 @@ class Recital extends My_Controller {
   }
   public function add_little_morarts()
   {
-    $data['title'] = 'Add Little Mozarts';
+    $data['title'] = 'Add Recital Little Mozarts';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
+    $data['audition_locations'] = $this->recital_model->get_audition_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/add_little_morarts');
@@ -149,6 +150,13 @@ class Recital extends My_Controller {
       'updated_at'=>date('Y-m-d H:i:s'),
     );
     $result = $this->recital_model->update_little_morarts($data, $audition_id);
+
+    echo json_encode($result);
+  }
+  public function delete_little_morarts()
+  {
+    $recital_id = $this->input->post('id');
+    $result = $this->recital_model->delete_little_morarts($recital_id);
 
     echo json_encode($result);
   }
@@ -221,8 +229,9 @@ class Recital extends My_Controller {
   }
   public function add_crescendo()
   {
-    $data['title'] = 'Add Crescendo';
+    $data['title'] = 'Add Recital Crescendo';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
+    $data['audition_locations'] = $this->recital_model->get_audition_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/add_crescendo');
@@ -284,6 +293,13 @@ class Recital extends My_Controller {
       'updated_at'=>date('Y-m-d H:i:s'),
     );
     $result = $this->recital_model->update_crescendo($data, $audition_id);
+
+    echo json_encode($result);
+  }
+  public function delete_crescendo()
+  {
+    $recital_id = $this->input->post('id');
+    $result = $this->recital_model->delete_crescendo($recital_id);
 
     echo json_encode($result);
   }

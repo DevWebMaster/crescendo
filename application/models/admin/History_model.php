@@ -10,7 +10,7 @@
 			if($token != 'super'){
 				$this->db->where('token', $token);
 			}
-			
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
@@ -19,6 +19,7 @@
 			$this->db->select('a1.id');
 			$this->db->from('tbl_applications as a1');
 			$this->db->where('a1.audition_type', $audition_type);
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -30,6 +31,7 @@
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -52,6 +54,7 @@
 			$this->db->select('a1.*, a2.audition_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_little_morarts as a2', 'a1.audition_id = a2.id');
+			$this->db->where('a1.is_delete', 0);
 			$this->db->where('id', $audition_id);
 			$this->db->where('audition_type', $audition_type);
 

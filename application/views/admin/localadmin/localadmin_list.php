@@ -24,12 +24,12 @@
           <thead>
             <tr>
               <th>#<?= trans('id') ?></th>
-              <th><?= trans('username') ?></th>
+              <th><?= trans('name') ?></th>
               <th><?= trans('email') ?></th>
               <th><?= trans('mobile_no') ?></th>
               <th><?= trans('created_date') ?></th>
-              <th><?= trans('email_verification') ?></th>
-              <th><?= trans('status') ?></th>
+              <!-- <th><?= trans('email_verification') ?></th> -->
+              <!-- <th><?= trans('status') ?></th> -->
               <th width="100" class="text-right"><?= trans('action') ?></th>
             </tr>
           </thead>
@@ -49,17 +49,17 @@
   var table = $('#na_datatable').DataTable( {
     "processing": true,
     "serverSide": false,
-    "ajax": "<?=base_url('admin/users/datatable_json')?>",
+    "ajax": "<?=base_url('admin/localadmin/datatable_json')?>",
     "order": [[4,'desc']],
     "columnDefs": [
     { "targets": 0, "name": "id", 'searchable':true, 'orderable':true},
-    { "targets": 1, "name": "username", 'searchable':true, 'orderable':true},
+    { "targets": 1, "name": "name", 'searchable':true, 'orderable':true},
     { "targets": 2, "name": "email", 'searchable':true, 'orderable':true},
     { "targets": 3, "name": "mobile_no", 'searchable':true, 'orderable':true},
     { "targets": 4, "name": "created_at", 'searchable':false, 'orderable':false},
-    { "targets": 5, "name": "is_active", 'searchable':true, 'orderable':true},
-    { "targets": 6, "name": "is_verify", 'searchable':true, 'orderable':true},
-    { "targets": 7, "name": "Action", 'searchable':false, 'orderable':false,'width':'100px'}
+    // { "targets": 5, "name": "is_active", 'searchable':true, 'orderable':true},
+    // { "targets": 6, "name": "is_verify", 'searchable':true, 'orderable':true},
+    { "targets": 5, "name": "Action", 'searchable':false, 'orderable':false,'width':'100px'}
     ]
   });
 </script>

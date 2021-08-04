@@ -52,7 +52,7 @@
             <div class="col-12 col-md-3"></div>
             <div class="col-12 col-md-1">
               <div class="form-group mt-2">
-                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_filter"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
+                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
               </div>
             </div>
           </div>
@@ -64,14 +64,18 @@
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
                       <th>Student Name</th>
-                      <th>Composition</th>
-                      <th>Title</th>
+                      <th>Age</th>
+                      <th>Level</th>
                       <th>Teacher Name</th>
+                      <th>Composition</th>
                       <th>Instrument</th>
                       <th>Composer</th>
+                      <th>Title</th>
                       <th>Duration</th>
                       <th>Paid/Unpaid</th>
                       <th>Payment Type</th>
+                      <th>Payment Status</th>
+                      <th>Special Need</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th>Evaluation</th>
@@ -98,6 +102,12 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter_recital"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
+            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-1">
+              <div class="form-group mt-2">
+                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_recital_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
+              </div>
+            </div>
           </div>
           <div class="row">
             <div class="col-12">
@@ -107,14 +117,18 @@
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
                       <th>Student Name</th>
-                      <th>Composition</th>
-                      <th>Title</th>
+                      <th>Age</th>
+                      <th>Level</th>
                       <th>Teacher Name</th>
+                      <th>Composition</th>
                       <th>Instrument</th>
                       <th>Composer</th>
+                      <th>Title</th>
                       <th>Duration</th>
                       <th>Paid/Unpaid</th>
                       <th>Payment Type</th>
+                      <th>Payment Status</th>
+                      <th>Special Need</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th>Evaluation</th>
@@ -182,14 +196,18 @@
         'columns': [
            { data: 'id' },
            { data: 'student_name' },
-           { data: 'composition' },
-           { data: 'title' },
+           { data: 'student_age' },
+           { data: 'level' },
            { data: 'teacher_name' },
+           { data: 'composition' },
            { data: 'instrument' },
            { data: 'composer' },
+           { data: 'title' },
            { data: 'student_time' },
            { data: 'is_paid' },
            { data: 'payment_type' },
+           { data: 'payment_status' },
+           { data: 'special_need' },
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },
@@ -236,14 +254,18 @@
         'columns': [
            { data: 'id' },
            { data: 'student_name' },
-           { data: 'composition' },
-           { data: 'title' },
+           { data: 'student_age' },
+           { data: 'level' },
            { data: 'teacher_name' },
+           { data: 'composition' },
            { data: 'instrument' },
            { data: 'composer' },
+           { data: 'title' },
            { data: 'student_time' },
            { data: 'is_paid' },
            { data: 'payment_type' },
+           { data: 'payment_status' },
+           { data: 'special_need' },
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },

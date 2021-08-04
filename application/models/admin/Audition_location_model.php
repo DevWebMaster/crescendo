@@ -38,5 +38,9 @@
 			$this->db->where('id', $location_id);
 			return $this->db->update('tbl_locations', $data);
 		}
+		public function delete_audition_location($id){
+			$this->db->where('id', $id);
+			return $this->db->delete('tbl_locations');
+		}
 	}
 ?>

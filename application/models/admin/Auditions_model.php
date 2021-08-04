@@ -11,6 +11,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
@@ -21,6 +22,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -35,6 +37,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -70,6 +73,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
@@ -80,6 +84,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -94,6 +99,7 @@
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -125,6 +131,14 @@
 			$this->db->from('tbl_crescendo as a1');
 			$this->db->where('a1.id', $audition_id);
 			return $this->db->get()->result_array()[0];
+		}
+		public function delete_little_morarts($audition_id){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_little_morarts', array('is_delete' => 1));
+		}
+		public function delete_crescendo($audition_id){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_crescendo', array('is_delete' => 1));
 		}
 	}
 ?>

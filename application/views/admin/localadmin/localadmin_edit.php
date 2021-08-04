@@ -20,13 +20,13 @@
            
             <?php echo form_open(base_url('admin/localadmin/edit/'.$localadmin['id']), 'class="form-horizontal"' )?> 
               <div class="form-group">
-                <label for="username" class="col-md-2 control-label"><?= trans('localadminname') ?></label>
+                <label for="name" class="col-md-2 control-label"><?= trans('localadminname') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="username" value="<?= $localadmin['username']; ?>" class="form-control" id="username" placeholder="">
+                  <input type="text" name="name" value="<?= $localadmin['name']; ?>" class="form-control" id="lname" placeholder="">
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="firstname" class="col-md-2 control-label"><?= trans('firstname') ?></label>
 
                 <div class="col-md-12">
@@ -40,23 +40,23 @@
                 <div class="col-md-12">
                   <input type="text" name="lastname" value="<?= $localadmin['lastname']; ?>" class="form-control" id="lastname" placeholder="">
                 </div>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <label for="email" class="col-md-2 control-label"><?= trans('email') ?></label>
 
                 <div class="col-md-12">
-                  <input type="email" name="email" value="<?= $localadmin['email']; ?>" class="form-control" id="email" placeholder="">
+                  <input type="email" name="email" value="<?= $localadmin['email']; ?>" class="form-control" id="lemail" placeholder="">
                 </div>
               </div>
               <div class="form-group">
                 <label for="mobile_no" class="col-md-2 control-label"><?= trans('mobile_no') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="mobile_no" value="<?= $localadmin['mobile_no']; ?>" class="form-control" id="mobile_no" placeholder="">
+                  <input type="text" name="mobile_no" value="<?= $localadmin['mobile_no']; ?>" class="form-control" id="lmobile_no" placeholder="">
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="role" class="col-md-2 control-label"><?= trans('status') ?></label>
 
                 <div class="col-md-12">
@@ -66,7 +66,7 @@
                     <option value="0" <?= ($localadmin['is_active'] == 0)?'selected': '' ?>>Deactive</option>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="form-group">
                 <div class="col-md-12">
                   <input type="submit" name="submit" value="<?= trans('update_localadmin') ?>" class="btn btn-primary pull-right">

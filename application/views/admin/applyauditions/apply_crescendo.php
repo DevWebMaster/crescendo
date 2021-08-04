@@ -14,8 +14,8 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Center:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $little_morart[0]['audition_name']; ?>">
-                          <input type="hidden" name="audition_id" id="audition_id" value="<?= $little_morart[0]['id']; ?>">
+                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $crescendo[0]['audition_name']; ?>">
+                          <input type="hidden" name="audition_id" id="audition_id" value="<?= $crescendo[0]['id']; ?>">
                         </div>
                       </div>
                     </div>
@@ -23,7 +23,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Available for Application:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $little_morart[0]['is_active'] ? 'Open' : 'Close'; ?>">
+                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $crescendo[0]['is_active'] ? 'Open' : 'Close'; ?>">
                         </div>
                       </div>
                     </div>
@@ -31,7 +31,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Center:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_location" id="audition_location" value="<?= $little_morart[0]['auditionlocation']; ?>">
+                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_location" id="audition_location" value="<?= $crescendo[0]['auditionlocation']; ?>">
                         </div>
                       </div>
                     </div>  
@@ -39,7 +39,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Date:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $little_morart[0]['audition_date']; ?>">
+                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $crescendo[0]['audition_date']; ?>">
                         </div>
                       </div>
                     </div>
@@ -47,15 +47,15 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Application Deadline:</label>
-                          <input style="width: 65%" type="date" readonly class="form-control form-control-sm" name="audition_deadline" id="audition_deadline" value="<?= $little_morart[0]['audition_deadline']; ?>">
+                          <input style="width: 65%" type="date" readonly class="form-control form-control-sm" name="audition_deadline" id="audition_deadline" value="<?= $crescendo[0]['audition_deadline']; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Late Fee</label>
-                          <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $little_morart[0]['late_fee']; ?>">
+                          <label class="title mr-2">Audition Fee</label>
+                          <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $crescendo[0]['late_fee']; ?>">
                         </div>
                       </div>
                     </div>
@@ -93,14 +93,14 @@
                       <div class="row">
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Request Time:</label>
-                              <input style="width: 10%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date']; ?>">
-                              <label class="title mr-2 mt-1 ml-3">Time</label>
-                              <select style="width: 20%;" class="form-control" name="request_time" id="request_time">
-                                <option value="1">Between 9:00 AM and 11:00AM</option>
-                                <option value="2">After 2:00 PM</option>
-                              </select>
-                            <!--<input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_hour" id="request_hour">
+                            <label class="title mr-2">Request Date:</label>
+                            <input style="width: 10%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $crescendo[0]['audition_date']; ?>">
+                            <label class="title mr-2 mt-1 ml-3">Time</label>
+                            <select style="width: 20%;" class="form-control" name="request_time" id="request_time">
+                              <option value="1">Between 9:00 AM and 11:00AM</option>
+                              <option value="2">After 2:00 PM</option>
+                            </select>
+                            <!-- <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_hour" id="request_hour">
                             <label class="title mr-2 mt-1">hour</label>
                             <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_minute" id="request_minute">
                             <label class="title mr-2 mt-1">minute</label> -->
@@ -260,28 +260,28 @@
                         <div class="radio" style="display: flex; justify-content: space-between; padding-bottom: 8px;">
                           <label>
                               <input type="radio" name="performance_type" id="solo" value="1" checked="checked">
-                              Solo (USD <?= $little_morart[0]['fee_solo'] ?>)
-                              <input type="hidden" name="solo_price" id="solo_price" value="<?= $little_morart[0]['fee_solo']; ?>">
+                              Solo (USD <?= $crescendo[0]['fee_solo'] ?>)
+                              <input type="hidden" name="solo_price" id="solo_price" value="<?= $crescendo[0]['fee_solo']; ?>">
                           </label>
                           <label>
                               <input type="radio" name="performance_type" id="duet" value="2">
-                              Duet (USD <?= $little_morart[0]['fee_duet'] ?>)
-                              <input type="hidden" name="duet_price" id="duet_price" value="<?= $little_morart[0]['fee_duet']; ?>">
+                              Duet (USD <?= $crescendo[0]['fee_duet'] ?>)
+                              <input type="hidden" name="duet_price" id="duet_price" value="<?= $crescendo[0]['fee_duet']; ?>">
                           </label>
                           <label>
                               <input type="radio" name="performance_type" id="trio" value="3">
-                              Trio (USD <?= $little_morart[0]['fee_trio'] ?>)
-                              <input type="hidden" name="trio_price" id="trio_price" value="<?= $little_morart[0]['fee_trio']; ?>">
+                              Trio (USD <?= $crescendo[0]['fee_trio'] ?>)
+                              <input type="hidden" name="trio_price" id="trio_price" value="<?= $crescendo[0]['fee_trio']; ?>">
                           </label>
                           <label>
                               <input type="radio" name="performance_type" id="quartet" value="4">
-                              Quartet (USD <?= $little_morart[0]['fee_quartet'] ?>)
-                              <input type="hidden" name="quartet_price" id="quartet_price" value="<?= $little_morart[0]['fee_quartet']; ?>">
+                              Quartet (USD <?= $crescendo[0]['fee_quartet'] ?>)
+                              <input type="hidden" name="quartet_price" id="quartet_price" value="<?= $crescendo[0]['fee_quartet']; ?>">
                           </label>
                           <label>
                               <input type="radio" name="performance_type" id="ensemble" value="5">
-                              Ensemble(5 participants) (USD <?= $little_morart[0]['fee_ensemble'] ?>)
-                              <input type="hidden" name="ensemble_price" id="ensemble_price" value="<?= $little_morart[0]['fee_ensemble']; ?>">
+                              Ensemble(5 participants) (USD <?= $crescendo[0]['fee_ensemble'] ?>)
+                              <input type="hidden" name="ensemble_price" id="ensemble_price" value="<?= $crescendo[0]['fee_ensemble']; ?>">
                           </label>
                         </div>
                       </div>
@@ -356,7 +356,7 @@
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" min="1950-01-01" max="<?= date('Y-m-d'); ?>">
+                            <input style="width: 65%;" type="date" min="1950-01-01" class="form-control form-control-sm" name="transaction_date" id="transaction_date" max="<?= date('Y-m-d'); ?>">
                           </div>
                         </div>
                       </div>
@@ -376,7 +376,7 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group flex-group mt-4">
-                        <input type="submit" class="btn btn-sm btn-info add_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
+                        <input type="submit" class="btn btn-sm btn-info add_crescendo px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
                       </div>
                     </div>
                   </div>
@@ -400,7 +400,7 @@
         }else{
           var formData = new FormData(this);
           $.ajax({
-            url: '<?= site_url(); ?>admin/applyauditions/save_little_morarts',
+            url: '<?= site_url(); ?>admin/applyauditions/save_crescendo',
             type: 'POST',
             data: formData,       
             cache: false,
@@ -415,7 +415,7 @@
               }else{
                 toastr.success('The data is saved successfully.');
                 setTimeout(function(){
-                  window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+                  window.location.href = '<?= site_url(); ?>admin/activeapplication/crescendo';
                 }, 600);
               }
               

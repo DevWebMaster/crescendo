@@ -50,7 +50,7 @@
                       <th>ID</th>
                       <th>Local Admin</th>
                       <th>Audition Name</th>
-                      <th>Audition Location</th>
+                      <th>Audition Center</th>
                       <th>Audition Date</th>
                       <th>Audition Fee</th>
                       <th>Audition Deadline</th>

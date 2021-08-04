@@ -32,7 +32,7 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Audition location:</label>
+                        <label style="color: grey;">Audition Center:</label>
                         <select class="form-control" name="audition_location" id="audition_location">
                           <?php
                             foreach($audition_locations as $audition_location):
@@ -53,7 +53,7 @@
                   <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="font-weight: bold;">Audition Fee</label>
+                        <label style="font-weight: bold;">Late Fee</label>
                       </div>
                     </div>
                   </div>

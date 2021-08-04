@@ -97,6 +97,13 @@ class Audition_location extends My_Controller {
 
     echo json_encode($result);
   }
+  public function delete_audition_location()
+  {
+    $id = $this->input->post('id');
+    $result = $this->audition_location_model->delete_audition_location($id);
+
+    echo json_encode($result);
+  }
   
 }
 

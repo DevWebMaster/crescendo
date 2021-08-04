@@ -37,7 +37,7 @@
             <div class="col-12 col-md-5"></div>
             <div class="col-12 col-md-1 col-xs-12">
               <div class="form-group mt-4">
-                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/account/add_teacher">Add New</a>
+                <a class="btn add_new float-right" style="background: #EEA400; color: white;" id="add_new" href="<?= site_url(); ?>admin/recital/add_little_morarts">Add New</a>
               </div>
             </div>
           </div>

@@ -49,21 +49,34 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['student_birthday'])[0];
+        if((7 > $age) && ($age > 3)){
+          $level = 'J';
+        }
+        else if((8 < $age) && ($age < 13)){
+          $level = 'I';
+        }else if($age > 14){
+          $level ='A';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
-          "title"=>$value['title'],
+          "student_age"=>$age,
+          "level"=>$level,
           "teacher_name"=>$value['teacher'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
+          "title"=>$value['title'],
           "student_time"=>$value['duration'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -129,6 +142,13 @@ class Applications extends My_Controller {
     $result = $this->applications_model->update_apply($data, $apply_id);
     echo json_encode($result);
   }
+  public function delete_little_morarts()
+  {
+    $id = $this->input->post('id');
+    $result = $this->applications_model->delete_little_morarts($id);
+
+    echo json_encode($result);
+  }
   public function get_recital_list()
   {
     $role = $this->session->userdata('role_id');
@@ -154,21 +174,34 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['student_birthday'])[0];
+        if((7 > $age) && ($age > 3)){
+          $level = 'J';
+        }
+        else if((8 < $age) && ($age < 13)){
+          $level = 'I';
+        }else if($age > 14){
+          $level ='A';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
-          "title"=>$value['title'],
+          "student_age"=>$age,
+          "level"=>$level,
           "teacher_name"=>$value['teacher'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
+          "title"=>$value['title'],
           "student_time"=>$value['duration'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -235,6 +268,13 @@ class Applications extends My_Controller {
     $result = $this->applications_model->update_apply($data, $apply_id);
     echo json_encode($result);
   }
+  public function delete_recital_little_morarts()
+  {
+    $id = $this->input->post('id');
+    $result = $this->applications_model->delete_recital_little_morarts($id);
+
+    echo json_encode($result);
+  }
   ////////////////////////////////////////////////
   public function crescendo()
   {
@@ -271,21 +311,34 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['student_birthday'])[0];
+        if((7 > $age) && ($age > 3)){
+          $level = 'J';
+        }
+        else if((8 < $age) && ($age < 13)){
+          $level = 'I';
+        }else if($age > 14){
+          $level ='A';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
-          "title"=>$value['title'],
+          "student_age"=>$age,
+          "level"=>$level,
           "teacher_name"=>$value['teacher'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
+          "title"=>$value['title'],
           "student_time"=>$value['duration'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -352,6 +405,13 @@ class Applications extends My_Controller {
     $result = $this->applications_model->update_apply($data, $apply_id);
     echo json_encode($result);
   }
+  public function delete_crescendo()
+  {
+    $id = $this->input->post('id');
+    $result = $this->applications_model->delete_crescendo($id);
+
+    echo json_encode($result);
+  }
   public function get_recital_crescendo_list()
   {
     $role = $this->session->userdata('role_id');
@@ -377,21 +437,34 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['student_birthday'])[0];
+        if((7 > $age) && ($age > 3)){
+          $level = 'J';
+        }
+        else if((8 < $age) && ($age < 13)){
+          $level = 'I';
+        }else if($age > 14){
+          $level ='A';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
-          "title"=>$value['title'],
+          "student_age"=>$age,
+          "level"=>$level,
           "teacher_name"=>$value['teacher'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
+          "title"=>$value['title'],
           "student_time"=>$value['duration'],
           "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -456,6 +529,13 @@ class Applications extends My_Controller {
     );
 
     $result = $this->applications_model->update_apply($data, $apply_id);
+    echo json_encode($result);
+  }
+  public function delete_recital_crescendo()
+  {
+    $id = $this->input->post('id');
+    $result = $this->applications_model->delete_recital_crescendo($id);
+
     echo json_encode($result);
   }
   

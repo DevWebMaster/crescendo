@@ -11,7 +11,8 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
-			$this->db->where('audition_type', $audition_type);
+			$this->db->where('a1.is_delete', 0);
+			$this->db->where('a1.audition_type', $audition_type);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
@@ -24,6 +25,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -41,6 +43,7 @@
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -58,6 +61,7 @@
 			}
 			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			$this->db->where('a1.id', $audition_id);
+			$this->db->where('a1.is_delete', 0);
 			return $this->db->get()->result_array()[0];
 		}
 		public function get_apply_recital_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
@@ -70,7 +74,8 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
-			$this->db->where('audition_type', $audition_type);
+			$this->db->where('a1.is_delete', 0);
+			$this->db->where('a1.audition_type', $audition_type);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
@@ -83,6 +88,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -100,6 +106,7 @@
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -107,16 +114,34 @@
 		public function get_detail_info($apply_id, $audition_type){
 			$this->db->select('a1.*, concat(a3.audition_name, " ", a4.location) as position');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
+			if($audition_type == 1){
+				$this->db->join('tbl_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
+			}else if($audition_type == 2){
+				$this->db->join('tbl_crescendo as a3', 'a3.id = a1.audition_id', 'left');
+			}else if($audition_type == 3){
+				$this->db->join('tbl_recital_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
+			}else if($audition_type == 4){
+				$this->db->join('tbl_recital_crescendo as a3', 'a3.id = a1.audition_id', 'left');
+			}
+			
 			$this->db->join('tbl_locations as a4', 'a4.id = a3.audition_location', 'left');
 			$this->db->where('a1.id', $apply_id);
 			$this->db->where('a1.audition_type', $audition_type);
+			$this->db->where('a1.is_delete', 0);
 
 			return $this->db->get()->result_array()[0];
 		}
 		public function update_apply($data, $apply_id){
 			$this->db->where('id', $apply_id);
 			return $this->db->update('tbl_applications', $data);
+		}
+		public function delete_little_morarts($id){
+			$this->db->where('id', $id);
+			return $this->db->update('tbl_applications', array('is_delete' => 1));
+		}
+		public function delete_recital_little_morarts($id){
+			$this->db->where('id', $id);
+			return $this->db->update('tbl_applications', array('is_delete' => 1));
 		}
 		///////////////////////
 		public function get_apply_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
@@ -130,6 +155,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->where('audition_type', $audition_type);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
@@ -143,6 +169,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -160,6 +187,7 @@
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
@@ -175,6 +203,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->where('audition_type', $audition_type);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
@@ -188,6 +217,7 @@
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
@@ -205,9 +235,18 @@
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
 			}
+			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get();
 			return $query->num_rows();
+		}
+		public function delete_crescendo($id){
+			$this->db->where('id', $id);
+			return $this->db->update('tbl_applications', array('is_delete' => 1));
+		}
+		public function delete_recital_crescendo($id){
+			$this->db->where('id', $id);
+			return $this->db->update('tbl_applications', array('is_delete' => 1));
 		}
 	}
 ?>

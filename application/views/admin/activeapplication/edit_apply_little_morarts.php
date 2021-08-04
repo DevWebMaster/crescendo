@@ -30,7 +30,7 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Audition Location:</label>
+                          <label class="title mr-2">Audition Center:</label>
                           <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_location" id="audition_location" value="<?= $little_morart[0]['auditionlocation']; ?>">
                         </div>
                       </div>
@@ -63,11 +63,11 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group mb-2">
                           <!-- <label>Special Request:</label> -->
-                          <input type="checkbox" name="isonline" id="isonline"> Online Video
+                          <input type="checkbox" name="isonline" id="isonline" <?php if($little_morart[0]['isonline'] == 1) { echo "checked"; } ?>> Online Video
                         </div>
                       </div>
                     </div>
-                    <div id="online_video_section" style="display: none;">
+                    <div id="online_video_section">
                       <div class="row">
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
@@ -85,20 +85,25 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group mb-2">
                           <!-- <label>Special Request:</label> -->
-                          <input type="checkbox" name="special_request" id="special_request"> Do you have a special request?
+                          <input type="checkbox" name="special_request" id="special_request" <?php if($little_morart[0]['special_request'] == 1) { echo "checked"; } ?>> Do you have a special request?
                         </div>
                       </div>
                     </div>
-                    <div id="special_section" style="display: none;">
+                    <div id="special_section">
                       <div class="row">
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Date:</label>
-                            <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date'] ?>">
-                            <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_hour" id="request_hour" value="<?= explode('-', $little_morart[0]['request_time'])[0]; ?>">
+                            <input style="width: 10%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date'] ?>">
+                            <label class="title mr-2 mt-1 ml-3">Time</label>
+                            <select style="width: 20%;" class="form-control" name="request_time" id="request_time">
+                              <option value="1" <?php if($little_morart[0]['request_time'] == 1) { echo "selected"; } ?>>Between 9:00 AM and 11:00AM</option>
+                              <option value="2" <?php if($little_morart[0]['request_time'] == 2) { echo "selected"; } ?>>After 2:00 PM</option>
+                            </select>
+                           <!--  <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_hour" id="request_hour" value="<?= explode('-', $little_morart[0]['request_time'])[0]; ?>">
                             <label class="title mr-2 mt-1">hour</label>
                             <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_minute" id="request_minute" value="<?= explode('-', $little_morart[0]['request_time'])[1]; ?>">
-                            <label class="title mr-2 mt-1">minute</label>
+                            <label class="title mr-2 mt-1">minute</label> -->
                           </div>
                         </div>
                       </div>
@@ -106,7 +111,7 @@
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Need:</label>
-                            <input style="width: 65%;" type="text" class="form-control form-control-sm" name="request_need" id="request_need" value="<?= $little_morart[0]['request_need'] ?>">
+                            <input style="width: 65%;" type="text" class="form-control form-control-sm" name="request_reason" id="request_reason" value="<?= $little_morart[0]['request_reason'] ?>">
                           </div>
                         </div>
                       </div>
@@ -215,7 +220,7 @@
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Birthday:</label>
-                          <input style="width: 65%;" type="date" class="form-control form-control-sm" name="student_birthday" id="student_birthday" value="<?= $little_morart[0]['birthday']; ?>">
+                          <input style="width: 65%;" type="date" class="form-control form-control-sm" name="student_birthday" id="student_birthday" value="<?= $little_morart[0]['birthday']; ?>" min="1950-01-01" max="2050-12-31">
                         </div>
                       </div>
                     </div>
@@ -233,7 +238,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="instrument_section" style="display: none;">
+                    <div id="instrument_section">
                       <div class="row">
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
@@ -254,34 +259,34 @@
                       <div class="col-12 col-md-12">
                         <div class="radio" style="display: flex; justify-content: space-between; padding-bottom: 8px;">
                           <label>
-                              <input type="radio" name="performance_type" id="solo" value="1" checked="checked">
+                              <input type="radio" name="performance_type" id="solo" value="1" <?php if($little_morart[0]['performance_type'] == 1) { echo "checked"; } ?> >
                               Solo (USD <?= $little_morart[0]['fee_solo'] ?>)
                               <input type="hidden" name="solo_price" id="solo_price" value="<?= $little_morart[0]['fee_solo']; ?>">
                           </label>
                           <label>
-                              <input type="radio" name="performance_type" id="duet" value="2">
+                              <input type="radio" name="performance_type" id="duet" value="2" <?php if($little_morart[0]['performance_type'] == 2) { echo "checked"; } ?>>
                               Duet (USD <?= $little_morart[0]['fee_duet'] ?>)
                               <input type="hidden" name="duet_price" id="duet_price" value="<?= $little_morart[0]['fee_duet']; ?>">
                           </label>
                           <label>
-                              <input type="radio" name="performance_type" id="trio" value="3">
+                              <input type="radio" name="performance_type" id="trio" value="3" <?php if($little_morart[0]['performance_type'] == 3) { echo "checked"; } ?>>
                               Trio (USD <?= $little_morart[0]['fee_trio'] ?>)
                               <input type="hidden" name="trio_price" id="trio_price" value="<?= $little_morart[0]['fee_trio']; ?>">
                           </label>
                           <label>
-                              <input type="radio" name="performance_type" id="quartet" value="4">
+                              <input type="radio" name="performance_type" id="quartet" value="4" <?php if($little_morart[0]['performance_type'] == 4) { echo "checked"; } ?>>
                               Quartet (USD <?= $little_morart[0]['fee_quartet'] ?>)
                               <input type="hidden" name="quartet_price" id="quartet_price" value="<?= $little_morart[0]['fee_quartet']; ?>">
                           </label>
                           <label>
-                              <input type="radio" name="performance_type" id="ensemble" value="5">
+                              <input type="radio" name="performance_type" id="ensemble" value="5" <?php if($little_morart[0]['performance_type'] == 5) { echo "checked"; } ?>>
                               Ensemble(5 participants) (USD <?= $little_morart[0]['fee_ensemble'] ?>)
                               <input type="hidden" name="ensemble_price" id="ensemble_price" value="<?= $little_morart[0]['fee_ensemble']; ?>">
                           </label>
                         </div>
                       </div>
                     </div>
-                    <div id="solo_section" style="display: none;">
+                    <div id="solo_section">
                       <div class="row">
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
@@ -351,12 +356,12 @@
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
-                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" value="<?= $little_morart[0]['transaction_date']; ?>" max="<?= date('Y-m-d'); ?>">
+                            <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" value="<?= $little_morart[0]['transaction_date']; ?>" min="1950-01-01" max="<?= date('Y-m-d'); ?>">
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div id="order_section" style="display: none;">
+                    <div id="order_section">
                       <div class="row">
                         <div class="offset-6 col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -387,32 +392,65 @@
   $(document).ready(function() {
     if($('#instrument').val() == 31){
       $('#instrument_section').show()
+    }else{
+      $('#instrument_section').hide()
+    }
+
+    if($('#paypal').is(':checked')){
+      $('#paypal_section').show()
+      $('#order_section').hide()
+    }else{
+      $('#paypal_section').hide()
+      $('#order_section').show()
+    }
+
+    if($('#solo').is(':checked')){
+      $('#solo_section').hide()
+    }else{
+      $('#solo_section').show()
+    }
+
+    if($('#special_request').is(':checked')){
+      $('#special_section').show()
+    }else{
+      $('#special_section').hide()
+    }
+
+    if($('#isonline').is(':checked')){
+      $('#online_video_section').show()
+    }else{
+      $('#online_video_section').hide()
     }
 
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#composer').val() && $('#title').val() && $('#student_time').val()){
-        var formData = new FormData(this);
-        $.ajax({
-          url: '<?= site_url(); ?>admin/activeapplication/update_little_morarts_application',
-          type: 'POST',
-          data: formData,
-          cache: false,
-          contentType: false,
-          processData: false,
-          success: function(response) {
-            var result = JSON.parse(response);
-            if(!result || result == 0){
-              toastr.warning('Saving the data is failed.');
-            }else{
-              toastr.success('The data is saved successfully.');
-              setTimeout(function(){
-                window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
-              }, 600);
+      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
+        if($('#paypal').is(':checked') && ($('#transaction_date').val().split('-')[0] < 1950 || $('#transaction_date').val().split('-')[0] > 2050)){
+          toastr.warning('Please fill the correct date in Transaction Date Field.');
+          return;
+        }else{
+          var formData = new FormData(this);
+          $.ajax({
+            url: '<?= site_url(); ?>admin/activeapplication/update_little_morarts_application',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+              var result = JSON.parse(response);
+              if(!result || result == 0){
+                toastr.warning('Saving the data is failed.');
+              }else{
+                toastr.success('The data is saved successfully.');
+                setTimeout(function(){
+                  window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+                }, 600);
+              }
+              
             }
-            
-          }
-        })
+          })
+        }
       }else if($('#teacher_name').val() === ''){
         toastr.warning('Please fill Teacher Name correctly.');
         return;
@@ -449,6 +487,8 @@
       }else if($('#student_time').val() === ''){
         toastr.warning('Please fill Student Time correctly.');
         return;
+      }else if($('#student_birthday').val().split('-')[0] > 2050 || $('#student_birthday').val().split('-')[0] < 1950){
+        toastr.warning('Please type the correct date in Birthday field.');
       }
       
     });

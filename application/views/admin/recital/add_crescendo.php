@@ -30,7 +30,14 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
-                        <input type="text" class="form-control form-control-sm" name="audition_location" id="audition_location" placeholder="Audition Location and Address*">
+                        <label style="color: grey;">Audition location:</label>
+                        <select class="form-control" name="audition_location" id="audition_location">
+                          <?php
+                            foreach($audition_locations as $audition_location):
+                          ?>
+                            <option value="<?= $audition_location['id']; ?>"><?= $audition_location['location']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div>
                     </div>
                   </div>

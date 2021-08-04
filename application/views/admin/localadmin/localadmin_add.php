@@ -19,13 +19,13 @@
 
             <?php echo form_open(base_url('admin/localadmin/add'), 'class="form-horizontal"');  ?> 
               <div class="form-group">
-                <label for="username" class="col-md-2 control-label"><?= trans('localadminname') ?></label>
+                <label for="name" class="col-md-2 control-label"><?= trans('localadminname') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="username" class="form-control" id="username" placeholder="">
+                  <input type="text" name="name" class="form-control" id="lname" placeholder="">
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="firstname" class="col-md-2 control-label"><?= trans('firstname') ?></label>
 
                 <div class="col-md-12">
@@ -39,34 +39,34 @@
                 <div class="col-md-12">
                   <input type="text" name="lastname" class="form-control" id="lastname" placeholder="">
                 </div>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <label for="email" class="col-md-2 control-label"><?= trans('email') ?></label>
 
                 <div class="col-md-12">
-                  <input type="email" name="email" class="form-control" id="email" placeholder="">
+                  <input type="email" name="email" class="form-control" id="lemail" placeholder="">
                 </div>
               </div>
               <div class="form-group">
                 <label for="mobile_no" class="col-md-2 control-label"><?= trans('mobile_no') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="">
+                  <input type="text" name="mobile_no" class="form-control" id="lmobile_no" placeholder="">
                 </div>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="password" class="col-md-2 control-label"><?= trans('password') ?></label>
 
                 <div class="col-md-12">
-                  <input type="password" name="password" class="form-control" id="password" placeholder="">
+                  <input type="password" name="password" class="form-control" id="lpassword" placeholder="">
                 </div>
-              </div>
+              </div> -->
               <div class="form-group">
                 <label for="address" class="col-md-2 control-label"><?= trans('address') ?></label>
 
                 <div class="col-md-12">
-                  <input type="text" name="address" class="form-control" id="address" placeholder="">
+                  <input type="text" name="address" class="form-control" id="laddress" placeholder="">
                 </div>
               </div>
               <div class="form-group">

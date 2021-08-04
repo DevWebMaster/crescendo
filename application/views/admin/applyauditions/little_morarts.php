@@ -8,11 +8,11 @@
               <?php
                 foreach($little_morarts as $little_morart):
               ?>
-                <div class="row pt-3" style="background: #EEA400; color: white; border-radius: 8px; align-items: center;">
+                <div class="row pt-3 mb-2" style="background: #EEA400; color: white; border-radius: 8px; align-items: center;">
                   <div class="col-md-1"></div>
                   <div class="col-md-5 col-xs-4">
                     <div class="form-group">
-                      <label><?= $little_morart['audition_date'].' '.$little_morart['audition_name'].'  '.$little_morart['audition_location']; ?></label>
+                      <label><?= $little_morart['audition_date'].' '.$little_morart['audition_name'].'  '.$little_morart['auditionlocation']; ?></label>
                     </div>
                   </div>
                   <div class="col-md-2 col-xs-2">

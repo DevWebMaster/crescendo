@@ -156,6 +156,13 @@ class Auditions extends My_Controller {
 
     echo json_encode($result);
   }
+  public function delete_little_morarts()
+  {
+    $audition_id = $this->input->post('id');
+    $result = $this->auditions_model->delete_little_morarts($audition_id);
+
+    echo json_encode($result);
+  }
   public function crescendo_list()
   {
     $data['title'] = 'Crescendo';
@@ -230,6 +237,7 @@ class Auditions extends My_Controller {
   {
     $data['title'] = 'Add Crescendo';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
+    $data['audition_locations'] = $this->auditions_model->get_audition_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/auditions/add_crescendo');
@@ -291,6 +299,13 @@ class Auditions extends My_Controller {
       'updated_at'=>date('Y-m-d H:i:s'),
     );
     $result = $this->auditions_model->update_crescendo($data, $audition_id);
+
+    echo json_encode($result);
+  }
+  public function delete_crescendo()
+  {
+    $audition_id = $this->input->post('id');
+    $result = $this->auditions_model->delete_crescendo($audition_id);
 
     echo json_encode($result);
   }

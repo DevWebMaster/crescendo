@@ -30,7 +30,14 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
-                        <input type="text" class="form-control form-control-sm" name="audition_location" id="audition_location" placeholder="Audition Location and Address*">
+                        <label style="color: grey;">Audition Center:</label>
+                        <select class="form-control" name="audition_location" id="audition_location">
+                          <?php
+                            foreach($audition_locations as $audition_location):
+                          ?>
+                            <option value="<?= $audition_location['id']; ?>"><?= $audition_location['location']; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -44,7 +51,7 @@
                   <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="font-weight: bold;">Audition Fee</label>
+                        <label style="font-weight: bold;">Late Fee</label>
                       </div>
                     </div>
                   </div>
@@ -119,8 +126,8 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mt-4">
-                        <input type="submit" class="btn btn-sm btn-info add_crescendo px-4 py-2" style="background: #EEA400; border: none; font-size: 24px; border-radius: 16px;" value="Create">
-                        <a type="button" class="btn btn-sm btn-danger cancel px-4" style="font-size: 24px; border-radius: 16px;" id="cancel" href="<?= site_url(); ?>admin/auditions/index">Back</a>
+                        <input type="submit" class="btn btn-sm btn-info add_crescendo px-4" style="background: #EEA400; border: none; border-radius: 8px;" value="Create">
+                        <a type="button" class="btn btn-sm btn-danger cancel px-4" style="border-radius: 8px;" id="cancel" href="<?= site_url(); ?>admin/auditions/index">Back</a>
                       </div>
                     </div>
                   </div>
@@ -137,7 +144,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#audition_name').val() && $('#audition_location').val()){
+      if($('#audition_name').val() && $('#duration').val()){
         var formData = new FormData(this);
         $.ajax({
           url: '<?= site_url(); ?>admin/auditions/save_crescendo',
