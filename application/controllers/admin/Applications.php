@@ -49,13 +49,14 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['student_birthday'])[0];
-        if((7 > $age) && ($age > 3)){
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
           $level = 'J';
         }
-        else if((8 < $age) && ($age < 13)){
+        else if(8 <= $age && $age <= 13){
           $level = 'I';
-        }else if($age > 14){
+        }else if($age >= 14){
           $level ='A';
         }
         $data[] = array( 
@@ -174,13 +175,14 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['student_birthday'])[0];
-        if((7 > $age) && ($age > 3)){
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
           $level = 'J';
         }
-        else if((8 < $age) && ($age < 13)){
+        else if(8 <= $age && $age <= 13){
           $level = 'I';
-        }else if($age > 14){
+        }else if($age >= 14){
           $level ='A';
         }
         $data[] = array( 
@@ -311,13 +313,14 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['student_birthday'])[0];
-        if((7 > $age) && ($age > 3)){
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
           $level = 'J';
         }
-        else if((8 < $age) && ($age < 13)){
+        else if(8 <= $age && $age <= 13){
           $level = 'I';
-        }else if($age > 14){
+        }else if($age >= 14){
           $level ='A';
         }
         $data[] = array( 
@@ -437,13 +440,14 @@ class Applications extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['student_birthday'])[0];
-        if((7 > $age) && ($age > 3)){
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
           $level = 'J';
         }
-        else if((8 < $age) && ($age < 13)){
+        else if(8 <= $age && $age <= 13){
           $level = 'I';
-        }else if($age > 14){
+        }else if($age >= 14){
           $level ='A';
         }
         $data[] = array( 
