@@ -163,7 +163,7 @@ class Applications extends My_Controller {
     $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
     // $search_key = $_POST['search']['value'];
 
-    $search_key = $this->input->post('filter');
+    $search_key = $this->input->post('recital_filter');
     $audition_type = 3;
 
     $totalRecords = $this->applications_model->get_apply_recital_little_morarts_all_count($audition_type, $role, $user_id);
@@ -428,7 +428,7 @@ class Applications extends My_Controller {
     $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
     // $search_key = $_POST['search']['value'];
 
-    $search_key = $this->input->post('filter');
+    $search_key = $this->input->post('recital_filter');
     $audition_type = 4;
 
     $totalRecords = $this->applications_model->get_apply_recital_crescendo_all_count($audition_type, $role, $user_id);

@@ -382,7 +382,8 @@ class Auth extends MY_Controller {
 		public function profile()
 		{
 			$user_id = $this->session->userdata('user_id');
-			$old = $this->auth_model->get_current_profile($user_id);
+			$user_role = $this->session->userdata('admin_role_id');
+			$old = $this->auth_model->get_current_profile($user_id, $user_role);
 
 			$data['old'] = $old;
 			$data['countries'] = $this->auth_model->get_countries();

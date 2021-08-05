@@ -87,12 +87,12 @@
                         <input type="text" class="form-control form-control-sm" name="fee_ensemble" id="fee_ensemble" placeholder="">
                       </div>
                     </div>
-                    <div class="col-12 col-md-2">
+                    <!-- <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Duration*</label>
                         <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="duration" id="duration" placeholder="minutes">
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-2">
@@ -111,7 +111,7 @@
                     <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Audition Fee*</label>
-                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="late_fee" id="late_fee" placeholder="">
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="late_fee" id="late_fee" value="50">
                       </div>
                     </div>
                     <div class="col-12 col-md-4">
@@ -145,7 +145,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#audition_name').val() && $('#duration').val()){
+      if($('#audition_name').val()){
         var formData = new FormData(this);
         $.ajax({
           url: '<?= site_url(); ?>admin/auditions/save_little_morarts',

@@ -227,6 +227,26 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Years of Study:</label>
+                          <input style="width: 65%;" type="number" min="0" max="20" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="studying_year" id="studying_year" value="<?= $little_morart[0]['studying_year']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Level:</label>
+                          <select style="width: 65%;" class="form-control" name="level" id="level">
+                            <option value="1" <?php if($little_morart[0]['level'] == 1) { echo "selected"; } ?>>Intermediate</option>
+                            <option value="2" <?php if($little_morart[0]['level'] == 2) { echo "selected"; } ?>>Junior</option>
+                            <option value="3" <?php if($little_morart[0]['level'] == 3) { echo "selected"; } ?>>Advance</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Instrument:</label>
                           <select style="width: 65%;" class="form-control" name="instrument" id="instrument">
                             <?php
@@ -286,12 +306,32 @@
                         </div>
                       </div>
                     </div>
-                    <div id="solo_section">
+                    <div id="solo_section" style="display: none;">
                       <div class="row">
-                        <div class="col-12 col-md-12">
+                        <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Co_performers:</label>
-                            <input style="width: 65%;" type="text" class="form-control form-control-sm" name="co_performers" id="co_performers" value="<?= $crescendo[0]['co_performers']; ?>">
+                            <input type="text" class="form-control form-control-sm" name="co_performers" id="co_performers" value="<?= $crescendo[0]['co_performers']; ?>">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument" id="co_instrument">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section" style="display: none;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument" value="<?= $crescendo[0]['co_other_instrument']; ?>">
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -394,6 +434,11 @@
       $('#instrument_section').show()
     }else{
       $('#instrument_section').hide()
+    }
+    if($('#co_instrument').val() == 31){
+      $('#co_instrument_section').show()
+    }else{
+      $('#co_instrument_section').hide()
     }
 
     if($('#paypal').is(':checked')){
@@ -530,6 +575,11 @@
         $('#instrument_section').show()
       }else{
         $('#instrument_section').hide()
+      }
+      if($('#co_instrument').val() == 31){
+        $('#co_instrument_section').show()
+      }else{
+        $('#co_instrument_section').hide()
       }
     })
 

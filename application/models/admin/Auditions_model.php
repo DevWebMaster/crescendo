@@ -7,6 +7,7 @@
 			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
 			}
 			if($role == 2){
 				$this->db->where('a1.local_admin', $uesr_id);

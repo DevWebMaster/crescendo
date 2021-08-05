@@ -56,6 +56,7 @@
                       <th>Audition Deadline</th>
                       <th>Late Fee</th>
                       <th>Duration</th>
+                      <th>Prize</th>
                       <th>Is Active</th>
                       <th width="10%">Action</th>
                     </tr>
@@ -119,6 +120,7 @@
            { data: 'audition_deadline' },
            { data: 'late_fee' },
            { data: 'duration' },
+           { data: 'prize' },
            { data: 'is_active' },
            { data: 'action', "width": "10%"},
         ]

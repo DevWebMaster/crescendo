@@ -46,7 +46,16 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
+                        <label style="color: grey;">Audition Date:</label>
                         <input type="date" class="form-control form-control-sm" name="audition_date" id="audition_date" value="<?= $audition_info['audition_date']; ?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Prize:</label>
+                        <input type="text" class="form-control form-control-sm" name="prize" id="prize" placeholder="Prize" value="<?= $audition_info['prize']; ?>">
                       </div>
                     </div>
                   </div>

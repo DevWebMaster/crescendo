@@ -88,12 +88,12 @@
                         <input type="text" class="form-control form-control-sm" name="fee_ensemble" id="fee_ensemble" value="<?= $audition_info['fee_ensemble']; ?>">
                       </div>
                     </div>
-                    <div class="col-12 col-md-2">
+                    <!-- <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Duration*</label>
                         <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="duration" id="duration" value="<?= $audition_info['duration']; ?>">
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-2">

@@ -37,10 +37,9 @@
                   <?php
                     foreach($countries as $country):
                   ?>
-                    <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
+                    <option value="<?= $country['id']; ?>" <?php if($country['id'] == $old["country"]) { echo "selected"; } ?>><?= $country['name'] ?></option>
                   <?php endforeach; ?>
                 </select>
-                <input type="hidden" id="country_id" value="<?= $old["country"] ?>">
               </div>
             </div>
             <div class="form-group has-feedback" style="text-align: left;">
@@ -76,9 +75,6 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
-    var country_id = $('#country_id').val();
-    $('#profile_country').val(country_id);
-
     $("#btn_update").click(function(){
       var username = $('#profile_name').val()
       var country = $('#profile_country').val()

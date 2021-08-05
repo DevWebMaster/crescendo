@@ -41,7 +41,7 @@
           <div class="row" style="align-items: center;">
             <div class="col-12 col-md-6">
               <div class="form-group mb-2 pl-1" style="text-align: left;">
-                <input type="text" class="form-control form-control-sm" name="audition_filter" id="audition_filter" placeholder="Audition Name">
+                <input type="text" class="form-control form-control-sm" name="filter" id="filter" placeholder="Search...">
               </div>
             </div>
             <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
@@ -235,8 +235,8 @@
       })
     });
 
-    $('#btn_filter').click(function(){
-      var filter = $('#filter').val();
+    $('#btn_filter_recital').click(function(){
+      var filter = $('#recital_filter').val();
       init_recital_list(filter);
     })
 

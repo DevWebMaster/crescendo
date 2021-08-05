@@ -118,6 +118,9 @@
                     </div>
                   </fieldset>
                   <hr>
+                  <?php
+                    if($this->session->userdata('admin_role_id') != 4):
+                  ?>
                   <fieldset>
                     <legend>Teacher Information:</legend>
                     <div class="row">
@@ -168,6 +171,9 @@
                     </div>
                   </fieldset>
                   <hr>
+                  <?php
+                    endif;
+                  ?>
                   <fieldset>
                     <legend>Student Information:</legend>
                     <div class="row">
@@ -221,6 +227,26 @@
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Birthday:</label>
                           <input style="width: 65%;" type="date" min="1950-01-01" max="2050-12-31" class="form-control form-control-sm" name="student_birthday" id="student_birthday">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Years of Study:</label>
+                          <input style="width: 65%;" type="number" min="0" max="20" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="studying_year" id="studying_year">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Level:</label>
+                          <select style="width: 65%;" class="form-control" name="level" id="level">
+                            <option value="1">Intermediate</option>
+                            <option value="2">Junior</option>
+                            <option value="3">Advance</option>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -288,16 +314,92 @@
                     </div>
                     <div id="solo_section" style="display: none;">
                       <div class="row">
-                        <div class="col-12 col-md-12">
+                        <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Co_performers:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers" id="co_performers">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument" id="co_instrument">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section" style="display: none;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument">
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </fieldset>
                   <hr>
+                  <?php
+                    if($this->session->userdata('admin_role_id') == 4):
+                  ?>
+                  <fieldset>
+                    <legend>Teacher Information:</legend>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Teacher:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Teacher Email:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Country:</label>
+                          <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
+                            <?php
+                              foreach($countries as $country):
+                            ?>
+                              <option value="<?= $country['id']; ?>"><?= $country['name'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Address:</label>
+                          <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Mobile Number:</label>
+                          <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <hr>
+                  <?php
+                    endif;
+                  ?>
                   <fieldset>
                     <legend>REPERTOIRE:</legend>
                     <div class="row">
@@ -501,6 +603,11 @@
         $('#instrument_section').show()
       }else{
         $('#instrument_section').hide()
+      }
+      if($('#co_instrument').val() == 31){
+        $('#co_instrument_section').show()
+      }else{
+        $('#co_instrument_section').hide()
       }
     })
 

@@ -70,6 +70,7 @@ class Recital extends My_Controller {
           'audition_deadline'=>$value['audition_deadline'],
           "late_fee"=>$value['late_fee'],
           "duration"=>$value['duration'],
+          "prize"=>$value['prize'],
           "is_active"=>$value['is_active'] == 2 ? 'Open' : 'Close',
           "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
@@ -110,6 +111,7 @@ class Recital extends My_Controller {
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
+      'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'created_at'=>date('Y-m-d H:i:s'),
     );
@@ -146,6 +148,7 @@ class Recital extends My_Controller {
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
+      'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'updated_at'=>date('Y-m-d H:i:s'),
     );
@@ -213,6 +216,7 @@ class Recital extends My_Controller {
           'audition_deadline'=>$value['audition_deadline'],
           "late_fee"=>$value['late_fee'],
           "duration"=>$value['duration'],
+          "prize"=>$value['prize'],
           "is_active"=>$value['is_active'] == 2 ? 'Open' : 'Close',
           "action"=>'<div style="display: inline-flex;"><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
@@ -253,6 +257,7 @@ class Recital extends My_Controller {
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
+      'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'created_at'=>date('Y-m-d H:i:s'),
     );
@@ -289,6 +294,7 @@ class Recital extends My_Controller {
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
+      'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'updated_at'=>date('Y-m-d H:i:s'),
     );

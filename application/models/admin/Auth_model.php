@@ -140,9 +140,14 @@ class Auth_model extends CI_Model{
 		return $this->db->update('tbl_users', array('password' => $new_password));
 	}
 
-	public function get_current_profile($user_id){
-		$this->db->select('*');
-		$this->db->from('tbl_users');
+	public function get_current_profile($user_id, $user_role){
+		if($user_role == 2){
+			$this->db->select('*, name as username');
+			$this->db->from('tbl_local_admin');
+		}else {
+			$this->db->select('*');
+			$this->db->from('tbl_users');
+		}
 		$this->db->where('id', $user_id);
 
 		return $this->db->get()->result_array()[0];

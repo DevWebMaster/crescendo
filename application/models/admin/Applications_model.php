@@ -5,8 +5,13 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -31,17 +36,21 @@
 			
 		}
 		public function get_apply_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a2.id', 'left');
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
@@ -65,11 +74,17 @@
 			return $this->db->get()->result_array()[0];
 		}
 		public function get_apply_recital_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*');
+			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -94,17 +109,21 @@
 			
 		}
 		public function get_apply_recital_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a2.id', 'left');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
@@ -149,8 +168,13 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_crescendo as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -175,17 +199,21 @@
 			
 		}
 		public function get_apply_crescendo_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a2.id', 'left');
 			$this->db->join('tbl_crescendo as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
@@ -194,11 +222,17 @@
 		}
 		////////////////////
 		public function get_apply_recital_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*');
+			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -223,17 +257,21 @@
 			
 		}
 		public function get_apply_recital_crescendo_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
-			$this->db->select('a1.*, a2.username as student, a3.username as teacher');
+			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
-			$this->db->join('tbl_users as a2', 'a1.student_name = a2.id', 'left');
-			$this->db->join('tbl_users as a3', 'a1.teacher = a2.id', 'left');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
+			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
+			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
 			}
 			if($search_key != ''){
-				$this->db->like('a2.username', $search_key);
+				$this->db->like('a1.student_name', $search_key);
+				$this->db->or_like('a2.name', $search_key);
+				$this->db->or_like('a3.location', $search_key);
+				$this->db->or_like('a1.teacher', $search_key);
+				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);

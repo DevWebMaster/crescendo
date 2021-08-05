@@ -38,7 +38,7 @@
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Score:</label>
-                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="score" id="score" value="<?= $apply_info['score']; ?>">
+                        <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="score" id="score" value="<?= $apply_info['score']; ?>">
                       </div>
                     </div>
                   </div>

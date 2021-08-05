@@ -2,7 +2,7 @@
 
 
 
-class History extends My_Controller {
+class Recitalhistory extends My_Controller {
 
   public function __construct(){
 
@@ -12,7 +12,7 @@ class History extends My_Controller {
 
     $this->rbac->check_module_access();
 
-    $this->load->model('admin/history_model', 'history_model');
+    $this->load->model('admin/recitalhistory_model', 'recitalhistory_model');
   }
 
   public function index()
@@ -47,15 +47,15 @@ class History extends My_Controller {
 
     $search_key = $this->input->post('filter');
 
-    $totalRecords = $this->history_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
+    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type);
+    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->recitalhistory_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
     foreach ($application_list as $value) {
         $inx++;
-        $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
+        $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -91,15 +91,15 @@ class History extends My_Controller {
 
     $search_key = $this->input->post('filter');
 
-    $totalRecords = $this->history_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->history_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->history_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
+    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type);
+    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
+    $application_list = $this->recitalhistory_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
     foreach ($application_list as $value) {
         $inx++;
-        $audition_info = $this->history_model->get_audition_info($audition_type, $value['audition_id']);
+        $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
