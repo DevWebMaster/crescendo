@@ -59,6 +59,7 @@
                     <th>Score</th>
                     <th>Place</th>
                     <th>Evaluation</th>
+                    <th>Recital</th>
                     <th width="10%">Action</th>
                   </tr>
                 </thead>
@@ -130,6 +131,7 @@
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },
+           { data: 'recital' },
            { data: 'action', "width": "10%"},
         ]
       });
