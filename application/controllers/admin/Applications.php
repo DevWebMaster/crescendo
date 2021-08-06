@@ -38,11 +38,13 @@ class Applications extends My_Controller {
     // $search_key = $_POST['search']['value'];
 
     $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
     $audition_type = 1;
 
     $totalRecords = $this->applications_model->get_apply_little_morarts_all_count($audition_type, $role, $user_id);
-    $totalRecordwithFilter = $this->applications_model->get_apply_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
-    $application_list = $this->applications_model->get_apply_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->applications_model->get_apply_little_morarts_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->applications_model->get_apply_little_morarts_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
 
     $data = array();
     $inx = 0;
@@ -77,7 +79,7 @@ class Applications extends My_Controller {
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -163,12 +165,14 @@ class Applications extends My_Controller {
     $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
     // $search_key = $_POST['search']['value'];
 
-    $search_key = $this->input->post('recital_filter');
+    $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
     $audition_type = 3;
 
     $totalRecords = $this->applications_model->get_apply_recital_little_morarts_all_count($audition_type, $role, $user_id);
-    $totalRecordwithFilter = $this->applications_model->get_apply_recital_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
-    $application_list = $this->applications_model->get_apply_recital_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->applications_model->get_apply_recital_little_morarts_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->applications_model->get_apply_recital_little_morarts_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
 
     $data = array();
     $inx = 0;
@@ -203,7 +207,7 @@ class Applications extends My_Controller {
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -302,11 +306,13 @@ class Applications extends My_Controller {
     // $search_key = $_POST['search']['value'];
 
     $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
     $audition_type = 2;
 
     $totalRecords = $this->applications_model->get_apply_crescendo_all_count($audition_type, $role, $user_id);
-    $totalRecordwithFilter = $this->applications_model->get_apply_crescendo_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
-    $application_list = $this->applications_model->get_apply_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->applications_model->get_apply_crescendo_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->applications_model->get_apply_crescendo_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
 
     $data = array();
     $inx = 0;
@@ -341,7 +347,7 @@ class Applications extends My_Controller {
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -428,12 +434,14 @@ class Applications extends My_Controller {
     $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
     // $search_key = $_POST['search']['value'];
 
-    $search_key = $this->input->post('recital_filter');
+    $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
     $audition_type = 4;
 
     $totalRecords = $this->applications_model->get_apply_recital_crescendo_all_count($audition_type, $role, $user_id);
-    $totalRecordwithFilter = $this->applications_model->get_apply_recital_crescendo_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
-    $application_list = $this->applications_model->get_apply_recital_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->applications_model->get_apply_recital_crescendo_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->applications_model->get_apply_recital_crescendo_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
 
     $data = array();
     $inx = 0;
@@ -468,7 +476,7 @@ class Applications extends My_Controller {
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 

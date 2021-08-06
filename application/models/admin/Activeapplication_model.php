@@ -1,6 +1,6 @@
 <?php
 	class Activeapplication_model extends CI_Model{
-		public function get_application_list($search_key, $start, $rowperpage, $audition_type, $token) {
+		public function get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token) {
 			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_instruments as a2', 'a1.instrument = a2.id', 'left');
@@ -12,6 +12,13 @@
 				$this->db->join('tbl_recital_little_morarts as a4', 'a4.id = a1.audition_id', 'left');
 			}else if($audition_type == 4){
 				$this->db->join('tbl_recital_crescendo as a4', 'a4.id = a1.audition_id', 'left');
+			}
+
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			
 			$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
@@ -40,7 +47,7 @@
 			return $query->num_rows();
 			
 		}
-		public function get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type) {
+		public function get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_instruments as a2', 'a1.instrument = a2.id', 'left');
@@ -61,6 +68,12 @@
 				$this->db->or_like('a3.location', $search_key);
 				$this->db->or_like('a1.teacher', $search_key);
 				$this->db->or_like('a4.audition_name', $search_key);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);

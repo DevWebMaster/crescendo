@@ -22,12 +22,14 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-md-6 col-xs-12">
+        <div class="col-12 col-md-7 col-xs-12">
           <label for="" class="control-label mb-1 pl-1"></label>
           <div class="form-group mb-2" style="text-align: left;">
             
             <div style="display: flex;">
               <input type="text" class="form-control form-control-sm ml-1" name="filter" id="filter" placeholder="Search...">
+              <input type="number" min="0" max="29" oninput="validity.valid||(value='');" class="form-control form-control-sm ml-2" name="greater" id="greater" placeholder="Score: Greater than">
+              <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm ml-2" name="less" id="less" placeholder="Score: Less than">
               <button class="btn btn-sm ml-3" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
             </div>
           </div>
@@ -75,7 +77,7 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
   $(document).ready(function(){
-    init_application_list(filter = '');
+    init_application_list(filter = '', greater = '', less = '');
 
     $('#application_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
@@ -87,7 +89,7 @@
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_application_list(filter = '');
+            init_application_list(filter = '', greater = '', less = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -97,10 +99,12 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_application_list(filter);
+      var greater = $('#greater').val();
+      var less = $('#less').val();
+      init_application_list(filter, greater, less);
     })
 
-    function init_application_list(filter){
+    function init_application_list(filter, greater, less){
       $('#application_list').DataTable({
         'destroy': true,
         'processing': true,
@@ -109,7 +113,7 @@
         'serverMethod': 'post',
         'ajax': {
             'url':'<?= site_url(); ?>admin/activeapplication/get_crescendo_application_list',
-            'data': { filter: filter }
+            'data': { filter: filter, greater: greater, less: less }
         },
         'columns': [
            { data: 'id' },

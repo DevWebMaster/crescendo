@@ -74,6 +74,9 @@ $cur_tab = $this->uri->segment(2)==''?'account': $this->uri->segment(2);
         </li>
 
         <?php endif; ?>
+        <?php if($nav['module_name'] == 'Applications'): ?>
+          <div style="border-bottom: 1px solid grey; margin-left: 20px; margin-right: 20px; margin-top: 10px; margin-bottom: 10px;"></div>
+        <?php endif; ?>
 
         <?php endforeach; ?>
 

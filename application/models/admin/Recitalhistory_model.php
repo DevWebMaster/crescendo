@@ -1,6 +1,6 @@
 <?php
-	class History_model extends CI_Model{
-		public function get_application_list($search_key, $start, $rowperpage, $audition_type, $token) {
+	class Recitalhistory_model extends CI_Model{
+		public function get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			if($search_key != ''){
@@ -9,6 +9,12 @@
 			$this->db->where('audition_type', $audition_type);
 			if($token != 'super'){
 				$this->db->where('token', $token);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
@@ -24,12 +30,18 @@
 			return $query->num_rows();
 			
 		}
-		public function get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type) {
+		public function get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($search_key != ''){
 				$this->db->like('a2.username', $search_key);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);

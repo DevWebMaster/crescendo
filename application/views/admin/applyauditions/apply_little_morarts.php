@@ -11,50 +11,74 @@
                   <fieldset>
                     <legend>Audition Information:</legend>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Center:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $little_morart[0]['audition_name']; ?>">
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
+                          <input style="width: 65%" type="text" readonly class="form-control form-control-sm" name="audition_name" id="audition_name" value="<?= $little_morart[0]['audition_name']; ?>">
                           <input type="hidden" name="audition_id" id="audition_id" value="<?= $little_morart[0]['id']; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
-                        <div class="form-group flex-group mb-2">
+                      <div class="col-12 col-md-3">
+                        <div class="form-group flex-group mb-2"  style="text-align: right;">
                           <label class="title mr-2">Available for Application:</label>
-                          <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $little_morart[0]['is_active'] ? 'Open' : 'Close'; ?>">
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
+                          <input style="width: 65%" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $little_morart[0]['is_active'] ? 'Open' : 'Close'; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Center:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_location" id="audition_location" value="<?= $little_morart[0]['auditionlocation']; ?>">
                         </div>
                       </div>
                     </div>  
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Audition Date:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" readonly class="form-control form-control-sm" name="audition_status" id="audition_status" value="<?= $little_morart[0]['audition_date']; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Application Deadline:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%" type="date" readonly class="form-control form-control-sm" name="audition_deadline" id="audition_deadline" value="<?= $little_morart[0]['audition_deadline']; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Late Fee</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $little_morart[0]['late_fee']; ?>">
                         </div>
                       </div>
@@ -69,9 +93,13 @@
                     </div>
                     <div id="online_video_section" style="display: none;">
                       <div class="row">
-                        <div class="col-12 col-md-12">
+                        <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Video link:</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <div class="form-group flex-group mb-2">
                             <input style="width: 65%" type="text" class="form-control form-control-sm" name="video_link" id="video_link">
                           </div>
                         </div>
@@ -94,9 +122,9 @@
                         <div class="col-12 col-md-12">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Time:</label>
-                              <input style="width: 10%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date']; ?>">
+                              <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date']; ?>">
                               <label class="title mr-2 mt-1 ml-3">Time</label>
-                              <select style="width: 20%;" class="form-control" name="request_time" id="request_time">
+                              <select style="width: 30%;" class="form-control" name="request_time" id="request_time">
                                 <option value="1">Between 9:00 AM and 11:00AM</option>
                                 <option value="2">After 2:00 PM</option>
                               </select>
@@ -108,9 +136,13 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-12 col-md-12">
+                        <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Request Need:</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <div class="form-group flex-group mb-2">
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="request_reason" id="request_reason" placeholder="ex. help for handicap, or autistic students">
                           </div>
                         </div>
@@ -124,25 +156,37 @@
                   <fieldset>
                     <legend>Teacher Information:</legend>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher Email:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Country:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
                             <?php
                               foreach($countries as $country):
@@ -154,17 +198,25 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Address:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Mobile Number:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
@@ -177,25 +229,37 @@
                   <fieldset>
                     <legend>Student Information:</legend>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Name:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id == 4 ? $user_info['username'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Email:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email" value="<?= $role_id == 4 ? $user_info['email'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Country:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <select style="width: 65%;" class="form-control" name="country_id" id="country_id">
                             <?php
                               foreach($countries as $country):
@@ -207,41 +271,61 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Address:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address" value="<?= $role_id == 4 ? $user_info['address'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Mobile Number:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $role_id == 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Student Birthday:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="date" min="1950-01-01" max="2050-12-31" class="form-control form-control-sm" name="student_birthday" id="student_birthday">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Years of Study:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="number" min="0" max="20" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="studying_year" id="studying_year">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Level:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <select style="width: 65%;" class="form-control" name="level" id="level">
                             <option value="1">Intermediate</option>
                             <option value="2">Junior</option>
@@ -251,9 +335,13 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Instrument:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <select style="width: 65%;" class="form-control" name="instrument" id="instrument">
                             <?php
                               foreach($instruments as $instrument):
@@ -266,9 +354,13 @@
                     </div>
                     <div id="instrument_section" style="display: none;">
                       <div class="row">
-                        <div class="col-12 col-md-12">
+                        <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Other Instrument:</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <div class="form-group flex-group mb-2">
                             <input style="width: 65%" type="text" class="form-control form-control-sm" name="other_instrument" id="other_instrument">
                           </div>
                         </div>
@@ -332,11 +424,11 @@
                             </select>
                           </div>
                         </div>
-                        <div id="co_instrument_section" style="display: none;">
+                        <div id="co_instrument_section" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
                               <label class="title mr-2">Other Instrument:</label>
-                              <input type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument">
+                              <input style="width:  50%;" type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument">
                             </div>
                           </div>
                         </div>
@@ -350,25 +442,37 @@
                   <fieldset>
                     <legend>Teacher Information:</legend>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Teacher Email:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Country:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <select style="width: 65%;" class="form-control" name="teacher_country_id" id="teacher_country_id">
                             <?php
                               foreach($countries as $country):
@@ -380,17 +484,25 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Address:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Mobile Number:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
@@ -403,25 +515,37 @@
                   <fieldset>
                     <legend>REPERTOIRE:</legend>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Composer:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="composer" id="composer" placeholder="L.Beethoven">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Title(Op., No., mov., key):</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="title" id="title" placeholder="Sonata No.8, Op.13, C minor, I mov.">
                         </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-12">
+                      <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Duration(in Minutes):</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
                           <div style="display: flex; align-items: center; width: 65%;">
                             <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm mr-1" name="student_time" id="student_time">
                             <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="'Enter accurate time of piece as this will be the allotted time allowed."></i>

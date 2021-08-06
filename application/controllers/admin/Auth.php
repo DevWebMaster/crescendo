@@ -120,9 +120,9 @@ class Auth extends MY_Controller {
 		            }
 		        }
 	        
-				$this->form_validation->set_rules('username', 'Username', 'trim|alpha_numeric|is_unique[tbl_users.username]|required');
+				// $this->form_validation->set_rules('username', 'Username', 'trim|alpha_numeric|is_unique[tbl_users.username]|required');
 				$this->form_validation->set_rules('country', 'Country', 'trim|required');
-				$this->form_validation->set_rules('address', 'Address', 'trim|required');
+				// $this->form_validation->set_rules('address', 'Address', 'trim|required');
 				$this->form_validation->set_rules('email', 'Email', 'trim|valid_email|is_unique[tbl_users.email]|required');
 				$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
 				$this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required|matches[password]');

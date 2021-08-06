@@ -46,10 +46,12 @@ class Activeapplication extends My_Controller {
     // $search_key = $_POST['search']['value'];
 
     $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
 
     $totalRecords = $this->activeapplication_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
+    $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type);
+    $application_list = $this->activeapplication_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
@@ -110,10 +112,12 @@ class Activeapplication extends My_Controller {
     // $search_key = $_POST['search']['value'];
 
     $search_key = $this->input->post('filter');
+    $greater = $this->input->post('greater');
+    $less = $this->input->post('less');
 
     $totalRecords = $this->activeapplication_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $start, $rowperpage, $audition_type);
-    $application_list = $this->activeapplication_model->get_application_list($search_key, $start, $rowperpage, $audition_type, $token);
+    $totalRecordwithFilter = $this->activeapplication_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type);
+    $application_list = $this->activeapplication_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token);
 
     $data = array();
     $inx = 0;
@@ -148,7 +152,7 @@ class Activeapplication extends My_Controller {
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 

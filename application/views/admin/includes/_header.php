@@ -17,17 +17,17 @@
   
   <link rel="stylesheet" href="<?= base_url()?>assets/dist/css/adminlte.css">
   <!-- iCheck -->
-  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/iCheck/flat/blue.css"> -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/iCheck/flat/blue.css">
   <!-- Morris chart -->
-  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/morris/morris.css"> -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/morris/morris.css">
   <!-- jvectormap -->
-  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css"> -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <!-- Date Picker -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/datepicker/datepicker3.css">
   <!-- Select 2 -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/select2/select2.css">
   <!-- Daterange picker -->
-  <!-- <link rel="stylesheet" href="<?= base_url()?>assets/plugins/daterangepicker/daterangepicker-bs3.css"> -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/bootstrap/css/bootstrap.min.css">
   
@@ -42,13 +42,13 @@
   <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"-->
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet"> -->
   <!-- jQuery -->
-  <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+  <!-- <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 
  
   
-   <?php if (isset($script['css']) && count($script['css']) >0  ) : ?>
+   <!-- <?php if (isset($script['css']) && count($script['css']) >0  ) : ?>
 
     <?php foreach ( $script['css'] as  $css) { ?>
         <link rel="stylesheet" href="<?= $css ?>">
@@ -59,7 +59,7 @@
     <?php foreach ( $script['js'] as  $js) { ?>
         <script src="<?= $js ?>"></script>
     <?php } ?>  
-  <?php  endif; ?> 
+  <?php  endif; ?>  -->
 
  
     

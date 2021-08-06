@@ -1,6 +1,6 @@
 <?php
 	class Applications_model extends CI_Model{
-		public function get_apply_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_little_morarts_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
@@ -12,6 +12,12 @@
 				$this->db->or_like('a3.location', $search_key);
 				$this->db->or_like('a1.teacher', $search_key);
 				$this->db->or_like('a4.audition_name', $search_key);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -35,7 +41,7 @@
 			return $query->num_rows();
 			
 		}
-		public function get_apply_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_little_morarts_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
@@ -44,6 +50,12 @@
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
@@ -73,7 +85,7 @@
 			$this->db->where('a1.is_delete', 0);
 			return $this->db->get()->result_array()[0];
 		}
-		public function get_apply_recital_little_morarts_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_recital_little_morarts_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
@@ -85,6 +97,12 @@
 				$this->db->or_like('a3.location', $search_key);
 				$this->db->or_like('a1.teacher', $search_key);
 				$this->db->or_like('a4.audition_name', $search_key);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -108,7 +126,7 @@
 			return $query->num_rows();
 			
 		}
-		public function get_apply_recital_little_morarts_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_recital_little_morarts_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
@@ -117,6 +135,12 @@
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
@@ -221,7 +245,7 @@
 			return $query->num_rows();
 		}
 		////////////////////
-		public function get_apply_recital_crescendo_list($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_recital_crescendo_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*, a2.name as instrument_name');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
@@ -233,6 +257,12 @@
 				$this->db->or_like('a3.location', $search_key);
 				$this->db->or_like('a1.teacher', $search_key);
 				$this->db->or_like('a4.audition_name', $search_key);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -256,7 +286,7 @@
 			return $query->num_rows();
 			
 		}
-		public function get_apply_recital_crescendo_all_count_with_filter($search_key, $start, $rowperpage, $audition_type, $role, $user_id) {
+		public function get_apply_recital_crescendo_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
@@ -265,6 +295,12 @@
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
+			}
+			if($greater != ''){
+				$this->db->where('a1.score > ', $greater);
+			}
+			if($less != ''){
+				$this->db->where('a1.score < ', $less);
 			}
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);

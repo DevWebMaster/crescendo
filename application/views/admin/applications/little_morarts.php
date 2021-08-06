@@ -39,9 +39,19 @@
         <h4 class="ml-3 pl-1">Auditions</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-3">
               <div class="form-group mb-2 pl-1" style="text-align: left;">
                 <input type="text" class="form-control form-control-sm" name="filter" id="filter" placeholder="Search...">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="form-group mb-2 pl-1">
+                <input type="number" min="0" max="29" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="greater" id="greater" placeholder="Score: Greater than">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="form-group mb-2 pl-1">
+                <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="less" id="less" placeholder="Score: Less than">
               </div>
             </div>
             <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
@@ -49,7 +59,7 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
-            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-2"></div>
             <div class="col-12 col-md-1">
               <div class="form-group mt-2">
                 <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
@@ -92,9 +102,19 @@
         <h4 class="ml-3 pl-1">Recitals</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-3">
               <div class="form-group mb-2 pl-1" style="text-align: left;">
                 <input type="text" class="form-control form-control-sm" name="recital_filter" id="recital_filter" placeholder="Recital Name">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="form-group mb-2 pl-1">
+                <input type="number" min="0" max="29" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="greater_recital" id="greater_recital" placeholder="Score: Greater than">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="form-group mb-2 pl-1">
+                <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="less_recital" id="less_recital" placeholder="Score: Less than">
               </div>
             </div>
             <div class="col-12 col-md-1" style="text-align: left; padding-left: 0px !important;">
@@ -102,7 +122,7 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter_recital"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
-            <div class="col-12 col-md-3"></div>
+            <div class="col-12 col-md-2"></div>
             <div class="col-12 col-md-1">
               <div class="form-group mt-2">
                 <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_recital_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
@@ -157,7 +177,7 @@
         $('#recitals_section').hide()
       }
     })
-    init_audition_list(filter = '');
+    init_audition_list(filter = '', greater = '', less = '');
 
     $('#audition_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
@@ -169,7 +189,7 @@
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_audition_list(filter = '');
+            init_audition_list(filter = '', greater = '', less = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -179,10 +199,12 @@
 
     $('#btn_filter').click(function(){
       var filter = $('#filter').val();
-      init_audition_list(filter);
+      var greater = $('#greater').val();
+      var less = $('#less').val();
+      init_audition_list(filter, greater, less);
     })
 
-    function init_audition_list(filter){
+    function init_audition_list(filter, greater, less){
       $('#audition_list').DataTable({
         'destroy': true,
         'processing': true,
@@ -191,7 +213,7 @@
         'serverMethod': 'post',
         'ajax': {
             'url':'<?= site_url(); ?>admin/applications/get_apply_little_morarts_list',
-            'data': { filter: filter }
+            'data': { filter: filter, greater: greater, less: less }
         },
         'columns': [
            { data: 'id' },
@@ -215,7 +237,7 @@
         ]
       });
     }
-    init_recital_list(filter = '');
+    init_recital_list(filter_recital = '', greater_recital = '', less_recital = '');
 
     $('#recital_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
@@ -227,7 +249,7 @@
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_recital_list(filter = '');
+            init_recital_list(filter_recital = '', greater_recital = '', less_recital = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -236,11 +258,13 @@
     });
 
     $('#btn_filter_recital').click(function(){
-      var filter = $('#recital_filter').val();
-      init_recital_list(filter);
+      var filter_recital = $('#recital_filter').val();
+      var greater_recital = $('#greater_recital').val();
+      var less_recital = $('#less_recital').val();
+      init_recital_list(filter, greater_recital, less_recital);
     })
 
-    function init_recital_list(filter){
+    function init_recital_list(filter_recital, greater_recital, less_recital){
       $('#recital_list').DataTable({
         'destroy': true,
         'processing': true,
@@ -249,7 +273,7 @@
         'serverMethod': 'post',
         'ajax': {
             'url':'<?= site_url(); ?>admin/applications/get_recital_list',
-            'data': { filter: filter }
+            'data': { filter: filter_recital, greater: greater_recital, less: less_recital }
         },
         'columns': [
            { data: 'id' },
