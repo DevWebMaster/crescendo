@@ -1,5 +1,5 @@
 <?php 
-$cur_tab = $this->uri->segment(2)==''?'account': $this->uri->segment(2);  
+$cur_tab = $this->uri->segment(2)==''?'applyauditions': $this->uri->segment(2);  
 ?>  
 
 
