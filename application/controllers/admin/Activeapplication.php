@@ -68,7 +68,16 @@ class Activeapplication extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
-
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -86,7 +95,7 @@ class Activeapplication extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "recital"=>$value['evaluation'] != '' ? '<a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-warning recital-row" style="color: white;" href="../applyrecital/index">Apply Recital</a>' : '',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
@@ -136,6 +145,16 @@ class Activeapplication extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -153,7 +172,7 @@ class Activeapplication extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "recital"=>$value['evaluation'] != '' ? '<a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-warning recital-row" style="color: white;" href="apply_recital_little_morarts/'.$value['id'].'">Apply Recital</a>' : '',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
