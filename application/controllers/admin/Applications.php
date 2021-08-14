@@ -131,7 +131,7 @@ class Applications extends My_Controller {
       $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
       if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-      && $FileType != "txt" ) {
+      && $FileType != "txt" && $FileType != "jpg" && $FileType != "png") {
         $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
         $uploadOk = 0;
       }
@@ -272,7 +272,7 @@ class Applications extends My_Controller {
       $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
       if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-      && $FileType != "txt" ) {
+      && $FileType != "txt" && $FileType != "jpg" && $FileType != "png") {
         $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
         $uploadOk = 0;
       }
@@ -424,7 +424,7 @@ class Applications extends My_Controller {
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-    && $FileType != "txt" ) {
+    && $FileType != "txt" && $FileType != "jpg" && $FileType != "png") {
       $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
       $uploadOk = 0;
     }
@@ -563,7 +563,7 @@ class Applications extends My_Controller {
     $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-    && $FileType != "txt" ) {
+    && $FileType != "txt" && $FileType != "jpg" && $FileType != "png") {
       $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
       $uploadOk = 0;
     }
