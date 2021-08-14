@@ -61,6 +61,17 @@ class Applications extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
+        
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -78,7 +89,7 @@ class Applications extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
@@ -112,25 +123,28 @@ class Applications extends My_Controller {
     }
     $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
     $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
-    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
-    $target_file = realpath($target_dir) . '/' . $full_name;
+    if($file_name){
+      $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+      $target_file = realpath($target_dir) . '/' . $full_name;
 
-    $uploadOk = 1;
-    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      $uploadOk = 1;
+      $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-    && $FileType != "txt" ) {
-      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
-      $uploadOk = 0;
-    }
-
-    if($uploadOk == 1) {
-      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
-        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
-      } else {
-        $res_str = "Sorry, there was an error adding your file.";
+      if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+      && $FileType != "txt" ) {
+        $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
         $uploadOk = 0;
       }
+      if($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+          $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+        } else {
+          $res_str = "Sorry, there was an error adding your file.";
+          $uploadOk = 0;
+        }
+      }
+    }else {
+      $full_name = '';
     }
     
     $apply_id = $this->input->post('apply_id');
@@ -189,6 +203,16 @@ class Applications extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -206,7 +230,7 @@ class Applications extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_little_morarts/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
@@ -239,29 +263,32 @@ class Applications extends My_Controller {
     @mkdir("$target_dir", 0755, true);
     }
     $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
-    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
-    $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
-    $target_file = realpath($target_dir) . '/' . $full_name;
+    if($file_name){
+      $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+      $full_name = $file_name.'_'.date('Ymd').time().'.'.$ext;
+      $target_file = realpath($target_dir) . '/' . $full_name;
 
-    $uploadOk = 1;
-    $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      $uploadOk = 1;
+      $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
-    && $FileType != "txt" ) {
-      $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
-      $uploadOk = 0;
-    }
-
-    if($uploadOk == 1) {
-      if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
-        $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
-      } else {
-        $res_str = "Sorry, there was an error adding your file.";
+      if($FileType != "doc" && $FileType != "docx" && $FileType != "pdf"
+      && $FileType != "txt" ) {
+        $res_str = "Sorry, only Doc, Docx, PDF, & TXT files are allowed.";
         $uploadOk = 0;
       }
+
+      if($uploadOk == 1) {
+        if (move_uploaded_file($_FILES["evaluation"]["tmp_name"], $target_file)) {
+          $res_str = "The file ". htmlspecialchars( basename( $_FILES["evaluation"]["name"])). " has been added.";
+        } else {
+          $res_str = "Sorry, there was an error adding your file.";
+          $uploadOk = 0;
+        }
+      }
+    }else{
+      $full_name = '';
     }
-    $file_name = explode('.' ,basename($_FILES["evaluation"]["name"]))[0];
-    $ext = explode('.' ,basename($_FILES["evaluation"]["name"]))[1];
+    
     $apply_id = $this->input->post('apply_id');
     $data = array(
       'score' => $this->input->post('score'),
@@ -329,6 +356,16 @@ class Applications extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -346,7 +383,7 @@ class Applications extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
@@ -458,6 +495,16 @@ class Applications extends My_Controller {
         }else if($age >= 14){
           $level ='A';
         }
+        if($value['evaluation']){
+          $splits = explode('_', $value['evaluation']);
+          $eval_str = $splits[0];
+          for($i = 1; $i < count($splits)-1; $i++){
+            $eval_str .= '_'.$splits[$i];
+          }
+          $eval_str .= '.'.explode('.', $splits[count($splits)-1])[1];
+        }else{
+          $eval_str = '';
+        }
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -475,7 +522,7 @@ class Applications extends My_Controller {
           "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
-          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$value['evaluation'].'</a>',
+          "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_recital_crescendo/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
