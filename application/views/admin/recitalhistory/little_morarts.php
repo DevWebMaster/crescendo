@@ -46,10 +46,18 @@
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
                       <th>Student Name</th>
+                      <th>Age</th>
+                      <th>Level</th>
+                      <th>Teacher Name</th>
                       <th>Composition</th>
+                      <th>Instrument</th>
+                      <th>Composer</th>
                       <th>Title</th>
+                      <th>Duration</th>
                       <th>Paid/Unpaid</th>
-                      <th>Student time</th>
+                      <th>Payment Type</th>
+                      <th>Payment Status</th>
+                      <th>Special Need</th>
                       <th>Score</th>
                       <th>Place</th>
                     </tr>
@@ -90,10 +98,18 @@
         'columns': [
            { data: 'id' },
            { data: 'student_name' },
+           { data: 'student_age' },
+           { data: 'level' },
+           { data: 'teacher_name' },
            { data: 'composition' },
+           { data: 'instrument' },
+           { data: 'composer' },
            { data: 'title' },
-           { data: 'is_paid' },
            { data: 'student_time' },
+           { data: 'is_paid' },
+           { data: 'payment_type' },
+           { data: 'payment_status' },
+           { data: 'special_need' },
            { data: 'score' },
            { data: 'place' },
         ]

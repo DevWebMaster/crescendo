@@ -11,6 +11,29 @@
                         <input type="text" class="form-control form-control-sm" name="location" id="location" placeholder="Audition Location">
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-8">
+                      <div class="form-group mb-2">
+                        <input type="text" class="form-control form-control-sm" name="ticket_price" id="ticket_price" placeholder="Ticket Price">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-8">
+                      <div class="form-group mb-2">
+                        <input type="text" class="form-control form-control-sm" name="discounted_price" id="discounted_price" placeholder="Discounted Price">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-8">
+                      <div class="form-group mb-2">
+                        <input type="text" class="form-control form-control-sm" name="discounted_quantity" id="discounted_quantity" placeholder="Discounted Quantity">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-12 col-md-4">
                       <div class="form-group" style="text-align: center;">
                         <input type="submit" class="btn btn-sm btn-info add_location px-4 py-2" style="background: #EEA400; border: none; border-radius: 8px;" value="Create">

@@ -13,7 +13,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Audition Center:</label>
+                          <label class="title mr-2">Audition Name:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">

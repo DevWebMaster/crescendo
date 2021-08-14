@@ -92,6 +92,7 @@
               toastr.warning('Saving the data is failed.');
             }else{
               toastr.success('The data is saved successfully.');
+              sessionStorage.setItem("type", 1)
               setTimeout(function(){
                 window.location.href = '<?= site_url(); ?>admin/applications/index';
               }, 600);

@@ -25,7 +25,7 @@
         <div class="col-md-3 ml-1">
           <div class="radio" style="display: flex; justify-content: space-between; padding-bottom: 8px;">
             <label>
-                <input type="radio" name="little_morarts" id="auditions" value="1" checked="checked">
+                <input type="radio" name="little_morarts" id="auditions1" value="1">
                 Auditions
             </label>
             <label>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="row" id="auditions_section">
+      <div class="row" id="auditions_section" style="display: none;">
         <h4 class="ml-3 pl-1">Auditions</h4>
         <div class="col-12 text-center">
           <div class="row" style="align-items: center;">
@@ -170,13 +170,25 @@
   $(document).ready(function(){
     $("input[name='little_morarts']").click(function(){
       if($('#recitals').is(':checked')){
+        sessionStorage.setItem('type', 2)
         $('#auditions_section').hide()
         $('#recitals_section').show()
       }else {
+        sessionStorage.setItem('type', 1)
         $('#auditions_section').show()
         $('#recitals_section').hide()
       }
     })
+    var type = sessionStorage.getItem("type");
+    if(type == '2'){
+      $('#auditions_section').hide()
+      $('#recitals_section').show()
+      $('#recitals').prop('checked', "checked")
+    }else {
+      $('#auditions_section').show()
+      $('#recitals_section').hide()
+      $('#auditions1').prop('checked', "checked")
+    }
     init_audition_list(filter = '', greater = '', less = '');
 
     $('#audition_list tbody').on('click', 'td a.delete-row', function(){

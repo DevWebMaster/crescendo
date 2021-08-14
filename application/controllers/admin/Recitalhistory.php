@@ -36,7 +36,7 @@ class Recitalhistory extends My_Controller {
   public function get_little_morarts_application_list()
   {
     $token = $this->session->userdata('token');
-    $audition_type = 1;
+    $audition_type = 3;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
     $rowperpage = $_POST['length']; // Rows display per page
@@ -58,13 +58,32 @@ class Recitalhistory extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
+          $level = 'J';
+        }
+        else if(8 <= $age && $age <= 13){
+          $level = 'I';
+        }else if($age >= 14){
+          $level ='A';
+        }
+        
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
+          "student_age"=>$age,
+          "level"=>$level,
+          "teacher_name"=>$value['teacher'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
        );
@@ -82,7 +101,7 @@ class Recitalhistory extends My_Controller {
   public function get_crescendo_application_list()
   {
     $token = $this->session->userdata('token');
-    $audition_type = 2;
+    $audition_type = 4;
     $draw = $_POST['draw'];
     $start = $_POST['start'];
     $rowperpage = $_POST['length']; // Rows display per page
@@ -104,13 +123,32 @@ class Recitalhistory extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
+        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $level = '';
+        if(7 >= $age && $age >= 3){
+          $level = 'J';
+        }
+        else if(8 <= $age && $age <= 13){
+          $level = 'I';
+        }else if($age >= 14){
+          $level ='A';
+        }
+
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
+          "student_age"=>$age,
+          "level"=>$level,
+          "teacher_name"=>$value['teacher'],
           "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "instrument"=>$value['instrument_name'],
+          "composer"=>$value['composer'],
           "title"=>$value['title'],
-          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
           "student_time"=>$value['duration'],
+          "is_paid"=>$value['is_paid'] ? 'Paid' : 'Unpaid',
+          "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
+          "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
+          "special_need"=>$value['request_reason'],
           "score"=>$value['score'],
           'place'=>$value['place'],
        );

@@ -48,6 +48,9 @@
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
                       <th>Location</th>
+                      <th>Ticket Price</th>
+                      <th>Discount Price</th>
+                      <th>Discount Quantity</th>
                       <th width="10%">Action</th>
                     </tr>
                   </thead>
@@ -66,14 +69,39 @@
       <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h4 class="modal-title" id="edit_location_modalLabel">Edit Audition Location</h4>
+              <h4 class="modal-title" id="edit_location_modalLabel">Edit Audition Center</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
               <div class="row">
                 <div class="col-12 col-md-12">
                   <div class="form-group mb-2">
+                    <label style="color: grey;">Location:</label>
                     <input type="text" class="form-control form-control-sm" name="m_location" id="m_location" placeholder="Audition Location">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group mb-2">
+                    <label style="color: grey;">Ticket Price:</label>
+                    <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="ticket_price" id="ticket_price" placeholder="Ticket Price">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group mb-2">
+                    <label style="color: grey;">Discounted Price:</label>
+                    <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="discounted_price" id="discounted_price" placeholder="Discounted Price">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group mb-2">
+                    <label style="color: grey;">Discounted Quantity:</label>
+                    <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="discounted_quantity" id="discounted_quantity" placeholder="Discounted Quantity">
                   </div>
                 </div>
               </div>
@@ -132,22 +160,32 @@
         'columns': [
            { data: 'id' },
            { data: 'location' },
+           { data: 'ticket_price' },
+           { data: 'discounted_price' },
+           { data: 'discounted_quantity' },
            { data: 'action', "width": "10%"},
         ]
       });
     }
     $('#audition_location_list tbody').on('click', 'td a.edit-row', function(){
-      var location_id = $(this).attr('id');  
+      var location_id = $(this).attr('id');
+      $('#m_location').val($(this).parent().parent().find("td:eq(1)").text());
+      $('#ticket_price').val($(this).parent().parent().find("td:eq(2)").text());
+      $('#discounted_price').val($(this).parent().parent().find("td:eq(3)").text());
+      $('#discounted_quantity').val($(this).parent().parent().find("td:eq(4)").text());
       $('#edit_location_id').val(location_id);
     });
 
     $('#btn_save').click(function(){
       var m_location = $('#m_location').val()
+      var ticket_price = $('#ticket_price').val()
+      var discounted_price = $('#discounted_price').val()
+      var discounted_quantity = $('#discounted_quantity').val()
       var m_location_id = $('#edit_location_id').val()
       $.ajax({
         url: '<?= site_url(); ?>admin/audition_location/update_location',
         type: 'POST',
-        data: {m_location_id: m_location_id, m_location: m_location},
+        data: {m_location_id: m_location_id, m_location: m_location, ticket_price: ticket_price, discounted_price: discounted_price, discounted_quantity: discounted_quantity},
         success: function(response){
           var edit_status = JSON.parse(response);
           if(edit_status){

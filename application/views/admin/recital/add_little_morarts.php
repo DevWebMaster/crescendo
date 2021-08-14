@@ -30,7 +30,7 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Audition location:</label>
+                        <label style="color: grey;">Recital Center:</label>
                         <select class="form-control" name="audition_location" id="audition_location">
                           <?php
                             foreach($audition_locations as $audition_location):
@@ -103,6 +103,14 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-12 col-md-4">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Tickets</label>
+                        <input type="date" class="form-control form-control-sm" name="tickets" id="tickets" placeholder="Tickets">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label>Late Fee</label>
@@ -129,6 +137,14 @@
                           <option value="1">Close</option>
                           <option value="2">Open</option>
                         </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Total Price</label>
+                        <input type="date" class="form-control form-control-sm" name="tickets" id="tickets" placeholder="Tickets">
                       </div>
                     </div>
                   </div>

@@ -170,13 +170,25 @@
   $(document).ready(function(){
     $("input[name='crescendo']").click(function(){
       if($('#recitals').is(':checked')){
+        sessionStorage.setItem('crescendo_type', 2)
         $('#auditions_section').hide()
         $('#recitals_section').show()
       }else {
+        sessionStorage.setItem('crescendo_type', 1)
         $('#auditions_section').show()
         $('#recitals_section').hide()
       }
     })
+    var type = sessionStorage.getItem("crescendo_type");
+    if(type == '2'){
+      $('#auditions_section').hide()
+      $('#recitals_section').show()
+      $('#recitals').prop('checked', "checked")
+    }else {
+      $('#auditions_section').show()
+      $('#recitals_section').hide()
+      $('#auditions').prop('checked', "checked")
+    }
     init_audition_list(filter = '', greater = '', less = '');
 
     $('#audition_list tbody').on('click', 'td a.delete-row', function(){
@@ -237,7 +249,7 @@
         ]
       });
     }
-    init_recital_list(filter = '', greater_recital = '', less_recital = '');
+    init_recital_list(filter_recital = '', greater_recital = '', less_recital = '');
 
     $('#recital_list tbody').on('click', 'td a.delete-row', function(){
       var id = $(this).attr('id');  
@@ -249,7 +261,7 @@
           var del_status = JSON.parse(response);
           if(del_status){
             toastr.success("Deleted the row successfully.");
-            init_recital_list(filter = '', greater_recital = '', less_recital = '');
+            init_recital_list(filter_recital = '', greater_recital = '', less_recital = '');
           }else{
             toastr.warning("Deleting is failed.");
           }
@@ -261,10 +273,10 @@
       var filter_recital = $('#recital_filter').val();
       var greater_recital = $('#greater_recital').val();
       var less_recital = $('#less_recital').val();
-      init_recital_list(filter, greater_recital, less_recital);
+      init_recital_list(filter_recital, greater_recital, less_recital);
     })
 
-    function init_recital_list(filter, greater_recital, less_recital){
+    function init_recital_list(filter_recital, greater_recital, less_recital){
       $('#recital_list').DataTable({
         'destroy': true,
         'processing': true,

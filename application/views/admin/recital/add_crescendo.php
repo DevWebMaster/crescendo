@@ -30,7 +30,7 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Audition location:</label>
+                        <label style="color: grey;">Recital Center:</label>
                         <select class="form-control" name="audition_location" id="audition_location">
                           <?php
                             foreach($audition_locations as $audition_location):
