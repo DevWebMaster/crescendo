@@ -13,6 +13,7 @@ class Applications extends My_Controller {
     $this->rbac->check_module_access();
 
     $this->load->model('admin/applications_model', 'applications_model');
+    $this->load->library('excel');
   }
 
   public function index()
@@ -596,6 +597,34 @@ class Applications extends My_Controller {
     $result = $this->applications_model->delete_recital_crescendo($id);
 
     echo json_encode($result);
+  }
+  public function export_little_morarts_to_excel()
+  {
+    $object = new PHPExcel();
+    $object->setActiveSheetIndex(0);
+
+    $table_columns = array("name", "address");
+
+    $column = 0;
+
+    foreach ($table_columns as $field) {
+      $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+      $column++;
+    }
+
+    $application_data = $this->applications_model->fetch_data();
+
+    $excel_row = 2;
+
+    foreach($application_data as $row) {
+      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->name);
+      $excel_row++;
+    }
+
+    $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="Employee Data.xls"');
+    $object_writer->save('php://output');
   }
   
 }

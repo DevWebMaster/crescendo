@@ -80,8 +80,8 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 
-	'username' => 'user',
-	'password' => 'crescendo',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'crescendo',
 	
 	
