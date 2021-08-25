@@ -129,7 +129,7 @@
                             <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $little_morart[0]['audition_date'] ?>">
                             <label class="title mr-2 mt-1 ml-3">Time</label>
                             <select style="width: 30%;" class="form-control" name="request_time" id="request_time">
-                              <option value="1" <?php if($little_morart[0]['request_time'] == 1) { echo "selected"; } ?>>Between 9:00 AM and 11:00AM</option>
+                              <option value="1" <?php if($little_morart[0]['request_time'] == 1) { echo "selected"; } ?>>Between 9:00 AM and 1:00PM</option>
                               <option value="2" <?php if($little_morart[0]['request_time'] == 2) { echo "selected"; } ?>>After 2:00 PM</option>
                             </select>
                            <!--  <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_hour" id="request_hour" value="<?= explode('-', $little_morart[0]['request_time'])[0]; ?>">
@@ -313,6 +313,18 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Student Age:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
+                          <input style="width: 65%;" type="number" class="form-control form-control-sm" name="student_age" id="student_age" value="<?= $crescendo[0]['student_age']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-3">
+                        <div class="form-group flex-group mb-2">
                           <label class="title mr-2">Years of Study:</label>
                         </div>
                       </div>
@@ -410,7 +422,7 @@
                     </div>
                     <div id="solo_section" style="display: none;">
                       <div class="row">
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Co_performers:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers" id="co_performers" value="<?= $little_morart[0]['co_performers']; ?>">
@@ -433,6 +445,126 @@
                             <div class="form-group flex-group mb-2">
                               <label class="title mr-2">Other Instrument:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="duo_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers2" id="co_performers2" value="<?= $little_morart[0]['co_performers']; ?>">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument2" id="co_instrument2">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section2" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument2" id="co_other_instrument2" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="trio_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers3" id="co_performers3" value="<?= $little_morart[0]['co_performers']; ?>">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument3" id="co_instrument3">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section3" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument3" id="co_other_instrument3" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="quartet_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers4" id="co_performers4" value="<?= $little_morart[0]['co_performers']; ?>">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument4" id="co_instrument4">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section4" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument4" id="co_other_instrument4" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="ensemble_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers5" id="co_performers5" value="<?= $little_morart[0]['co_performers']; ?>">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument5" id="co_instrument5">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section5" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument5" id="co_other_instrument5" value="<?= $little_morart[0]['co_other_instrument']; ?>">
                             </div>
                           </div>
                         </div>

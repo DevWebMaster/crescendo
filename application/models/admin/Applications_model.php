@@ -334,5 +334,62 @@
 			$this->db->where('id', $id);
 			return $this->db->update('tbl_applications', array('is_delete' => 1));
 		}
+		public function fetch_data($type) {
+			$this->db->select('a6.audition_name, a1.student_name, a1.student_email, a2.name as countryname, a1.address, a1.mobile_no, a1.birthday, a1.studying_year, a1.level, a1.instrument, a3.name as instrumentname, a1.other_instrument, a1.performance_type, a1.performance_price, a1.co_performers, a1.co_instrument, a4.name as co_instrumentname, a1.co_other_instrument, a1.composer, a1.title, a1.duration, a1.teacher, a1.teacher_email, a5.name as teacher_country, a1.teacher_address, a1.teacher_mobile, a1.payment_type, a1.is_paid, a1.late_fee, a1.special_request, a1.request_time, a1.request_reason, a1.score, a1.place, a1.video_link, a1.total_price');
+			$this->db->from('tbl_applications as a1');
+			$this->db->join('ci_countries as a2', 'a1.country_id = a2.id', 'left');
+			$this->db->join('tbl_instruments as a3', 'a1.instrument = a3.id', 'left');
+			$this->db->join('tbl_instruments as a4', 'a1.co_instrument = a4.id', 'left');
+			$this->db->join('ci_countries as a5', 'a1.teacher_country_id = a5.id', 'left');
+			if($type == 1){
+				$this->db->join('tbl_little_morarts as a6', 'a6.id = a1.audition_id', 'left');
+			}else if($type == 2){
+				$this->db->join('tbl_crescendo as a6', 'a6.id = a1.audition_id', 'left');
+			}else if($type == 3){
+				$this->db->join('tbl_recital_little_morarts as a6', 'a6.id = a1.audition_id', 'left');
+			}else if($type == 4){
+				$this->db->join('tbl_recital_little_morarts as a6', 'a6.id = a1.audition_id', 'left');
+			}
+			$this->db->where('a1.audition_type', $type);
+
+			return $this->db->get()->result_array();
+		}
+		public function get_audition_id($type, $audition_name)
+		{
+			$this->db->select('id');
+			if($type == 1){
+				$this->db->from('tbl_little_morarts');
+			}else if($type == 2){
+				$this->db->from('tbl_crescendo');
+			}else if($type == 3){
+				$this->db->from('tbl_recital_little_morarts');
+			}else if($type == 4){
+				$this->db->from('tbl_recital_crescendo');
+			}
+			$this->db->where('audition_name', $audition_name);
+
+			return $this->db->get()->result_array()[0];
+			
+		}
+		public function get_country_id($country_name){
+			$this->db->select('id');
+			$this->db->from('ci_countries');
+			$this->db->where('name', $country_name);
+
+			return $this->db->get()->result_array()[0];
+		}
+		public function get_instrument_id($instrument){
+			$this->db->select('id');
+			$this->db->from('tbl_instruments');
+			$this->db->where('name', $instrument);
+
+			return $this->db->get()->result_array()[0];
+		}
+		public function save_csv_data($data){
+			$this->db->insert('tbl_applications', $data);
+			$insertId = $this->db->insert_id();
+
+			return $insertId;
+		}
 	}
 ?>

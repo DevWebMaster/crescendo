@@ -59,12 +59,14 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
-            <div class="col-12 col-md-2"></div>
+            <!-- <div class="col-12 col-md-2"></div> -->
             <div class="col-12 col-md-1">
-              <div class="form-group mt-2">
-                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
+              <div class="form-group mt-2" style="display: flex;">
+                <a class="pull-right btn btn-warning btn-large" style="color: white;" href="<?php echo site_url(); ?>admin/applications/export_to_excel_little_morarts"><i class="fa fa-file-excel-o"></i> Export to Excel</a>
+                <button class="pull-right btn btn-warning btn-large ml-2" style="color: white;" data-toggle="modal" data-target="#upload_little_morarts"><i class="fa fa-file-excel-o"></i> Import from Excel</button>
               </div>
             </div>
+            <?php $this->load->view('admin/applications/upload_little_morarts_modal');?>
           </div>
           <div class="row">
             <div class="col-12">
@@ -122,12 +124,14 @@
                 <button class="btn btn-sm" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter_recital"><i class="fa fa-search" style="font-size: 20px;"></i></button>
               </div>
             </div>
-            <div class="col-12 col-md-2"></div>
+            <!-- <div class="col-12 col-md-2"></div> -->
             <div class="col-12 col-md-1">
-              <div class="form-group mt-2">
-                <button class="btn btn-sm" style="background: #EEA400; color: white;" id="btn_download_recital_little_morarts"><i class="fa fa-download"></i>&nbsp;Download Applications</button>
+              <div class="form-group mt-2" style="display: flex;">
+                <a class="pull-right btn btn-warning btn-large" style="color: white;" href="<?php echo site_url(); ?>admin/applications/export_to_excel_recital_little_morarts"><i class="fa fa-file-excel-o"></i> Export to Excel</a>
+                <button class="pull-right btn btn-warning btn-large ml-2" style="color: white;" data-toggle="modal" data-target="#upload_recital_little_morarts"><i class="fa fa-file-excel-o"></i> Import from Excel</button>
               </div>
             </div>
+            <?php $this->load->view('admin/applications/upload_recital_little_morarts_modal');?>
           </div>
           <div class="row">
             <div class="col-12">

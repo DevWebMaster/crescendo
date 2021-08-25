@@ -103,6 +103,32 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-12 col-md-3">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Ticket Price</label>
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="ticket_price" id="ticket_price" placeholder="Ticket Price">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Tickets Quantity</label>
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="tickets_quantity" id="tickets_quantity" placeholder="Tickets Quantity">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Discounted Price</label>
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="discounted_price" id="discounted_price" placeholder="Discounted Price">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <div class="form-group mb-2">
+                        <label style="color: grey;">Discounted Quantity</label>
+                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="discounted_quantity" id="discounted_quantity" placeholder="Discounted Quantity">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
                         <label>Late Fee</label>

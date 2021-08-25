@@ -52,7 +52,7 @@
                   <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="font-weight: bold;">Late Fee</label>
+                        <label style="font-weight: bold;">Audition Fee</label>
                       </div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
                         <input type="text" class="form-control form-control-sm" name="fee_quartet" id="fee_quartet" placeholder="">
                       </div>
                     </div>
-                    <div class="col-12 col-md-2">
+                    <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Ensemble(5 participants)</label>
                         <input type="text" class="form-control form-control-sm" name="fee_ensemble" id="fee_ensemble" placeholder="">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Audition Fee*</label>
+                        <label style="color: grey;">Late Fee*</label>
                         <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="late_fee" id="late_fee" value="50">
                       </div>
                     </div>

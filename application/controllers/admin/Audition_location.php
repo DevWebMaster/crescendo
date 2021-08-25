@@ -49,9 +49,6 @@ class Audition_location extends My_Controller {
         $data[] = array( 
           "id"=>$inx,
           "location"=>$value['location'],
-          "ticket_price"=>$value['ticket_price'],
-          "discounted_price"=>$value['discounted_price'],
-          "discounted_quantity"=>$value['discounted_quantity'],
           "action"=>'<a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" data-toggle="modal" data-target="#edit_location_modal"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a>'
        );
     }
@@ -77,9 +74,6 @@ class Audition_location extends My_Controller {
   {
     $data = array(
       "location"=>$this->input->post('location'),
-      "ticket_price"=>$this->input->post('ticket_price'),
-      "discounted_price"=>$this->input->post('discounted_price'),
-      "discounted_quantity"=>$this->input->post('discounted_quantity'),
       "created_by"=>1,
       "created_at"=>date('Y-m-d H:i:s')
     );
@@ -95,9 +89,6 @@ class Audition_location extends My_Controller {
 
     $data = array(
       "location" => $this->input->post('m_location'),
-      "ticket_price"=>$this->input->post('ticket_price'),
-      "discounted_price"=>$this->input->post('discounted_price'),
-      "discounted_quantity"=>$this->input->post('discounted_quantity'),
       "updated_at" => date('Y-m-d H:i:s'),
       "updated_by" => $this->session->userdata('user_id')
     );

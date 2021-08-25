@@ -57,6 +57,10 @@
                       <th>Late Fee</th>
                       <th>Duration</th>
                       <th>Prize</th>
+                      <th>Ticket Price</th>
+                      <th>Tickets Quantity</th>
+                      <th>Discounted Price</th>
+                      <th>Discounted Quantity</th>
                       <th>Is Active</th>
                       <th width="10%">Action</th>
                     </tr>
@@ -121,6 +125,10 @@
            { data: 'late_fee' },
            { data: 'duration' },
            { data: 'prize' },
+           { data: 'ticket_price' },
+           { data: 'tickets_quantity' },
+           { data: 'discounted_price' },
+           { data: 'discounted_quantity' },
            { data: 'is_active' },
            { data: 'action', "width": "10%"},
         ]
