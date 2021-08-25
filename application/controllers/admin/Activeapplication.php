@@ -58,7 +58,7 @@ class Activeapplication extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $age = $value['age'];
         $level = '';
         if(7 >= $age && $age >= 3){
           $level = 'J';
@@ -135,7 +135,7 @@ class Activeapplication extends My_Controller {
     foreach ($application_list as $value) {
         $inx++;
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
-        $age = date('Y') - explode('-', $value['birthday'])[0];
+        $age = $value['age'];
         $level = '';
         if(7 >= $age && $age >= 3){
           $level = 'J';
