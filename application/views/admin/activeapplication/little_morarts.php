@@ -28,8 +28,14 @@
             
             <div style="display: flex;">
               <input type="text" class="form-control form-control-sm ml-1" name="filter" id="filter" placeholder="Search...">
+              <?php
+                if($this->session->userdata('admin_role_id') == 1):
+              ?>
               <input type="number" min="0" max="29" oninput="validity.valid||(value='');" class="form-control form-control-sm ml-2" name="greater" id="greater" placeholder="Score: Greater than">
               <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm ml-2" name="less" id="less" placeholder="Score: Less than">
+              <?php
+                endif;
+              ?>
               <button class="btn btn-sm ml-3" style="background: #EEA400; color: white; border-radius: 50%; height: 35px;" id="btn_filter"><i class="fa fa-search" style="font-size: 20px;"></i></button>
             </div>
           </div>
