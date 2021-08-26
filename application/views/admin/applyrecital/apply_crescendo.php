@@ -456,6 +456,126 @@
                         </div>
                       </div>
                     </div>
+                    <div id="duo_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers2" id="co_performers2">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument2" id="co_instrument2">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section2" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument2" id="co_other_instrument2">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="trio_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers3" id="co_performers3">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument3" id="co_instrument3">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section3" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument3" id="co_other_instrument3">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="quartet_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers4" id="co_performers4">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument4" id="co_instrument4">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section4" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument4" id="co_other_instrument4">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="ensemble_section" style="display: none;">
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Co_performers:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers5" id="co_performers5">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Instrument:</label>
+                            <select class="form-control" name="co_instrument5" id="co_instrument5">
+                              <?php
+                                foreach($instruments as $instrument):
+                              ?>
+                                <option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div id="co_instrument_section5" style="display: none; width: 40%;">
+                          <div class="col-12 col-md-12">
+                            <div class="form-group flex-group mb-2">
+                              <label class="title mr-2">Other Instrument:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument5" id="co_other_instrument5">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group mb-2">
@@ -776,17 +896,38 @@
     $("input[name='performance_type']").click(function(){
       if($('#solo').is(':checked')){
         $('#solo_section').hide()
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
         performance_price = $('#solo_price').val()
-      }else{
+      }else if($('#duet').is(':checked')){
         $('#solo_section').show()
-      }
-      if($('#duo').is(':checked')){
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
         performance_price = $('#duo_price').val()
       }else if($('#trio').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
         performance_price = $('#trio_price').val()
       }else if($('#quartet').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').show()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
         performance_price = $('#quartet_price').val()
       }else if($('#ensemble').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').show()
+        $('#quartet_section').show()
+        $('#ensemble_section').hide()
         performance_price = $('#ensemble_price').val()
       }
     })

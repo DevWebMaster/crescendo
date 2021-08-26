@@ -1,7 +1,7 @@
 <?php
 	class Applyrecital_model extends CI_Model{
 		public function get_little_morarts($recital_id){
-			$this->db->select('a1.*, a2.location as auditionlocation, a2.ticket_price, a2.discounted_price, a2.discounted_quantity');
+			$this->db->select('a1.*, a2.location as auditionlocation');
 			$this->db->from('tbl_recital_little_morarts as a1');
 			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			$this->db->where('a1.is_delete', 0);
@@ -67,6 +67,17 @@
 			$this->db->select('*');
 			$this->db->from('ci_countries');
 			$this->db->order_by('id');
+
+			return $this->db->get()->result_array();
+		}
+		public function get_crescendo($recital_id){
+			$this->db->select('a1.*, a2.location as auditionlocation');
+			$this->db->from('tbl_recital_crescendo as a1');
+			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
+			$this->db->where('a1.is_delete', 0);
+			if($recital_id != 0){
+				$this->db->where('a1.id', $recital_id);
+			}
 
 			return $this->db->get()->result_array();
 		}

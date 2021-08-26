@@ -877,8 +877,34 @@
     $("input[name='performance_type']").click(function(){
       if($('#solo').is(':checked')){
         $('#solo_section').hide()
-      }else{
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#duet').is(':checked')){
         $('#solo_section').show()
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#trio').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').hide()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#quartet').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').show()
+        $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#ensemble').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').show()
+        $('#quartet_section').show()
+        $('#ensemble_section').hide()
       }
     })
     
