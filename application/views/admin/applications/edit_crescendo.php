@@ -38,7 +38,7 @@
                     <div class="col-12 col-md-12">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Score:</label>
-                        <input type="number" min="0" max="30" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="score" id="score" value="<?= $apply_info['score']; ?>">
+                        <input type="number" min="0" max="30" step="0.1" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="score" id="score" value="<?= $apply_info['score']; ?>">
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#score').val()){
+      if($('#score').val() && ($('#score').val().split('.')[1] == 0 || $('#score').val().split('.')[1] == 5)){
         var formData = new FormData(this);
         $.ajax({
           url: '<?= site_url(); ?>admin/applications/update_crescendo_apply',
@@ -100,6 +100,9 @@
             
           }
         })
+      }else if($('#score').val().split('.')[1] != 0 || $('#score').val().split('.')[1] != 5){
+        toastr.warning('Type the score correctly.');
+        return;
       }else{
         toastr.warning('Please fill all fields correctly.');
         return;
