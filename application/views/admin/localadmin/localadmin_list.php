@@ -23,8 +23,8 @@
         <table id="na_datatable" class="table table-bordered table-striped" width="100%">
           <thead>
             <tr>
-              <th>#<?= trans('id') ?></th>
-              <th><?= trans('name') ?></th>
+              <th><?= trans('id') ?></th>
+              <th>Name</th>
               <th><?= trans('email') ?></th>
               <th><?= trans('mobile_no') ?></th>
               <th><?= trans('created_date') ?></th>

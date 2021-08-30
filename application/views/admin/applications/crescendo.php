@@ -220,6 +220,9 @@
 
     function init_audition_list(filter, greater, less){
       $('#audition_list').DataTable({
+        'fixedHeader': {
+          header: true
+        },
         'destroy': true,
         'processing': true,
         // 'serverSide': true,
@@ -280,6 +283,9 @@
 
     function init_recital_list(filter_recital, greater_recital, less_recital){
       $('#recital_list').DataTable({
+        'fixedHeader': {
+          header: true
+        },
         'destroy': true,
         'processing': true,
         // 'serverSide': true,

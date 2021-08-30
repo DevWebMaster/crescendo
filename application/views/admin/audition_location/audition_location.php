@@ -133,9 +133,6 @@
         'columns': [
            { data: 'id' },
            { data: 'location' },
-           { data: 'ticket_price' },
-           { data: 'discounted_price' },
-           { data: 'discounted_quantity' },
            { data: 'action', "width": "10%"},
         ]
       });

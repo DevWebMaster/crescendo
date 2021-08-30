@@ -113,6 +113,9 @@
 
     function init_application_list(filter, greater, less){
       $('#application_list').DataTable({
+        'fixedHeader': {
+          header: true
+        },
         'destroy': true,
         'processing': true,
         // 'serverSide': true,

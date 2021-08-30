@@ -73,7 +73,7 @@ class Auth_model extends CI_Model{
     //============ Update Reset Code Function ===================
     public function update_reset_code($reset_code, $user_id){
     	$data = array('password_reset_code' => $reset_code);
-    	$this->db->where('admin_id', $user_id);
+    	$this->db->where('id', $user_id);
     	$this->db->update('tbl_users', $data);
     }
 

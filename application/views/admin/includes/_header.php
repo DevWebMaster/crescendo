@@ -9,6 +9,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="stylesheet" href="<?= base_url()?>assets/dist/css/custom.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/datatables/fixedHeader.dataTables.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->

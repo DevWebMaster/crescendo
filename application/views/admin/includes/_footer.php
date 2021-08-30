@@ -21,6 +21,7 @@
 
 
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

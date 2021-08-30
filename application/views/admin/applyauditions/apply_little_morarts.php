@@ -158,7 +158,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -170,7 +170,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -182,7 +182,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -197,10 +197,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -212,7 +212,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -220,7 +220,7 @@
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </fieldset>
                   <hr>
                   <?php
@@ -231,7 +231,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Name:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Name:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -243,7 +243,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -255,7 +255,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -273,7 +273,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -285,7 +285,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -297,7 +297,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Birthday:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Birthday:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -309,7 +309,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Age:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Age:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -321,7 +321,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Years of Study:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Years of Study:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -333,7 +333,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Level:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Level:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -349,7 +349,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Instrument:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Instrument:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -381,7 +381,7 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
-                          <label style="font-weight: bold;">Performance:</label>
+                          <label style="font-weight: bold;"><i style="color: red;">*</i>Performance:</label>
                         </div>
                       </div>
                     </div>
@@ -420,13 +420,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers1:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers" id="co_performers">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument1:</label>
                             <select class="form-control" name="co_instrument" id="co_instrument">
                               <?php
                                 foreach($instruments as $instrument):
@@ -439,7 +439,7 @@
                         <div id="co_instrument_section" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument1:</label>
                               <input style="width:  50%;" type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument">
                             </div>
                           </div>
@@ -450,13 +450,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers2:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers2" id="co_performers2">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument2:</label>
                             <select class="form-control" name="co_instrument2" id="co_instrument2">
                               <?php
                                 foreach($instruments as $instrument):
@@ -469,7 +469,7 @@
                         <div id="co_instrument_section2" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument2:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument2" id="co_other_instrument2">
                             </div>
                           </div>
@@ -480,13 +480,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers3:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers3" id="co_performers3">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument3:</label>
                             <select class="form-control" name="co_instrument3" id="co_instrument3">
                               <?php
                                 foreach($instruments as $instrument):
@@ -499,7 +499,7 @@
                         <div id="co_instrument_section3" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument3:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument3" id="co_other_instrument3">
                             </div>
                           </div>
@@ -510,13 +510,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers4:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers4" id="co_performers4">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument4:</label>
                             <select class="form-control" name="co_instrument4" id="co_instrument4">
                               <?php
                                 foreach($instruments as $instrument):
@@ -529,7 +529,7 @@
                         <div id="co_instrument_section4" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument4:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument4" id="co_other_instrument4">
                             </div>
                           </div>
@@ -540,13 +540,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers5:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers5" id="co_performers5">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument5:</label>
                             <select class="form-control" name="co_instrument5" id="co_instrument5">
                               <?php
                                 foreach($instruments as $instrument):
@@ -559,7 +559,7 @@
                         <div id="co_instrument_section5" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument5:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument5" id="co_other_instrument5">
                             </div>
                           </div>
@@ -576,7 +576,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -588,7 +588,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -600,7 +600,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -615,10 +615,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -630,7 +630,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -638,7 +638,7 @@
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </fieldset>
                   <hr>
                   <?php
@@ -649,7 +649,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Composer:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Composer:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -661,7 +661,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Title(Op., No., mov., key):</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Title(Op., No., mov., key):</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -673,7 +673,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Duration(in Minutes):</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Duration(in Minutes):</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -688,7 +688,7 @@
                   </fieldset>
                   <hr>
                   <fieldset>
-                    <legend>Payment:</legend>
+                    <legend><i style="color: red;">*</i>Payment:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="radio" style="display: flex; justify-content: space-around; padding-bottom: 8px;">
@@ -743,7 +743,32 @@
             <!-- </div> -->
         </div>    
       </div><!--/ row --> 
-
+      <!--------  modal ----------> 
+      <div class="modal fade" id="confirm_little_morarts" tabindex="-1" role="dialog" aria-labelledby="confirm_little_morartsLabel">
+      <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="confirm_little_morartsLabel">Confirmation</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <form method="post" enctype="multipart/form-data" id="confirmForm">
+            <div class="modal-body">
+              <div class="row">
+              <div class="col-md-12">
+                <label>Do you want to apply the student continuously?</label>
+                </div>    
+            </div><!--/ row -->
+            <div class="loader" style="margin-left: 40%; display: none;"></div>
+            </div><!--/body -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-info add_label_no px-3" id="btn_confirm" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-default" id="btn_close" data-dismiss="modal">No</button>
+            </div><!--/footer -->
+          </form>
+      </div>
+      </div>
+      </div>
+      <!---------modal---------->
     </section>  
 </div>
 
@@ -772,9 +797,10 @@
                 toastr.warning('Apply for audition is finished.');
               }else{
                 toastr.success('The data is saved successfully.');
-                setTimeout(function(){
-                  window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
-                }, 600);
+                $('#confirm_little_morarts').modal(show)
+                // setTimeout(function(){
+                //   window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+                // }, 600);
               }
               
             }
@@ -821,6 +847,13 @@
       }
       
     });
+    $('#btn_confirm').click(function(){
+      var audition_id = $('#audition_id').val()
+      window.location.href = '<?= site_url(); ?>admin/activeapplication/apply_little_morarts/'+audition_id;
+    })
+    $('#btn_close').click(function(){
+      window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+    })
 
     $('#special_request').change(function() {
       if(this.checked){
@@ -890,6 +923,36 @@
         $('#co_instrument_section').show()
       }else{
         $('#co_instrument_section').hide()
+      }
+      if($('#instrument2').val() == 31){
+        $('#instrument_section2').show()
+      }else{
+        $('#instrument_section2').hide()
+      }
+      if($('#co_instrument2').val() == 31){
+        $('#co_instrument_section2').show()
+      }else{
+        $('#co_instrument_section2').hide()
+      }
+      if($('#instrument3').val() == 31){
+        $('#instrument_section3').show()
+      }else{
+        $('#instrument_section3').hide()
+      }
+      if($('#co_instrument3').val() == 31){
+        $('#co_instrument_section3').show()
+      }else{
+        $('#co_instrument_section3').hide()
+      }
+      if($('#instrument4').val() == 31){
+        $('#instrument_section4').show()
+      }else{
+        $('#instrument_section4').hide()
+      }
+      if($('#co_instrument4').val() == 31){
+        $('#co_instrument_section4').show()
+      }else{
+        $('#co_instrument_section4').hide()
       }
     })
 

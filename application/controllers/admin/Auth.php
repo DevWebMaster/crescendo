@@ -230,8 +230,8 @@ class Auth extends MY_Controller {
 				if($response){
 
 					$rand_no = rand(0,1000);
-					$pwd_reset_code = md5($rand_no.$response['admin_id']);
-					$this->auth_model->update_reset_code($pwd_reset_code, $response['admin_id']);
+					$pwd_reset_code = md5($rand_no.$response['id']);
+					$this->auth_model->update_reset_code($pwd_reset_code, $response['id']);
 					
 					// --- sending email
 					$to = $response['email'];

@@ -161,7 +161,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -173,7 +173,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -185,7 +185,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -203,7 +203,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -215,7 +215,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -234,7 +234,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Name:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Name:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -253,7 +253,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -265,7 +265,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -283,7 +283,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -295,7 +295,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -307,7 +307,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Birthday:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Birthday:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -319,7 +319,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Student Age:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Student Age:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -331,7 +331,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Years of Study:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Years of Study:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -343,7 +343,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Level:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Level:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -359,7 +359,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Instrument:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Instrument:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -378,7 +378,7 @@
                       <div class="row">
                         <div class="col-12 col-md-3">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Other Instrument:</label>
+                            <label class="title mr-2"><i style="color: red;">*</i>Other Instrument:</label>
                           </div>
                         </div>
                         <div class="col-12 col-md-9">
@@ -391,7 +391,7 @@
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group flex-group mb-2">
-                          <label style="font-weight: bold;">Performance:</label>
+                          <label style="font-weight: bold;"><i style="color: red;">*</i>Performance:</label>
                         </div>
                       </div>
                     </div>
@@ -608,7 +608,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -620,7 +620,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Teacher Email:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Teacher Email:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -632,7 +632,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Country:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Country:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -650,7 +650,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Address:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -662,7 +662,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Mobile Number:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -681,7 +681,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Composer:</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Composer:</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -693,7 +693,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Title(Op., No., mov., key):</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Title(Op., No., mov., key):</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -705,7 +705,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Duration(in Minutes):</label>
+                          <label class="title mr-2"><i style="color: red;">*</i>Duration(in Minutes):</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -735,7 +735,7 @@
                   </fieldset>
                   <hr>
                   <fieldset>
-                    <legend>Payment:</legend>
+                    <legend><i style="color: red;">*</i>Payment:</legend>
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="radio" style="display: flex; justify-content: space-around; padding-bottom: 8px;">

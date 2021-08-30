@@ -61,8 +61,8 @@
                   <div class="row">
                     <div class="col-12 col-md-12">
                       <div class="form-group mt-4">
-                        <input type="submit" class="btn btn-sm btn-info update_apply px-4 py-2" style="background: #EEA400; border: none; width: 100%; font-size: 24px;" value="Update">
-                        <!-- <a type="button" class="btn btn-sm btn-danger cancel px-4" id="cancel" href="<?= site_url(); ?>admin/account/index">Back</a> -->
+                        <input type="submit" class="btn btn-sm btn-info update_apply px-4 py-2" style="background: #EEA400; border: none; width: 30%;" value="Update">
+                        <a type="button" style="width: 30%;" class="btn btn-sm btn-danger cancel px-4" id="cancel" href="<?= site_url(); ?>admin/applications/index">Cancel</a>
                       </div>
                     </div>
                   </div>

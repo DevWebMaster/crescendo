@@ -89,7 +89,7 @@ class Auditions extends My_Controller {
   }
   public function add_little_morarts()
   {
-    $data['title'] = 'Add Little Mozarts';
+    $data['title'] = 'Add Little Mozarts Audition';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
 
@@ -122,7 +122,7 @@ class Auditions extends My_Controller {
   }
   public function edit_little_morarts($audition_id = 0)
   {
-    $data['title'] = 'Edit Little Mozarts';
+    $data['title'] = 'Edit Little Mozarts Audition';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
     $data['audition_id'] = $audition_id;
@@ -235,7 +235,7 @@ class Auditions extends My_Controller {
   }
   public function add_crescendo()
   {
-    $data['title'] = 'Add Crescendo';
+    $data['title'] = 'Add Crescendo Audition';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
 
@@ -268,7 +268,7 @@ class Auditions extends My_Controller {
   }
   public function edit_crescendo($audition_id = 0)
   {
-    $data['title'] = 'Edit Crescendo';
+    $data['title'] = 'Edit Crescendo Audition';
     $data['local_admins'] = $this->auditions_model->get_all_localadmins();
     $data['audition_locations'] = $this->auditions_model->get_audition_locations();
     $data['audition_id'] = $audition_id;

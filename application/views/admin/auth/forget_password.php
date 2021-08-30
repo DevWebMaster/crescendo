@@ -14,7 +14,7 @@
 
       <div class="card-body login-card-body">
 
-        <p class="login-box-msg"><?= trans('forgot_password') ?></p>
+        <p class="login-box-msg" style="color: white;"><?= trans('forgot_password') ?></p>
 
 
 
@@ -26,7 +26,7 @@
 
           <div class="form-group has-feedback">
 
-            <input type="text" name="email" id="email" class="form-control" placeholder="<?= trans('email') ?>" >
+            <input type="text" name="email" id="email" class="form-control" placeholder="<?= trans('email') ?>" style="border-bottom: 1px solid white;">
 
           </div>
 
@@ -48,7 +48,7 @@
 
 
 
-        <p class="mt-3"><a href="<?= base_url('admin/auth/login'); ?>"><?= trans('you_remember_password') ?> </a></p>
+        <p class="mt-3"><a href="<?= base_url('admin/auth/login'); ?>" style="color: white;"><?= trans('you_remember_password') ?> </a></p>
 
 
 
@@ -63,7 +63,10 @@
   <!-- /.login-box -->
 
 </div>
-
+<script>          
+var images = ['bg_login.jpg'];
+$('.bg-cover').css({'background-image': 'url(<?= base_url()?>assets/dist/img/auth/' + images[Math.floor(Math.random() * images.length)] + '),linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6) '});
+</script>
           
 
 

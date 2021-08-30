@@ -18,7 +18,7 @@ class Audition_location extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Audition Location';
+    $data['title'] = 'Audition Center';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/audition_location/audition_location');

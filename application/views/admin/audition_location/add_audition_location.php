@@ -11,10 +11,8 @@
                         <input type="text" class="form-control form-control-sm" name="location" id="location" placeholder="Audition Location">
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
                     <div class="col-12 col-md-4">
-                      <div class="form-group" style="text-align: center;">
+                      <div class="form-group" style="text-align: left;">
                         <input type="submit" class="btn btn-sm btn-info add_location px-4 py-2" style="background: #EEA400; border: none; border-radius: 8px;" value="Create">
                         <!-- <a type="button" class="btn btn-sm btn-danger cancel px-4" id="cancel" href="<?= site_url(); ?>admin/account/index">Back</a> -->
                       </div>
