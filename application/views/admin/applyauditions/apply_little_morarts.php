@@ -776,7 +776,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
+      if($('#teacher_name').val() && $('#teacher_email').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
         if($('#paypal').is(':checked') && ($('#transaction_date').val().split('-')[0] < 1950 || $('#transaction_date').val().split('-')[0] > 2050)){
           toastr.warning('Please fill the correct date in Transaction Date Field.');
           return;
@@ -797,7 +797,7 @@
                 toastr.warning('Apply for audition is finished.');
               }else{
                 toastr.success('The data is saved successfully.');
-                $('#confirm_little_morarts').modal(show)
+                $('#confirm_little_morarts').modal("show")
                 // setTimeout(function(){
                 //   window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
                 // }, 600);
@@ -811,12 +811,6 @@
         return;
       }else if($('#teacher_email').val() === ''){
         toastr.warning('Please fill Teacher Email correctly.');
-        return;
-      }else if($('#teacher_address').val() === ''){
-        toastr.warning('Please fill Teacher Address correctly.');
-        return;
-      }else if($('#teacher_mobile_no').val() === ''){
-        toastr.warning('Please fill Teacher Mobile Number correctly.');
         return;
       }else if($('#student_name').val() === ''){
         toastr.warning('Please fill Student Name correctly.');
@@ -844,12 +838,13 @@
         return;
       }else if($('#student_birthday').val().split('-')[0] > 2050 || $('#student_birthday').val().split('-')[0] < 1950){
         toastr.warning('Please type the correct date in Birthday field.');
+        return;
       }
       
     });
     $('#btn_confirm').click(function(){
       var audition_id = $('#audition_id').val()
-      window.location.href = '<?= site_url(); ?>admin/activeapplication/apply_little_morarts/'+audition_id;
+      window.location.href = '<?= site_url(); ?>admin/applyauditions/apply_little_morarts/'+audition_id;
     })
     $('#btn_close').click(function(){
       window.location.href = '<?= site_url(); ?>admin/activeapplication/index';

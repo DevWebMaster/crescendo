@@ -49,104 +49,110 @@ class Applyrecital extends My_Controller {
     $this->load->view('admin/applyrecital/apply_little_morarts');
     $this->load->view('admin/includes/_footer');
   }
-  // public function save_little_morarts()
-  // {
-  //   $student_time = $this->input->post('student_time');
-  //   $performance_type = $this->input->post('performance_type');
-  //   if($performance_type == 1){
-  //     $performance_price = $this->input->post('solo_price');
-  //   }else if($performance_type == 2){
-  //     $performance_price = $this->input->post('duet_price');
-  //   }else if($performance_type == 3){
-  //     $performance_price = $this->input->post('trio_price');
-  //   }else if($performance_type == 4){
-  //     $performance_price = $this->input->post('quartet_price');
-  //   }else if($performance_type == 5){
-  //     $performance_price = $this->input->post('ensemble_price');
-  //   }
+  public function save_little_morarts()
+  {
+    $student_time = $this->input->post('student_time');
+    $performance_type = $this->input->post('performance_type');
+    if($performance_type == 1){
+      $performance_price = $this->input->post('solo_price');
+    }else if($performance_type == 2){
+      $performance_price = $this->input->post('duet_price');
+    }else if($performance_type == 3){
+      $performance_price = $this->input->post('trio_price');
+    }else if($performance_type == 4){
+      $performance_price = $this->input->post('quartet_price');
+    }else if($performance_type == 5){
+      $performance_price = $this->input->post('ensemble_price');
+    }
 
-  //   $recital_deadline = date_create($this->input->post('recital_deadline'));
-  //   $current_date = date_create(date());
-  //   $diff = date_diff($recital_deadline, $current_date);
-  //   if($diff < 0){
-  //     $islate = 1;
-  //     $late_fee = $this->input->post('late_fee');
-  //   }else {
-  //     $islate = 0;
-  //   }
+    $recital_deadline = date_create($this->input->post('recital_deadline'));
+    $current_date = date_create(date());
+    $diff = date_diff($recital_deadline, $current_date);
+    if($diff < 0){
+      $islate = 1;
+      $late_fee = $this->input->post('late_fee');
+    }else {
+      $islate = 0;
+    }
 
-  //   $transaction_id = $this->input->post('transaction_id');
-  //   $transaction_date = $this->input->post('transaction_date');
-  //   $payment_code = $this->input->post('payment_code');
-  //   if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
-  //     $is_paid = 1;
-  //   }else {
-  //     $is_paid = 0;
-  //   }
+    $transaction_id = $this->input->post('transaction_id');
+    $transaction_date = $this->input->post('transaction_date');
+    $payment_code = $this->input->post('payment_code');
+    if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
+      $is_paid = 1;
+    }else {
+      $is_paid = 0;
+    }
 
-  //   $remain_duration = $this->applyrecital_model->get_remain_duration($this->input->post('recital_id'));
+    $remain_data = $this->applyrecital_model->get_remain_duration($this->input->post('recital_id'));
 
-  //   if($remain_duration['remain_duration'] >= $this->input->post('student_time')){
-  //     $data = array(
-  //       'audition_type'=>3, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
-  //       'audition_id'=>$this->input->post('recital_id'),
-  //       'student_name'=>$this->input->post('student_name'),
-  //       'student_email'=>$this->input->post('student_email'),
-  //       'country_id'=>$this->input->post('country_id'),
-  //       'address'=>$this->input->post('student_address'),
-  //       'mobile_no'=>$this->input->post('student_mobile_no'),
-  //       'birthday'=>$this->input->post('student_birthday'),
-  //       'studying_year'=>$this->input->post('studying_year'),
-  //       'level'=>$this->input->post('level'),
-  //       'instrument'=>$this->input->post('instrument'),
-  //       'other_instrument'=>$this->input->post('other_instrument'),
-  //       'duration'=>$student_time,
-  //       'performance_type'=>$performance_type,
-  //       'performance_price'=>$performance_price,
-  //       'co_performers'=>$this->input->post('co_performers'),
-  //       'co_instrument'=>$this->input->post('co_instrument'),
-  //       'co_other_instrument'=>$this->input->post('co_other_instrument'),
-  //       'composer'=>$this->input->post('composer'),
-  //       'title'=>$this->input->post('title'),
-  //       'teacher'=>$this->input->post('teacher_name'),
-  //       'teacher_email'=>$this->input->post('teacher_email'),
-  //       'teacher_country_id'=>$this->input->post('teacher_country_id'),
-  //       'teacher_address'=>$this->input->post('teacher_address'),
-  //       'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
-  //       'payment_type'=>$this->input->post('payment_type'),
-  //       'transaction_id'=>$transaction_id,
-  //       'transaction_date'=>$transaction_date,
-  //       'payment_code'=>$payment_code,
-  //       'is_paid'=>$is_paid,
-  //       'islate'=>$islate,
-  //       'late_fee'=>$late_fee,
-  //       'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
-  //       'request_time'=>$this->input->post('request_time'),
-  //       'request_reason'=>$this->input->post('request_need'),
-  //       // 'request_answer'=>$this->input->post('request_need'),
-  //       'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
-  //       'video_link'=>$this->input->post('video_link'),
-  //       'is_ticket'=>$this->input->post('is_ticket'),
-  //       'ticket_quantity'=>$this->input->post('ticket_quantity'),
-  //       'total_price'=>$this->input->post('total_price'),
-  //       'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
-  //       'token'=>$this->session->userdata('token'),
-  //       'created_at'=>date('Y-m-d H:i:s'),
-  //       'created_by'=>$this->session->userdata('user_id'),
-  //     );
+    if($remain_data['remain_duration'] >= $this->input->post('student_time')){
+      $data = array(
+        'audition_type'=>3, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
+        'audition_id'=>$this->input->post('recital_id'),
+        'student_name'=>$this->input->post('student_name'),
+        'student_email'=>$this->input->post('student_email'),
+        'country_id'=>$this->input->post('country_id'),
+        'address'=>$this->input->post('student_address'),
+        'mobile_no'=>$this->input->post('student_mobile_no'),
+        'birthday'=>$this->input->post('student_birthday'),
+        'age'=>$this->input->post('student_age'),
+        'studying_year'=>$this->input->post('studying_year'),
+        'level'=>$this->input->post('level'),
+        'instrument'=>$this->input->post('instrument'),
+        'other_instrument'=>$this->input->post('other_instrument'),
+        'duration'=>$student_time,
+        'performance_type'=>$performance_type,
+        'performance_price'=>$performance_price,
+        'co_performers'=>$this->input->post('co_performers'),
+        'co_instrument'=>$this->input->post('co_instrument'),
+        'co_other_instrument'=>$this->input->post('co_other_instrument'),
+        'composer'=>$this->input->post('composer'),
+        'title'=>$this->input->post('title'),
+        'teacher'=>$this->input->post('teacher_name'),
+        'teacher_email'=>$this->input->post('teacher_email'),
+        'teacher_country_id'=>$this->input->post('teacher_country_id'),
+        'teacher_address'=>$this->input->post('teacher_address'),
+        'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
+        'payment_type'=>$this->input->post('payment_type'),
+        'transaction_id'=>$transaction_id,
+        'transaction_date'=>$transaction_date,
+        'payment_code'=>$payment_code,
+        'is_paid'=>$is_paid,
+        'islate'=>$islate,
+        'late_fee'=>$late_fee,
+        'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
+        'request_time'=>$this->input->post('request_time'),
+        'request_reason'=>$this->input->post('request_need'),
+        // 'request_answer'=>$this->input->post('request_need'),
+        'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
+        'video_link'=>$this->input->post('video_link'),
+        'is_ticket'=>$this->input->post('is_ticket'),
+        'ticket_quantity'=>$this->input->post('ticket_quantity'),
+        'total_price'=>$this->input->post('total_price'),
+        'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
+        'token'=>$this->session->userdata('token'),
+        'created_at'=>date('Y-m-d H:i:s'),
+        'created_by'=>$this->session->userdata('user_id'),
+      );
 
-  //     $result = $this->applyrecital_model->save_apply($data);
-  //     if($result){
-  //       //update the recital duration based on student time.
-  //       $remain_duration = $remain_duration['remain_duration'] - $student_time;
-  //       $this->applyrecital_model->update_recital_duration($this->input->post('recital_id'), $remain_duration);
-  //     }
-  //   }else{
-  //     $result = 'closed';
-  //   }
+      $result = $this->applyrecital_model->save_apply($data);
+      if($result){
+        //update the recital duration based on student time.
+        $remain_duration = $remain_data['remain_duration'] - $student_time;
+        $remained_tickets = $remain_data['remained_tickets'] - $this->input->post('ticket_quantity');
+        $update_data = array(
+          'remained_tickets' => $remained_tickets,
+          'remain_duration' => $remain_duration
+        );
+        $this->applyrecital_model->update_recital_duration($this->input->post('recital_id'), $update_data);
+      }
+    }else{
+      $result = 'closed';
+    }
 
-  //   echo json_encode($result);
-  // }
+    echo json_encode($result);
+  }
   public function crescendo()
   {
 
@@ -180,104 +186,110 @@ class Applyrecital extends My_Controller {
     $this->load->view('admin/applyrecital/apply_crescendo');
     $this->load->view('admin/includes/_footer');
   }
-  // public function save_crescendo()
-  // {
-  //   $student_time = $this->input->post('student_time');
-  //   $performance_type = $this->input->post('performance_type');
-  //   if($performance_type == 1){
-  //     $performance_price = $this->input->post('solo_price');
-  //   }else if($performance_type == 2){
-  //     $performance_price = $this->input->post('duet_price');
-  //   }else if($performance_type == 3){
-  //     $performance_price = $this->input->post('trio_price');
-  //   }else if($performance_type == 4){
-  //     $performance_price = $this->input->post('quartet_price');
-  //   }else if($performance_type == 5){
-  //     $performance_price = $this->input->post('ensemble_price');
-  //   }
+  public function save_crescendo()
+  {
+    $student_time = $this->input->post('student_time');
+    $performance_type = $this->input->post('performance_type');
+    if($performance_type == 1){
+      $performance_price = $this->input->post('solo_price');
+    }else if($performance_type == 2){
+      $performance_price = $this->input->post('duet_price');
+    }else if($performance_type == 3){
+      $performance_price = $this->input->post('trio_price');
+    }else if($performance_type == 4){
+      $performance_price = $this->input->post('quartet_price');
+    }else if($performance_type == 5){
+      $performance_price = $this->input->post('ensemble_price');
+    }
 
-  //   $audition_deadline = date_create($this->input->post('audition_deadline'));
-  //   $current_date = date_create(date());
-  //   $diff = date_diff($audition_deadline, $current_date);
-  //   if($diff < 0){
-  //     $islate = 1;
-  //     $late_fee = $this->input->post('late_fee');
-  //   }else {
-  //     $islate = 0;
-  //   }
+    $audition_deadline = date_create($this->input->post('audition_deadline'));
+    $current_date = date_create(date());
+    $diff = date_diff($audition_deadline, $current_date);
+    if($diff < 0){
+      $islate = 1;
+      $late_fee = $this->input->post('late_fee');
+    }else {
+      $islate = 0;
+    }
 
-  //   $transaction_id = $this->input->post('transaction_id');
-  //   $transaction_date = $this->input->post('transaction_date');
-  //   $payment_code = $this->input->post('payment_code');
-  //   if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
-  //     $is_paid = 1;
-  //   }else {
-  //     $is_paid = 0;
-  //   }
+    $transaction_id = $this->input->post('transaction_id');
+    $transaction_date = $this->input->post('transaction_date');
+    $payment_code = $this->input->post('payment_code');
+    if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
+      $is_paid = 1;
+    }else {
+      $is_paid = 0;
+    }
 
-  //   $remain_duration = $this->applyrecital_model->get_remain_duration_crescendo($this->input->post('recital_id'));
+    $remain_data = $this->applyrecital_model->get_remain_duration_crescendo($this->input->post('recital_id'));
 
-  //   if($remain_duration['remain_duration'] >= $this->input->post('student_time')){
-  //     $data = array(
-  //       'audition_type'=>4, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
-  //       'audition_id'=>$this->input->post('recital_id'),
-  //       'student_name'=>$this->input->post('student_name'),
-  //       'student_email'=>$this->input->post('student_email'),
-  //       'country_id'=>$this->input->post('country_id'),
-  //       'address'=>$this->input->post('student_address'),
-  //       'mobile_no'=>$this->input->post('student_mobile_no'),
-  //       'birthday'=>$this->input->post('student_birthday'),
-  //       'studying_year'=>$this->input->post('studying_year'),
-  //       'level'=>$this->input->post('studying_year'),
-  //       'instrument'=>$this->input->post('instrument'),
-  //       'other_instrument'=>$this->input->post('other_instrument'),
-  //       'duration'=>$student_time,
-  //       'performance_type'=>$performance_type,
-  //       'performance_price'=>$performance_price,
-  //       'co_performers'=>$this->input->post('co_performers'),
-  //       'co_instrument'=>$this->input->post('co_instrument'),
-  //       'co_other_instrument'=>$this->input->post('co_other_instrument'),
-  //       'composer'=>$this->input->post('composer'),
-  //       'title'=>$this->input->post('title'),
-  //       'teacher'=>$this->input->post('teacher_name'),
-  //       'teacher_email'=>$this->input->post('teacher_email'),
-  //       'teacher_country_id'=>$this->input->post('teacher_country_id'),
-  //       'teacher_address'=>$this->input->post('teacher_address'),
-  //       'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
-  //       'payment_type'=>$this->input->post('payment_type'),
-  //       'transaction_id'=>$transaction_id,
-  //       'transaction_date'=>$transaction_date,
-  //       'payment_code'=>$payment_code,
-  //       'is_paid'=>$is_paid,
-  //       'islate'=>$islate,
-  //       'late_fee'=>$late_fee,
-  //       'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
-  //       'request_time'=>$this->input->post('request_time'),
-  //       'request_reason'=>$this->input->post('request_need'),
-  //       // 'request_answer'=>$this->input->post('request_need'),
-  //       'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
-  //       'video_link'=>$this->input->post('video_link'),
-  //       'is_ticket'=>$this->input->post('is_ticket'),
-  //       'ticket_quantity'=>$this->input->post('ticket_quantity'),
-  //       'total_price'=>$this->input->post('total_price'),
-  //       'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
-  //       'token'=>$this->session->userdata('token'),
-  //       'created_at'=>date('Y-m-d H:i:s'),
-  //       'created_by'=>$this->session->userdata('user_id'),
-  //     );
+    if($remain_data['remain_duration'] >= $this->input->post('student_time')){
+      $data = array(
+        'audition_type'=>4, //1:little_morarts, 2:crescendo, 3:recital_little_morarts, 4:recital_crescendo
+        'audition_id'=>$this->input->post('recital_id'),
+        'student_name'=>$this->input->post('student_name'),
+        'student_email'=>$this->input->post('student_email'),
+        'country_id'=>$this->input->post('country_id'),
+        'address'=>$this->input->post('student_address'),
+        'mobile_no'=>$this->input->post('student_mobile_no'),
+        'birthday'=>$this->input->post('student_birthday'),
+        'age'=>$this->input->post('student_age'),
+        'studying_year'=>$this->input->post('studying_year'),
+        'level'=>$this->input->post('studying_year'),
+        'instrument'=>$this->input->post('instrument'),
+        'other_instrument'=>$this->input->post('other_instrument'),
+        'duration'=>$student_time,
+        'performance_type'=>$performance_type,
+        'performance_price'=>$performance_price,
+        'co_performers'=>$this->input->post('co_performers'),
+        'co_instrument'=>$this->input->post('co_instrument'),
+        'co_other_instrument'=>$this->input->post('co_other_instrument'),
+        'composer'=>$this->input->post('composer'),
+        'title'=>$this->input->post('title'),
+        'teacher'=>$this->input->post('teacher_name'),
+        'teacher_email'=>$this->input->post('teacher_email'),
+        'teacher_country_id'=>$this->input->post('teacher_country_id'),
+        'teacher_address'=>$this->input->post('teacher_address'),
+        'teacher_mobile'=>$this->input->post('teacher_mobile_no'),
+        'payment_type'=>$this->input->post('payment_type'),
+        'transaction_id'=>$transaction_id,
+        'transaction_date'=>$transaction_date,
+        'payment_code'=>$payment_code,
+        'is_paid'=>$is_paid,
+        'islate'=>$islate,
+        'late_fee'=>$late_fee,
+        'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
+        'request_time'=>$this->input->post('request_time'),
+        'request_reason'=>$this->input->post('request_need'),
+        // 'request_answer'=>$this->input->post('request_need'),
+        'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
+        'video_link'=>$this->input->post('video_link'),
+        'is_ticket'=>$this->input->post('is_ticket'),
+        'ticket_quantity'=>$this->input->post('ticket_quantity'),
+        'total_price'=>$this->input->post('total_price'),
+        'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
+        'token'=>$this->session->userdata('token'),
+        'created_at'=>date('Y-m-d H:i:s'),
+        'created_by'=>$this->session->userdata('user_id'),
+      );
 
-  //     $result = $this->applyrecital_model->save_apply($data);
-  //     if($result){
-  //       //update the audition duration based on student time.
-  //       $remain_duration = $remain_duration['remain_duration'] - $student_time;
-  //       $this->applyrecital_model->update_audition_duration_crescendo($this->input->post('recital_id'), $remain_duration);
-  //     }
-  //   }else{
-  //     $result = 'closed';
-  //   }
+      $result = $this->applyrecital_model->save_apply($data);
+      if($result){
+        //update the audition duration based on student time.
+        $remain_duration = $remain_data['remain_duration'] - $student_time;
+        $remained_tickets = $remain_data['remained_tickets'] - $this->input->post('ticket_quantity');
+        $update_data = array(
+          'remained_tickets' => $remained_tickets,
+          'remain_duration' => $remain_duration
+        );
+        $this->applyrecital_model->update_recital_duration_crescendo($this->input->post('recital_id'), $update_data);
+      }
+    }else{
+      $result = 'closed';
+    }
 
-  //   echo json_encode($result);
-  // }
+    echo json_encode($result);
+  }
 
 }
 

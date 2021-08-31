@@ -60,12 +60,18 @@ class Activeapplication extends My_Controller {
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -137,12 +143,18 @@ class Activeapplication extends My_Controller {
         $audition_info = $this->activeapplication_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -258,6 +270,7 @@ class Activeapplication extends My_Controller {
         'address'=>$this->input->post('student_address'),
         'mobile_no'=>$this->input->post('student_mobile_no'),
         'birthday'=>$this->input->post('student_birthday'),
+        'age'=>$this->input->post('student_age'),
         'studying_year'=>$this->input->post('studying_year'),
         'level'=>$this->input->post('level'),
         'instrument'=>$this->input->post('instrument'),
@@ -392,6 +405,7 @@ class Activeapplication extends My_Controller {
         'address'=>$this->input->post('student_address'),
         'mobile_no'=>$this->input->post('student_mobile_no'),
         'birthday'=>$this->input->post('student_birthday'),
+        'age'=>$this->input->post('student_age'),
         'studying_year'=>$this->input->post('studying_year'),
         'level'=>$this->input->post('level'),
         'instrument'=>$this->input->post('instrument'),

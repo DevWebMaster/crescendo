@@ -54,12 +54,18 @@ class Applications extends My_Controller {
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -79,7 +85,7 @@ class Applications extends My_Controller {
           "student_age"=>$age,
           "level"=>$level,
           "teacher_name"=>$value['teacher'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['auditionlocation'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
           "title"=>$value['title'],
@@ -196,12 +202,18 @@ class Applications extends My_Controller {
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -220,7 +232,7 @@ class Applications extends My_Controller {
           "student_age"=>$age,
           "level"=>$level,
           "teacher_name"=>$value['teacher'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['auditionlocation'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
           "title"=>$value['title'],
@@ -349,12 +361,18 @@ class Applications extends My_Controller {
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -373,7 +391,7 @@ class Applications extends My_Controller {
           "student_age"=>$age,
           "level"=>$level,
           "teacher_name"=>$value['teacher'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['auditionlocation'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
           "title"=>$value['title'],
@@ -488,12 +506,18 @@ class Applications extends My_Controller {
         $audition_info = $this->applications_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         if($value['evaluation']){
@@ -512,7 +536,7 @@ class Applications extends My_Controller {
           "student_age"=>$age,
           "level"=>$level,
           "teacher_name"=>$value['teacher'],
-          "composition"=>$audition_info['audition_name'].' '.$audition_info['audition_location'],
+          "composition"=>$audition_info['audition_name'].' '.$audition_info['auditionlocation'],
           "instrument"=>$value['instrument_name'],
           "composer"=>$value['composer'],
           "title"=>$value['title'],
@@ -883,12 +907,12 @@ class Applications extends My_Controller {
     $file = fopen($target_file, "r");
     if($uploadOk != 0){
       while (($item = fgetcsv($file, filesize($file), ",")) !== FALSE) {
-        if( trim($item[0]) != 'No' )
+        if( trim($item[0]) == 'No' )
         { 
           continue;
         }
-        $audition_id = $this->applications_model->get_audition_id($type, trim($item[1]));
-        $country_id = $this->applications_model->get_country_id(trim($item[4]));
+        $audition_id = $this->applications_model->get_audition_id($type, $item[1]);
+        $country_id = $this->applications_model->get_country_id($item[4]);
         $instrument_info = $this->applications_model->get_instrument_id(trim($item[10]));
         if($instrument_info){
           $instrument_id = $instrument_info['id'];
@@ -932,9 +956,9 @@ class Applications extends My_Controller {
           $co_instrument = $co_instrument_id;
           $co_other_instrument = $co_other_ins_val;
         }
-        $teacher_country_id = $this->applications_model->get_country_id(trim($item[20]));
+        $teacher_country_id = $this->applications_model->get_country_id($item[20]);
         $row_data = array(
-          "audition_type" => 4,
+          "audition_type" => $type,
           "audition_id" => $audition_id['id'],
           "student_name" => trim($item[2]),
           "student_email" => trim($item[3]),
@@ -956,7 +980,7 @@ class Applications extends My_Controller {
           "duration" => trim($item[17]),
           "teacher" => trim($item[18]),
           "teacher_email" => trim($item[19]),
-          "teacher_country_id" => $teacher_country_id,
+          "teacher_country_id" => $teacher_country_id['id'],
           "teacher_address" => trim($item[21]),
           "teacher_mobile" => trim($item[22]),
           "payment_type" => trim($item[23]) == 'Paypal' ? 1 : 2,
@@ -972,14 +996,415 @@ class Applications extends My_Controller {
           "created_at" => date('Y-m-d H:i:s'),
           "created_by" => $this->session->userdata('user_id'),
         );
-        // $this->applications_model->save_csv_data($row_data);
+        $this->applications_model->save_csv_data($row_data);
       } // end of while loop
     }
 
     $response_data = array('status' => $uploadOk, 'message' => $rtn_str);
-    
+
     fclose($file);
-    echo json_encode(trim($item[1]).'--'.$audition_id);
+    echo json_encode($response_data);
+  }
+  public function import_from_excel_recital_little_morarts()
+  {
+    $type = 3;
+    $tmp_filename = $FILES["recitalfileToUpload"]["tmp_name"];
+    $uploadOk = 1;
+    $target_dir = 'uploads/';
+    // $target_dir = '/var/www/crescendo/uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["recitalfileToUpload"]["name"]);
+    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($fileType != "csv") {
+      $rtn_str = 'Sorry, only CSV file is allowed.';
+      $uploadOk = 0;
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+      $rtn_str = "Sorry, file already exists.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk != 0) {
+      if (move_uploaded_file($_FILES["recitalfileToUpload"]["tmp_name"], $target_file)) {
+        $rtn_str = "The file ". htmlspecialchars( basename( $_FILES["recitalfileToUpload"]["name"])). " has been added.";
+      } else {
+        $rtn_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
+    $audition_id = 0;
+    $file = fopen($target_file, "r");
+    if($uploadOk != 0){
+      while (($item = fgetcsv($file, filesize($file), ",")) !== FALSE) {
+        if( trim($item[0]) == 'No' )
+        { 
+          continue;
+        }
+        $audition_id = $this->applications_model->get_audition_id($type, $item[1]);
+        $country_id = $this->applications_model->get_country_id($item[4]);
+        $instrument_info = $this->applications_model->get_instrument_id(trim($item[10]));
+        if($instrument_info){
+          $instrument_id = $instrument_info['id'];
+          $other_instrument = '';
+        }else{
+          $instrument_id = 31;
+          $other_instrument = trim($item[10]);
+        }
+
+        $co_instrument_info = $this->applications_model->get_instrument_id(trim($item[14]));
+        if($co_instrument_info){
+          $co_instrument_id = $co_instrument_info['id'];
+          $co_other_ins_val = '';
+        }else{
+          $co_instrument_id = 31;
+          $co_other_ins_val = trim($item[14]);
+        }
+
+        if(trim($item[11]) == 'Solo'){
+          $performance_type = 1;
+          $co_performers = '';
+          $co_instrument = '';
+        }else if(trim($item[11]) == 'Duo'){
+          $performance_type = 2;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Trio'){
+          $performance_type = 3;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Quartet'){
+          $performance_type = 4;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Ensemble'){
+          $performance_type = 5;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }
+        $teacher_country_id = $this->applications_model->get_country_id($item[20]);
+        $row_data = array(
+          "audition_type" => $type,
+          "audition_id" => $audition_id['id'],
+          "student_name" => trim($item[2]),
+          "student_email" => trim($item[3]),
+          "country_id" => $country_id['id'],
+          "address" => trim($item[5]),
+          'mobile_no' => trim($item[6]),
+          "birthday" => trim($item[7]),
+          "studying_year" => trim($item[8]),
+          "level" => trim($item[9]),
+          "instrument" => $instrument_id,
+          "other_instrument" => $other_instrument,
+          "performance_type" => $performance_type,
+          "performance_price" => trim($item[12]),
+          "co_performers" => $co_performers,
+          "co_instrument" => $co_instrument,
+          "co_other_instrument" => $co_other_instrument,
+          "composer" => trim($item[15]),
+          "title" => trim($item[16]),
+          "duration" => trim($item[17]),
+          "teacher" => trim($item[18]),
+          "teacher_email" => trim($item[19]),
+          "teacher_country_id" => $teacher_country_id['id'],
+          "teacher_address" => trim($item[21]),
+          "teacher_mobile" => trim($item[22]),
+          "payment_type" => trim($item[23]) == 'Paypal' ? 1 : 2,
+          "is_paid" => trim($item[24]) == 'Paid' ? 1 : 0,
+          "late_fee" => trim($item[25]),
+          "special_request" => trim($item[26]) == 'No' ? 0 : 1,
+          "request_time" => trim($item[27]),
+          "request_reason" => trim($item[28]),
+          "score" => trim($item[29]),
+          "place" => trim($item[30]),
+          "video_link" => trim($item[31]),
+          "total_price" => trim($item[32]),
+          "created_at" => date('Y-m-d H:i:s'),
+          "created_by" => $this->session->userdata('user_id'),
+        );
+        $this->applications_model->save_csv_data($row_data);
+      } // end of while loop
+    }
+
+    $response_data = array('status' => $uploadOk, 'message' => $rtn_str);
+    fclose($file);
+    echo json_encode($response_data);
+  }
+  public function import_from_excel_crescendo()
+  {
+    $type = 2;
+    $tmp_filename = $FILES["fileToUpload"]["tmp_name"];
+    $uploadOk = 1;
+    $target_dir = 'uploads/';
+    // $target_dir = '/var/www/crescendo/uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["fileToUpload"]["name"]);
+    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($fileType != "csv") {
+      $rtn_str = 'Sorry, only CSV file is allowed.';
+      $uploadOk = 0;
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+      $rtn_str = "Sorry, file already exists.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk != 0) {
+      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        $rtn_str = "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been added.";
+      } else {
+        $rtn_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
+    $audition_id = 0;
+    $file = fopen($target_file, "r");
+    if($uploadOk != 0){
+      while (($item = fgetcsv($file, filesize($file), ",")) !== FALSE) {
+        if( trim($item[0]) == 'No' )
+        { 
+          continue;
+        }
+        $audition_id = $this->applications_model->get_audition_id($type, $item[1]);
+        $country_id = $this->applications_model->get_country_id($item[4]);
+        $instrument_info = $this->applications_model->get_instrument_id(trim($item[10]));
+        if($instrument_info){
+          $instrument_id = $instrument_info['id'];
+          $other_instrument = '';
+        }else{
+          $instrument_id = 31;
+          $other_instrument = trim($item[10]);
+        }
+
+        $co_instrument_info = $this->applications_model->get_instrument_id(trim($item[14]));
+        if($co_instrument_info){
+          $co_instrument_id = $co_instrument_info['id'];
+          $co_other_ins_val = '';
+        }else{
+          $co_instrument_id = 31;
+          $co_other_ins_val = trim($item[14]);
+        }
+
+        if(trim($item[11]) == 'Solo'){
+          $performance_type = 1;
+          $co_performers = '';
+          $co_instrument = '';
+        }else if(trim($item[11]) == 'Duo'){
+          $performance_type = 2;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Trio'){
+          $performance_type = 3;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Quartet'){
+          $performance_type = 4;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Ensemble'){
+          $performance_type = 5;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }
+        $teacher_country_id = $this->applications_model->get_country_id($item[20]);
+        $row_data = array(
+          "audition_type" => $type,
+          "audition_id" => $audition_id['id'],
+          "student_name" => trim($item[2]),
+          "student_email" => trim($item[3]),
+          "country_id" => $country_id['id'],
+          "address" => trim($item[5]),
+          'mobile_no' => trim($item[6]),
+          "birthday" => trim($item[7]),
+          "studying_year" => trim($item[8]),
+          "level" => trim($item[9]),
+          "instrument" => $instrument_id,
+          "other_instrument" => $other_instrument,
+          "performance_type" => $performance_type,
+          "performance_price" => trim($item[12]),
+          "co_performers" => $co_performers,
+          "co_instrument" => $co_instrument,
+          "co_other_instrument" => $co_other_instrument,
+          "composer" => trim($item[15]),
+          "title" => trim($item[16]),
+          "duration" => trim($item[17]),
+          "teacher" => trim($item[18]),
+          "teacher_email" => trim($item[19]),
+          "teacher_country_id" => $teacher_country_id['id'],
+          "teacher_address" => trim($item[21]),
+          "teacher_mobile" => trim($item[22]),
+          "payment_type" => trim($item[23]) == 'Paypal' ? 1 : 2,
+          "is_paid" => trim($item[24]) == 'Paid' ? 1 : 0,
+          "late_fee" => trim($item[25]),
+          "special_request" => trim($item[26]) == 'No' ? 0 : 1,
+          "request_time" => trim($item[27]),
+          "request_reason" => trim($item[28]),
+          "score" => trim($item[29]),
+          "place" => trim($item[30]),
+          "video_link" => trim($item[31]),
+          "total_price" => trim($item[32]),
+          "created_at" => date('Y-m-d H:i:s'),
+          "created_by" => $this->session->userdata('user_id'),
+        );
+        $this->applications_model->save_csv_data($row_data);
+      } // end of while loop
+    }
+
+    $response_data = array('status' => $uploadOk, 'message' => $rtn_str);
+
+    fclose($file);
+    echo json_encode($response_data);
+  }
+  public function import_from_excel_recital_crescendo()
+  {
+    $type = 4;
+    $tmp_filename = $FILES["recitalfileToUpload"]["tmp_name"];
+    $uploadOk = 1;
+    $target_dir = 'uploads/';
+    // $target_dir = '/var/www/crescendo/uploads/';
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+    $target_file = realpath($target_dir) . '/' . basename($_FILES["recitalfileToUpload"]["name"]);
+    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    if($fileType != "csv") {
+      $rtn_str = 'Sorry, only CSV file is allowed.';
+      $uploadOk = 0;
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+      $rtn_str = "Sorry, file already exists.";
+      $uploadOk = 0;
+    }
+
+    if($uploadOk != 0) {
+      if (move_uploaded_file($_FILES["recitalfileToUpload"]["tmp_name"], $target_file)) {
+        $rtn_str = "The file ". htmlspecialchars( basename( $_FILES["recitalfileToUpload"]["name"])). " has been added.";
+      } else {
+        $rtn_str = "Sorry, there was an error adding your file.";
+        $uploadOk = 0;
+      }
+    }
+    $audition_id = 0;
+    $file = fopen($target_file, "r");
+    if($uploadOk != 0){
+      while (($item = fgetcsv($file, filesize($file), ",")) !== FALSE) {
+        if( trim($item[0]) == 'No' )
+        { 
+          continue;
+        }
+        $audition_id = $this->applications_model->get_audition_id($type, $item[1]);
+        $country_id = $this->applications_model->get_country_id($item[4]);
+        $instrument_info = $this->applications_model->get_instrument_id(trim($item[10]));
+        if($instrument_info){
+          $instrument_id = $instrument_info['id'];
+          $other_instrument = '';
+        }else{
+          $instrument_id = 31;
+          $other_instrument = trim($item[10]);
+        }
+
+        $co_instrument_info = $this->applications_model->get_instrument_id(trim($item[14]));
+        if($co_instrument_info){
+          $co_instrument_id = $co_instrument_info['id'];
+          $co_other_ins_val = '';
+        }else{
+          $co_instrument_id = 31;
+          $co_other_ins_val = trim($item[14]);
+        }
+
+        if(trim($item[11]) == 'Solo'){
+          $performance_type = 1;
+          $co_performers = '';
+          $co_instrument = '';
+        }else if(trim($item[11]) == 'Duo'){
+          $performance_type = 2;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Trio'){
+          $performance_type = 3;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Quartet'){
+          $performance_type = 4;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }else if(trim($item[11]) == 'Ensemble'){
+          $performance_type = 5;
+          $co_performers = trim($item[13]);
+          $co_instrument = $co_instrument_id;
+          $co_other_instrument = $co_other_ins_val;
+        }
+        $teacher_country_id = $this->applications_model->get_country_id($item[20]);
+        $row_data = array(
+          "audition_type" => $type,
+          "audition_id" => $audition_id['id'],
+          "student_name" => trim($item[2]),
+          "student_email" => trim($item[3]),
+          "country_id" => $country_id['id'],
+          "address" => trim($item[5]),
+          'mobile_no' => trim($item[6]),
+          "birthday" => trim($item[7]),
+          "studying_year" => trim($item[8]),
+          "level" => trim($item[9]),
+          "instrument" => $instrument_id,
+          "other_instrument" => $other_instrument,
+          "performance_type" => $performance_type,
+          "performance_price" => trim($item[12]),
+          "co_performers" => $co_performers,
+          "co_instrument" => $co_instrument,
+          "co_other_instrument" => $co_other_instrument,
+          "composer" => trim($item[15]),
+          "title" => trim($item[16]),
+          "duration" => trim($item[17]),
+          "teacher" => trim($item[18]),
+          "teacher_email" => trim($item[19]),
+          "teacher_country_id" => $teacher_country_id['id'],
+          "teacher_address" => trim($item[21]),
+          "teacher_mobile" => trim($item[22]),
+          "payment_type" => trim($item[23]) == 'Paypal' ? 1 : 2,
+          "is_paid" => trim($item[24]) == 'Paid' ? 1 : 0,
+          "late_fee" => trim($item[25]),
+          "special_request" => trim($item[26]) == 'No' ? 0 : 1,
+          "request_time" => trim($item[27]),
+          "request_reason" => trim($item[28]),
+          "score" => trim($item[29]),
+          "place" => trim($item[30]),
+          "video_link" => trim($item[31]),
+          "total_price" => trim($item[32]),
+          "created_at" => date('Y-m-d H:i:s'),
+          "created_by" => $this->session->userdata('user_id'),
+        );
+        $this->applications_model->save_csv_data($row_data);
+      } // end of while loop
+    }
+
+    $response_data = array('status' => $uploadOk, 'message' => $rtn_str);
+
+    fclose($file);
+    echo json_encode($response_data);
   }
 }
 

@@ -70,7 +70,7 @@
 			return $query->num_rows();
 		}
 		public function get_audition_info($audition_type, $audition_id){
-			$this->db->select('a1.audition_name, a2.location as audition_location');
+			$this->db->select('a1.audition_name, a2.location as auditionlocation');
 			if($audition_type == 1){
 				$this->db->from('tbl_little_morarts as a1');
 			}else if($audition_type == 2){

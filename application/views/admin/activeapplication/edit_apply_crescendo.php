@@ -791,7 +791,7 @@
 
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
+      if($('#teacher_name').val() && $('#teacher_email').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
         if($('#paypal').is(':checked') && ($('#transaction_date').val().split('-')[0] < 1950 || $('#transaction_date').val().split('-')[0] > 2050)){
           toastr.warning('Please fill the correct date in Transaction Date Field.');
           return;
@@ -824,12 +824,6 @@
       }else if($('#teacher_email').val() === ''){
         toastr.warning('Please fill Teacher Email correctly.');
         return;
-      }else if($('#teacher_address').val() === ''){
-        toastr.warning('Please fill Teacher Address correctly.');
-        return;
-      }else if($('#teacher_mobile_no').val() === ''){
-        toastr.warning('Please fill Teacher Mobile Number correctly.');
-        return;
       }else if($('#student_name').val() === ''){
         toastr.warning('Please fill Student Name correctly.');
         return;
@@ -856,6 +850,7 @@
         return;
       }else if($('#student_birthday').val().split('-')[0] > 2050 || $('#student_birthday').val().split('-')[0] < 1950){
         toastr.warning('Please type the correct date in Birthday field.');
+        return;
       }
       
     });

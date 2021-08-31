@@ -83,6 +83,19 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="late_fee" id="late_fee" value="<?= $little_morart[0]['late_fee']; ?>">
+                          <input type="hidden" id="max_ticket_quantity" value="<?= $little_morart[0]['tickets_quantity']; ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-md-3">
+                        <div class="form-group flex-group mb-2">
+                          <label class="title mr-2">Remained Tickets Quantity:</label>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-9">
+                        <div class="form-group flex-group mb-2">
+                          <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="remained_tickets" id="remained_tickets" value="<?= $little_morart[0]['remained_tickets']; ?>">
                         </div>
                       </div>
                     </div>
@@ -200,7 +213,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
@@ -223,7 +236,7 @@
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </fieldset>
                   <hr>
                   <?php
@@ -593,7 +606,7 @@
                         </div>
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
-                            <input style="width: 65%" type="text" class="form-control form-control-sm" name="ticket_quantity" id="ticket_quantity">
+                            <input style="width: 65%" type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="ticket_quantity" id="ticket_quantity">
                           </div>
                         </div>
                       </div>
@@ -647,7 +660,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
@@ -670,7 +683,7 @@
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="teacher_mobile_no" id="teacher_mobile_no" value="<?= $role_id != 4 ? $user_info['mobile_no'] : ''; ?>">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </fieldset>
                   <hr>
                   <?php
@@ -800,47 +813,44 @@
     var total_price = performance_price
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#teacher_name').val() && $('#teacher_email').val() && $('#teacher_address').val() && $('#teacher_mobile_no').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
+      if($('#teacher_name').val() && $('#teacher_email').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
+        console.log("okokok")
         if($('#paypal').is(':checked') && ($('#transaction_date').val().split('-')[0] < 1950 || $('#transaction_date').val().split('-')[0] > 2050)){
           toastr.warning('Please fill the correct date in Transaction Date Field.');
           return;
+        }else if($('#order_check').is(':checked') && $('#payment_code').val() == ''){
+          toastr.warning('Please fill the correct date in Payment Code Field.');
+          return;
         }else{
           var formData = new FormData(this);
-          toastr.warning("Not implemented yet.");
-          // $.ajax({
-          //   url: '<?= site_url(); ?>admin/applyrecital/save_little_morarts',
-          //   type: 'POST',
-          //   data: formData,       
-          //   cache: false,
-          //   contentType: false,
-          //   processData: false,
-          //   success: function(response) {
-          //     var result = JSON.parse(response);
-          //     if(!result || result == 0){
-          //       toastr.warning('Saving the data is failed.');
-          //     }else if(result == 'closed'){
-          //       toastr.warning('Apply for recital is finished.');
-          //     }else{
-          //       toastr.success('The data is saved successfully.');
-          //       setTimeout(function(){
-          //         window.location.href = '<?= site_url(); ?>admin/recitalhistory/index';
-          //       }, 600);
-          //     }
+          $.ajax({
+            url: '<?= site_url(); ?>admin/applyrecital/save_little_morarts',
+            type: 'POST',
+            data: formData,       
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+              var result = JSON.parse(response);
+              if(!result || result == 0){
+                toastr.warning('Saving the data is failed.');
+              }else if(result == 'closed'){
+                toastr.warning('Apply for recital is finished.');
+              }else{
+                toastr.success('The data is saved successfully.');
+                setTimeout(function(){
+                  window.location.href = '<?= site_url(); ?>admin/recitalhistory/index';
+                }, 600);
+              }
               
-          //   }
-          // })
+            }
+          })
         }
       }else if($('#teacher_name').val() === ''){
         toastr.warning('Please fill Teacher Name correctly.');
         return;
       }else if($('#teacher_email').val() === ''){
         toastr.warning('Please fill Teacher Email correctly.');
-        return;
-      }else if($('#teacher_address').val() === ''){
-        toastr.warning('Please fill Teacher Address correctly.');
-        return;
-      }else if($('#teacher_mobile_no').val() === ''){
-        toastr.warning('Please fill Teacher Mobile Number correctly.');
         return;
       }else if($('#student_name').val() === ''){
         toastr.warning('Please fill Student Name correctly.');
@@ -868,6 +878,7 @@
         return;
       }else if($('#student_birthday').val().split('-')[0] > 2050 || $('#student_birthday').val().split('-')[0] < 1950){
         toastr.warning('Please type the correct date in Birthday field.');
+        return;
       }
       
     });
@@ -956,11 +967,17 @@
       }
     })
     $('#ticket_quantity').change(function() {
-      if($('#ticket_quantity').val()){
+      var ticket_quantity = $('#ticket_quantity').val()
+      var max_ticket_quantity = $('#max_ticket_quantity').val()
+      if(parseInt(ticket_quantity) > parseInt(max_ticket_quantity)){
+        alert('You can request at most '+max_ticket_quantity+' tickets.');
+        $('#ticket_quantity').val('');
+        return;
+      }else if(parseInt(ticket_quantity) <= parseInt(max_ticket_quantity)){
         var discounted_quantity = $('#discounted_quantity').val()
         var discounted_price = $('#discounted_price').val()
         var ticket_price = $('#ticket_price').val()
-        var ticket_quantity = $('#ticket_quantity').val()
+        
         if(parseInt(discounted_quantity) >= parseInt(ticket_quantity)){
           total_price = parseInt(discounted_price * ticket_quantity) + parseInt(performance_price)
         }else {

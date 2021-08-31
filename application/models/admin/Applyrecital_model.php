@@ -17,15 +17,15 @@
 			return $insertId;
 		}
 		public function get_remain_duration($recital_id){
-			$this->db->select('remain_duration');
+			$this->db->select('remain_duration, remained_tickets');
 			$this->db->from('tbl_recital_little_morarts');
 			$this->db->where('id', $recital_id);
 
 			return $this->db->get()->result_array()[0];
 		}
-		public function update_recital_duration($recital_id, $remain_duration){
+		public function update_recital_duration($recital_id, $data){
 			$this->db->where('id', $recital_id);
-			return $this->db->update('tbl_recital_little_morarts', array('remain_duration' => $remain_duration));
+			return $this->db->update('tbl_recital_little_morarts', $data);
 		}
 		public function get_user_info($user_id, $role_id){
 			if($role_id == 2){
@@ -80,6 +80,17 @@
 			}
 
 			return $this->db->get()->result_array();
+		}
+		public function get_remain_duration_crescendo($audition_id){
+			$this->db->select('remain_duration, remained_tickets');
+			$this->db->from('tbl_recital_crescendo');
+			$this->db->where('id', $audition_id);
+
+			return $this->db->get()->result_array()[0];
+		}
+		public function update_recital_duration_crescendo($audition_id, $data){
+			$this->db->where('id', $audition_id);
+			return $this->db->update('tbl_recital_crescendo', $data);
 		}
 }
 

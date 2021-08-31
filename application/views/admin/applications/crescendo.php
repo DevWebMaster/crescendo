@@ -65,6 +65,7 @@
                 <a class="pull-right btn btn-warning btn-large" style="color: white;" href="<?php echo site_url(); ?>admin/applications/export_to_excel_crescendo"><i class="fa fa-file-excel-o"></i> Export to Excel</a>
                 <button class="pull-right btn btn-warning btn-large ml-2" style="color: white;" data-toggle="modal" data-target="#upload_crescendo"><i class="fa fa-file-excel-o"></i> Import from Excel</button>
               </div>
+              <?php $this->load->view('admin/applications/upload_crescendo_modal');?>
             </div>
           </div>
           <div class="row">
@@ -129,6 +130,7 @@
                 <a class="pull-right btn btn-warning btn-large" style="color: white;" href="<?php echo site_url(); ?>admin/applications/export_to_excel_recital_crescendo"><i class="fa fa-file-excel-o"></i> Export to Excel</a>
                 <button class="pull-right btn btn-warning btn-large ml-2" style="color: white;" data-toggle="modal" data-target="#upload_recital_crescendo"><i class="fa fa-file-excel-o"></i> Import from Excel</button>
               </div>
+              <?php $this->load->view('admin/applications/upload_recital_crescendo_modal');?>
             </div>
           </div>
           <div class="row">

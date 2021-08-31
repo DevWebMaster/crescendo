@@ -60,12 +60,18 @@ class Recitalhistory extends My_Controller {
         $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
         
@@ -125,12 +131,18 @@ class Recitalhistory extends My_Controller {
         $audition_info = $this->recitalhistory_model->get_audition_info($audition_type, $value['audition_id']);
         $age = $value['age'];
         $level = '';
-        if(7 >= $age && $age >= 3){
+        // if(7 >= $age && $age >= 3){
+        if($value['level'] == 1){
+          // $level = 'J';
+          $level = 'I';
+        }
+        // else if(8 <= $age && $age <= 13){
+        else if($value['level'] == 2){
+          // $level = 'I';
           $level = 'J';
         }
-        else if(8 <= $age && $age <= 13){
-          $level = 'I';
-        }else if($age >= 14){
+        // else if($age >= 14){
+        else if($value['level'] == 3){
           $level ='A';
         }
 

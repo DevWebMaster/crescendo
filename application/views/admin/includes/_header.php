@@ -43,8 +43,8 @@
   <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"-->
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet"> -->
   <!-- jQuery -->
-  <!-- <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script> -->
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
 
 
  

@@ -61,6 +61,7 @@
                       <th>Tickets Quantity</th>
                       <th>Discounted Price</th>
                       <th>Discounted Quantity</th>
+                      <th>Remained Tickets</th>
                       <th>Is Active</th>
                       <th width="10%">Action</th>
                     </tr>
@@ -129,6 +130,7 @@
            { data: 'tickets_quantity' },
            { data: 'discounted_price' },
            { data: 'discounted_quantity' },
+           { data: 'remained_tickets' },
            { data: 'is_active' },
            { data: 'action', "width": "10%"},
         ]
