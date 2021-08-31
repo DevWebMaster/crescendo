@@ -25,7 +25,7 @@
         <div class="col-12">
           <div class="row">
             <div class="col-12 col-md-6 col-xs-12">
-              <label for="" class="control-label mb-1 pl-1">Audition Name</label>:
+              <label for="" class="control-label mb-1 pl-1">Recital Name</label>:
               <div class="form-group mb-2" style="text-align: left;">
                 
                 <div style="display: flex;">
@@ -48,20 +48,20 @@
                   <thead>
                     <tr style="background: #EEA400; color: white;">
                       <th>ID</th>
-                      <th>Local Admin</th>
-                      <th>Audition Name</th>
-                      <th>Audition Location</th>
-                      <th>Audition Date</th>
-                      <th>Audition Fee</th>
-                      <th>Audition Deadline</th>
+                      <th>Recital Name</th>
+                      <th>Recital Location</th>
+                      <th>Recital Date</th>
+                      <th>Recital Time</th>
+                      <th>Recital Fee</th>
+                      <th>Recital Deadline</th>
                       <th>Late Fee</th>
                       <th>Duration</th>
-                      <th>Prize</th>
+                      <!-- <th>Prize</th> -->
                       <th>Ticket Price</th>
-                      <th>Tickets Quantity</th>
+                      <!-- <th>Tickets Quantity</th> -->
                       <th>Discounted Price</th>
                       <th>Discounted Quantity</th>
-                      <th>Remained Tickets</th>
+                      <!-- <th>Remained Tickets</th> -->
                       <th>Is Active</th>
                       <th width="10%">Action</th>
                     </tr>
@@ -117,20 +117,21 @@
         },
         'columns': [
            { data: 'id' },
-           { data: 'local_admin' },
+           // { data: 'local_admin' },
            { data: 'audition_name' },
            { data: 'audition_location' },
            { data: 'audition_date' },
+           { data: 'audition_time' },
            { data: 'audition_fee' },
            { data: 'audition_deadline' },
            { data: 'late_fee' },
            { data: 'duration' },
-           { data: 'prize' },
+           // { data: 'prize' },
            { data: 'ticket_price' },
-           { data: 'tickets_quantity' },
+           // { data: 'tickets_quantity' },
            { data: 'discounted_price' },
            { data: 'discounted_quantity' },
-           { data: 'remained_tickets' },
+           // { data: 'remained_tickets' },
            { data: 'is_active' },
            { data: 'action', "width": "10%"},
         ]

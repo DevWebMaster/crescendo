@@ -60,8 +60,6 @@ class Applyrecital extends My_Controller {
     }else if($performance_type == 3){
       $performance_price = $this->input->post('trio_price');
     }else if($performance_type == 4){
-      $performance_price = $this->input->post('quartet_price');
-    }else if($performance_type == 5){
       $performance_price = $this->input->post('ensemble_price');
     }
 
@@ -107,6 +105,18 @@ class Applyrecital extends My_Controller {
         'co_performers'=>$this->input->post('co_performers'),
         'co_instrument'=>$this->input->post('co_instrument'),
         'co_other_instrument'=>$this->input->post('co_other_instrument'),
+        'co_performers2'=>$this->input->post('co_performers2'),
+        'co_instrument2'=>$this->input->post('co_instrument2'),
+        'co_other_instrument2'=>$this->input->post('co_other_instrument2'),
+        'co_performers3'=>$this->input->post('co_performers3'),
+        'co_instrument3'=>$this->input->post('co_instrument3'),
+        'co_other_instrument3'=>$this->input->post('co_other_instrument3'),
+        'co_performers4'=>$this->input->post('co_performers4'),
+        'co_instrument4'=>$this->input->post('co_instrument4'),
+        'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
+        'co_performers5'=>$this->input->post('co_performers5'),
+        'co_instrument5'=>$this->input->post('co_instrument5'),
+        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
@@ -127,7 +137,7 @@ class Applyrecital extends My_Controller {
         // 'request_answer'=>$this->input->post('request_need'),
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
         'video_link'=>$this->input->post('video_link'),
-        'is_ticket'=>$this->input->post('is_ticket'),
+        'is_ticket'=>$this->input->post('is_ticket') == 'on' ? 1 : 0,
         'ticket_quantity'=>$this->input->post('ticket_quantity'),
         'total_price'=>$this->input->post('total_price'),
         'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
@@ -140,9 +150,7 @@ class Applyrecital extends My_Controller {
       if($result){
         //update the recital duration based on student time.
         $remain_duration = $remain_data['remain_duration'] - $student_time;
-        $remained_tickets = $remain_data['remained_tickets'] - $this->input->post('ticket_quantity');
         $update_data = array(
-          'remained_tickets' => $remained_tickets,
           'remain_duration' => $remain_duration
         );
         $this->applyrecital_model->update_recital_duration($this->input->post('recital_id'), $update_data);
@@ -197,8 +205,6 @@ class Applyrecital extends My_Controller {
     }else if($performance_type == 3){
       $performance_price = $this->input->post('trio_price');
     }else if($performance_type == 4){
-      $performance_price = $this->input->post('quartet_price');
-    }else if($performance_type == 5){
       $performance_price = $this->input->post('ensemble_price');
     }
 
@@ -244,6 +250,18 @@ class Applyrecital extends My_Controller {
         'co_performers'=>$this->input->post('co_performers'),
         'co_instrument'=>$this->input->post('co_instrument'),
         'co_other_instrument'=>$this->input->post('co_other_instrument'),
+        'co_performers2'=>$this->input->post('co_performers2'),
+        'co_instrument2'=>$this->input->post('co_instrument2'),
+        'co_other_instrument2'=>$this->input->post('co_other_instrument2'),
+        'co_performers3'=>$this->input->post('co_performers3'),
+        'co_instrument3'=>$this->input->post('co_instrument3'),
+        'co_other_instrument3'=>$this->input->post('co_other_instrument3'),
+        'co_performers4'=>$this->input->post('co_performers4'),
+        'co_instrument4'=>$this->input->post('co_instrument4'),
+        'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
+        'co_performers5'=>$this->input->post('co_performers5'),
+        'co_instrument5'=>$this->input->post('co_instrument5'),
+        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
@@ -264,7 +282,7 @@ class Applyrecital extends My_Controller {
         // 'request_answer'=>$this->input->post('request_need'),
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
         'video_link'=>$this->input->post('video_link'),
-        'is_ticket'=>$this->input->post('is_ticket'),
+        'is_ticket'=>$this->input->post('is_ticket') == 'on' ? 1 : 0,
         'ticket_quantity'=>$this->input->post('ticket_quantity'),
         'total_price'=>$this->input->post('total_price'),
         'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
@@ -277,9 +295,7 @@ class Applyrecital extends My_Controller {
       if($result){
         //update the audition duration based on student time.
         $remain_duration = $remain_data['remain_duration'] - $student_time;
-        $remained_tickets = $remain_data['remained_tickets'] - $this->input->post('ticket_quantity');
         $update_data = array(
-          'remained_tickets' => $remained_tickets,
           'remain_duration' => $remain_duration
         );
         $this->applyrecital_model->update_recital_duration_crescendo($this->input->post('recital_id'), $update_data);

@@ -18,7 +18,7 @@ class Recital extends My_Controller {
   public function index()
   {
 
-    $data['title'] = 'Little Mozarts List';
+    $data['title'] = 'Recital Little Mozarts List';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/little_morarts');
@@ -54,26 +54,34 @@ class Recital extends My_Controller {
         if($value['fee_trio'] != ''){
           $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
         }
-        if($value['fee_quartet'] != ''){
-          $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
-        }
+        // if($value['fee_quartet'] != ''){
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        // }
         if($value['fee_ensemble'] != ''){
           $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
         }
+        $audition_time = $value['audition_time1'];
+        if($value['audition_time2'] != ''){
+          $audition_time .= ', '.$value['audition_time2'];
+        }
+        if($value['audition_time3'] != ''){
+          $audition_time .= ', '.$value['audition_time3'];
+        }
         $data[] = array( 
           "id"=>$value['id'],
-          "local_admin"=>$value['localadmin'],
+          // "local_admin"=>$value['localadmin'],
           "audition_name"=>$value['audition_name'],
           "audition_location"=>$value['auditionlocation'],
           "audition_date"=>$value['audition_date'],
+          "audition_time"=>$audition_time,
           "audition_fee"=>$audition_fee,
           'audition_deadline'=>$value['audition_deadline'],
           "late_fee"=>$value['late_fee'],
           "duration"=>$value['duration'],
-          "prize"=>$value['prize'],
+          // "prize"=>$value['prize'],
           "ticket_price"=>$value['ticket_price'],
-          "tickets_quantity"=>$value['tickets_quantity'],
-          "remained_tickets"=>$value['remained_tickets'],
+          // "tickets_quantity"=>$value['tickets_quantity'],
+          // "remained_tickets"=>$value['remained_tickets'],
           "discounted_price"=>$value['discounted_price'],
           "discounted_quantity"=>$value['discounted_quantity'],
           "is_active"=>$value['is_active'] == 2 ? 'Open' : 'Close',
@@ -103,25 +111,28 @@ class Recital extends My_Controller {
   public function save_little_morarts()
   {
     $data = array(
-      'local_admin'=>$this->input->post('localadmin_name'),
+      // 'local_admin'=>$this->input->post('localadmin_name'),
       'audition_name'=>$this->input->post('audition_name'),
       'audition_location'=>$this->input->post('audition_location'),
       'audition_date'=>$this->input->post('audition_date'),
+      'audition_time1'=>$this->input->post('audition_time'),
+      'audition_time2'=>$this->input->post('audition_time2'),
+      'audition_time3'=>$this->input->post('audition_time3'),
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'ticket_price'=>$this->input->post('ticket_price'),
-      'tickets_quantity'=>$this->input->post('tickets_quantity'),
-      'remained_tickets'=>$this->input->post('tickets_quantity'),
+      // 'tickets_quantity'=>$this->input->post('tickets_quantity'),
+      // 'remained_tickets'=>$this->input->post('tickets_quantity'),
       'discounted_price'=>$this->input->post('discounted_price'),
       'discounted_quantity'=>$this->input->post('discounted_quantity'),
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
-      'prize'=>$this->input->post('prize'),
+      // 'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'created_at'=>date('Y-m-d H:i:s'),
     );
@@ -131,7 +142,7 @@ class Recital extends My_Controller {
   }
   public function edit_little_morarts($audition_id = 0)
   {
-    $data['title'] = 'Edit Little Mozarts';
+    $data['title'] = 'Edit Recital Little Mozarts';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
     $data['audition_locations'] = $this->recital_model->get_audition_locations();
     $data['audition_id'] = $audition_id;
@@ -145,25 +156,28 @@ class Recital extends My_Controller {
   {
     $audition_id = $this->input->post('audition_id');
     $data = array(
-      'local_admin'=>$this->input->post('localadmin_name'),
+      // 'local_admin'=>$this->input->post('localadmin_name'),
       'audition_name'=>$this->input->post('audition_name'),
       'audition_location'=>$this->input->post('audition_location'),
       'audition_date'=>$this->input->post('audition_date'),
+      'audition_time1'=>$this->input->post('audition_time'),
+      'audition_time2'=>$this->input->post('audition_time2'),
+      'audition_time3'=>$this->input->post('audition_time3'),
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'ticket_price'=>$this->input->post('ticket_price'),
-      'tickets_quantity'=>$this->input->post('tickets_quantity'),
+      // 'tickets_quantity'=>$this->input->post('tickets_quantity'),
       // 'remained_tickets'=>$this->input->post('tickets_quantity'),
       'discounted_price'=>$this->input->post('discounted_price'),
       'discounted_quantity'=>$this->input->post('discounted_quantity'),
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
-      'prize'=>$this->input->post('prize'),
+      // 'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'updated_at'=>date('Y-m-d H:i:s'),
     );
@@ -180,7 +194,7 @@ class Recital extends My_Controller {
   }
   public function crescendo_list()
   {
-    $data['title'] = 'Crescendo List';
+    $data['title'] = 'Recital Crescendo List';
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/crescendo_list');
@@ -215,26 +229,34 @@ class Recital extends My_Controller {
         if($value['fee_trio'] != ''){
           $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
         }
-        if($value['fee_quartet'] != ''){
-          $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
-        }
+        // if($value['fee_quartet'] != ''){
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        // }
         if($value['fee_ensemble'] != ''){
           $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
         }
+        $audition_time = $value['audition_time1'];
+        if($value['audition_time2'] != ''){
+          $audition_time .= ', '.$value['audition_time2'];
+        }
+        if($value['audition_time3'] != ''){
+          $audition_time .= ', '.$value['audition_time3'];
+        }
         $data[] = array( 
           "id"=>$value['id'],
-          "local_admin"=>$value['localadmin'],
+          // "local_admin"=>$value['localadmin'],
           "audition_name"=>$value['audition_name'],
           "audition_location"=>$value['auditionlocation'],
           "audition_date"=>$value['audition_date'],
+          "audition_time"=>$audition_time,
           "audition_fee"=>$audition_fee,
           'audition_deadline'=>$value['audition_deadline'],
           "late_fee"=>$value['late_fee'],
           "duration"=>$value['duration'],
-          "prize"=>$value['prize'],
+          // "prize"=>$value['prize'],
           "ticket_price"=>$value['ticket_price'],
-          "tickets_quantity"=>$value['tickets_quantity'],
-          "remained_tickets"=>$value['remained_tickets'],
+          // "tickets_quantity"=>$value['tickets_quantity'],
+          // "remained_tickets"=>$value['remained_tickets'],
           "discounted_price"=>$value['discounted_price'],
           "discounted_quantity"=>$value['discounted_quantity'],
           "is_active"=>$value['is_active'] == 2 ? 'Open' : 'Close',
@@ -264,25 +286,28 @@ class Recital extends My_Controller {
   public function save_crescendo()
   {
     $data = array(
-      'local_admin'=>$this->input->post('localadmin_name'),
+      // 'local_admin'=>$this->input->post('localadmin_name'),
       'audition_name'=>$this->input->post('audition_name'),
       'audition_location'=>$this->input->post('audition_location'),
       'audition_date'=>$this->input->post('audition_date'),
+      'audition_time1'=>$this->input->post('audition_time'),
+      'audition_time2'=>$this->input->post('audition_time2'),
+      'audition_time3'=>$this->input->post('audition_time3'),
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'ticket_price'=>$this->input->post('ticket_price'),
-      'tickets_quantity'=>$this->input->post('tickets_quantity'),
-      'remained_tickets'=>$this->input->post('tickets_quantity'),
+      // 'tickets_quantity'=>$this->input->post('tickets_quantity'),
+      // 'remained_tickets'=>$this->input->post('tickets_quantity'),
       'discounted_price'=>$this->input->post('discounted_price'),
       'discounted_quantity'=>$this->input->post('discounted_quantity'),
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
-      'prize'=>$this->input->post('prize'),
+      // 'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'created_at'=>date('Y-m-d H:i:s'),
     );
@@ -292,7 +317,7 @@ class Recital extends My_Controller {
   }
   public function edit_crescendo($audition_id = 0)
   {
-    $data['title'] = 'Edit Crescendo';
+    $data['title'] = 'Edit Recital Crescendo';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
     $data['audition_locations'] = $this->recital_model->get_audition_locations();
     $data['audition_id'] = $audition_id;
@@ -306,24 +331,27 @@ class Recital extends My_Controller {
   {
     $audition_id = $this->input->post('audition_id');
     $data = array(
-      'local_admin'=>$this->input->post('localadmin_name'),
+      // 'local_admin'=>$this->input->post('localadmin_name'),
       'audition_name'=>$this->input->post('audition_name'),
       'audition_location'=>$this->input->post('audition_location'),
       'audition_date'=>$this->input->post('audition_date'),
+      'audition_time1'=>$this->input->post('audition_time'),
+      'audition_time2'=>$this->input->post('audition_time2'),
+      'audition_time3'=>$this->input->post('audition_time3'),
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'ticket_price'=>$this->input->post('ticket_price'),
-      'tickets_quantity'=>$this->input->post('tickets_quantity'),
+      // 'tickets_quantity'=>$this->input->post('tickets_quantity'),
       'discounted_price'=>$this->input->post('discounted_price'),
       'discounted_quantity'=>$this->input->post('discounted_quantity'),
       'late_fee'=>$this->input->post('late_fee'),
       'duration'=>$this->input->post('duration'),
       'remain_duration'=>$this->input->post('duration'),
-      'prize'=>$this->input->post('prize'),
+      // 'prize'=>$this->input->post('prize'),
       'is_active'=>$this->input->post('status'),
       'updated_at'=>date('Y-m-d H:i:s'),
     );

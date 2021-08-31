@@ -1,9 +1,8 @@
 <?php
 	class Recital_model extends CI_Model{
 		public function get_little_morarts_list($search_key, $start, $rowperpage) {
-			$this->db->select('a1.*, a2.name as localadmin, a3.location as auditionlocation');
+			$this->db->select('a1.*, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_little_morarts as a1');
-			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
 			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
@@ -24,7 +23,6 @@
 		public function get_little_morarts_all_count_with_filter($search_key, $start, $rowperpage) {
 			$this->db->select('*');
 			$this->db->from('tbl_recital_little_morarts as a1');
-			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}
@@ -53,9 +51,8 @@
 		}
 
 		public function get_crescendo_list($search_key, $start, $rowperpage) {
-			$this->db->select('a1.*, a2.name as localadmin, a3.location as auditionlocation');
+			$this->db->select('a1.*, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_crescendo as a1');
-			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
 			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
@@ -76,7 +73,6 @@
 		public function get_crescendo_all_count_with_filter($search_key, $start, $rowperpage) {
 			$this->db->select('*');
 			$this->db->from('tbl_recital_crescendo as a1');
-			$this->db->join('tbl_local_admin as a2', 'a1.local_admin = a2.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}

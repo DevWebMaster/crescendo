@@ -59,8 +59,6 @@ class Applyauditions extends My_Controller {
     }else if($performance_type == 3){
       $performance_price = $this->input->post('trio_price');
     }else if($performance_type == 4){
-      $performance_price = $this->input->post('quartet_price');
-    }else if($performance_type == 5){
       $performance_price = $this->input->post('ensemble_price');
     }
 
@@ -199,8 +197,6 @@ class Applyauditions extends My_Controller {
     }else if($performance_type == 3){
       $performance_price = $this->input->post('trio_price');
     }else if($performance_type == 4){
-      $performance_price = $this->input->post('quartet_price');
-    }else if($performance_type == 5){
       $performance_price = $this->input->post('ensemble_price');
     }
 

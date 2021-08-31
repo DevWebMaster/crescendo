@@ -407,14 +407,14 @@
                               Trio (USD <?= $little_morart[0]['fee_trio'] ?>)
                               <input type="hidden" name="trio_price" id="trio_price" value="<?= $little_morart[0]['fee_trio']; ?>">
                           </label>
-                          <label>
+                          <!-- <label>
                               <input type="radio" name="performance_type" id="quartet" value="4" <?php if($little_morart[0]['performance_type'] == 4) { echo "checked"; } ?>>
                               Quartet (USD <?= $little_morart[0]['fee_quartet'] ?>)
                               <input type="hidden" name="quartet_price" id="quartet_price" value="<?= $little_morart[0]['fee_quartet']; ?>">
-                          </label>
+                          </label> -->
                           <label>
-                              <input type="radio" name="performance_type" id="ensemble" value="5" <?php if($little_morart[0]['performance_type'] == 5) { echo "checked"; } ?>>
-                              Ensemble(5 participants) (USD <?= $little_morart[0]['fee_ensemble'] ?>)
+                              <input type="radio" name="performance_type" id="ensemble" value="4" <?php if($little_morart[0]['performance_type'] == 4) { echo "checked"; } ?>>
+                              Ensemble of 4 or more participants(fee per each performer) (USD <?= $little_morart[0]['fee_ensemble'] ?>)
                               <input type="hidden" name="ensemble_price" id="ensemble_price" value="<?= $little_morart[0]['fee_ensemble']; ?>">
                           </label>
                         </div>
@@ -510,7 +510,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="quartet_section" style="display: none;">
+<!--                     <div id="quartet_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -540,7 +540,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="ensemble_section" style="display: none;">
+ -->                    <div id="ensemble_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -874,31 +874,25 @@
         $('#solo_section').hide()
         $('#duo_section').hide()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
       }else if($('#duet').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').hide()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
       }else if($('#trio').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').show()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
-        $('#ensemble_section').hide()
-      }else if($('#quartet').is(':checked')){
-        $('#solo_section').show()
-        $('#duo_section').show()
-        $('#trio_section').show()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
       }else if($('#ensemble').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').show()
         $('#trio_section').show()
-        $('#quartet_section').show()
+        // $('#quartet_section').show()
         $('#ensemble_section').hide()
       }
     })

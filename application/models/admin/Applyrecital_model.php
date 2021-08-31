@@ -17,7 +17,7 @@
 			return $insertId;
 		}
 		public function get_remain_duration($recital_id){
-			$this->db->select('remain_duration, remained_tickets');
+			$this->db->select('remain_duration');
 			$this->db->from('tbl_recital_little_morarts');
 			$this->db->where('id', $recital_id);
 
@@ -82,7 +82,7 @@
 			return $this->db->get()->result_array();
 		}
 		public function get_remain_duration_crescendo($audition_id){
-			$this->db->select('remain_duration, remained_tickets');
+			$this->db->select('remain_duration');
 			$this->db->from('tbl_recital_crescendo');
 			$this->db->where('id', $audition_id);
 

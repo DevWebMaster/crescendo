@@ -87,18 +87,6 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-12 col-md-3">
-                        <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Remained Tickets Quantity:</label>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-9">
-                        <div class="form-group flex-group mb-2">
-                          <input style="width: 65%" type="number" readonly class="form-control form-control-sm" name="remained_tickets" id="remained_tickets" value="<?= $crescendo[0]['remained_tickets']; ?>">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group mb-2">
                           <!-- <label>Special Request:</label> -->
@@ -425,14 +413,14 @@
                               Trio (USD <?= $crescendo[0]['fee_trio'] ?>)
                               <input type="hidden" name="trio_price" id="trio_price" value="<?= $crescendo[0]['fee_trio']; ?>">
                           </label>
-                          <label>
+                          <!-- <label>
                               <input type="radio" name="performance_type" id="quartet" value="4">
                               Quartet (USD <?= $crescendo[0]['fee_quartet'] ?>)
                               <input type="hidden" name="quartet_price" id="quartet_price" value="<?= $crescendo[0]['fee_quartet']; ?>">
-                          </label>
+                          </label> -->
                           <label>
-                              <input type="radio" name="performance_type" id="ensemble" value="5">
-                              Ensemble(5 participants) (USD <?= $crescendo[0]['fee_ensemble'] ?>)
+                              <input type="radio" name="performance_type" id="ensemble" value="4">
+                              Ensemble of 4 or more participants(fee per each performer) (USD <?= $crescendo[0]['fee_ensemble'] ?>)
                               <input type="hidden" name="ensemble_price" id="ensemble_price" value="<?= $crescendo[0]['fee_ensemble']; ?>">
                           </label>
                         </div>
@@ -528,7 +516,7 @@
                         </div>
                       </div>
                     </div>
-                    <div id="quartet_section" style="display: none;">
+                    <!-- <div id="quartet_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -557,7 +545,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div id="ensemble_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
@@ -908,35 +896,28 @@
         $('#solo_section').hide()
         $('#duo_section').hide()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
         performance_price = $('#solo_price').val()
       }else if($('#duet').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').hide()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
         performance_price = $('#duo_price').val()
       }else if($('#trio').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').show()
         $('#trio_section').hide()
-        $('#quartet_section').hide()
+        // $('#quartet_section').hide()
         $('#ensemble_section').hide()
         performance_price = $('#trio_price').val()
-      }else if($('#quartet').is(':checked')){
-        $('#solo_section').show()
-        $('#duo_section').show()
-        $('#trio_section').show()
-        $('#quartet_section').hide()
-        $('#ensemble_section').hide()
-        performance_price = $('#quartet_price').val()
       }else if($('#ensemble').is(':checked')){
         $('#solo_section').show()
         $('#duo_section').show()
         $('#trio_section').show()
-        $('#quartet_section').show()
+        // $('#quartet_section').show()
         $('#ensemble_section').hide()
         performance_price = $('#ensemble_price').val()
       }
@@ -965,25 +946,21 @@
         $('#co_instrument_section').hide()
       }
     })
+    
     $('#ticket_quantity').change(function() {
       var ticket_quantity = $('#ticket_quantity').val()
-      var max_ticket_quantity = $('#max_ticket_quantity').val()
-      if(parseInt(ticket_quantity) > parseInt(max_ticket_quantity)){
-        alert('You can request at most '+max_ticket_quantity+' tickets.');
-        $('#ticket_quantity').val('');
-        return;
-      }else if(parseInt(ticket_quantity) <= parseInt(max_ticket_quantity)){
-        var discounted_quantity = $('#discounted_quantity').val()
-        var discounted_price = $('#discounted_price').val()
-        var ticket_price = $('#ticket_price').val()
-        if(parseInt(discounted_quantity) >= parseInt(ticket_quantity)){
-          total_price = parseInt(discounted_price * ticket_quantity) + parseInt(performance_price)
-        }else {
-          ticket_quantity = ticket_quantity - discounted_quantity
-          total_price = parseInt(discounted_price * discounted_quantity + ticket_price * ticket_quantity) + parseInt(performance_price)
-        }
-        $('#total_price').val(total_price)
+      
+      var discounted_quantity = $('#discounted_quantity').val()
+      var discounted_price = $('#discounted_price').val()
+      var ticket_price = $('#ticket_price').val()
+      
+      if(parseInt(discounted_quantity) >= parseInt(ticket_quantity)){
+        total_price = parseInt(discounted_price * ticket_quantity) + parseInt(performance_price)
+      }else {
+        ticket_quantity = ticket_quantity - discounted_quantity
+        total_price = parseInt(discounted_price * discounted_quantity + ticket_price * ticket_quantity) + parseInt(performance_price)
       }
+      $('#total_price').val(total_price)
     })
     $('#total_price').val(total_price)
 

@@ -52,7 +52,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-2">
-                      <div class="form-group mb-2">
+                      <div class="form-group mb-2 mt-5">
                         <label style="font-weight: bold;">Audition Fee</label>
                       </div>
                     </div>
@@ -60,31 +60,31 @@
                   <div class="row">
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Solo</label>
+                        <label style="color: grey;" class="pb-4">Solo</label>
                         <input type="text" class="form-control form-control-sm" name="fee_solo" id="fee_solo" value="<?= $audition_info['fee_solo']; ?>">
                       </div>
                     </div>
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Duet</label>
+                        <label style="color: grey;" class="pb-4">Duet</label>
                         <input type="text" class="form-control form-control-sm" name="fee_duet" id="fee_duet" value="<?= $audition_info['fee_duet']; ?>">
                       </div>
                     </div>
                     <div class="col-12 col-md-2">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Trio</label>
+                        <label style="color: grey;" class="pb-4">Trio</label>
                         <input type="text" class="form-control form-control-sm" name="fee_trio" id="fee_trio" value="<?= $audition_info['fee_trio']; ?>">
                       </div>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <!-- <div class="col-12 col-md-4">
                       <div class="form-group mb-2">
                         <label style="color: grey;">Quartet</label>
                         <input type="text" class="form-control form-control-sm" name="fee_quartet" id="fee_quartet" value="<?= $audition_info['fee_quartet']; ?>">
                       </div>
-                    </div>
-                    <div class="col-12 col-md-2">
+                    </div> -->
+                    <div class="col-12 col-md-6">
                       <div class="form-group mb-2">
-                        <label style="color: grey;">Ensemble(5 participants)</label>
+                        <label style="color: grey;">Ensemble of 4 or more participants<br>(fee per each performer)</label>
                         <input type="text" class="form-control form-control-sm" name="fee_ensemble" id="fee_ensemble" value="<?= $audition_info['fee_ensemble']; ?>">
                       </div>
                     </div>
@@ -97,7 +97,7 @@
                   </div>
                   <div class="row">
                     <div class="col-12 col-md-2">
-                      <div class="form-group mb-2">
+                      <div class="form-group mb-2 mt-5">
                         <label>Late Fee</label>
                       </div>
                     </div>

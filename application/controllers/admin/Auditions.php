@@ -57,9 +57,9 @@ class Auditions extends My_Controller {
         if($value['fee_trio'] != ''){
           $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
         }
-        if($value['fee_quartet'] != ''){
-          $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
-        }
+        // if($value['fee_quartet'] != ''){
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        // }
         if($value['fee_ensemble'] != ''){
           $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
         }
@@ -107,7 +107,7 @@ class Auditions extends My_Controller {
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'late_fee'=>$this->input->post('late_fee'),
@@ -143,7 +143,7 @@ class Auditions extends My_Controller {
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'late_fee'=>$this->input->post('late_fee'),
@@ -203,9 +203,9 @@ class Auditions extends My_Controller {
         if($value['fee_trio'] != ''){
           $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
         }
-        if($value['fee_quartet'] != ''){
-          $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
-        }
+        // if($value['fee_quartet'] != ''){
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        // }
         if($value['fee_ensemble'] != ''){
           $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
         }
@@ -253,7 +253,7 @@ class Auditions extends My_Controller {
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'late_fee'=>$this->input->post('late_fee'),
@@ -289,7 +289,7 @@ class Auditions extends My_Controller {
       'fee_solo'=>$this->input->post('fee_solo'),
       'fee_duet'=>$this->input->post('fee_duet'),
       'fee_trio'=>$this->input->post('fee_trio'),
-      'fee_quartet'=>$this->input->post('fee_quartet'),
+      // 'fee_quartet'=>$this->input->post('fee_quartet'),
       'fee_ensemble'=>$this->input->post('fee_ensemble'),
       'audition_deadline'=>$this->input->post('audition_deadline'),
       'late_fee'=>$this->input->post('late_fee'),
