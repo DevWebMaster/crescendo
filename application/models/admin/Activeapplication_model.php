@@ -96,7 +96,7 @@
 			return $this->db->get()->result_array()[0];
 		}
 		public function get_application_info($apply_id, $audition_type){
-			$this->db->select('a1.*, a2.audition_name, a2.audition_date, a3.location as auditionlocation, a4.username, a2.audition_deadline, a2.late_fee, a2.fee_solo, a2.fee_trio, a2.fee_duet, a2.fee_quartet, a2.fee_ensemble');
+			$this->db->select('a1.*, a2.audition_name, a2.audition_date, a3.location as auditionlocation, a4.username, a2.audition_deadline, a2.late_fee, a2.fee_solo, a2.fee_trio, a2.fee_duet, a2.fee_ensemble');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_users as a4', 'a4.id = a1.student_name', 'left');
 			if($audition_type == 1){

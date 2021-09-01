@@ -496,6 +496,11 @@
                             </select>
                           </div>
                         </div>
+                        <div class="col-12 col-md-1">
+                          <div class="form-group mb-2">
+                            <button type="button" class="btn btn-sm btn-info add_more px-2 py-2" style="background: #EEA400; border: none; border-radius: 8px;" id="add_more">Add More</button>
+                          </div>
+                        </div>
                         <div id="co_instrument_section3" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
@@ -505,6 +510,7 @@
                           </div>
                         </div>
                       </div>
+                      <div id="extra_section"></div>
                     </div>
                     <!-- <div id="quartet_section" style="display: none;">
                       <div class="row">
@@ -774,6 +780,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    var inx = 3;
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
       if($('#teacher_name').val() && $('#teacher_email').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
@@ -943,6 +950,49 @@
       }else{
         $('#co_instrument_section4').hide()
       }
+      if($('#co_instrument'+inx).val() == 31){
+        console.log("asdfa"+inx)
+        $('#co_instrument_section'+inx).show()
+      }else{
+        $('#co_instrument_section'+inx).hide()
+      }
+    })
+
+    $('#add_more').click(function(){
+      inx++;
+      $('#time_count').val(inx);
+      if(inx >= 4){
+        var element = '<div class="row">'+
+                        '<div class="col-12 col-md-6">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Co_performers'+inx+':</label>'+
+                            '<input type="text" class="form-control form-control-sm" name="co_performers'+inx+'" id="co_performers'+inx+'">'+
+                          '</div>'+
+                        '</div>'+
+                        '<div class="col-12 col-md-4">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Instrument'+inx+':</label>'+
+                            '<select class="form-control" name="co_instrument'+inx+'" id="co_instrument'+inx+'">'+
+                              '<?php
+                                foreach($instruments as $instrument):
+                              ?>'+
+                                '<option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>'+
+                              '<?php endforeach; ?>'+
+                            '</select>'+
+                          '</div>'+
+                        '</div>'+
+                        '<div id="co_instrument_section'+inx+'" style="display: none; width: 40%;">'+
+                          '<div class="col-12 col-md-12">'+
+                            '<div class="form-group flex-group mb-2">'+
+                              '<label class="title mr-2">Other Instrument'+inx+':</label>'+
+                              '<input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument'+inx+'" id="co_other_instrument'+inx+'">'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'
+        $('#extra_section').append(element)
+      }
+      
     })
 
     // var deadline = new Date($('#audition_deadline').val());
