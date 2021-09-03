@@ -104,6 +104,7 @@
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
                             <input style="width: 65%" type="text" class="form-control form-control-sm" name="video_link" id="video_link">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the video link."></i>
                           </div>
                         </div>
                       </div>
@@ -147,6 +148,7 @@
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="request_reason" id="request_reason" placeholder="ex. help for handicap, or autistic students">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the request reason."></i>
                           </div>
                         </div>
                       </div>
@@ -167,6 +169,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher name."></i>
                         </div>
                       </div>
                     </div>
@@ -179,6 +182,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher email."></i>
                         </div>
                       </div>
                     </div>
@@ -200,7 +204,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
@@ -209,10 +213,11 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher address."></i>
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
@@ -240,6 +245,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id == 4 ? $user_info['username'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student name."></i>
                         </div>
                       </div>
                     </div>
@@ -259,6 +265,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email" value="<?= $role_id == 4 ? $user_info['email'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student email."></i>
                         </div>
                       </div>
                     </div>
@@ -289,6 +296,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address" value="<?= $role_id == 4 ? $user_info['address'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student address."></i>
                         </div>
                       </div>
                     </div>
@@ -301,6 +309,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $role_id == 4 ? $user_info['mobile_no'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student mobile number."></i>
                         </div>
                       </div>
                     </div>
@@ -313,6 +322,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="date" min="1950-01-01" max="2050-12-31" class="form-control form-control-sm" name="student_birthday" id="student_birthday">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student birthday."></i>
                         </div>
                       </div>
                     </div>
@@ -325,6 +335,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="number" class="form-control form-control-sm" name="student_age" id="student_age">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student age."></i>
                         </div>
                       </div>
                     </div>
@@ -337,6 +348,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="number" min="0" max="20" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="studying_year" id="studying_year">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student's studying year."></i>
                         </div>
                       </div>
                     </div>
@@ -506,6 +518,11 @@
                             </select>
                           </div>
                         </div>
+                        <div class="col-12 col-md-1">
+                          <div class="form-group mb-2">
+                            <button type="button" class="btn btn-sm btn-info add_more px-2 py-2" style="background: #EEA400; border: none; border-radius: 8px;" id="add_more">Add More</button>
+                          </div>
+                        </div>
                         <div id="co_instrument_section3" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
@@ -515,6 +532,7 @@
                           </div>
                         </div>
                       </div>
+                      <div id="extra_section"></div>
                     </div>
                     <!-- <div id="quartet_section" style="display: none;">
                       <div class="row">
@@ -546,7 +564,7 @@
                         </div>
                       </div>
                     </div> -->
-                    <div id="ensemble_section" style="display: none;">
+                    <!-- <div id="ensemble_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -575,7 +593,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                       <div class="col-12 col-md-12">
                         <div class="form-group mb-2">
@@ -594,6 +612,7 @@
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
                             <input style="width: 65%" type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="ticket_quantity" id="ticket_quantity">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the ticket quantity."></i>
                           </div>
                         </div>
                       </div>
@@ -614,6 +633,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" placeholder="Enter correct full name as it will be shown as it appears on the Programme." value="<?= $role_id != 4 ? $user_info['username'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher name."></i>
                         </div>
                       </div>
                     </div>
@@ -626,6 +646,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $role_id != 4 ? $user_info['email'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher email."></i>
                         </div>
                       </div>
                     </div>
@@ -647,7 +668,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
@@ -656,10 +677,11 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $role_id != 4 ? $user_info['address'] : ''; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher address."></i>
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
@@ -687,6 +709,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="composer" id="composer" placeholder="L.Beethoven">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the composer name."></i>
                         </div>
                       </div>
                     </div>
@@ -699,6 +722,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="title" id="title" placeholder="Sonata No.8, Op.13, C minor, I mov.">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the music title."></i>
                         </div>
                       </div>
                     </div>
@@ -712,7 +736,7 @@
                         <div class="form-group flex-group mb-2">
                           <div style="display: flex; align-items: center; width: 65%;">
                             <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control form-control-sm mr-1" name="student_time" id="student_time">
-                            <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="'Enter accurate time of piece as this will be the allotted time allowed."></i>
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="'Enter accurate time of piece as this will be the allotted time allowed."></i>
                           </div>
                         </div>
                       </div>
@@ -756,12 +780,14 @@
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction ID:</label>
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="transaction_id" id="transaction_id">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the Paypal transaction ID."></i>
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
                             <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" min="1950-01-01" max="<?= date('Y-m-d'); ?>">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the Paypal transaction date."></i>
                           </div>
                         </div>
                       </div>
@@ -772,6 +798,7 @@
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Payment Code:</label>
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="payment_code" id="payment_code">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the payment code."></i>
                           </div>
                         </div>
                       </div>
@@ -779,6 +806,7 @@
                   </fieldset>  
                   <hr>                
                   <div class="row">
+                    <input type="hidden" name="inx" id="inx">
                     <div class="col-12 col-md-12">
                       <div class="form-group flex-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info add_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
@@ -796,6 +824,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
+    var inx = 3;
     var performance_price = $('#solo_price').val();
     var total_price = performance_price
     $('#uploadForm').submit(function(e) {
@@ -963,6 +992,51 @@
       
     })
     $('#total_price').val(total_price)
+
+    $(document).on('change','#extra_section select', function() {
+      if($('#co_instrument'+inx).val() == 31){
+        $('#co_instrument_section'+inx).show()
+      }else{
+        $('#co_instrument_section'+inx).hide()
+      }
+    });
+
+    $('#add_more').click(function(){
+      inx++;
+      if(inx >= 4){
+        var element = '<div class="row">'+
+                        '<div class="col-12 col-md-6">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Co_performers'+inx+':</label>'+
+                            '<input type="text" class="form-control form-control-sm" name="co_performers'+inx+'" id="co_performers'+inx+'">'+
+                          '</div>'+
+                        '</div>'+
+                        '<div class="col-12 col-md-4">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Instrument'+inx+':</label>'+
+                            '<select class="form-control" name="co_instrument'+inx+'" id="co_instrument'+inx+'">'+
+                              '<?php
+                                foreach($instruments as $instrument):
+                              ?>'+
+                                '<option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>'+
+                              '<?php endforeach; ?>'+
+                            '</select>'+
+                          '</div>'+
+                        '</div>'+
+                        '<div id="co_instrument_section'+inx+'" style="display: none; width: 40%;">'+
+                          '<div class="col-12 col-md-12">'+
+                            '<div class="form-group flex-group mb-2">'+
+                              '<label class="title mr-2">Other Instrument'+inx+':</label>'+
+                              '<input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument'+inx+'" id="co_other_instrument'+inx+'">'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'
+        $('#extra_section').append(element)
+        $('#inx').val(inx)
+      }
+      
+    })
     // var deadline = new Date($('#recital_deadline').val());
     // var current_date = new Date();
     // if((deadline - current_date) < 0){

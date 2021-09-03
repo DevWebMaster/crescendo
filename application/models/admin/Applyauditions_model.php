@@ -42,18 +42,15 @@
 			return $this->db->get()->result_array();
 		}
 		public function get_teachers($user_id, $role_id){
-			if($role_id == 3){
-				$this->db->select('*');
-				$this->db->from('tbl_users');
-				$this->db->where('admin_role_id', $role_id);
+			if($role_id == 2){
+				$this->db->select('name as username, email, address, mobile_no');
+				$this->db->from('tbl_local_admin');
 				$this->db->where('id', $user_id);
-
 				return $this->db->get()->result_array();
-			}else if($role_id == 4){
+			}else{
 				$this->db->select('a1.*');
-				$this->db->from('tbl_relations as a1');
-				$this->db->join('tbl_users as a2', 'a1.teacher = a2.id', 'left');
-				$this->db->where('a1.creator', $user_id);
+				$this->db->from('tbl_users as a1');
+				$this->db->where('a1.id', $user_id);
 
 				return $this->db->get()->result_array();
 			}

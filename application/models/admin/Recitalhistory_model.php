@@ -49,17 +49,18 @@
 			return $query->num_rows();
 		}
 		public function get_audition_info($audition_type, $audition_id){
-			$this->db->select('audition_name, audition_location');
+			$this->db->select('a1.audition_name, a2.location as audition_location');
 			if($audition_type == 1){
-				$this->db->from('tbl_little_morarts');
+				$this->db->from('tbl_little_morarts as a1');
 			}else if($audition_type == 2){
-				$this->db->from('tbl_crescendo');
+				$this->db->from('tbl_crescendo as a1');
 			}else if($audition_type == 3){
 				$this->db->from('tbl_recital_little_morarts as a1');
 			}else if($audition_type == 4){
 				$this->db->from('tbl_recital_crescendo as a1');
 			}
-			$this->db->where('id', $audition_id);
+			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
+			$this->db->where('a1.id', $audition_id);
 			return $this->db->get()->result_array()[0];
 		}
 		public function get_application_info($audition_id, $audition_type){

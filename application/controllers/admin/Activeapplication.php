@@ -216,6 +216,9 @@ class Activeapplication extends My_Controller {
     $data['teachers'] = $this->applyauditions_model->get_teachers($user_id, $role_id);
 
     $data['little_morart'] = $this->activeapplication_model->get_application_info($apply_id, $audition_type);
+    $co_extra_data = htmlspecialchars($data['little_morart'][0]['co_extra_data'], ENT_QUOTES);
+    $data['co_extra_data'] = $co_extra_data;
+
     $data['apply_id'] = $apply_id;
 
     $this->load->view('admin/includes/_header', $data);
@@ -255,7 +258,17 @@ class Activeapplication extends My_Controller {
     }else {
       $is_paid = 0;
     }
-
+    $co_extra_data = array();
+    $co_inx = $this->input->post('inx');
+    for ($i=0; $i < $co_inx-3; $i++) { 
+      $index = $i+4;
+      $co_obj = array(
+        'co_performer' => $this->input->post('co_performers'.$index),
+        'co_instrument' => $this->input->post('co_instrument'.$index),
+        'co_other_instrument' => $this->input->post('co_other_instrument'.$index)
+      );
+      array_push($co_extra_data, $co_obj);
+    }
     // $remain_duration = $this->applyauditions_model->get_remain_duration($this->input->post('audition_id'));
 
     // if($remain_duration['remain_duration'] >= $this->input->post('student_time')){
@@ -288,9 +301,7 @@ class Activeapplication extends My_Controller {
         'co_performers4'=>$this->input->post('co_performers4'),
         'co_instrument4'=>$this->input->post('co_instrument4'),
         'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
-        'co_performers5'=>$this->input->post('co_performers5'),
-        'co_instrument5'=>$this->input->post('co_instrument5'),
-        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
+        'co_extra_data'=>json_encode($co_extra_data),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
@@ -388,7 +399,17 @@ class Activeapplication extends My_Controller {
     }else {
       $is_paid = 0;
     }
-
+    $co_extra_data = array();
+    $co_inx = $this->input->post('inx');
+    for ($i=0; $i < $co_inx-3; $i++) { 
+      $index = $i+4;
+      $co_obj = array(
+        'co_performer' => $this->input->post('co_performers'.$index),
+        'co_instrument' => $this->input->post('co_instrument'.$index),
+        'co_other_instrument' => $this->input->post('co_other_instrument'.$index)
+      );
+      array_push($co_extra_data, $co_obj);
+    }
     // $remain_duration = $this->applyauditions_model->get_remain_duration($this->input->post('audition_id'));
 
     // if($remain_duration['remain_duration'] >= $this->input->post('student_time')){
@@ -421,9 +442,7 @@ class Activeapplication extends My_Controller {
         'co_performers4'=>$this->input->post('co_performers4'),
         'co_instrument4'=>$this->input->post('co_instrument4'),
         'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
-        'co_performers5'=>$this->input->post('co_performers5'),
-        'co_instrument5'=>$this->input->post('co_instrument5'),
-        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
+        'co_extra_data'=>json_encode($co_extra_data),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),

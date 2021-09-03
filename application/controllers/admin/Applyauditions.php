@@ -80,6 +80,17 @@ class Applyauditions extends My_Controller {
     }else {
       $is_paid = 0;
     }
+    $co_extra_data = array();
+    $co_inx = $this->input->post('inx');
+    for ($i=0; $i < $co_inx-3; $i++) { 
+      $index = $i+4;
+      $co_obj = array(
+        'co_performer' => $this->input->post('co_performers'.$index),
+        'co_instrument' => $this->input->post('co_instrument'.$index),
+        'co_other_instrument' => $this->input->post('co_other_instrument'.$index)
+      );
+      array_push($co_extra_data, $co_obj);
+    }
 
     // $remain_duration = $this->applyauditions_model->get_remain_duration($this->input->post('audition_id'));
 
@@ -113,9 +124,7 @@ class Applyauditions extends My_Controller {
         'co_performers4'=>$this->input->post('co_performers4'),
         'co_instrument4'=>$this->input->post('co_instrument4'),
         'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
-        'co_performers5'=>$this->input->post('co_performers5'),
-        'co_instrument5'=>$this->input->post('co_instrument5'),
-        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
+        'co_extra_data'=>json_encode($co_extra_data),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),
@@ -218,7 +227,17 @@ class Applyauditions extends My_Controller {
     }else {
       $is_paid = 0;
     }
-
+    $co_extra_data = array();
+    $co_inx = $this->input->post('inx');
+    for ($i=0; $i < $co_inx-3; $i++) { 
+      $index = $i+4;
+      $co_obj = array(
+        'co_performer' => $this->input->post('co_performers'.$index),
+        'co_instrument' => $this->input->post('co_instrument'.$index),
+        'co_other_instrument' => $this->input->post('co_other_instrument'.$index)
+      );
+      array_push($co_extra_data, $co_obj);
+    }
     // $remain_duration = $this->applyauditions_model->get_remain_duration_crescendo($this->input->post('audition_id'));
 
     // if($remain_duration['remain_duration'] >= $this->input->post('student_time')){
@@ -251,9 +270,7 @@ class Applyauditions extends My_Controller {
         'co_performers4'=>$this->input->post('co_performers4'),
         'co_instrument4'=>$this->input->post('co_instrument4'),
         'co_other_instrument4'=>$this->input->post('co_other_instrument4'),
-        'co_performers5'=>$this->input->post('co_performers5'),
-        'co_instrument5'=>$this->input->post('co_instrument5'),
-        'co_other_instrument5'=>$this->input->post('co_other_instrument5'),
+        'co_extra_data'=>json_encode($co_extra_data),
         'composer'=>$this->input->post('composer'),
         'title'=>$this->input->post('title'),
         'teacher'=>$this->input->post('teacher_name'),

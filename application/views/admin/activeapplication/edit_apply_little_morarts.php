@@ -101,6 +101,7 @@
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="video_link" id="video_link">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the video link."></i>
                           </div>
                         </div>
                       </div>
@@ -132,6 +133,7 @@
                               <option value="1" <?php if($little_morart[0]['request_time'] == 1) { echo "selected"; } ?>>Between 9:00 AM and 1:00PM</option>
                               <option value="2" <?php if($little_morart[0]['request_time'] == 2) { echo "selected"; } ?>>After 2:00 PM</option>
                             </select>
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="."></i>
                            <!--  <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_hour" id="request_hour" value="<?= explode('-', $little_morart[0]['request_time'])[0]; ?>">
                             <label class="title mr-2 mt-1">hour</label>
                             <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3" name="request_minute" id="request_minute" value="<?= explode('-', $little_morart[0]['request_time'])[1]; ?>">
@@ -148,6 +150,7 @@
                         <div class="col-12 col-md-9">
                           <div class="form-group flex-group mb-2">
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="request_reason" id="request_reason" value="<?= $little_morart[0]['request_reason'] ?>">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the request reason."></i>
                           </div>
                         </div>
                       </div>
@@ -168,6 +171,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" value="<?= $little_morart[0]['teacher']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher name."></i>
                         </div>
                       </div>
                     </div>
@@ -180,6 +184,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $little_morart[0]['teacher_email']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher email."></i>
                         </div>
                       </div>
                     </div>
@@ -201,7 +206,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="row">
+                    <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Address:</label>
@@ -210,10 +215,11 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_address" id="teacher_address" value="<?= $little_morart[0]['teacher_address']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher address."></i>
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Mobile Number:</label>
@@ -241,6 +247,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_name" id="student_name" value="<?= $little_morart[0]['student_name']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student name."></i>
                         </div>
                       </div>
                     </div>
@@ -253,6 +260,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_email" id="student_email" value="<?= $little_morart[0]['student_email']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student email."></i>
                         </div>
                       </div>
                     </div>
@@ -283,6 +291,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="student_address" id="student_address" value="<?= $little_morart[0]['address']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student address."></i>
                         </div>
                       </div>
                     </div>
@@ -295,6 +304,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm" name="student_mobile_no" id="student_mobile_no" value="<?= $little_morart[0]['mobile_no']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student mobile no."></i>
                         </div>
                       </div>
                     </div>
@@ -307,6 +317,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="date" class="form-control form-control-sm" name="student_birthday" id="student_birthday" value="<?= $little_morart[0]['birthday']; ?>" min="1950-01-01" max="2050-12-31">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student birthday."></i>
                         </div>
                       </div>
                     </div>
@@ -315,10 +326,11 @@
                         <div class="form-group flex-group mb-2">
                           <label class="title mr-2"><i style="color: red;">*</i>Student Age:</label>
                         </div>
-                      </div>
+                      </div>.
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="number" class="form-control form-control-sm" name="student_age" id="student_age" value="<?= $crescendo[0]['student_age']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student age."></i>
                         </div>
                       </div>
                     </div>
@@ -331,6 +343,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="number" min="0" max="20" oninput="validity.valid||(value='');" class="form-control form-control-sm" name="studying_year" id="studying_year" value="<?= $little_morart[0]['studying_year']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the student's studying year."></i>
                         </div>
                       </div>
                     </div>
@@ -424,13 +437,13 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
+                            <label class="title mr-2">Co_performers1:</label>
                             <input type="text" class="form-control form-control-sm" name="co_performers" id="co_performers" value="<?= $little_morart[0]['co_performers']; ?>">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument1:</label>
                             <select class="form-control" name="co_instrument" id="co_instrument">
                               <?php
                                 foreach($instruments as $instrument):
@@ -443,7 +456,7 @@
                         <div id="co_instrument_section" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
+                              <label class="title mr-2">Other Instrument1:</label>
                               <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument" id="co_other_instrument" value="<?= $little_morart[0]['co_other_instrument']; ?>">
                             </div>
                           </div>
@@ -454,18 +467,18 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
-                            <input type="text" class="form-control form-control-sm" name="co_performers2" id="co_performers2" value="<?= $little_morart[0]['co_performers']; ?>">
+                            <label class="title mr-2">Co_performers2:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers2" id="co_performers2" value="<?= $little_morart[0]['co_performers2']; ?>">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument2:</label>
                             <select class="form-control" name="co_instrument2" id="co_instrument2">
                               <?php
                                 foreach($instruments as $instrument):
                               ?>
-                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument2'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
                               <?php endforeach; ?>
                             </select>
                           </div>
@@ -473,8 +486,8 @@
                         <div id="co_instrument_section2" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
-                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument2" id="co_other_instrument2" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                              <label class="title mr-2">Other Instrument2:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument2" id="co_other_instrument2" value="<?= $little_morart[0]['co_other_instrument2']; ?>">
                             </div>
                           </div>
                         </div>
@@ -484,31 +497,39 @@
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Co_performers:</label>
-                            <input type="text" class="form-control form-control-sm" name="co_performers3" id="co_performers3" value="<?= $little_morart[0]['co_performers']; ?>">
+                            <label class="title mr-2">Co_performers3:</label>
+                            <input type="text" class="form-control form-control-sm" name="co_performers3" id="co_performers3" value="<?= $little_morart[0]['co_performers3']; ?>">
                           </div>
                         </div>
                         <div class="col-12 col-md-4">
                           <div class="form-group flex-group mb-2">
-                            <label class="title mr-2">Instrument:</label>
+                            <label class="title mr-2">Instrument3:</label>
                             <select class="form-control" name="co_instrument3" id="co_instrument3">
                               <?php
                                 foreach($instruments as $instrument):
                               ?>
-                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
+                                <option value="<?= $instrument['id']; ?>" <?php if($little_morart[0]['co_instrument3'] == $instrument['id']) { echo "selected"; } ?> ><?= $instrument['name'] ?></option>
                               <?php endforeach; ?>
                             </select>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-1">
+                          <div class="form-group mb-2">
+                            <button type="button" class="btn btn-sm btn-info add_more px-2 py-2" style="background: #EEA400; border: none; border-radius: 8px;" id="add_more">Add More</button>
                           </div>
                         </div>
                         <div id="co_instrument_section3" style="display: none; width: 40%;">
                           <div class="col-12 col-md-12">
                             <div class="form-group flex-group mb-2">
-                              <label class="title mr-2">Other Instrument:</label>
-                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument3" id="co_other_instrument3" value="<?= $little_morart[0]['co_other_instrument']; ?>">
+                              <label class="title mr-2">Other Instrument3:</label>
+                              <input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument3" id="co_other_instrument3" value="<?= $little_morart[0]['co_other_instrument3']; ?>">
                             </div>
                           </div>
                         </div>
                       </div>
+                      <div id="exist_section"></div>
+                      <div id="extra_section"></div>
+                      <input type="hidden" name="co_extra_data" id="co_extra_data" value="<?= $co_extra_data; ?>">
                     </div>
 <!--                     <div id="quartet_section" style="display: none;">
                       <div class="row">
@@ -540,7 +561,7 @@
                         </div>
                       </div>
                     </div>
- -->                    <div id="ensemble_section" style="display: none;">
+                    <div id="ensemble_section" style="display: none;">
                       <div class="row">
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
@@ -569,7 +590,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </fieldset>
                   <hr>
                   <?php
@@ -586,6 +607,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_name" id="teacher_name" value="<?= $little_morart[0]['teacher']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher name."></i>
                         </div>
                       </div>
                     </div>
@@ -598,6 +620,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="teacher_email" id="teacher_email" value="<?= $little_morart[0]['teacher_email']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the teacher email."></i>
                         </div>
                       </div>
                     </div>
@@ -659,6 +682,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="composer" id="composer" value="<?= $little_morart[0]['composer']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the composer name."></i>
                         </div>
                       </div>
                     </div>
@@ -671,6 +695,7 @@
                       <div class="col-12 col-md-9">
                         <div class="form-group flex-group mb-2">
                           <input style="width: 65%;" type="text" class="form-control form-control-sm" name="title" id="title" value="<?= $little_morart[0]['title']; ?>">
+                          <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the Music title."></i>
                         </div>
                       </div>
                     </div>
@@ -684,7 +709,7 @@
                         <div class="form-group flex-group mb-2">
                           <div style="display: flex; align-items: center; width: 65%;">
                             <input type="number" readonly class="form-control form-control-sm mr-1" name="student_time" id="student_time" value="<?= $little_morart[0]['duration']; ?>">
-                            <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="'Enter accurate time of piece as this will be the allotted time allowed."></i>
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter accurate time of piece as this will be the allotted time allowed."></i>
                           </div>
                         </div>
                       </div>
@@ -713,12 +738,14 @@
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction ID:</label>
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="transaction_id" id="transaction_id" value="<?= $little_morart[0]['transaction_id']; ?>">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the transaction ID."></i>
                           </div>
                         </div>
                         <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Transaction Date:</label>
                             <input style="width: 65%;" type="date" class="form-control form-control-sm" name="transaction_date" id="transaction_date" value="<?= $little_morart[0]['transaction_date']; ?>" min="1950-01-01" max="<?= date('Y-m-d'); ?>">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the transaction date."></i>
                           </div>
                         </div>
                       </div>
@@ -729,12 +756,14 @@
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Payment Code:</label>
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="payment_code" id="payment_code" value="<?= $little_morart[0]['payment_code']; ?>">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the payment code."></i>
                           </div>
                         </div>
                       </div>
                     </div>
                   </fieldset>            
                   <div class="row">
+                    <input type="hidden" name="inx" id="inx">
                     <div class="col-12 col-md-12">
                       <div class="form-group flex-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info add_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
@@ -772,10 +801,30 @@
     }
 
     if($('#solo').is(':checked')){
-      $('#solo_section').hide()
-    }else{
-      $('#solo_section').show()
-    }
+        $('#solo_section').hide()
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        // $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#duet').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').hide()
+        $('#trio_section').hide()
+        // $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#trio').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').hide()
+        // $('#quartet_section').hide()
+        $('#ensemble_section').hide()
+      }else if($('#ensemble').is(':checked')){
+        $('#solo_section').show()
+        $('#duo_section').show()
+        $('#trio_section').show()
+        // $('#quartet_section').show()
+        $('#ensemble_section').hide()
+      }
 
     if($('#special_request').is(':checked')){
       $('#special_section').show()
@@ -918,6 +967,121 @@
       }else{
         $('#co_instrument_section').hide()
       }
+      if($('#instrument2').val() == 31){
+        $('#instrument_section2').show()
+      }else{
+        $('#instrument_section2').hide()
+      }
+      if($('#co_instrument2').val() == 31){
+        $('#co_instrument_section2').show()
+      }else{
+        $('#co_instrument_section2').hide()
+      }
+      if($('#instrument3').val() == 31){
+        $('#instrument_section3').show()
+      }else{
+        $('#instrument_section3').hide()
+      }
+      if($('#co_instrument3').val() == 31){
+        $('#co_instrument_section3').show()
+      }else{
+        $('#co_instrument_section3').hide()
+      }
+      if($('#instrument4').val() == 31){
+        $('#instrument_section4').show()
+      }else{
+        $('#instrument_section4').hide()
+      }
+      if($('#co_instrument4').val() == 31){
+        $('#co_instrument_section4').show()
+      }else{
+        $('#co_instrument_section4').hide()
+      }
+      
+    })
+    var inx = 3;
+    var co_extra_data = $('#co_extra_data').val()
+    if(co_extra_data != ''){
+      var co_extra_data_arr = JSON.parse(co_extra_data)
+      $('#inx').val(co_extra_data_arr.length+inx)
+      console.log(co_extra_data_arr)
+      for(var i = 0; i < co_extra_data_arr.length; i++){
+        inx++;
+        var html = '<div class="row">'+
+                      '<div class="col-12 col-md-6">'+
+                        '<div class="form-group flex-group mb-2">'+
+                          '<label class="title mr-2">Co_performers'+inx+':</label>'+
+                          '<input type="text" class="form-control form-control-sm" name="co_performers'+inx+'" id="co_performers'+inx+'" value="'+co_extra_data_arr[i]['co_performer']+'">'+
+                        '</div>'+
+                      '</div>'+
+                      '<div class="col-12 col-md-4">'+
+                        '<div class="form-group flex-group mb-2">'+
+                          '<label class="title mr-2">Instrument'+inx+':</label>'+
+                          '<select class="form-control" name="co_instrument'+inx+'" id="co_instrument'+inx+'">'+
+                            '<?php
+                              foreach($instruments as $instrument):
+                            ?>'+
+                              '<option value="<?= $instrument['id']; ?>" <?php if($co_extra_data[i]['co_instrument'] == $instrument['id']) { echo "selected"; } ?>><?= $instrument['name'] ?></option>'+
+                            '<?php endforeach; ?>'+
+                          '</select>'+
+                        '</div>'+
+                      '</div>'+
+                      '<div id="co_instrument_section'+inx+'" style="display: none; width: 40%;">'+
+                        '<div class="col-12 col-md-12">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Other Instrument'+inx+':</label>'+
+                            '<input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument'+inx+'" id="co_other_instrument'+inx+'" value="'+co_extra_data_arr[i]['co_other_instrument']+'">'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'+
+                    '</div>'
+        $('#extra_section').append(html)
+      }
+    }
+    
+    $(document).on('change','#extra_section select', function() {
+      if($('#co_instrument'+inx).val() == 31){
+        $('#co_instrument_section'+inx).show()
+      }else{
+        $('#co_instrument_section'+inx).hide()
+      }
+    });
+
+    $('#add_more').click(function(){
+      inx++;
+      if(inx >= 4){
+        var element = '<div class="row">'+
+                        '<div class="col-12 col-md-6">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Co_performers'+inx+':</label>'+
+                            '<input type="text" class="form-control form-control-sm" name="co_performers'+inx+'" id="co_performers'+inx+'">'+
+                          '</div>'+
+                        '</div>'+
+                        '<div class="col-12 col-md-4">'+
+                          '<div class="form-group flex-group mb-2">'+
+                            '<label class="title mr-2">Instrument'+inx+':</label>'+
+                            '<select class="form-control" name="co_instrument'+inx+'" id="co_instrument'+inx+'">'+
+                              '<?php
+                                foreach($instruments as $instrument):
+                              ?>'+
+                                '<option value="<?= $instrument['id']; ?>"><?= $instrument['name'] ?></option>'+
+                              '<?php endforeach; ?>'+
+                            '</select>'+
+                          '</div>'+
+                        '</div>'+
+                        '<div id="co_instrument_section'+inx+'" style="display: none; width: 40%;">'+
+                          '<div class="col-12 col-md-12">'+
+                            '<div class="form-group flex-group mb-2">'+
+                              '<label class="title mr-2">Other Instrument'+inx+':</label>'+
+                              '<input style="width: 50%;" type="text" class="form-control form-control-sm" name="co_other_instrument'+inx+'" id="co_other_instrument'+inx+'">'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'+
+                      '</div>'
+        $('#extra_section').append(element)
+        $('#inx').val(inx)
+      }
+      
     })
 
     // var deadline = new Date($('#audition_deadline').val());
