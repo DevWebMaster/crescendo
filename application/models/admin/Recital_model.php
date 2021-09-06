@@ -53,7 +53,7 @@
 		public function get_crescendo_list($search_key, $start, $rowperpage) {
 			$this->db->select('a1.*, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_crescendo as a1');
-			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}

@@ -177,7 +177,7 @@
                     <div class="col-12 col-md-12">
                       <div class="form-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info add_crescendo px-4" style="background: #EEA400; border-color: #EEA400; border-radius: 8px;" value="Create">
-                        <a type="button" class="btn btn-sm btn-danger cancel px-4" style="border-radius: 8px;" id="cancel" href="<?= site_url(); ?>admin/recital/crescendo">Back</a>
+                        <a type="button" class="btn btn-sm btn-danger cancel px-4" style="border-radius: 8px;" id="cancel" href="<?= site_url(); ?>admin/recital/crescendo_list">Back</a>
                       </div>
                     </div>
                   </div>

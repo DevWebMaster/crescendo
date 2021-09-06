@@ -193,7 +193,7 @@
                     <div class="col-12 col-md-12">
                       <div class="form-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info update_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 8px;" value="Update">
-                        <a type="button" class="btn btn-sm btn-danger cancel px-4 py-2" style="border-radius: 8px;" id="cancel" href="<?= site_url(); ?>admin/recital/crescendo">Back</a>
+                        <a type="button" class="btn btn-sm btn-danger cancel px-4 py-2" style="border-radius: 8px;" id="cancel" href="<?= site_url(); ?>admin/recital/crescendo_list">Back</a>
                       </div>
                     </div>
                   </div>
