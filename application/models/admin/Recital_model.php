@@ -3,7 +3,7 @@
 		public function get_little_morarts_list($search_key, $start, $rowperpage) {
 			$this->db->select('a1.*, a3.location as auditionlocation');
 			$this->db->from('tbl_recital_little_morarts as a1');
-			$this->db->join('tbl_locations as a3', 'a1.audition_location = a3.id', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a1.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.audition_name', $search_key);
 			}
@@ -37,9 +37,9 @@
 			$this->db->from('tbl_local_admin');
 			return $this->db->get()->result_array();
 		}
-		public function get_audition_locations(){
+		public function get_recital_locations(){
 			$this->db->select('id, location');
-			$this->db->from('tbl_locations');
+			$this->db->from('tbl_recital_locations');
 			return $this->db->get()->result_array();
 		}
 

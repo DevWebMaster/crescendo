@@ -59,7 +59,7 @@
 			}else if($audition_type == 4){
 				$this->db->from('tbl_recital_crescendo as a1');
 			}
-			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
+			$this->db->join('tbl_recital_locations as a2', 'a1.audition_location = a2.id', 'left');
 			$this->db->where('a1.id', $audition_id);
 			return $this->db->get()->result_array()[0];
 		}

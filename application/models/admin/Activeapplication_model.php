@@ -20,8 +20,16 @@
 			if($less != ''){
 				$this->db->where('a1.score < ', $less);
 			}
+			if($audition_type == 1){
+				$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 3){
+				$this->db->join('tbl_recital_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 2){
+				$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 4){
+				$this->db->join('tbl_recital_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}
 			
-			$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
 				$this->db->or_like('a2.name', $search_key);
@@ -60,7 +68,15 @@
 			}else if($audition_type == 4){
 				$this->db->join('tbl_recital_crescendo as a4', 'a4.id = a1.audition_id', 'left');
 			}
-			$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
+			if($audition_type == 1){
+				$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 3){
+				$this->db->join('tbl_recital_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 2){
+				$this->db->join('tbl_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}else if($audition_type == 4){
+				$this->db->join('tbl_recital_locations as a3', 'a4.audition_location = a3.id', 'left');
+			}
 			$this->db->where('a1.audition_type', $audition_type);
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
@@ -84,14 +100,18 @@
 			$this->db->select('a1.audition_name, a2.location as audition_location');
 			if($audition_type == 1){
 				$this->db->from('tbl_little_morarts as a1');
+				$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 2){
 				$this->db->from('tbl_crescendo as a1');
+				$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 3){
 				$this->db->from('tbl_recital_little_morarts as a1');
+				$this->db->join('tbl_recital_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 4){
 				$this->db->from('tbl_recital_crescendo as a1');
+				$this->db->join('tbl_recital_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}
-			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
+			
 			$this->db->where('a1.id', $audition_id);
 			return $this->db->get()->result_array()[0];
 		}
@@ -101,15 +121,19 @@
 			$this->db->join('tbl_users as a4', 'a4.id = a1.student_name', 'left');
 			if($audition_type == 1){
 				$this->db->join('tbl_little_morarts as a2', 'a1.audition_id = a2.id', 'left');
+				$this->db->join('tbl_locations as a3', 'a3.id = a2.audition_location', 'left');
 			}else if($audition_type == 2){
 				$this->db->join('tbl_crescendo as a2', 'a1.audition_id = a2.id', 'left');
+				$this->db->join('tbl_locations as a3', 'a3.id = a2.audition_location', 'left');
 			}else if($audition_type == 3){
 				$this->db->join('tbl_recital_little_morarts as a2', 'a1.audition_id = a2.id', 'left');
+				$this->db->join('tbl_recital_locations as a3', 'a3.id = a2.audition_location', 'left');
 			}else if($audition_type == 4){
 				$this->db->join('tbl_recital_crescendo as a2', 'a1.audition_id = a2.id', 'left');
+				$this->db->join('tbl_recital_locations as a3', 'a3.id = a2.audition_location', 'left');
 			}
 			
-			$this->db->join('tbl_locations as a3', 'a3.id = a2.audition_location', 'left');
+			
 			$this->db->where('a1.is_delete', 0);
 			$this->db->where('a1.id', $apply_id);
 			$this->db->where('audition_type', $audition_type);

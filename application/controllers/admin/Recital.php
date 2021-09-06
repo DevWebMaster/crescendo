@@ -102,7 +102,7 @@ class Recital extends My_Controller {
   {
     $data['title'] = 'Add Recital Little Mozarts';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
-    $data['audition_locations'] = $this->recital_model->get_audition_locations();
+    $data['audition_locations'] = $this->recital_model->get_recital_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/add_little_morarts');
@@ -144,7 +144,7 @@ class Recital extends My_Controller {
   {
     $data['title'] = 'Edit Recital Little Mozarts';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
-    $data['audition_locations'] = $this->recital_model->get_audition_locations();
+    $data['audition_locations'] = $this->recital_model->get_recital_locations();
     $data['audition_id'] = $audition_id;
     $data['audition_info'] = $this->recital_model->get_little_morarts_info($audition_id);
 
@@ -277,7 +277,7 @@ class Recital extends My_Controller {
   {
     $data['title'] = 'Add Recital Crescendo';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
-    $data['audition_locations'] = $this->recital_model->get_audition_locations();
+    $data['audition_locations'] = $this->recital_model->get_recital_locations();
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recital/add_crescendo');
@@ -319,7 +319,7 @@ class Recital extends My_Controller {
   {
     $data['title'] = 'Edit Recital Crescendo';
     $data['local_admins'] = $this->recital_model->get_all_localadmins();
-    $data['audition_locations'] = $this->recital_model->get_audition_locations();
+    $data['audition_locations'] = $this->recital_model->get_recital_locations();
     $data['audition_id'] = $audition_id;
     $data['audition_info'] = $this->recital_model->get_crescendo_info($audition_id);
 

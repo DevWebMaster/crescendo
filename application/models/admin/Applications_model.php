@@ -73,14 +73,18 @@
 			$this->db->select('a1.audition_name, a2.location as auditionlocation');
 			if($audition_type == 1){
 				$this->db->from('tbl_little_morarts as a1');
+				$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 2){
 				$this->db->from('tbl_crescendo as a1');
+				$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 3){
 				$this->db->from('tbl_recital_little_morarts as a1');
+				$this->db->join('tbl_recital_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}else if($audition_type == 4){
 				$this->db->from('tbl_recital_crescendo as a1');
+				$this->db->join('tbl_recital_locations as a2', 'a1.audition_location = a2.id', 'left');
 			}
-			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
+			
 			$this->db->where('a1.id', $audition_id);
 			$this->db->where('a1.is_delete', 0);
 			return $this->db->get()->result_array()[0];
@@ -90,7 +94,7 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
-			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
 				$this->db->or_like('a2.name', $search_key);
@@ -131,7 +135,7 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
-			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
@@ -159,15 +163,19 @@
 			$this->db->from('tbl_applications as a1');
 			if($audition_type == 1){
 				$this->db->join('tbl_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
+				$this->db->join('tbl_locations as a4', 'a4.id = a3.audition_location', 'left');
 			}else if($audition_type == 2){
 				$this->db->join('tbl_crescendo as a3', 'a3.id = a1.audition_id', 'left');
+				$this->db->join('tbl_locations as a4', 'a4.id = a3.audition_location', 'left');
 			}else if($audition_type == 3){
 				$this->db->join('tbl_recital_little_morarts as a3', 'a3.id = a1.audition_id', 'left');
+				$this->db->join('tbl_recital_locations as a4', 'a4.id = a3.audition_location', 'left');
 			}else if($audition_type == 4){
 				$this->db->join('tbl_recital_crescendo as a3', 'a3.id = a1.audition_id', 'left');
+				$this->db->join('tbl_recital_locations as a4', 'a4.id = a3.audition_location', 'left');
 			}
 			
-			$this->db->join('tbl_locations as a4', 'a4.id = a3.audition_location', 'left');
+			
 			$this->db->where('a1.id', $apply_id);
 			$this->db->where('a1.audition_type', $audition_type);
 			$this->db->where('a1.is_delete', 0);
@@ -262,7 +270,7 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
-			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
 				$this->db->or_like('a2.name', $search_key);
@@ -303,7 +311,7 @@
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->join('tbl_instruments as a2', 'a2.id = a1.instrument', 'left');
-			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
+			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
 				$this->db->where('a4.local_admin', $user_id);
