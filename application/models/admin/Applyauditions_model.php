@@ -1,6 +1,6 @@
 <?php
 	class Applyauditions_model extends CI_Model{
-		public function get_little_morarts($audition_id){
+		public function get_little_morarts($audition_id, $user_id, $role_id){
 			$this->db->select('a1.*, a2.location as auditionlocation');
 			$this->db->from('tbl_little_morarts as a1');
 			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
@@ -8,16 +8,22 @@
 			if($audition_id != 0){
 				$this->db->where('a1.id', $audition_id);
 			}
+			if($role_id == 2){
+				$this->db->where('a1.local_admin', $user_id);
+			}
 
 			return $this->db->get()->result_array();
 		}
-		public function get_crescendo($audition_id){
+		public function get_crescendo($audition_id, $user_id, $role_id){
 			$this->db->select('a1.*, a2.location as auditionlocation');
 			$this->db->from('tbl_crescendo as a1');
 			$this->db->join('tbl_locations as a2', 'a1.audition_location = a2.id', 'left');
 			$this->db->where('a1.is_delete', 0);
 			if($audition_id != 0){
 				$this->db->where('a1.id', $audition_id);
+			}
+			if($role_id == 2){
+				$this->db->where('a1.local_admin', $user_id);
 			}
 
 			return $this->db->get()->result_array();

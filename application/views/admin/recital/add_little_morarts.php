@@ -225,8 +225,32 @@
             
           }
         })
-      }else{
-        toastr.warning('Please fill all fields correctly.');
+      }else if($('#audition_name').val() == ''){
+        toastr.warning('Please fill Recital Name correctly.');
+        return;
+      }else if($('#audition_date').val() == ''){
+        toastr.warning('Please fill Recital Date correctly.');
+        return;
+      }else if($('#audition_time').val() == ''){
+        toastr.warning('Please fill Recital Time correctly.');
+        return;
+      }else if($('#duration').val() == ''){
+        toastr.warning('Please fill Duration correctly.');
+        return;
+      }else if($('#ticket_price').val() == ''){
+        toastr.warning('Please fill Ticket Price correctly.');
+        return;
+      }else if($('#discounted_price').val() == ''){
+        toastr.warning('Please fill Discounted Price correctly.');
+        return;
+      }else if($('#discounted_quantity').val() == ''){
+        toastr.warning('Please fill Discounted Quantity correctly.');
+        return;
+      }else if($('#audition_deadline').val() == ''){
+        toastr.warning('Please fill Recital Deadline correctly.');
+        return;
+      }else if($('#late_fee').val() == ''){
+        toastr.warning('Please fill late fee correctly.');
         return;
       }
       

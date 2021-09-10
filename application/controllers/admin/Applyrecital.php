@@ -76,6 +76,11 @@ class Applyrecital extends My_Controller {
     $transaction_id = $this->input->post('transaction_id');
     $transaction_date = $this->input->post('transaction_date');
     $payment_code = $this->input->post('payment_code');
+    if($payment_code != ''){
+      $paid_amount = $this->input->post('order_paid_amount');
+    }else {
+      $paid_amount = $this->input->post('paid_amount');
+    }
     if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
       $is_paid = 1;
     }else {
@@ -137,6 +142,7 @@ class Applyrecital extends My_Controller {
         'transaction_date'=>$transaction_date,
         'payment_code'=>$payment_code,
         'is_paid'=>$is_paid,
+        'paid_amount'=>$paid_amount,
         'islate'=>$islate,
         'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
@@ -150,6 +156,7 @@ class Applyrecital extends My_Controller {
         'total_price'=>$this->input->post('total_price'),
         'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
         'token'=>$this->session->userdata('token'),
+        'role_id'=>$this->session->userdata('admin_role_id'),
         'created_at'=>date('Y-m-d H:i:s'),
         'created_by'=>$this->session->userdata('user_id'),
       );
@@ -229,6 +236,11 @@ class Applyrecital extends My_Controller {
     $transaction_id = $this->input->post('transaction_id');
     $transaction_date = $this->input->post('transaction_date');
     $payment_code = $this->input->post('payment_code');
+    if($payment_code != ''){
+      $paid_amount = $this->input->post('order_paid_amount');
+    }else {
+      $paid_amount = $this->input->post('paid_amount');
+    }
     if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
       $is_paid = 1;
     }else {
@@ -290,6 +302,7 @@ class Applyrecital extends My_Controller {
         'transaction_date'=>$transaction_date,
         'payment_code'=>$payment_code,
         'is_paid'=>$is_paid,
+        'paid_amount'=>$paid_amount,
         'islate'=>$islate,
         'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
@@ -303,6 +316,7 @@ class Applyrecital extends My_Controller {
         'total_price'=>$this->input->post('total_price'),
         'request_photo'=>$this->input->post('request_photo') == 'on' ? 1 : 0,
         'token'=>$this->session->userdata('token'),
+        'role_id'=>$this->session->userdata('admin_role_id'),
         'created_at'=>date('Y-m-d H:i:s'),
         'created_by'=>$this->session->userdata('user_id'),
       );

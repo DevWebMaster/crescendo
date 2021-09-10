@@ -20,7 +20,8 @@
 				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->where('a1.audition_type', $audition_type);
@@ -34,7 +35,8 @@
 			$this->db->join('tbl_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
@@ -49,7 +51,8 @@
 			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			if($greater != ''){
 				$this->db->where('a1.score > ', $greater);
@@ -109,7 +112,8 @@
 				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->where('a1.audition_type', $audition_type);
@@ -123,7 +127,8 @@
 			$this->db->join('tbl_recital_little_morarts as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
@@ -138,7 +143,8 @@
 			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			if($greater != ''){
 				$this->db->where('a1.score > ', $greater);
@@ -209,7 +215,8 @@
 				$this->db->or_like('a4.audition_name', $search_key);
 			}
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			if($greater != ''){
 				$this->db->where('a1.score > ', $greater);
@@ -229,7 +236,8 @@
 			$this->db->join('tbl_crescendo as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
@@ -244,7 +252,8 @@
 			$this->db->join('tbl_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			if($search_key != ''){
 				$this->db->like('a1.student_name', $search_key);
@@ -285,7 +294,8 @@
 				$this->db->where('a1.score < ', $less);
 			}
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->where('audition_type', $audition_type);
@@ -299,7 +309,8 @@
 			$this->db->join('tbl_recital_crescendo as a4', 'a1.audition_id = a4.id', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
@@ -314,7 +325,8 @@
 			$this->db->join('tbl_recital_locations as a3', 'a3.id = a4.audition_location', 'left');
 			$this->db->where('a1.audition_type', $audition_type);
 			if($role == 2){
-				$this->db->where('a4.local_admin', $user_id);
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			if($greater != ''){
 				$this->db->where('a1.score > ', $greater);

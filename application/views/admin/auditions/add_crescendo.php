@@ -166,8 +166,29 @@
             
           }
         })
-      }else{
-        toastr.warning('Please fill all fields correctly.');
+      }else if($('#audition_name').val() == ''){
+        toastr.warning('Please fill Audition Name correctly.');
+        return;
+      }else if($('#audition_date').val() == ''){
+        toastr.warning('Please fill Audition Date correctly.');
+        return;
+      }else if($('#fee_solo').val() == ''){
+        toastr.warning('Please fill Fee of Solo option correctly.');
+        return;
+      }else if($('#fee_duet').val() == ''){
+        toastr.warning('Please fill Fee of Duet option correctly.');
+        return;
+      }else if($('#fee_trio').val() == ''){
+        toastr.warning('Please fill Fee of Trio option correctly.');
+        return;
+      }else if($('#fee_ensemble').val() == ''){
+        toastr.warning('Please fill Fee of Ensemble option correctly.');
+        return;
+      }else if($('#audition_deadline').val() == ''){
+        toastr.warning('Please fill Audition Deadline correctly.');
+        return;
+      }else if($('#late_fee').val() == ''){
+        toastr.warning('Please fill late fee correctly.');
         return;
       }
       

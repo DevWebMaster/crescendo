@@ -229,7 +229,6 @@
                 window.location.href = '<?= site_url(); ?>admin/recital/crescendo_list';
               }, 600);
             }
-            
           }
         })
       }else{

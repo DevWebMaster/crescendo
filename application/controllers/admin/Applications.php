@@ -27,7 +27,7 @@ class Applications extends My_Controller {
   }
   public function get_apply_little_morarts_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];
@@ -175,7 +175,7 @@ class Applications extends My_Controller {
   }
   public function get_recital_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];
@@ -334,7 +334,7 @@ class Applications extends My_Controller {
   }
   public function get_apply_crescendo_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];
@@ -479,7 +479,7 @@ class Applications extends My_Controller {
   }
   public function get_recital_crescendo_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];

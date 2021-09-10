@@ -38,10 +38,6 @@
                   I'm a Teacher
               </label>
               <label style="color: #FFFFFF;">
-                  <input type="radio" name="role_status" id="parent" value="5">
-                  I'm a Parent
-              </label>
-              <label style="color: #FFFFFF;">
                   <input type="radio" name="role_status" id="student" value="4">
                   I'm a Student
               </label>

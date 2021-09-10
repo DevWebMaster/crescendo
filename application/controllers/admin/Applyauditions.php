@@ -20,7 +20,10 @@ class Applyauditions extends My_Controller {
 
     $data['title'] = 'Little Mozarts';
 
-    $data['little_morarts'] = $this->applyauditions_model->get_little_morarts(0);
+    $user_id = $this->session->userdata('user_id');
+    $role_id = $this->session->userdata('admin_role_id');
+
+    $data['little_morarts'] = $this->applyauditions_model->get_little_morarts(0, $user_id, $role_id);
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/applyauditions/little_morarts');
@@ -31,10 +34,10 @@ class Applyauditions extends My_Controller {
   {
     $data['title'] = 'Apply Little Mozarts';
 
-    $data['little_morart'] = $this->applyauditions_model->get_little_morarts($audition_id);
-
     $user_id = $this->session->userdata('user_id');
     $role_id = $this->session->userdata('admin_role_id');
+
+    $data['little_morart'] = $this->applyauditions_model->get_little_morarts($audition_id, $user_id, $role_id);
 
     $data['user_info'] = $this->applyauditions_model->get_user_info($user_id, $role_id);
     $data['role_id'] = $role_id;
@@ -75,6 +78,11 @@ class Applyauditions extends My_Controller {
     $transaction_id = $this->input->post('transaction_id');
     $transaction_date = $this->input->post('transaction_date');
     $payment_code = $this->input->post('payment_code');
+    if($payment_code != ''){
+      $paid_amount = $this->input->post('order_paid_amount');
+    }else {
+      $paid_amount = $this->input->post('paid_amount');
+    }
     if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
       $is_paid = 1;
     }else {
@@ -137,6 +145,7 @@ class Applyauditions extends My_Controller {
         'transaction_date'=>$transaction_date,
         'payment_code'=>$payment_code,
         'is_paid'=>$is_paid,
+        'paid_amount'=>$paid_amount,
         'islate'=>$islate,
         'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
@@ -146,6 +155,7 @@ class Applyauditions extends My_Controller {
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
         'video_link'=>$this->input->post('video_link'),
         'token'=>$this->session->userdata('token'),
+        'role_id'=>$this->session->userdata('admin_role_id'),
         'created_at'=>date('Y-m-d H:i:s'),
         'created_by'=>$this->session->userdata('user_id'),
       );
@@ -167,7 +177,10 @@ class Applyauditions extends My_Controller {
 
     $data['title'] = 'Crescendo';
 
-    $data['crescendo_list'] = $this->applyauditions_model->get_crescendo(0);
+    $user_id = $this->session->userdata('user_id');
+    $role_id = $this->session->userdata('admin_role_id');
+
+    $data['crescendo_list'] = $this->applyauditions_model->get_crescendo(0, $user_id, $role_id);
 
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/applyauditions/crescendo');
@@ -178,10 +191,10 @@ class Applyauditions extends My_Controller {
   {
     $data['title'] = 'Apply Crescendo';
 
-    $data['crescendo'] = $this->applyauditions_model->get_crescendo($audition_id);
-
     $user_id = $this->session->userdata('user_id');
     $role_id = $this->session->userdata('admin_role_id');
+
+    $data['crescendo'] = $this->applyauditions_model->get_crescendo($audition_id, $user_id, $role_id);
 
     $data['user_info'] = $this->applyauditions_model->get_user_info($user_id, $role_id);
     $data['role_id'] = $role_id;
@@ -222,6 +235,11 @@ class Applyauditions extends My_Controller {
     $transaction_id = $this->input->post('transaction_id');
     $transaction_date = $this->input->post('transaction_date');
     $payment_code = $this->input->post('payment_code');
+    if($payment_code != ''){
+      $paid_amount = $this->input->post('order_paid_amount');
+    }else {
+      $paid_amount = $this->input->post('paid_amount');
+    }
     if(($transaction_id != '' && $transaction_date != '') || $payment_code != ''){
       $is_paid = 1;
     }else {
@@ -283,6 +301,7 @@ class Applyauditions extends My_Controller {
         'transaction_date'=>$transaction_date,
         'payment_code'=>$payment_code,
         'is_paid'=>$is_paid,
+        'paid_amount'=>$paid_amount,
         'islate'=>$islate,
         'late_fee'=>$late_fee,
         'special_request'=>$this->input->post('special_request') == 'on' ? 1 : 0,
@@ -292,6 +311,7 @@ class Applyauditions extends My_Controller {
         'isonline'=>$this->input->post('isonline') == 'on' ? 1 : 0,
         'video_link'=>$this->input->post('video_link'),
         'token'=>$this->session->userdata('token'),
+        'role_id'=>$this->session->userdata('admin_role_id'),
         'created_at'=>date('Y-m-d H:i:s'),
         'created_by'=>$this->session->userdata('user_id'),
       );

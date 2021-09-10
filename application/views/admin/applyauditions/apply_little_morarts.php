@@ -743,10 +743,26 @@
                           </div>
                         </div>
                       </div>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Paid Amount:</label>
+                            <input style="width: 65%;" type="number" class="form-control form-control-sm" name="paid_amount" id="paid_amount" placeholder="Enter the Paid Amount">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the Paid Amount."></i>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div id="order_section" style="display: none;">
                       <div class="row">
-                        <div class="offset-6 col-12 col-md-6">
+                        <div class="col-12 col-md-6">
+                          <div class="form-group flex-group mb-2">
+                            <label class="title mr-2">Paid Amount:</label>
+                            <input style="width: 65%;" type="number" class="form-control form-control-sm" name="order_paid_amount" id="order_paid_amount" placeholder="Enter the Paid Amount">
+                            <i class="fa fa-info-circle pt-2" aria-hidden="true" data-toggle="tooltip" title="Enter the Paid Amount."></i>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
                           <div class="form-group flex-group mb-2">
                             <label class="title mr-2">Payment Code:</label>
                             <input style="width: 65%;" type="text" class="form-control form-control-sm" name="payment_code" id="payment_code">
@@ -759,9 +775,14 @@
                   <hr>                
                   <div class="row">
                     <input type="hidden" name="inx" id="inx">
-                    <div class="col-12 col-md-12">
+                    <div class="col-12 col-md-6">
                       <div class="form-group flex-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info add_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="form-group flex-group mt-4">
+                        <a type="button" style="border: none; border-radius: 16px; width: 100%;" class="btn btn-sm btn-danger cancel px-4 py-2" id="cancel" href="<?= site_url(); ?>admin/applyauditions/index">Cancel</a>
                       </div>
                     </div>
                   </div>

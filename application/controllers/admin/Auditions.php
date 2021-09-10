@@ -49,19 +49,19 @@ class Auditions extends My_Controller {
     foreach ($little_morarts_list as $value) {
         $audition_fee = '';
         if($value['fee_solo'] != ''){
-          $audition_fee = 'Solo: USD'.$value['fee_solo'].',';
+          $audition_fee = 'Solo - '.$value['fee_solo'].';';
         }
         if($value['fee_duet'] != ''){
-          $audition_fee .= ' Duet: USD'.$value['fee_duet'].',';
+          $audition_fee .= ' Duet - '.$value['fee_duet'].';';
         }
         if($value['fee_trio'] != ''){
-          $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
+          $audition_fee .= ' Trio - '.$value['fee_trio'].';';
         }
         // if($value['fee_quartet'] != ''){
-        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].';';
         // }
         if($value['fee_ensemble'] != ''){
-          $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
+          $audition_fee .= ' Ensemble - '.$value['fee_ensemble'].';';
         }
         $data[] = array( 
           "id"=>$value['id'],
@@ -195,19 +195,19 @@ class Auditions extends My_Controller {
     foreach ($crescendo_list as $value) {
         $audition_fee = '';
         if($value['fee_solo'] != ''){
-          $audition_fee = 'Solo: USD'.$value['fee_solo'].',';
+          $audition_fee = 'Solo - '.$value['fee_solo'].';';
         }
         if($value['fee_duet'] != ''){
-          $audition_fee .= ' Duet: USD'.$value['fee_duet'].',';
+          $audition_fee .= ' Duet - '.$value['fee_duet'].';';
         }
         if($value['fee_trio'] != ''){
-          $audition_fee .= ' Trio: USD'.$value['fee_trio'].',';
+          $audition_fee .= ' Trio - '.$value['fee_trio'].';';
         }
         // if($value['fee_quartet'] != ''){
-        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].',';
+        //   $audition_fee .= ' Quartet: USD'.$value['fee_quartet'].';';
         // }
         if($value['fee_ensemble'] != ''){
-          $audition_fee .= ' Ensemble: USD'.$value['fee_ensemble'].',';
+          $audition_fee .= ' Ensemble - '.$value['fee_ensemble'].';';
         }
         $data[] = array( 
           "id"=>$value['id'],
