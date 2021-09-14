@@ -62,6 +62,7 @@
                     <th>Payment Type</th>
                     <th>Payment Status</th>
                     <th>Special Need</th>
+                    <th>Applied By</th>
                     <th>Score</th>
                     <th>Place</th>
                     <th>Evaluation</th>
@@ -137,6 +138,7 @@
            { data: 'payment_type' },
            { data: 'payment_status' },
            { data: 'special_need' },
+           { data: 'applied_by' },
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },

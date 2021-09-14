@@ -78,6 +78,7 @@ class Applications extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $applied_by = $this->applications_model->get_applied_user($value['role_id'], $value['created_by']);
         
         $data[] = array( 
           "id"=>$inx,
@@ -94,6 +95,7 @@ class Applications extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
+          "applied_by"=>$applied_by['username'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -226,6 +228,7 @@ class Applications extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $applied_by = $this->applications_model->get_applied_user($value['role_id'], $value['created_by']);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -241,6 +244,7 @@ class Applications extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
+          "applied_by"=>$applied_by['username'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -385,6 +389,7 @@ class Applications extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $applied_by = $this->applications_model->get_applied_user($value['role_id'], $value['created_by']);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -400,6 +405,7 @@ class Applications extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
+          "applied_by"=>$applied_by['username'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -530,6 +536,7 @@ class Applications extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $applied_by = $this->applications_model->get_applied_user($value['role_id'], $value['created_by']);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -545,6 +552,7 @@ class Applications extends My_Controller {
           "payment_type"=>$value['payment_type'] == 1 ? 'Paypal' : 'Order Check',
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
+          "applied_by"=>$applied_by['username'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',

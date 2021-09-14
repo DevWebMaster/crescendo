@@ -411,5 +411,17 @@
 
 			return $insertId;
 		}
+		public function get_applied_user($role_id, $created_by){
+			if($role_id == 2){
+				$this->db->select('name as username');
+				$this->db->from('tbl_local_admin');
+			}else{
+				$this->db->select('username');
+				$this->db->from('tbl_users');
+			}
+			$this->db->where('id', $created_by);
+
+			return $this->db->get()->result_array()[0];
+		}
 	}
 ?>
