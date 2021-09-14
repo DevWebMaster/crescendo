@@ -830,7 +830,7 @@
                     </div>
                     <div class="col-12 col-md-6">
                       <div class="form-group flex-group mt-4">
-                        <a type="button" style="border: none; border-radius: 16px; width: 100%;" class="btn btn-sm btn-danger cancel px-4 py-2" id="cancel" href="<?= site_url(); ?>admin/applyrecital/index">Cancel</a>
+                        <a type="button" style="border: none; border-radius: 16px; width: 100%;" class="btn btn-sm btn-danger cancel px-4 py-2" id="cancel" href="<?= site_url(); ?>admin/applyrecital/crescendo">Cancel</a>
                       </div>
                     </div>
                   </div>

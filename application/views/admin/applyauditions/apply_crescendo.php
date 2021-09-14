@@ -74,7 +74,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Audition Fee</label>
+                          <label class="title mr-2">Late Fee</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
@@ -792,11 +792,11 @@
         </div>    
       </div><!--/ row --> 
       <!--------  modal ----------> 
-      <div class="modal fade" id="confirm_little_morarts" tabindex="-1" role="dialog" aria-labelledby="confirm_little_morartsLabel">
+      <div class="modal fade" id="confirm_crescendo" tabindex="-1" role="dialog" aria-labelledby="confirm_crescendoLabel">
       <div class="modal-dialog modal-md" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h4 class="modal-title" id="confirm_little_morartsLabel">Confirmation</h4>
+              <h4 class="modal-title" id="confirm_crescendoLabel">Confirmation</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <form method="post" enctype="multipart/form-data" id="confirmForm">
@@ -846,7 +846,7 @@
                 toastr.warning('Apply for audition is finished.');
               }else{
                 toastr.success('The data is saved successfully.');
-                $('#confirm_little_morarts').modal("show")
+                $('#confirm_crescendo').modal("show")
                 // setTimeout(function(){
                 //   window.location.href = '<?= site_url(); ?>admin/activeapplication/crescendo';
                 // }, 600);

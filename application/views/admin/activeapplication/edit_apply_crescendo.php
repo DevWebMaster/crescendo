@@ -74,7 +74,7 @@
                     <div class="row">
                       <div class="col-12 col-md-3">
                         <div class="form-group flex-group mb-2">
-                          <label class="title mr-2">Audition Fee</label>
+                          <label class="title mr-2">Late Fee</label>
                         </div>
                       </div>
                       <div class="col-12 col-md-9">
