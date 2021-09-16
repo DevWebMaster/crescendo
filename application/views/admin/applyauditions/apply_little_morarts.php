@@ -775,6 +775,7 @@
                   <hr>                
                   <div class="row">
                     <input type="hidden" name="inx" id="inx">
+                    <input type="hidden" name="role_id" id="role_id" value="<?= $role_id; ?>">
                     <div class="col-12 col-md-6">
                       <div class="form-group flex-group mt-4">
                         <input type="submit" class="btn btn-sm btn-info add_little_morarts px-4 py-2" style="background: #EEA400; border: none; border-radius: 16px; width: 100%;" value="Submit">
@@ -803,7 +804,7 @@
             <div class="modal-body">
               <div class="row">
               <div class="col-md-12">
-                <label>Do you want to apply the student continuously?</label>
+                <label>Would you like to add another application?</label>
                 </div>    
             </div><!--/ row -->
             <div class="loader" style="margin-left: 40%; display: none;"></div>
@@ -823,6 +824,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     var inx = 3;
+    var user_role_id = $('#role_id').val();
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
       if($('#teacher_name').val() && $('#teacher_email').val() && $('#student_name').val() && $('#student_email').val() && $('#student_address').val() && $('#student_mobile_no').val() && $('#student_birthday').val() && $('#student_birthday').val().split('-')[0] < 2050 && $('#student_birthday').val().split('-')[0] > 1950 && $('#composer').val() && $('#title').val() && $('#student_time').val()){
@@ -846,12 +848,14 @@
                 toastr.warning('Apply for audition is finished.');
               }else{
                 toastr.success('The data is saved successfully.');
-                $('#confirm_little_morarts').modal("show")
-                // setTimeout(function(){
-                //   window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
-                // }, 600);
+                if(user_role_id != 4){
+                  $('#confirm_little_morarts').modal("show")
+                }else {
+                  setTimeout(function(){
+                    window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+                  }, 600);
+                }
               }
-              
             }
           })
         }

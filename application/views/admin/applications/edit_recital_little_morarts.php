@@ -77,7 +77,7 @@
   $(document).ready(function() {
     $('#uploadForm').submit(function(e) {
       e.preventDefault();
-      if($('#score').val() && ($('#score').val().split('.')[1] == 0 || $('#score').val().split('.')[1] == 5)){
+      if($('#score').val() && (($('#score').val().indexOf(".") != -1 && ($('#score').val().split('.')[1] == 0 || $('#score').val().split('.')[1] == 5)) || $('#score').val().indexOf(".") == -1)){
         var formData = new FormData(this);
         $.ajax({
           url: '<?= site_url(); ?>admin/applications/update_recital_apply',
@@ -100,7 +100,7 @@
             
           }
         })
-      }else if($('#score').val().split('.')[1] != 0 || $('#score').val().split('.')[1] != 5){
+      }else if($('#score').val().indexOf(".") != -1 && ($('#score').val().split('.')[1] != 0 || $('#score').val().split('.')[1] != 5)){
         toastr.warning('Type the score correctly.');
         return;
       }else{
