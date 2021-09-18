@@ -884,8 +884,7 @@ class Applications extends My_Controller {
     $type = 1;
     $tmp_filename = $FILES["fileToUpload"]["tmp_name"];
     $uploadOk = 1;
-    $target_dir = 'uploads/';
-    // $target_dir = '/var/www/crescendo/uploads/';
+    $target_dir = EXCEL_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
@@ -1018,8 +1017,7 @@ class Applications extends My_Controller {
     $type = 3;
     $tmp_filename = $FILES["recitalfileToUpload"]["tmp_name"];
     $uploadOk = 1;
-    $target_dir = 'uploads/';
-    // $target_dir = '/var/www/crescendo/uploads/';
+    $target_dir = EXCEL_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
@@ -1151,8 +1149,7 @@ class Applications extends My_Controller {
     $type = 2;
     $tmp_filename = $FILES["fileToUpload"]["tmp_name"];
     $uploadOk = 1;
-    $target_dir = 'uploads/';
-    // $target_dir = '/var/www/crescendo/uploads/';
+    $target_dir = EXCEL_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
@@ -1285,8 +1282,7 @@ class Applications extends My_Controller {
     $type = 4;
     $tmp_filename = $FILES["recitalfileToUpload"]["tmp_name"];
     $uploadOk = 1;
-    $target_dir = 'uploads/';
-    // $target_dir = '/var/www/crescendo/uploads/';
+    $target_dir = EXCEL_PATH;
     if (!is_dir($target_dir)) {
     @mkdir("$target_dir", 0755, true);
     }
