@@ -84,7 +84,7 @@ class Backup_db extends My_Controller {
         $data[] = array(
           "no"=>$inx,
           "name"=>$value['name'],
-          "download"=>'<a href="'.base_url().DB_BACKUP_PATH.$value['name'].'" download>'.$value['name'].'</a>',
+          "download"=>'<a href="'.base_url().'uploads/db_folder/'.$value['name'].'" download>'.$value['name'].'</a>',
           "created_at"=>$value['created_at'],
           "action"=>'<a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a>'
        );
