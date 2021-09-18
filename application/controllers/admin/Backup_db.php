@@ -25,6 +25,11 @@ class Backup_db extends My_Controller {
 
   public function db_backup()
   {
+    $target_dir = DB_BACKUP_PATH;
+    if (!is_dir($target_dir)) {
+    @mkdir("$target_dir", 0755, true);
+    }
+
     $this->load->dbutil();
 
     $db_format = array(
@@ -45,7 +50,7 @@ class Backup_db extends My_Controller {
 
     $dbname = 'backup-on-'.date('Y-m-d').'.sql';
 
-    $save = DB_BACKUP_PATH.$dbname;
+    $save = $target_dir.$dbname;
 
     write_file($save, $backup);
 
