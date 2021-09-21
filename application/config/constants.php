@@ -93,11 +93,11 @@ define('C_INVOICE_PRE',"inv-");
 define('C_CREDITNOTE_PRE',"inv-");
 define('SAVE_PDF_PATH', "uploads/pdfs/");
 
-define('EVALUATION_PATH', "uploads/"); //windows
-// define('EVALUATION_PATH', "/var/www/crescendo/uploads/"); //linux
+// define('EVALUATION_PATH', "uploads/"); //windows
+define('EVALUATION_PATH', "/var/www/crescendo/uploads/"); //linux
 
-define('DB_BACKUP_PATH', "uploads/db_folder/");
-# define('DB_BACKUP_PATH', "/var/www/crescendo/uploads/db_folder/");
+// define('DB_BACKUP_PATH', "uploads/db_folder/");
+define('DB_BACKUP_PATH', "/var/www/crescendo/uploads/db_folder/");
 
-define('EXCEL_PATH', "uploads/");
-// define('EXCEL_PATH', "/var/www/crescendo/uploads/");
+// define('EXCEL_PATH', "uploads/");
+define('EXCEL_PATH', "/var/www/crescendo/uploads/");
