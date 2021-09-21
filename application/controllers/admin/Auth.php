@@ -79,9 +79,9 @@ class Auth extends MY_Controller {
 								$this->rbac->set_access_in_session(); // set access in session
 
 								if($result['is_super'])
-									redirect(base_url('admin/applyauditions/index'), 'refresh');
+									redirect(base_url('admin/applyauditions/crescendo'), 'refresh');
 								else
-									redirect(base_url('admin/applyauditions/index'), 'refresh');
+									redirect(base_url('admin/applyauditions/crescendo'), 'refresh');
 								}
 							}
 						else{

@@ -852,7 +852,7 @@
                   $('#confirm_little_morarts').modal("show")
                 }else {
                   setTimeout(function(){
-                    window.location.href = '<?= site_url(); ?>admin/activeapplication/index';
+                    window.location.href = '<?= site_url(); ?>admin/activeapplication/crescendo';
                   }, 600);
                 }
               }
