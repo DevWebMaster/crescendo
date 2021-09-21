@@ -89,6 +89,7 @@
                       <th>Payment Status</th>
                       <th>Special Need</th>
                       <th>Applied By</th>
+                      <th>Applied Date</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th>Evaluation</th>
@@ -155,6 +156,7 @@
                       <th>Payment Status</th>
                       <th>Special Need</th>
                       <th>Applied By</th>
+                      <th>Applied Date</th>
                       <th>Score</th>
                       <th>Place</th>
                       <th>Evaluation</th>
@@ -252,6 +254,7 @@
            { data: 'payment_status' },
            { data: 'special_need' },
            { data: 'applied_by' },
+           { data: 'applied_at' },
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },
@@ -316,6 +319,7 @@
            { data: 'payment_status' },
            { data: 'special_need' },
            { data: 'applied_by' },
+           { data: 'applied_at' },
            { data: 'score' },
            { data: 'place' },
            { data: 'evaluation' },

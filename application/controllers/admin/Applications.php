@@ -96,6 +96,7 @@ class Applications extends My_Controller {
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
           "applied_by"=>$applied_by['username'],
+          "applied_at"=>$value['updated_at'] != '' ? $value['updated_at'] : $value['created_at'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -245,6 +246,7 @@ class Applications extends My_Controller {
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
           "applied_by"=>$applied_by['username'],
+          "applied_at"=>$value['updated_at'] != '' ? $value['updated_at'] : $value['created_at'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -406,6 +408,7 @@ class Applications extends My_Controller {
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
           "applied_by"=>$applied_by['username'],
+          "applied_at"=>$value['updated_at'] != '' ? $value['updated_at'] : $value['created_at'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
@@ -425,7 +428,7 @@ class Applications extends My_Controller {
   public function edit_crescendo($apply_id = 0)
   {
     $audition_type = 2;
-    $data['title'] = 'Edit Little Mozarts';
+    $data['title'] = 'Edit Crescendo';
     $data['apply_id'] = $apply_id;
     $data['apply_info'] = $this->applications_model->get_detail_info($apply_id, $audition_type);
 
@@ -553,6 +556,7 @@ class Applications extends My_Controller {
           "payment_status"=>$value['payment_type'] == 1 ? $value['transaction_id'] : $value['payment_code'],
           "special_need"=>$value['request_reason'],
           "applied_by"=>$applied_by['username'],
+          "applied_at"=>$value['updated_at'] != '' ? $value['updated_at'] : $value['created_at'],
           "score"=>$value['score'],
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
