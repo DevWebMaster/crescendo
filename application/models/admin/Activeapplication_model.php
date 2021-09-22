@@ -1,9 +1,11 @@
 <?php
 	class Activeapplication_model extends CI_Model{
 		public function get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token) {
-			$this->db->select('a1.*, a2.name as instrument_name');
+			$this->db->select('a1.*, a2.name as instrument_name, a5.name as student_country, a6.name as teacher_country');
 			$this->db->from('tbl_applications as a1');
 			$this->db->join('tbl_instruments as a2', 'a1.instrument = a2.id', 'left');
+			$this->db->join('ci_countries as a5', 'a5.id = a1.country_id', 'left');
+			$this->db->join('ci_countries as a6', 'a6.id = a1.teacher_country_id', 'left');
 			if($audition_type == 1){
 				$this->db->join('tbl_little_morarts as a4', 'a4.id = a1.audition_id', 'left');
 			}else if($audition_type == 3){
@@ -174,6 +176,12 @@
 			$this->db->where('id', $created_by);
 
 			return $this->db->get()->result_array()[0];
+		}
+		public function get_co_instrument($co_instrument_id){
+			$this->db->select('*');
+			$this->db->from('tbl_instruments');
+			$this->db->where('id', $co_instrument_id);
+			return $this->db->get()->result_array()[0]['name'];
 		}
 	}
 ?>

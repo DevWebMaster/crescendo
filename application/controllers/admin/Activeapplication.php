@@ -84,7 +84,61 @@ class Activeapplication extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $performance_value = array('1'=>'Solo','2'=>'Duo','3'=>'Trio','4'=>'Ensemble');
         $applied_by = $this->activeapplication_model->get_applied_user($value['role_id'], $value['created_by']);
+        $dataToPrint = array(
+          'audition_type' => $value['audition_type'],
+          'audition_name' => $audition_info['audition_name'],
+          'audition_center' => $audition_info['audition_location'],
+          'student_name' => $value['student_name'],
+          'student_email' => $value['student_email'],
+          'country' => $value['student_country'],
+          'address' => $value['address'],
+          'mobile_no' => $value['mobile_no'],
+          'birthday' => $value['birthday'],
+          'age' => $value['age'],
+          'studying_year' => $value['studying_year'],
+          'level' => $level,
+          'instrument' => $value['instrument_name'],
+          'other_instrument' => $value['other_instrument'],
+          'performance_type' => $performance_value[$value['performance_type']],
+          'performance_price' => $value['performance_price'],
+          'co_performers1' => $value['co_performers'],
+          'co_instrument1' => $this->activeapplication_model->get_co_instrument($value['co_instrument']),
+          'co_other_instrument1' => $value['co_other_instrument'],
+          'co_performers2' => $value['co_performers2'],
+          'co_instrument2' => $this->activeapplication_model->get_co_instrument($value['co_instrument2']),
+          'co_other_instrument2' => $value['co_other_instrument2'],
+          'co_performers3' => $value['co_performers3'],
+          'co_instrument3' => $this->activeapplication_model->get_co_instrument($value['co_instrument3']),
+          'co_other_instrument3' => $value['co_other_instrument3'],
+          'co_performers4' => $value['co_performers4'],
+          'co_instrument4' => $this->activeapplication_model->get_co_instrument($value['co_instrument4']),
+          'co_other_instrument4' => $value['co_other_instrument4'],
+          'co_extra_data' => $value['co_extra_data'],
+          'composer' => $value['composer'],
+          'title' => $value['title'],
+          'duration' => $value['duration'],
+          'teacher_name' => $value['teacher'],
+          'teacher_email' => $value['teacher_email'],
+          'teacher_country' => $value['teacher_country'],
+          'teacher_address' => $value['teacher_address'],
+          'teacher_mobile_no' => $value['teacher_mobile'],
+          'payment_type' => $value['payment_type'] == 1 ? 'Paypal' : 'Ordercheck',
+          'transaction_id' => $value['transaction_id'],
+          'transaction_date' => $value['transaction_date'],
+          'payment_code' => $value['payment_code'],
+          'paid_amount' => $value['paid_amount'],
+          'islate' => $value['islate'],
+          'late_fee' => $value['late_fee'],
+          'special_request' => $value['special_request'],
+          'request_time' => $value['request_time'],
+          'request_reason' => $value['request_reason'] == null ? '' : $value['request_reason'],
+          'request_answer' => $value['request_answer'],
+          'isonline' => $value['isonline'],
+          'video_link' => $value['video_link'],
+        );
+        $json_dataToPrint = json_encode($dataToPrint);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -106,7 +160,7 @@ class Activeapplication extends My_Controller {
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "recital"=>$value['evaluation'] != '' ? '<a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-warning recital-row" style="color: white;" href="../applyrecital/index">Apply Recital</a>' : '',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><button class="mr-1 btn-sm btn btn-warning print_button" contents="'.htmlentities($json_dataToPrint, ENT_QUOTES, 'UTF-8').'" id="'.$value['id'].'"><i class="fa fa-print"></i></button><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_little_morarts_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
@@ -170,7 +224,61 @@ class Activeapplication extends My_Controller {
         }else{
           $eval_str = '';
         }
+        $performance_value = array('1'=>'Solo','2'=>'Duo','3'=>'Trio','4'=>'Ensemble');
         $applied_by = $this->activeapplication_model->get_applied_user($value['role_id'], $value['created_by']);
+        $dataToPrint = array(
+          'audition_type' => $value['audition_type'],
+          'audition_name' => $audition_info['audition_name'],
+          'audition_center' => $audition_info['audition_location'],
+          'student_name' => $value['student_name'],
+          'student_email' => $value['student_email'],
+          'country' => $value['student_country'],
+          'address' => $value['address'],
+          'mobile_no' => $value['mobile_no'],
+          'birthday' => $value['birthday'],
+          'age' => $value['age'],
+          'studying_year' => $value['studying_year'],
+          'level' => $level,
+          'instrument' => $value['instrument_name'],
+          'other_instrument' => $value['other_instrument'],
+          'performance_type' => $performance_value[$value['performance_type']],
+          'performance_price' => $value['performance_price'],
+          'co_performers1' => $value['co_performers'],
+          'co_instrument1' => $this->activeapplication_model->get_co_instrument($value['co_instrument']),
+          'co_other_instrument1' => $value['co_other_instrument'],
+          'co_performers2' => $value['co_performers2'],
+          'co_instrument2' => $this->activeapplication_model->get_co_instrument($value['co_instrument2']),
+          'co_other_instrument2' => $value['co_other_instrument2'],
+          'co_performers3' => $value['co_performers3'],
+          'co_instrument3' => $this->activeapplication_model->get_co_instrument($value['co_instrument3']),
+          'co_other_instrument3' => $value['co_other_instrument3'],
+          'co_performers4' => $value['co_performers4'],
+          'co_instrument4' => $this->activeapplication_model->get_co_instrument($value['co_instrument4']),
+          'co_other_instrument4' => $value['co_other_instrument4'],
+          'co_extra_data' => $value['co_extra_data'],
+          'composer' => $value['composer'],
+          'title' => $value['title'],
+          'duration' => $value['duration'],
+          'teacher_name' => $value['teacher'],
+          'teacher_email' => $value['teacher_email'],
+          'teacher_country' => $value['teacher_country'],
+          'teacher_address' => $value['teacher_address'],
+          'teacher_mobile_no' => $value['teacher_mobile'],
+          'payment_type' => $value['payment_type'] == 1 ? 'Paypal' : 'Ordercheck',
+          'transaction_id' => $value['transaction_id'],
+          'transaction_date' => $value['transaction_date'],
+          'payment_code' => $value['payment_code'],
+          'paid_amount' => $value['paid_amount'],
+          'islate' => $value['islate'],
+          'late_fee' => $value['late_fee'],
+          'special_request' => $value['special_request'],
+          'request_time' => $value['request_time'],
+          'request_reason' => $value['request_reason'] == null ? '' : $value['request_reason'],
+          'request_answer' => $value['request_answer'],
+          'isonline' => $value['isonline'],
+          'video_link' => $value['video_link'],
+        );
+        $json_dataToPrint = json_encode($dataToPrint);
         $data[] = array( 
           "id"=>$inx,
           "student_name"=>$value['student_name'],
@@ -192,7 +300,7 @@ class Activeapplication extends My_Controller {
           'place'=>$value['place'],
           "evaluation"=>'<a href="'.base_url().EVALUATION_PATH.$value['evaluation'].'" download>'.$eval_str.'</a>',
           "recital"=>$value['evaluation'] != '' ? '<a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-warning recital-row" style="color: white;" href="apply_recital_little_morarts/'.$value['id'].'">Apply Recital</a>' : '',
-          "action"=>'<div style="display: inline-flex;"><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
+          "action"=>'<div style="display: inline-flex;"><button class="mr-1 btn-sm btn btn-warning print_button" contents="'.htmlentities($json_dataToPrint, ENT_QUOTES, 'UTF-8').'" id="'.$value['id'].'"><i class="fa fa-print"></i></button><a h_id="'.$value['audition_type'].'" id="'.$value['id'].'" class="mr-1 btn-sm btn btn-info edit-row" href="edit_crescendo_application/'.$value['id'].'"><i class="fa fa-edit"></i></a><a id="'.$value['id'].'" class="mr-1 btn-sm btn btn-danger delete-row"><i class="fa fa-times"></i></a></div>'
        );
     }
 
