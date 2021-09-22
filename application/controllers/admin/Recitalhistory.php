@@ -19,7 +19,6 @@ class Recitalhistory extends My_Controller {
   {
 
     $data['title'] = 'Little Mozarts';
-
     $this->load->view('admin/includes/_header', $data);
     $this->load->view('admin/recitalhistory/little_morarts');
     $this->load->view('admin/includes/_footer');
@@ -35,6 +34,8 @@ class Recitalhistory extends My_Controller {
   }
   public function get_little_morarts_application_list()
   {
+    $role = $this->session->userdata('admin_role_id');
+    $user_id = $this->session->userdata('user_id');
     $token = $this->session->userdata('token');
     $audition_type = 3;
     $draw = $_POST['draw'];
@@ -49,9 +50,9 @@ class Recitalhistory extends My_Controller {
     $greater = $this->input->post('greater');
     $less = $this->input->post('less');
 
-    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type);
-    $application_list = $this->recitalhistory_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token);
+    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->recitalhistory_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token, $role, $user_id);
 
     $data = array();
     $inx = 0;
@@ -106,6 +107,8 @@ class Recitalhistory extends My_Controller {
   }
   public function get_crescendo_application_list()
   {
+    $role = $this->session->userdata('admin_role_id');
+    $user_id = $this->session->userdata('user_id');
     $token = $this->session->userdata('token');
     $audition_type = 4;
     $draw = $_POST['draw'];
@@ -120,9 +123,9 @@ class Recitalhistory extends My_Controller {
     $greater = $this->input->post('greater');
     $less = $this->input->post('less');
 
-    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type);
-    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type);
-    $application_list = $this->recitalhistory_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token);
+    $totalRecords = $this->recitalhistory_model->get_application_all_count($audition_type, $role, $user_id);
+    $totalRecordwithFilter = $this->recitalhistory_model->get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id);
+    $application_list = $this->recitalhistory_model->get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token, $role, $user_id);
 
     $data = array();
     $inx = 0;

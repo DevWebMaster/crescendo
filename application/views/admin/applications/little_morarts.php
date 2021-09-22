@@ -28,10 +28,12 @@
                 <input type="radio" name="little_morarts" id="auditions1" value="1">
                 Auditions
             </label>
+            <?php if($this->session->userdata('admin_role_id') == 1): ?>
             <label>
                 <input type="radio" name="little_morarts" id="recitals" value="2">
                 Recitals
             </label>
+            <?php endif; ?>
           </div>
         </div>
       </div>

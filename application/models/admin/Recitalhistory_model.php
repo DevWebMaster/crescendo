@@ -1,6 +1,6 @@
 <?php
 	class Recitalhistory_model extends CI_Model{
-		public function get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token) {
+		public function get_application_list($search_key, $greater, $less, $start, $rowperpage, $audition_type, $token, $role, $user_id) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			if($search_key != ''){
@@ -16,21 +16,29 @@
 			if($less != ''){
 				$this->db->where('a1.score < ', $less);
 			}
+			if($role != '1'){
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
+			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);
 			$query = $this->db->get()->result_array();
 			return $query;
 		}
-		public function get_application_all_count($audition_type) {
+		public function get_application_all_count($audition_type, $role, $user_id) {
 			$this->db->select('a1.id');
 			$this->db->from('tbl_applications as a1');
 			$this->db->where('a1.audition_type', $audition_type);
+			if($role != 1){
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
+			}
 			$this->db->where('a1.is_delete', 0);
 			$query = $this->db->get();
 			return $query->num_rows();
 			
 		}
-		public function get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type) {
+		public function get_application_all_count_with_filter($search_key, $greater, $less, $start, $rowperpage, $audition_type, $role, $user_id) {
 			$this->db->select('a1.*');
 			$this->db->from('tbl_applications as a1');
 			$this->db->where('a1.audition_type', $audition_type);
@@ -42,6 +50,10 @@
 			}
 			if($less != ''){
 				$this->db->where('a1.score < ', $less);
+			}
+			if($role != 1){
+				$this->db->where('a1.role_id', $role);
+				$this->db->where('a1.created_by', $user_id);
 			}
 			$this->db->where('a1.is_delete', 0);
 			$this->db->limit($rowperpage, $start);

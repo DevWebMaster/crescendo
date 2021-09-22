@@ -27,7 +27,7 @@ class Auditions extends My_Controller {
   }
   public function get_little_morarts_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];
@@ -173,7 +173,7 @@ class Auditions extends My_Controller {
   }
   public function get_crescendo_list()
   {
-    $role = $this->session->userdata('role_id');
+    $role = $this->session->userdata('admin_role_id');
     $user_id = $this->session->userdata('user_id');
 
     $draw = $_POST['draw'];
