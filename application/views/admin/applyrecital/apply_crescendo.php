@@ -128,10 +128,11 @@
                             <label class="title mr-2">Request Date:</label>
                             <input style="width: 20%;" readonly type="date" class="form-control form-control-sm" name="request_date" id="request_date" value="<?= $crescendo[0]['recital_date']; ?>">
                             <label class="title mr-2 mt-1 ml-3">Time</label>
-                            <select style="width: 30%;" class="form-control" name="request_time" id="request_time">
+                            <input style="width: 20%;" type="time" class="form-control form-control-sm ml-3 mt-1" name="request_time" id="request_time">
+                            <!-- <select style="width: 30%;" class="form-control" name="request_time" id="request_time">
                               <option value="1">Between 9:00 AM and 1:00PM</option>
                               <option value="2">After 2:00 PM</option>
-                            </select>
+                            </select> -->
                             <!-- <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_hour" id="request_hour">
                             <label class="title mr-2 mt-1">hour</label>
                             <input style="width: 20%;" min="0" oninput="validity.valid||(value='');" type="number" class="form-control form-control-sm ml-3 mt-1" name="request_minute" id="request_minute">
